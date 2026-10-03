@@ -280,9 +280,23 @@ def matchup(eng: Engine, lg: str, a: dict, b: dict | None) -> str:
     fav, pf = (g["home"], p) if (p or 0) >= 0.5 else (g["away"], 1 - (p or 0))
     head = f"**{g['away']} @ {g['home']}** ({LEAGUE_NAME[lg]})"
     state = f"Live: {g.get('away_score')}–{g.get('home_score')}." if g["state"] == "in" else f"Kickoff {g['start_time'][:16].replace('T', ' ')} UTC."
+    why = ""
+    try:
+        run = eng.get(f"/competitions/{lg}/seasons/current/season-forecast")
+        r = {t["team_id"]: t for t in run["teams"]}
+        h, a_ = r.get(g["home_id"]), r.get(g["away_id"])
+        hfa = 0.0 if g.get("neutral_site") else float(run.get("rating_params", {}).get("hfa") or 0)
+        if h and a_:
+            margin = h["rating"] - a_["rating"] + hfa
+            fav_t, dog_t = (h, a_) if margin >= 0 else (a_, h)
+            why = (f"\nWhy: strength {g['home']} {h['rating']:+.1f} vs {g['away']} {a_['rating']:+.1f} (points vs an average team)"
+                   f"{f', plus {hfa:.1f} for home field' if hfa else ''} → expected margin **{fav_t['name']} by {abs(margin):.0f}**, "
+                   f"with ±{(h['rating_sd'] ** 2 + a_['rating_sd'] ** 2) ** 0.5:.0f} pts of strength uncertainty and much more game-to-game noise.")
+    except Exception:
+        pass
     return (f"{head}\n{state} SportsWorld favours **{fav}** at **{pct(pf)}**"
             + (f" (pregame {pct(g.get('p_home_pregame'))} home)" if g["state"] == "in" else "")
-            + f".\nSeason stakes: the result moves playoff odds by up to **{lev(g) * 100:.0f} pts**.\n{SITE}/{lg}/game/{g['event_id']}")
+            + f".{why}\nSeason stakes: the result moves playoff odds by up to **{lev(g) * 100:.0f} pts**.\n{SITE}/{lg}/game/{g['event_id']}")
 
 
 def compare(eng: Engine, picks: list[tuple[str, dict]]) -> str:
