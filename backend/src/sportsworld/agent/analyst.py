@@ -130,12 +130,55 @@ def find_teams(eng: Engine, text: str, leagues: list[str]) -> list[tuple[str, di
 
 # ---------------------------------------------------------------- intents
 
-def team_status(eng: Engine, lg: str, t: dict) -> str:
+def _verdict(p: float | None) -> str:
+    if p is None:
+        return "no forecast yet"
+    return ("clear favourites" if p >= 0.7 else "favourites" if p >= 0.6 else "slight favourites" if p >= 0.5
+            else "slight underdogs" if p >= 0.4 else "underdogs" if p >= 0.3 else "big underdogs")
+
+
+MILESTONE_Q = [  # (pattern in the question, run key, label) — first match wins, most specific first
+    (r"national (title|championship)|win (it all|the title|the championship)|\bchampionship\b|super bowl|stanley cup|nba (title|finals)|\btitle\b", "champion", None),
+    (r"conference (title|championship)|win the (big ten|sec|acc|big 12|pac-12|conference)|\bconference\b", "conf", None),
+    (r"playoffs?|\bcfp\b|make the (tournament|dance)|ncaa tournament|\bpostseason\b", "qualify", None),
+]
+
+
+def _likelihood(p: float) -> str:
+    return ("very likely" if p >= 0.8 else "likely" if p >= 0.6 else "a coin flip" if p >= 0.4 else "possible, but less likely than not" if p >= 0.2
+            else "unlikely" if p >= 0.05 else "very unlikely")
+
+
+def _milestone_line(eng: Engine, lg: str, tm: dict, question: str) -> str | None:
+    qk, qname = QUALIFY.get(lg, ("playoffs", "playoffs"))
+    for pat, kind, _ in MILESTONE_Q:
+        if re.search(pat, question):
+            key = {"champion": "champion", "qualify": qk, "conf": next((k for k in ("conference_champion", "conference_title") if k in tm), None)}[kind]
+            if not key or tm.get(key) is None:
+                return None
+            label = {"champion": f"win the {TITLE.get(lg, 'title')}", "qualify": f"make the {qname}", "conf": "win their conference"}[kind]
+            p = float(tm[key])
+            teams = eng.get(f"/competitions/{lg}/seasons/current/season-forecast")["teams"]
+            pool = [x for x in teams if x.get("conference") == tm.get("conference")] if kind == "conf" else teams
+            rank = 1 + sum(1 for x in pool if float(x.get(key) or 0) > p)
+            where = (tm.get("conference") or "the conference").replace(" Conference", "") if kind == "conf" else LEAGUE_NAME.get(lg, lg)
+            if rank <= (5 if kind == "champion" else 3) and p < 0.5:
+                head = f"No lock, but they're the #{rank} favourite in {where}: {pct(p)}"
+            else:
+                head = f"{_likelihood(p).capitalize()}: {pct(p)}, #{rank} in {where}"
+            return f"**Will they {label}? {head}.** In 10,000 simulated seasons they do it about {round(p * 10000):,} times."
+    return None
+
+
+def team_status(eng: Engine, lg: str, t: dict, question: str = "") -> str:
     page = eng.get(f"/entities/team/{lg}/{t['team_id']}")
     st = next((r for r in eng.get(f"/competitions/{lg}/seasons/current/standings")["rows"] if r["team_id"] == t["team_id"]), None)
     tm = page["team"]
     qk, qname = QUALIFY.get(lg, ("playoffs", "playoffs"))
     lines = [f"**{tm['name']}** ({LEAGUE_NAME.get(lg, lg)})"]
+    ml = _milestone_line(eng, lg, tm, question) if question else None
+    if ml:
+        lines.append(ml)
     if st:
         lines.append(f"- Record: **{st['wins']}-{st['losses']}** ({st['conf_record']} in conference)")
     lines.append(f"- Expected wins: **{tm['expected_wins']:.1f}** (90% range {tm['wins_p05']:.0f}–{tm['wins_p95']:.0f})")
@@ -150,10 +193,19 @@ def team_status(eng: Engine, lg: str, t: dict) -> str:
         n = pre[0]
         lines.append(f"- Next: {'vs' if n['is_home'] else 'at'} {n['away'] if n['is_home'] else n['home']} on {n['start_time'][:10]} — **{pct(n.get('p_win'))}** to win")
         lev = lambda g: abs((g.get("leverage_home") if g["is_home"] else g.get("leverage_away")) or 0)  # noqa: E731
-        big = max(pre, key=lev)
+        # the game that matters most is a big swing that is still in doubt (4p(1-p) is 1 for a coin flip, ~0.15 at 96%)
+        stake = lambda g: lev(g) * 4 * (g.get("p_win") or 0.5) * (1 - (g.get("p_win") or 0.5))  # noqa: E731
+        big = max(pre, key=stake)
         if lev(big) >= 0.005:
-            lines.append(f"- Biggest remaining game: {'vs' if big['is_home'] else 'at'} {big['away'] if big['is_home'] else big['home']} "
-                         f"(win vs loss moves {qname} odds by **{lev(big) * 100:.1f} pts**)")
+            lines.append(f"- Biggest remaining game: {'vs' if big['is_home'] else 'at'} {big['away'] if big['is_home'] else big['home']} on {big['start_time'][:10]} "
+                         f"({pct(big.get('p_win'))} to win; win vs loss moves {qname} odds by **{lev(big) * 100:.1f} pts**)")
+    if re.search(r"\bnext (game|match|one)\b|\bwin (their|the|this) next\b|\bnext week\b", question):
+        g = live or (pre[0] if pre else None)
+        if g:
+            opp = g["away"] if g["is_home"] else g["home"]
+            lines.insert(1, f"**Next game: {'yes, more likely than not' if (g.get('p_win') or 0) >= 0.5 else 'possible, but not likely'}.** "
+                            f"SportsWorld makes them {_verdict(g.get('p_win'))} at **{pct(g.get('p_win'))}** {'vs' if g['is_home'] else 'at'} {opp}"
+                            f"{' (live)' if g is live else ''}.")
     lines.append(f"\nSource: SportsWorld season run `{page['season_run_id']}` (10,000 simulated seasons). {SITE}/{lg}/team/{t['team_id']}")
     return "\n".join(lines)
 
@@ -346,7 +398,7 @@ def answer(text: str, eng: Engine | None = None) -> str:
         if len(teams) >= 2 or re.search(r"\b(vs\.?|versus|who wins|beat)\b", low) and teams:
             return matchup(eng, teams[0][0], teams[0][1], teams[1][1] if len(teams) > 1 else None)
         if teams:
-            return team_status(eng, teams[0][0], teams[0][1])
+            return team_status(eng, teams[0][0], teams[0][1], low)
         m = re.search(r"\bhow (?:is|are|'s)\s+(?:the\s+)?(.+?)\s+(?:doing|looking|playing)\b", low)
         if m:
             return (f"I couldn't match **{m.group(1)}** to a team. Try the school or team name, e.g. *How are Michigan doing?* "
