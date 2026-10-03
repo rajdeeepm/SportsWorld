@@ -243,17 +243,21 @@ export interface F1Run {
 
 const season = (cid: string) => `/competitions/${cid}/seasons/current`
 
+/** right after an API restart a league's season is still being built: keep retrying instead of failing */
+const warming = (msg: string) => /no season run yet|not in season run|503/.test(msg)
+const warmRetry = { retry: (n: number, e: Error) => (warming(e.message) ? n < 40 : n < 1), retryDelay: (n: number) => Math.min(1500 + n * 500, 4000) }
+
 export const useStatus = (cid: string) =>
   useQuery({ queryKey: ['status', cid], queryFn: () => getJSON<SeasonStatus>(season(cid)), refetchInterval: 20_000 })
 
 export const useSeason = (cid: string, enabled = true) =>
-  useQuery({ queryKey: ['season', cid], queryFn: () => getJSON<SeasonRun>(`${season(cid)}/season-forecast`), refetchInterval: 30_000, enabled, retry: 1 })
+  useQuery({ queryKey: ['season', cid], queryFn: () => getJSON<SeasonRun>(`${season(cid)}/season-forecast`), refetchInterval: 30_000, enabled, ...warmRetry })
 
 export const useFastSeason = (cid: string) =>
   useQuery({ queryKey: ['season-fast', cid], queryFn: () => getJSON<SeasonRun>(`${season(cid)}/season-forecast?mode=fast`), retry: 1 })
 
 export const useF1 = () =>
-  useQuery({ queryKey: ['season', 'f1'], queryFn: () => getJSON<F1Run>(`${season('f1')}/season-forecast`), refetchInterval: 60_000 })
+  useQuery({ queryKey: ['season', 'f1'], queryFn: () => getJSON<F1Run>(`${season('f1')}/season-forecast`), refetchInterval: 60_000, ...warmRetry })
 
 export const useBoard = (cid: string, team?: string) =>
   useQuery({
@@ -272,7 +276,7 @@ export const useMeta = (cid: string) =>
   useQuery({ queryKey: ['meta', cid], queryFn: () => getJSON<Record<string, TeamMeta>>(`/competitions/${cid}/teams/meta`), staleTime: Infinity, enabled: cid !== 'f1' })
 
 export const useTeam = (cid: string, teamId: string) =>
-  useQuery({ queryKey: ['team', cid, teamId], queryFn: () => getJSON<TeamPage>(`/entities/team/${cid}/${teamId}`), refetchInterval: 20_000 })
+  useQuery({ queryKey: ['team', cid, teamId], queryFn: () => getJSON<TeamPage>(`/entities/team/${cid}/${teamId}`), refetchInterval: 20_000, ...warmRetry })
 
 export const useAvailability = (cid: string) =>
   useQuery({

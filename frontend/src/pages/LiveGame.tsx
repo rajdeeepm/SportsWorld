@@ -5,6 +5,7 @@ import { Activity, Crosshair, Flag, ListOrdered, MapPinned, Pause, Play, Radio, 
 import { CartesianGrid, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { getJSON } from '../lib/api'
 import { useLiveGames, useWinProbHistory } from '../lib/live'
+import { CommentaryToggle } from '../components/radio'
 import { useBoard, useMeta, type TeamMeta } from '../lib/data'
 import type { LeagueConfig } from '../lib/leagues'
 import { luminance, pct, time } from '../lib/format'
@@ -81,6 +82,7 @@ export function LiveGame({ lg, eventId }: { lg: LeagueConfig; eventId: string })
             <b>{live ? `${g.detail}` : ''}</b>
             <div style={{ width: 260 }}><ProbSplit pHome={pHome} home={hm ?? { team_id: g.home.team_id, name: g.home.name, abbreviation: g.home.abbreviation }} away={am ?? { team_id: g.away.team_id, name: g.away.name, abbreviation: g.away.abbreviation }} /></div>
             <small className="muted">SportsWorld win probability · model {row?.model_version ?? 'live engine'}</small>
+            <CommentaryToggle league={lg.id} eventId={g.event_id} live={live} />
           </div>
           <ScoreSide meta={hm} name={g.home.name} abbr={g.home.abbreviation} score={g.home.score} color={hc} lg={lg} id={g.home.team_id} right />
         </section>

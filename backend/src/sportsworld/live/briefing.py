@@ -94,8 +94,27 @@ def league_briefing(league: str, run: dict, board: list[dict], feed: list[dict],
     return " ".join(parts)
 
 
-def update_line(update: dict) -> str:
+def update_line(update: dict, abbr_names: dict[str, str] | None = None) -> str:
     reason = str(update.get("reason") or "")
     if reason.lower().startswith("final"):
-        return f"Final score. {reason.split(':', 1)[-1].strip()}. Every affected forecast and the season have been updated."
+        body = reason.split(":", 1)[-1].strip()
+        if abbr_names:  # "TOL 39-24 BALL" -> "Toledo Rockets 39, Ball State Cardinals 24"
+            import re
+            m = re.match(r"([A-Z&.' ]+?)\s+(\d+)-(\d+)\s+([A-Z&.' ]+)$", body)
+            if m:
+                a, sa, sb, b = m.groups()
+                body = f"{abbr_names.get(a.strip(), a.strip())} {sa}, {abbr_names.get(b.strip(), b.strip())} {sb}"
+        return f"Final score: {body}. Every affected forecast and the season have been updated."
     return reason
+
+
+def live_game_line(game: dict, names: dict[str, str]) -> str:
+    """One live game, read from the board: score, clock and SportsWorld's current win probability."""
+    away, home = names.get(game["away_id"], game.get("away")), names.get(game["home_id"], game.get("home"))
+    p = game.get("p_home")
+    if p is None:
+        return f"{away} at {home} is live."
+    fav, pf = (home, p) if p >= 0.5 else (away, 1 - p)
+    score = f"{away} {game.get('away_score', 0)}, {home} {game.get('home_score', 0)}"
+    per = game.get("period")
+    return f"Live: {score}{f' in period {per}' if per else ''}. SportsWorld now makes {fav} {_pct(pf)} to win."

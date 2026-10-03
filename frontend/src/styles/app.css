@@ -158,6 +158,13 @@ main { min-width: 0; padding: 18px 20px 40px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
 
+.commentary { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 4px; width: 100%; }
+.call-sheet { list-style: none; margin: 0; padding: 8px 12px; width: min(560px, 100%); max-height: 168px; overflow: auto; text-align: left; font-size: 13px;
+  border-radius: var(--r); background: rgba(47, 140, 255, 0.07); border: 1px solid var(--edge); }
+.call-sheet li { padding: 3px 0; color: var(--ink-2); border-bottom: 1px solid rgba(22, 48, 90, 0.4); }
+.call-sheet li:first-child { color: var(--ink); }
+.call-sheet li.key { color: #fff; font-weight: 700; }
+
 /* ---------- grid ---------- */
 .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
 .c3 { grid-column: span 3; } .c4 { grid-column: span 4; } .c5 { grid-column: span 5; } .c6 { grid-column: span 6; }

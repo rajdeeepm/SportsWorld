@@ -159,6 +159,9 @@ export function Loading({ rows = 4 }: { rows?: number }) {
 
 export function ErrorNote({ error, what }: { error: unknown; what: string }) {
   const msg = error instanceof Error ? error.message : String(error)
+  if (/no season run yet|not in season run/.test(msg)) {
+    return <div className="empty" role="status"><b>Building the season…</b>SportsWorld is simulating {what} right now (about a minute after a restart). This page fills in by itself.</div>
+  }
   const offline = /Failed to fetch|NetworkError|503/.test(msg)
   return (
     <div className="err" role="alert">

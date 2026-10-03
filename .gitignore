@@ -39,3 +39,4 @@ ops/backlog.json
 ops/remote/
 docs/overnight_plan.md
 data/voice_cache/
+data/state/

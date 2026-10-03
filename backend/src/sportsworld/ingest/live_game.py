@@ -98,7 +98,7 @@ def _football(s: dict, teams: dict) -> dict[str, Any]:
         off = str((d.get("team") or {}).get("id") or "")
         for p in d.get("plays") or []:
             st, en = p.get("start") or {}, p.get("end") or {}
-            plays_out.append({"text": p.get("text"), "type": (p.get("type") or {}).get("text"), "down": st.get("down"),
+            plays_out.append({"id": str(p.get("id") or ""), "text": p.get("text"), "type": (p.get("type") or {}).get("text"), "down": st.get("down"),
                               "distance": st.get("distance"), "start_x": x_of(st.get("yardsToEndzone"), off),
                               "end_x": x_of(en.get("yardsToEndzone"), off), "yards": p.get("statYardage"),
                               "scoring": p.get("scoringPlay"), "clock": (p.get("clock") or {}).get("displayValue"),
@@ -129,10 +129,41 @@ def _events(s: dict, sport: str) -> list[dict[str, Any]]:
             continue
         if sport == "hockey" and typ not in ("Shot", "Goal", "Missed", "Blocked", "Hit", "Face Off", "Giveaway", "Takeaway"):
             continue
-        out.append({"x": c["x"], "y": c["y"], "type": typ, "team_id": str((p.get("team") or {}).get("id") or ""),
+        out.append({"id": str(p.get("id") or ""), "x": c["x"], "y": c["y"], "type": typ, "team_id": str((p.get("team") or {}).get("id") or ""),
                     "made": bool(p.get("scoringPlay")), "points": p.get("scoreValue"), "text": p.get("text"),
                     "period": (p.get("period") or {}).get("number"), "clock": (p.get("clock") or {}).get("displayValue")})
     return out[-400:]
+
+
+def play_stream(league: str, game_id: str) -> dict[str, Any]:
+    """Every play in order (id, text, type, scoring, period, clock, score after) for live commentary."""
+    spec = LEAGUES[league]
+    s = _get(f"{BASE}/{spec.espn_path}/summary", {"event": game_id}, ttl=5.0)
+    comp = (s.get("header", {}).get("competitions") or [{}])[0]
+    teams = {c.get("homeAway"): {"id": str(c.get("team", {}).get("id")), "abbr": c.get("team", {}).get("abbreviation"),
+                                 "name": c.get("team", {}).get("shortDisplayName") or c.get("team", {}).get("displayName")} for c in comp.get("competitors", [])}
+    plays: list[dict] = []
+    if spec.sport.value == "football":
+        drives = (s.get("drives") or {})
+        seq = list(drives.get("previous") or []) + ([drives["current"]] if drives.get("current") else [])
+        seen: set[str] = set()
+        for d in seq:
+            for p in d.get("plays") or []:
+                pid = str(p.get("id") or "")
+                if pid and pid not in seen:
+                    seen.add(pid)
+                    plays.append(_play(p))
+    else:
+        plays = [_play(p) for p in s.get("plays") or []]
+    status = comp.get("status", {})
+    return {"teams": teams, "plays": plays, "state": status.get("type", {}).get("state"), "detail": status.get("type", {}).get("detail")}
+
+
+def _play(p: dict) -> dict:
+    return {"id": str(p.get("id") or ""), "text": p.get("text") or "", "type": (p.get("type") or {}).get("text") or "",
+            "scoring": bool(p.get("scoringPlay")), "period": (p.get("period") or {}).get("number"),
+            "clock": (p.get("clock") or {}).get("displayValue"), "home_score": p.get("homeScore"), "away_score": p.get("awayScore"),
+            "team_id": str((p.get("team") or {}).get("id") or ""), "turnover": bool(p.get("isTurnover"))}
 
 
 # ---------------------------------------------------------------- F1 (OpenF1)

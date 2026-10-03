@@ -253,6 +253,7 @@ class SeasonService:
         st.computing = True
         try:
             run = await asyncio.get_running_loop().run_in_executor(None, self.compute, league)
+            await asyncio.get_running_loop().run_in_executor(None, self._save_warm, st)
             if self.publish:
                 self.publish(f"season:{league}", "season.forecast.updated", {"league": league, "run_id": run.get("run_id"),
                              "global_state_version": st.global_state_version, "top": (run.get("teams") or run.get("drivers") or [])[:12]})
@@ -272,7 +273,40 @@ class SeasonService:
                     await self.recompute(lg)
             await asyncio.sleep(self.debounce_s)
 
+    # warm start: the last committed run per league is kept on disk, so a restarted API serves immediately
+    # (labelled stale) while the first fresh recompute runs
+    def _warm_path(self, league: str) -> Path:
+        return self.data_root.parent / "state" / f"{league}.json"
+
+    def _save_warm(self, st: LeagueSeasonState) -> None:
+        if self.fixed_as_of or st.run is None:
+            return
+        import json
+        p = self._warm_path(st.league)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        tmp = p.with_suffix(".tmp")
+        tmp.write_text(json.dumps({"run": st.run, "fast_run": st.fast_run, "board": st.board, "global_state_version": st.global_state_version,
+                                   "saved_at": datetime.now(timezone.utc).isoformat()}, default=str))
+        tmp.replace(p)
+
+    def _load_warm(self, league: str) -> None:
+        import json
+        p = self._warm_path(league)
+        if self.fixed_as_of or not p.exists():
+            return
+        try:
+            d = json.loads(p.read_text())
+        except Exception:
+            return
+        st = self.state(league)
+        if st.run is None:
+            st.run, st.fast_run, st.board = d.get("run"), d.get("fast_run"), d.get("board") or {}
+            st.global_state_version = int(d.get("global_state_version") or 0)
+            st.dirty = True  # served as stale until the first fresh recompute lands
+
     def start(self, leagues: list[str]) -> None:
+        for lg in leagues:
+            self._load_warm(lg)
         self.active = set(leagues)
         self._task = asyncio.create_task(self.loop(leagues))
 

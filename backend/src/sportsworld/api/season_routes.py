@@ -446,9 +446,13 @@ def voice_update(league: str, index: int):
     from sportsworld.live.briefing import update_line
     _league(league)
     feed = list(_svc().state(league).feed)
+    if index < 0:
+        index = len(feed) + index
     if not (0 <= index < len(feed)):
         raise HTTPException(404, "no such update")
-    text = update_line(feed[index])
+    run = _svc().state(league).run or {}
+    abbr = {t.get("abbreviation"): t["name"] for t in run.get("teams") or [] if t.get("abbreviation")}
+    text = update_line(feed[index], abbr)
     v = _get_voice()
     out: dict[str, Any] = {"text": text, "audio": None}
     if v.enabled:
@@ -477,3 +481,72 @@ def game_history(event_id: str):
     if _archive is None or not _archive.ready:
         raise HTTPException(503, "history archive not configured")
     return {"event_id": event_id, "points": _archive.game_history(event_id)}
+
+
+@router.get("/voice/game/{league}/{event_id}")
+def voice_game(league: str, event_id: str):
+    """Voice the current state of one live game (score + SportsWorld win probability), text built server-side."""
+    from fastapi.responses import JSONResponse
+    from sportsworld.live.briefing import live_game_line
+    _league(league)
+    st = _svc().state(league)
+    row = st.board.get(event_id)
+    if row is None:
+        raise HTTPException(404, "game not on the board")
+    row = _with_live(league, [row])[0]
+    text = live_game_line(row, _names(league))
+    out: dict[str, Any] = {"text": text, "audio": None}
+    v = _get_voice()
+    if v.enabled:
+        import hashlib
+        try:
+            v.synthesize(text)
+            out["audio"] = f"/voice/audio/{hashlib.sha1(f'{v.voice_id}|{text}'.encode()).hexdigest()}.mp3"
+        except Exception as exc:
+            out["error"] = str(exc)
+    return JSONResponse(out)
+
+
+@router.get("/voice/intro/{league}")
+def voice_intro(league: str):
+    from fastapi.responses import JSONResponse
+    _league(league)
+    text = f"SportsWorld Radio is on for {LEAGUES[league].display_name}. You will hear every final and every big swing in a live game as it happens."
+    v = _get_voice()
+    out: dict[str, Any] = {"text": text, "audio": None}
+    if v.enabled:
+        import hashlib
+        try:
+            v.synthesize(text)
+            out["audio"] = f"/voice/audio/{hashlib.sha1(f'{v.voice_id}|{text}'.encode()).hexdigest()}.mp3"
+        except Exception as exc:
+            out["error"] = str(exc)
+    return JSONResponse(out)
+
+
+@router.get("/voice/commentary/{league}/{event_id}")
+def voice_commentary(league: str, event_id: str, after: str | None = None):
+    """Live play-by-play call for one game: new plays since `after`, with SportsWorld's win probability, voiced."""
+    from fastapi.responses import JSONResponse
+    from sportsworld.ingest.live_game import play_stream
+    from sportsworld.live.commentary import commentary
+    spec = _league(league)
+    gid = event_id.removeprefix(f"{league}-")
+    try:
+        stream = play_stream(league, gid)
+    except Exception as exc:
+        raise HTTPException(502, f"ESPN play-by-play unavailable: {exc}")
+    row = _svc().state(league).board.get(f"{league}-{gid}")
+    out = commentary(f"{league}-{gid}", spec.sport.value, stream, row.get("p_home") if row else None, after)
+    text = " ".join(x["text"] for x in out["lines"])
+    out["audio"] = None
+    if text:
+        v = _get_voice()
+        if v.enabled:
+            import hashlib
+            try:
+                v.synthesize(text)
+                out["audio"] = f"/voice/audio/{hashlib.sha1(f'{v.voice_id}|{text}'.encode()).hexdigest()}.mp3"
+            except Exception as exc:
+                out["error"] = str(exc)
+    return JSONResponse(out)
