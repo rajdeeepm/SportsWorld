@@ -40,3 +40,5 @@ ops/remote/
 docs/overnight_plan.md
 data/voice_cache/
 data/state/
+!frontend/.env.production
+!frontend/.env

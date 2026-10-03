@@ -21,6 +21,13 @@ with `only the SportsWorld engine can publish world state`. The engine publishes
 `backend/src/sportsworld/live/spacetime_publisher.py`, which diffs and pushes only changed rows every 5 s.
 
 ## Run
+Hosted: the live database is `sportsworld` on SpacetimeDB **Maincloud** (`wss://maincloud.spacetimedb.com`);
+the engine publishes with the owner identity and every visitor of sportsworld.tech subscribes to it.
+```
+spacetime publish sportsworld --server maincloud   # (owner) deploy the module
+# .env: SPACETIMEDB_URL=https://maincloud.spacetimedb.com  SPACETIMEDB_TOKEN=$(spacetime login show --token)
+```
+Local development:
 ```
 make spacetime          # starts a local server on :3010, publishes the module, regenerates client bindings
 # .env: SPACETIMEDB_URL=http://127.0.0.1:3010  SPACETIMEDB_DATABASE=sportsworld  SPACETIMEDB_TOKEN=$(spacetime login show --token)
