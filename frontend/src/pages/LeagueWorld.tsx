@@ -9,6 +9,7 @@ import { ago, day, num, pct, time } from '../lib/format'
 import { Empty, ErrorNote, Kpis, Loading, P, Panel, TeamLogo, teamColor } from '../components/ui'
 import { GamesTable, maxLeverage } from '../components/games'
 import { TitleOdds } from '../components/charts'
+import { ListenButton, RadioToggle } from '../components/radio'
 
 export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
   const status = useStatus(lg.id)
@@ -32,6 +33,7 @@ export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
         <div>
           <h1>{lg.name} — <em>{lg.seasonLabel} Season World</em></h1>
           <p>Every team. Every game. Every forecast. One persistent season model, updated as results land.</p>
+          <div className="hero-actions"><ListenButton league={lg.id} label="Listen to the briefing" /><RadioToggle league={lg.id} /></div>
         </div>
         {teams[0] && (
           <Link to={`/${lg.id}/team/${teams[0].team_id}`} className="hero-mark" title={`${lg.titleName} favourite`}>

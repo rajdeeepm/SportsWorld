@@ -86,3 +86,29 @@ export function CompareDistribution({ base, alt, draws, height = 200, label = 'w
     </ResponsiveContainer>
   )
 }
+
+/** what SportsWorld believed over the season: point-in-time replays (dashed) and live-archived runs (solid) */
+export function OddsTrend({ points, color, qualifyLabel, titleLabel, height = 240 }: {
+  points: { at: string; qualify: number; title: number; expected_wins: number; replay: boolean }[]; color: string; qualifyLabel: string; titleLabel: string; height?: number
+}) {
+  const byDay = new Map<string, (typeof points)[number]>()
+  for (const p of points) byDay.set(p.replay ? p.at.slice(0, 10) : p.at.slice(0, 16), p)
+  const data = [...byDay.values()].map((p) => ({ t: new Date(p.at).getTime(), q: p.qualify, ti: p.title, ew: p.expected_wins, replay: p.replay }))
+  if (data.length < 2) return null
+  const lastReplay = Math.max(...data.filter((d) => d.replay).map((d) => d.t), -Infinity)
+  return (
+    <ResponsiveContainer width="100%" height={height}>
+      <ComposedChart data={data} margin={{ top: 10, right: 10, bottom: 0, left: -6 }}>
+        <CartesianGrid vertical={false} />
+        <XAxis dataKey="t" type="number" scale="time" domain={['dataMin', 'dataMax']} tickFormatter={(t) => shortDate(new Date(t).toISOString())} tickLine={false} axisLine={false} minTickGap={36} />
+        <YAxis yAxisId="p" tickFormatter={(v) => `${Math.round(v * 100)}%`} tickLine={false} axisLine={false} width={46} />
+        <YAxis yAxisId="w" orientation="right" tickLine={false} axisLine={false} width={34} />
+        {Number.isFinite(lastReplay) && <ReferenceLine yAxisId="p" x={lastReplay} stroke="rgba(160,190,240,.4)" strokeDasharray="3 4" label={{ value: 'live from here', fill: '#7086b0', fontSize: 11, position: 'insideTopRight' }} />}
+        <Tooltip content={tip((p) => (<><b>{shortDate(new Date(p.t).toISOString())}{p.replay ? ' · replay' : ' · live'}</b>{qualifyLabel} {pct(p.q)} · {titleLabel} {pct(p.ti)} · {p.ew.toFixed(1)} exp. wins</>))} />
+        <Line yAxisId="p" dataKey="q" stroke={color} strokeWidth={2.6} dot={false} isAnimationActive={false} name={qualifyLabel} />
+        <Line yAxisId="p" dataKey="ti" stroke="#6fb2ff" strokeWidth={2} dot={false} isAnimationActive={false} name={titleLabel} />
+        <Line yAxisId="w" dataKey="ew" stroke="rgba(169,186,219,.7)" strokeWidth={1.4} strokeDasharray="4 3" dot={false} isAnimationActive={false} name="Expected wins" />
+      </ComposedChart>
+    </ResponsiveContainer>
+  )
+}

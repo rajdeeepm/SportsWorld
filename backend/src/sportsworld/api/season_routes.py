@@ -24,6 +24,14 @@ def bind(service, limiter_dependency) -> None:
     _limiter_dep = limiter_dependency
 
 
+_archive = None
+
+
+def bind_archive(archive) -> None:
+    global _archive
+    _archive = archive
+
+
 def _svc():
     if _service is None:
         raise HTTPException(503, "season service not running (start the API with TRACKER_ENABLED=true or SEASON_ENGINE=true)")
@@ -368,3 +376,104 @@ def f1_live(session_key: str = "latest", at: str | None = None, seconds: int = 2
         return f1_view(session_key, at, max(4, min(seconds, 60)), token=get_settings().openf1_token)
     except Exception as exc:
         raise HTTPException(502, f"OpenF1 unavailable: {exc}")
+
+
+# ---------------------------------------------------------------- SportsWorld Radio (ElevenLabs)
+
+_voice = None
+
+
+def _get_voice():
+    global _voice
+    if _voice is None:
+        from sportsworld.config import get_settings
+        from sportsworld.voice import ElevenLabsVoice
+        _voice = ElevenLabsVoice(get_settings(), _repo() / "data" / "voice_cache")
+    return _voice
+
+
+def _names(cid: str) -> dict[str, str]:
+    run = _svc().state(cid).run or {}
+    return {t["team_id"]: t["name"] for t in run.get("teams") or []}
+
+
+@router.get("/voice/briefing")
+def voice_briefing(league: str, team: str | None = None, speak: bool = True):
+    """Spoken briefing written from the engine's numbers by a fixed template; ElevenLabs only voices it."""
+    from fastapi.responses import JSONResponse
+    from sportsworld.live.briefing import league_briefing, team_briefing
+    _league(league)
+    svc = _svc()
+    st = svc.state(league)
+    if team:
+        page = team_page(league, team)
+        row = next((r for r in standings(league)["rows"] if r["team_id"] == team), None)
+        text = team_briefing(league, page, row, _names(league))
+    else:
+        board = _with_live(league, sorted(st.board.values(), key=lambda r: r["start_time"]))
+        text = league_briefing(league, st.run or {}, board, list(st.feed), _names(league))
+    out: dict[str, Any] = {"text": text, "source": "template over live engine numbers", "voice": None, "audio": None}
+    if speak:
+        v = _get_voice()
+        if not v.enabled:
+            out["error"] = "ElevenLabs is not configured"
+        else:
+            import hashlib
+            try:
+                audio = v.synthesize(text)
+                key = hashlib.sha1(f"{v.voice_id}|{text}".encode()).hexdigest()
+                out.update({"voice": v.voice_id, "audio": f"/voice/audio/{key}.mp3", "bytes": len(audio)})
+            except Exception as exc:
+                out["error"] = f"ElevenLabs: {exc}"
+    return JSONResponse(out)
+
+
+@router.get("/voice/audio/{key}.mp3")
+def voice_audio(key: str):
+    from fastapi.responses import FileResponse
+    if not key.isalnum() or len(key) != 40:
+        raise HTTPException(404, "unknown clip")
+    p = _repo() / "data" / "voice_cache" / f"{key}.mp3"
+    if not p.exists():
+        raise HTTPException(404, "unknown clip")
+    return FileResponse(p, media_type="audio/mpeg")
+
+
+@router.get("/voice/update/{league}/{index}")
+def voice_update(league: str, index: int):
+    """Voice one world update from the feed (by its position), for the live 'radio' mode."""
+    from fastapi.responses import JSONResponse
+    from sportsworld.live.briefing import update_line
+    _league(league)
+    feed = list(_svc().state(league).feed)
+    if not (0 <= index < len(feed)):
+        raise HTTPException(404, "no such update")
+    text = update_line(feed[index])
+    v = _get_voice()
+    out: dict[str, Any] = {"text": text, "audio": None}
+    if v.enabled:
+        import hashlib
+        try:
+            v.synthesize(text)
+            out["audio"] = f"/voice/audio/{hashlib.sha1(f'{v.voice_id}|{text}'.encode()).hexdigest()}.mp3"
+        except Exception as exc:
+            out["error"] = str(exc)
+    return JSONResponse(out)
+
+
+# ---------------------------------------------------------------- history (Neon)
+
+@router.get("/history/team/{cid}/{team_id}")
+def team_history(cid: str, team_id: str):
+    """What SportsWorld believed about this team at every archived season run (Neon Postgres)."""
+    _league(cid)
+    if _archive is None or not _archive.ready:
+        raise HTTPException(503, "history archive not configured")
+    return {"league": cid, "team_id": team_id, "source": "Neon Postgres season_run archive", "points": _archive.team_history(cid, team_id)}
+
+
+@router.get("/history/game/{event_id}")
+def game_history(event_id: str):
+    if _archive is None or not _archive.ready:
+        raise HTTPException(503, "history archive not configured")
+    return {"event_id": event_id, "points": _archive.game_history(event_id)}

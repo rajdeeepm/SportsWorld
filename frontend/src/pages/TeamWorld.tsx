@@ -7,8 +7,11 @@ import { useAvailability, useMeta, useSeason, useStandings, useTeam, type TeamMe
 import { qualify, title, type LeagueConfig } from '../lib/leagues'
 import { clock, day, isTbd, num, pct, shortDate, signed, time, visibleColor, luminance } from '../lib/format'
 import { Empty, ErrorNote, Kpis, Leverage, Loading, P, Panel, ProbSplit, TeamLogo, probClass } from '../components/ui'
-import { StrengthTrend, WinDistribution } from '../components/charts'
+import { OddsTrend, StrengthTrend, WinDistribution } from '../components/charts'
+import { useQuery } from '@tanstack/react-query'
+import { getJSON } from '../lib/api'
 import { WorldUpdates } from './LeagueWorld'
+import { ListenButton } from '../components/radio'
 
 export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) {
   const team = useTeam(lg.id, teamId)
@@ -45,6 +48,7 @@ export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) 
         <div>
           <h1>{me.name ?? t.name} — <em>Season World</em></h1>
           <p>Persistent team intelligence across the {lg.seasonLabel} {lg.name.toLowerCase().startsWith('n') ? lg.name : lg.name.toLowerCase()} season.</p>
+          <div className="hero-actions"><ListenButton league={lg.id} team={teamId} label={`Listen: ${me.short_name ?? t.name} briefing`} /></div>
         </div>
       </div>
 
@@ -93,8 +97,9 @@ export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) 
           <div className="c5"><SeasonPaths lg={lg} teamId={teamId} t={t} color={color} /></div>
           <div className="c3"><Availability lg={lg} teamId={teamId} /></div>
 
-          <div className="c7"><RecentResults lg={lg} rows={team.data.recent_results} name={t.name} season={run?.season} /></div>
+          <div className="c7"><OddsOverTime lg={lg} teamId={teamId} color={color} /></div>
           <div className="c5"><WorldUpdates lg={lg} meta={m} team={teamId} /></div>
+          <div className="c12"><RecentResults lg={lg} rows={team.data.recent_results} name={t.name} season={run?.season} /></div>
         </div>
 
         <div className="provenance">
@@ -281,6 +286,18 @@ function RecentResults({ lg, rows, name, season }: { lg: LeagueConfig; rows: { e
           </tbody>
         </table>
       )}
+    </Panel>
+  )
+}
+
+function OddsOverTime({ lg, teamId, color }: { lg: LeagueConfig; teamId: string; color: string }) {
+  const h = useQuery({ queryKey: ['history', lg.id, teamId], queryFn: () => getJSON<{ points: any[]; source: string }>(`/history/team/${lg.id}/${teamId}`), refetchInterval: 120_000, retry: 0 })
+  const q = qualify(lg)
+  return (
+    <Panel title="Odds over the season" icon={Activity}
+      foot={<><span className="legend" style={{ display: 'inline-flex', marginRight: 10 }}><span><i style={{ background: color }} />{qualify(lg).short}</span><span><i style={{ background: '#6fb2ff' }} />{title(lg).short}</span><span><i style={{ background: 'rgba(169,186,219,.7)' }} />Expected wins (right axis)</span></span>Before the marker: point-in-time replays rebuilt from data available each day. After it: runs archived live. Stored in Neon Postgres.</>}>
+      {h.isLoading ? <Loading rows={4} /> : h.isError || !h.data?.points?.length ? <Empty title="History archive unavailable">Start the API with DATABASE_URL set (Neon) and run scripts/backfill_history.py.</Empty>
+        : <OddsTrend points={h.data.points} color={color} qualifyLabel={q.short} titleLabel={title(lg).short} height={250} />}
     </Panel>
   )
 }

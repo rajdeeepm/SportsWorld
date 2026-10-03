@@ -100,6 +100,12 @@ async def lifespan(app:FastAPI):
             pub=SpacetimePublisher(settings.spacetimedb_url,settings.spacetimedb_database,settings.spacetimedb_token,season_service)
             app.state.spacetime=pub
             app.state.spacetime_task=asyncio.create_task(pub.run())
+        if settings.database_url:
+            from sportsworld.live.neon_archive import NeonArchive
+            arch=NeonArchive(settings.database_url,season_service)
+            app.state.neon=arch
+            season_routes.bind_archive(arch)
+            app.state.neon_task=asyncio.create_task(arch.run())
     yield
     if season_service: await season_service.stop()
     if tracker: await tracker.stop()
@@ -151,6 +157,7 @@ def health():
             'availability':season_service.availability.status() if season_service and season_service.availability else None,
             'news':news.status() if news else None,
             'spacetime':app.state.spacetime.status() if getattr(app.state,'spacetime',None) else None,
+            'neon':app.state.neon.status() if getattr(app.state,'neon',None) else None,
             'tracker':{lid:t.status() for lid,t in tracker.trackers.items()} if tracker else None,'dependencies':{'llm':bool(settings.llm_api_key),'elevenlabs':ctx.voice.enabled,'spacetimedb':bool(settings.spacetimedb_url),'postgres':bool(settings.database_url)}}
 
 @app.get('/sports')
