@@ -555,3 +555,22 @@ def voice_commentary(league: str, event_id: str, after: str | None = None):
             except Exception as exc:
                 out["error"] = str(exc)
     return JSONResponse(out)
+
+
+# ---------------------------------------------------------------- Ask SportsWorld (same analyst as the Fetch.ai agent)
+
+class AgentAskIn(BaseModel):
+    text: str = Field(min_length=1, max_length=500)
+
+
+_analyst_engine = None
+
+
+@router.post("/agent/ask")
+def agent_ask(body: AgentAskIn):
+    """The SportsWorld Analyst (also on Agentverse / ASI:One): routes a question to actions on this engine."""
+    global _analyst_engine
+    from sportsworld.agent.analyst import Engine, answer
+    if _analyst_engine is None:
+        _analyst_engine = Engine()
+    return {"answer": answer(body.text, _analyst_engine), "agent": "sportsworld-analyst"}

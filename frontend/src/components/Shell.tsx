@@ -5,6 +5,7 @@ import { BrandMark, TeamLogo } from './ui'
 import { LEAGUES, league as leagueOf } from '../lib/leagues'
 import { useBoard, useMeta, useSeason } from '../lib/data'
 import { useLiveStatus } from '../lib/live'
+import { AskPanel } from './AskPanel'
 
 export function Shell({ children }: { children: ReactNode }) {
   const params = useParams()
@@ -61,6 +62,7 @@ export function Shell({ children }: { children: ReactNode }) {
       </nav>
 
       <main id="main">{children}</main>
+      <AskPanel leagueId={lg.id} />
     </div>
   )
 }

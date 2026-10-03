@@ -285,6 +285,20 @@ def _scenario_summary(lg: str, r: dict, focus: list[str], label: str, parser: st
             f"(canonical state untouched){f'; parsed by {parser}' if parser else ''}.\n" + "\n".join(rows) + f"\n\nExplore it: {SITE}/{lg}/lab")
 
 
+def whats_new(eng: Engine, leagues: list[str]) -> str:
+    out = ["**What's new in the SportsWorld world model:**"]
+    for lg in leagues or ["college-football", "nfl"]:
+        if lg == "f1":
+            continue
+        b = eng.get("/voice/briefing", league=lg, speak="false")
+        finals = [u for u in eng.get(f"/competitions/{lg}/seasons/current/updates") if str(u.get("reason", "")).startswith("Final")][-4:]
+        out.append(f"\n**{LEAGUE_NAME.get(lg, lg)}** — {b['text'].replace('This is SportsWorld on the ', '').split('. ', 1)[-1]}")
+        if finals:
+            out.append("Latest finals: " + "; ".join(u["reason"].replace("Final: ", "") for u in reversed(finals)) + ".")
+    out.append(f"\nAsk me about any team, a what-if, or which games to watch. {SITE}")
+    return "\n".join(out)
+
+
 HELP = ("I'm **SportsWorld Analyst**: I run the live SportsWorld world model for every NFL, college football, NBA, NHL, college "
         "basketball and F1 season. Try:\n- *How are Michigan doing?*\n- *What if Michigan's starting QB misses 3 games?*\n"
         "- *What if Michigan beats Ohio State?*\n- *Which games matter tonight?*\n- *Should I watch BYU or Texas Tech?*\n"
@@ -297,6 +311,11 @@ def answer(text: str, eng: Engine | None = None) -> str:
     low = re.sub(r"\s+", " ", text.lower()).strip()
     if not low or low in {"hi", "hello", "help", "hey"} or "what can you do" in low:
         return HELP
+    if re.search(r"\bwhat'?s new\b|\blatest\b|\bany (news|updates?)\b|\bwhat happened\b", low):
+        try:
+            return whats_new(eng, find_leagues(low))
+        except httpx.HTTPError:
+            return HELP
     leagues = find_leagues(low)
     try:
         teams = find_teams(eng, re.sub(r"\s+", " ", text).strip(), [lg for lg in leagues if lg != "f1"])

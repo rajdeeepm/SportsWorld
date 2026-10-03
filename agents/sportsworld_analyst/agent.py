@@ -22,8 +22,12 @@ from uagents_core.contrib.protocols.chat import (
     chat_protocol_spec,
 )
 
-from agent_env import env
-from analyst import Engine, answer
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "backend" / "src"))
+
+from agent_env import env  # noqa: E402
+from sportsworld.agent.analyst import Engine, answer  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 SEED = env("SPORTSWORLD_AGENT_SEED")
