@@ -537,7 +537,12 @@ def voice_commentary(league: str, event_id: str, after: str | None = None):
     except Exception as exc:
         raise HTTPException(502, f"ESPN play-by-play unavailable: {exc}")
     row = _svc().state(league).board.get(f"{league}-{gid}")
-    out = commentary(f"{league}-{gid}", spec.sport.value, stream, row.get("p_home") if row else None, after)
+    live_score = None
+    if row is not None:
+        row = _with_live(league, [row])[0]
+        if row.get("state") == "in" and row.get("home_score") is not None:
+            live_score = (int(row.get("away_score") or 0), int(row.get("home_score") or 0))
+    out = commentary(f"{league}-{gid}", spec.sport.value, stream, row.get("p_home") if row else None, after, live_score=live_score)
     text = " ".join(x["text"] for x in out["lines"])
     out["audio"] = None
     if text:
