@@ -1,0 +1,3 @@
+Added [test_live_integrity.py](backend/tests/test_live_integrity.py) with offline coverage for availability, news extraction, tracker snapshots, live rate limiting, and postseason rating shifts. No product code was changed.
+
+The requested pytest command passed: **10 passed, 1 strict xfail**. The xfail records a genuine news grounding bug: `extract()` accepts a case changed `evidence_span` even though it is not a verbatim substring.
