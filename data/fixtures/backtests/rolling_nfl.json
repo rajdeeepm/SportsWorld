@@ -1,0 +1,95 @@
+{
+ "league": "nfl",
+ "origins": [
+  {
+   "origin_season": 2022,
+   "test_games": 284,
+   "test_rows": 16388,
+   "model": {
+    "brier": 0.36309,
+    "log_loss": 0.5388,
+    "ece": 0.02783,
+    "accuracy": 0.72614,
+    "interval_coverage": NaN,
+    "interval_width": 0.00848
+   },
+   "kalman_only": {
+    "brier": 0.37429,
+    "log_loss": 0.5964,
+    "ece": 0.05986,
+    "accuracy": 0.71906
+   },
+   "leakage_violations": 0
+  },
+  {
+   "origin_season": 2023,
+   "test_games": 285,
+   "test_rows": 17920,
+   "model": {
+    "brier": 0.32026,
+    "log_loss": 0.48023,
+    "ece": 0.03453,
+    "accuracy": 0.75871,
+    "interval_coverage": NaN,
+    "interval_width": 0.00694
+   },
+   "kalman_only": {
+    "brier": 0.31526,
+    "log_loss": 0.48722,
+    "ece": 0.02957,
+    "accuracy": 0.76406
+   },
+   "leakage_violations": 0
+  },
+  {
+   "origin_season": 2024,
+   "test_games": 285,
+   "test_rows": 17817,
+   "model": {
+    "brier": 0.29941,
+    "log_loss": 0.44827,
+    "ece": 0.01286,
+    "accuracy": 0.77213,
+    "interval_coverage": NaN,
+    "interval_width": 0.00784
+   },
+   "kalman_only": {
+    "brier": 0.29985,
+    "log_loss": 0.45717,
+    "ece": 0.0218,
+    "accuracy": 0.77084
+   },
+   "leakage_violations": 0
+  },
+  {
+   "origin_season": 2025,
+   "test_games": 285,
+   "test_rows": 17506,
+   "model": {
+    "brier": 0.32973,
+    "log_loss": 0.49279,
+    "ece": 0.02418,
+    "accuracy": 0.75037,
+    "interval_coverage": NaN,
+    "interval_width": 0.00729
+   },
+   "kalman_only": {
+    "brier": 0.33534,
+    "log_loss": 0.52173,
+    "ece": 0.04091,
+    "accuracy": 0.75009
+   },
+   "leakage_violations": 0
+  }
+ ],
+ "model_log_loss_mean": 0.49002,
+ "model_log_loss_sd": 0.03753,
+ "kalman_only_log_loss_mean": 0.51563,
+ "kalman_only_log_loss_sd": 0.05996,
+ "model_minus_kalman_by_origin": [
+  -0.0576,
+  -0.00699,
+  -0.0089,
+  -0.02894
+ ]
+}

@@ -1,0 +1,5407 @@
+{
+ "league": "womens-college-basketball",
+ "model_version": "player_impact_womens-college-basketball_v1",
+ "data_mode": "real_espn",
+ "fit_window": {
+  "start": "2024-11-17T19:00:00+00:00",
+  "end": "2026-04-05T19:30:00+00:00"
+ },
+ "n_games": 10132,
+ "residual_sd": 11.154,
+ "variance_explained": 0.0043,
+ "by_position": {
+  "KEY": {
+   "points": -2.494,
+   "se": 0.377,
+   "t": -6.62,
+   "games_with_absence": 834
+  }
+ },
+ "definition": "count of the team's top-2 minutes players (>=5 prior games) who did not play",
+ "created_at": "2026-10-03T07:42:57.042858+00:00",
+ "current_season": 2025,
+ "current_key_players": {
+  "153": {
+   "KEY": [
+    {
+     "athlete_id": "5105740",
+     "name": "Indya Nivar",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5238302",
+     "name": "Lanie Grant",
+     "position": "G"
+    }
+   ]
+  },
+  "2428": {
+   "KEY": [
+    {
+     "athlete_id": "4705333",
+     "name": "Morgan Callahan",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5111101",
+     "name": "Najah Lane",
+     "position": "G"
+    }
+   ]
+  },
+  "228": {
+   "KEY": [
+    {
+     "athlete_id": "4899622",
+     "name": "Rachael Rose",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175410",
+     "name": "Mia Moore",
+     "position": "G"
+    }
+   ]
+  },
+  "2908": {
+   "KEY": [
+    {
+     "athlete_id": "5107760",
+     "name": "Aubrie Kierscht",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175925",
+     "name": "Cassie Gallagher",
+     "position": "G"
+    }
+   ]
+  },
+  "2086": {
+   "KEY": [
+    {
+     "athlete_id": "5178548",
+     "name": "Saniya Jackson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240217",
+     "name": "Lily Zeinstra",
+     "position": "G"
+    }
+   ]
+  },
+  "2750": {
+   "KEY": [
+    {
+     "athlete_id": "5106074",
+     "name": "Claire Henson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107638",
+     "name": "Breezie Williams",
+     "position": "G"
+    }
+   ]
+  },
+  "314": {
+   "KEY": [
+    {
+     "athlete_id": "4901579",
+     "name": "Isabellah Middleton",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176871",
+     "name": "Zoey Ward",
+     "position": "F"
+    }
+   ]
+  },
+  "2384": {},
+  "2754": {
+   "KEY": [
+    {
+     "athlete_id": "4704895",
+     "name": "Casey Santoro",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241152",
+     "name": "Erica King",
+     "position": "G"
+    }
+   ]
+  },
+  "2644": {},
+  "2473": {
+   "KEY": [
+    {
+     "athlete_id": "5178550",
+     "name": "Layla Gold",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313056",
+     "name": "Makenzie Luehring",
+     "position": "G"
+    }
+   ]
+  },
+  "128568": {},
+  "2393": {
+   "KEY": [
+    {
+     "athlete_id": "5312934",
+     "name": "Blair Baugus",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312937",
+     "name": "Macie Phifer",
+     "position": "G"
+    }
+   ]
+  },
+  "2634": {
+   "KEY": [
+    {
+     "athlete_id": "5242691",
+     "name": "Erin Martin",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5247009",
+     "name": "Kiki Roberts",
+     "position": "F"
+    }
+   ]
+  },
+  "2377": {
+   "KEY": [
+    {
+     "athlete_id": "5178023",
+     "name": "Arianna Patton",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243330",
+     "name": "Tyreona Sibley",
+     "position": "G"
+    }
+   ]
+  },
+  "100277": {},
+  "2545": {
+   "KEY": [
+    {
+     "athlete_id": "5108616",
+     "name": "Aliyah Collins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315492",
+     "name": "Lihi Azouri",
+     "position": "G"
+    }
+   ]
+  },
+  "2113": {},
+  "2617": {
+   "KEY": [
+    {
+     "athlete_id": "5105405",
+     "name": "Myka Perry",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5115137",
+     "name": "Harmanie Dominguez",
+     "position": "G"
+    }
+   ]
+  },
+  "2904": {},
+  "236": {
+   "KEY": [
+    {
+     "athlete_id": "5176512",
+     "name": "Caia Elisaldez",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243487",
+     "name": "Gianna Corbitt",
+     "position": "F"
+    }
+   ]
+  },
+  "2312": {},
+  "239": {
+   "KEY": [
+    {
+     "athlete_id": "4433434",
+     "name": "Jana Van Gytenbeek",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174251",
+     "name": "Taliah Scott",
+     "position": "G"
+    }
+   ]
+  },
+  "150": {
+   "KEY": [
+    {
+     "athlete_id": "5106222",
+     "name": "Taina Mair",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106232",
+     "name": "Ashlon Jackson",
+     "position": "G"
+    }
+   ]
+  },
+  "66": {
+   "KEY": [
+    {
+     "athlete_id": "5175491",
+     "name": "Audi Crooks",
+     "position": "C"
+    },
+    {
+     "athlete_id": "5175867",
+     "name": "Jada Williams",
+     "position": "G"
+    }
+   ]
+  },
+  "2900": {
+   "KEY": [
+    {
+     "athlete_id": "5109981",
+     "name": "Faith Feuerbach",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240768",
+     "name": "Alyssa Sand",
+     "position": "F"
+    }
+   ]
+  },
+  "269": {
+   "KEY": [
+    {
+     "athlete_id": "4683453",
+     "name": "Lee Volker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175020",
+     "name": "Halle Vice",
+     "position": "G"
+    }
+   ]
+  },
+  "2737": {
+   "KEY": [
+    {
+     "athlete_id": "5175918",
+     "name": "Amourie Porter",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178501",
+     "name": "Cori Lard",
+     "position": "G"
+    }
+   ]
+  },
+  "235": {
+   "KEY": [
+    {
+     "athlete_id": "5175678",
+     "name": "Cori Allen",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178424",
+     "name": "Daejah Richmond",
+     "position": "G"
+    }
+   ]
+  },
+  "2029": {
+   "KEY": [
+    {
+     "athlete_id": "5178280",
+     "name": "Jailah Pelly",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178425",
+     "name": "Indiya Bowen",
+     "position": "G"
+    }
+   ]
+  },
+  "198": {
+   "KEY": [
+    {
+     "athlete_id": "5314684",
+     "name": "Anna Trusty",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314688",
+     "name": "Kayten Donley",
+     "position": "F"
+    }
+   ]
+  },
+  "128451": {},
+  "145": {
+   "KEY": [
+    {
+     "athlete_id": "4583144",
+     "name": "Cotie McMahon",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4894351",
+     "name": "Debreasha Powe",
+     "position": "G"
+    }
+   ]
+  },
+  "2450": {
+   "KEY": [
+    {
+     "athlete_id": "4703686",
+     "name": "Jasha Clinton",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178569",
+     "name": "Anjanae Richardson",
+     "position": "G"
+    }
+   ]
+  },
+  "2535": {
+   "KEY": [
+    {
+     "athlete_id": "5107610",
+     "name": "Sierra Godbolt",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240565",
+     "name": "Briana Rivera",
+     "position": "G"
+    }
+   ]
+  },
+  "2409": {},
+  "55": {
+   "KEY": [
+    {
+     "athlete_id": "4899397",
+     "name": "Eden Sample",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177062",
+     "name": "Mya Barnes",
+     "position": "F"
+    }
+   ]
+  },
+  "548": {},
+  "158": {
+   "KEY": [
+    {
+     "athlete_id": "5108518",
+     "name": "Callin Hake",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240195",
+     "name": "Britt Prince",
+     "position": "G"
+    }
+   ]
+  },
+  "2466": {
+   "KEY": [
+    {
+     "athlete_id": "5174403",
+     "name": "Nya Valentine",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243322",
+     "name": "Vernell Atamah",
+     "position": "F"
+    }
+   ]
+  },
+  "5": {
+   "KEY": [
+    {
+     "athlete_id": "5240952",
+     "name": "Cali Smallwood",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315331",
+     "name": "Sofia Munoz",
+     "position": "G"
+    }
+   ]
+  },
+  "2695": {},
+  "2197": {
+   "KEY": [
+    {
+     "athlete_id": "5176547",
+     "name": "Clara Glad",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178419",
+     "name": "Ava Stoller",
+     "position": "G"
+    }
+   ]
+  },
+  "2181": {
+   "KEY": [
+    {
+     "athlete_id": "5109178",
+     "name": "Abbie Aalsma",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314925",
+     "name": "Anna Becker",
+     "position": "G"
+    }
+   ]
+  },
+  "254": {
+   "KEY": [
+    {
+     "athlete_id": "4433551",
+     "name": "Maty Wilke",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105748",
+     "name": "Lani White",
+     "position": "G"
+    }
+   ]
+  },
+  "2894": {},
+  "265": {
+   "KEY": [
+    {
+     "athlete_id": "5175978",
+     "name": "Eleonora Villa",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241568",
+     "name": "Charlotte Abraham",
+     "position": "G"
+    }
+   ]
+  },
+  "70": {
+   "KEY": [
+    {
+     "athlete_id": "5175930",
+     "name": "Hope Hassmann",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240983",
+     "name": "Ella Uriarte",
+     "position": "G"
+    }
+   ]
+  },
+  "2184": {
+   "KEY": [
+    {
+     "athlete_id": "5240292",
+     "name": "Mackenzie Blackford",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311508",
+     "name": "Alexis Bordas",
+     "position": "G"
+    }
+   ]
+  },
+  "2598": {
+   "KEY": [
+    {
+     "athlete_id": "4900522",
+     "name": "Aleah James",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107764",
+     "name": "Sonia Sato",
+     "position": "C"
+    }
+   ]
+  },
+  "2599": {
+   "KEY": [
+    {
+     "athlete_id": "4704672",
+     "name": "Shaulana Wagner",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177066",
+     "name": "Brooke Moore",
+     "position": "G"
+    }
+   ]
+  },
+  "2330": {
+   "KEY": [
+    {
+     "athlete_id": "5178222",
+     "name": "Sierra Linnin",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315151",
+     "name": "Ashley Buragas",
+     "position": "F"
+    }
+   ]
+  },
+  "2638": {
+   "KEY": [
+    {
+     "athlete_id": "5108540",
+     "name": "Ivane Tensaie",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239986",
+     "name": "Heaven Samayoa-Mathis",
+     "position": "G"
+    }
+   ]
+  },
+  "2504": {
+   "KEY": [
+    {
+     "athlete_id": "5243454",
+     "name": "CJ Wilson",
+     "position": "PG"
+    },
+    {
+     "athlete_id": "5243455",
+     "name": "Crystal Schultz",
+     "position": "G"
+    }
+   ]
+  },
+  "68": {
+   "KEY": [
+    {
+     "athlete_id": "5109381",
+     "name": "Tatum Thompson",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5109385",
+     "name": "Natalie Pasco",
+     "position": "G"
+    }
+   ]
+  },
+  "2202": {},
+  "238": {
+   "KEY": [
+    {
+     "athlete_id": "5239107",
+     "name": "Mikayla Blakes",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311546",
+     "name": "Aubrey Galvan",
+     "position": "G"
+    }
+   ]
+  },
+  "25": {
+   "KEY": [
+    {
+     "athlete_id": "5124078",
+     "name": "Gisella Maul",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178589",
+     "name": "Lulu Twidale",
+     "position": "G"
+    }
+   ]
+  },
+  "2837": {
+   "KEY": [
+    {
+     "athlete_id": "5178029",
+     "name": "Cora Horvath",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178031",
+     "name": "Ahmya Boyce",
+     "position": "G"
+    }
+   ]
+  },
+  "123546": {},
+  "2349": {
+   "KEY": [
+    {
+     "athlete_id": "4704207",
+     "name": "Jaini Edmonds",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239415",
+     "name": "Sabrina Larsson",
+     "position": "G"
+    }
+   ]
+  },
+  "2830": {},
+  "232": {
+   "KEY": [
+    {
+     "athlete_id": "5177751",
+     "name": "Taylor Barbot",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177753",
+     "name": "Taryn Barbot",
+     "position": "G"
+    }
+   ]
+  },
+  "2157": {},
+  "111": {
+   "KEY": [
+    {
+     "athlete_id": "5175927",
+     "name": "Yirsy Queliz",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242249",
+     "name": "Camryn Collins",
+     "position": "G"
+    }
+   ]
+  },
+  "112358": {
+   "KEY": [
+    {
+     "athlete_id": "5108033",
+     "name": "Kadidia Toure",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5177912",
+     "name": "Solangelei Akridge",
+     "position": "G"
+    }
+   ]
+  },
+  "2506": {
+   "KEY": [
+    {
+     "athlete_id": "5242690",
+     "name": "Krystal Haddock",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313829",
+     "name": "Ore Ogunwolere",
+     "position": "G"
+    }
+   ]
+  },
+  "2684": {},
+  "333": {
+   "KEY": [
+    {
+     "athlete_id": "4433811",
+     "name": "Jessica Timmons",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105391",
+     "name": "Karly Weathers",
+     "position": "G"
+    }
+   ]
+  },
+  "56": {
+   "KEY": [
+    {
+     "athlete_id": "4704454",
+     "name": "Aleah Sorrentino",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4705002",
+     "name": "Mary McMillan",
+     "position": "G"
+    }
+   ]
+  },
+  "61": {
+   "KEY": [
+    {
+     "athlete_id": "5238284",
+     "name": "Dani Carnegie",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239073",
+     "name": "Trinity Turner",
+     "position": "G"
+    }
+   ]
+  },
+  "2011": {
+   "KEY": [
+    {
+     "athlete_id": "5315815",
+     "name": "Ny'Keria Flowers",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315820",
+     "name": "Shamya Reid",
+     "position": "G"
+    }
+   ]
+  },
+  "2390": {
+   "KEY": [
+    {
+     "athlete_id": "5178159",
+     "name": "Amarachi Kimpson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242255",
+     "name": "Gal Raviv",
+     "position": "G"
+    }
+   ]
+  },
+  "2275": {
+   "KEY": [
+    {
+     "athlete_id": "5108032",
+     "name": "Chloe Sterling",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108817",
+     "name": "Alarice Gooden",
+     "position": "G"
+    }
+   ]
+  },
+  "2655": {
+   "KEY": [
+    {
+     "athlete_id": "5107328",
+     "name": "Dyllan Hanna",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5107584",
+     "name": "Amira Mabry",
+     "position": "F"
+    }
+   ]
+  },
+  "2097": {
+   "KEY": [
+    {
+     "athlete_id": "5239384",
+     "name": "Olivia Tucker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239386",
+     "name": "Jasmine Felton",
+     "position": "G"
+    }
+   ]
+  },
+  "213": {
+   "KEY": [
+    {
+     "athlete_id": "5132644",
+     "name": "Moriah Murray",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240037",
+     "name": "Kiyomi McMiller",
+     "position": "G"
+    }
+   ]
+  },
+  "2083": {
+   "KEY": [
+    {
+     "athlete_id": "5178099",
+     "name": "Tuana Coskun",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5242727",
+     "name": "Reese Zemitis",
+     "position": "G"
+    }
+   ]
+  },
+  "154": {
+   "KEY": [
+    {
+     "athlete_id": "5175904",
+     "name": "Mary Carter",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5238323",
+     "name": "Aurora Sorbye",
+     "position": "G"
+    }
+   ]
+  },
+  "2515": {
+   "KEY": [
+    {
+     "athlete_id": "5175907",
+     "name": "Joi Williams",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177802",
+     "name": "Cate Carlson",
+     "position": "G"
+    }
+   ]
+  },
+  "2066": {
+   "KEY": [
+    {
+     "athlete_id": "5174511",
+     "name": "Kendall Bennett",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5174513",
+     "name": "Bella Pucci",
+     "position": "G"
+    }
+   ]
+  },
+  "2783": {},
+  "82": {
+   "KEY": [
+    {
+     "athlete_id": "4704327",
+     "name": "Sara Zabrecky",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176145",
+     "name": "Julia Coleman",
+     "position": "F"
+    }
+   ]
+  },
+  "2523": {
+   "KEY": [
+    {
+     "athlete_id": "4704997",
+     "name": "Jada Lee",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242228",
+     "name": "Myriam Traore",
+     "position": "G"
+    }
+   ]
+  },
+  "45": {
+   "KEY": [
+    {
+     "athlete_id": "5174365",
+     "name": "Kamari Sims",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240311",
+     "name": "Gabby Reynolds",
+     "position": "G"
+    }
+   ]
+  },
+  "2177": {},
+  "2534": {
+   "KEY": [
+    {
+     "athlete_id": "5239982",
+     "name": "Fanta Kone",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239983",
+     "name": "Aysia Ward-Strong",
+     "position": "G"
+    }
+   ]
+  },
+  "108784": {},
+  "349": {
+   "KEY": [
+    {
+     "athlete_id": "5109190",
+     "name": "Reese Ericson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176900",
+     "name": "Kya Smith",
+     "position": "F"
+    }
+   ]
+  },
+  "2487": {},
+  "2429": {
+   "KEY": [
+    {
+     "athlete_id": "4899077",
+     "name": "Tanajah Hayes",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242673",
+     "name": "Zoe Best",
+     "position": "G"
+    }
+   ]
+  },
+  "2": {
+   "KEY": [
+    {
+     "athlete_id": "5105396",
+     "name": "Kaitlyn Duhon",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239431",
+     "name": "Khady Leye",
+     "position": "F"
+    }
+   ]
+  },
+  "201": {
+   "KEY": [
+    {
+     "athlete_id": "4433518",
+     "name": "Payton Verhulst",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311585",
+     "name": "Aaliyah Chavez",
+     "position": "G"
+    }
+   ]
+  },
+  "2057": {
+   "KEY": [
+    {
+     "athlete_id": "4705405",
+     "name": "Tuti Jones",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107734",
+     "name": "Avery Strickland",
+     "position": "G"
+    }
+   ]
+  },
+  "104": {
+   "KEY": [
+    {
+     "athlete_id": "5109196",
+     "name": "Anastasiia Semenova",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5242719",
+     "name": "Hildur Gunnsteinsdottir",
+     "position": "G"
+    }
+   ]
+  },
+  "2514": {
+   "KEY": [
+    {
+     "athlete_id": "4899865",
+     "name": "Jackie Grisdale",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313615",
+     "name": "Ella Ryan",
+     "position": "G"
+    }
+   ]
+  },
+  "103": {
+   "KEY": [
+    {
+     "athlete_id": "5108905",
+     "name": "Kayla Rolph",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5240218",
+     "name": "Lily Carmody",
+     "position": "G"
+    }
+   ]
+  },
+  "107": {
+   "KEY": [
+    {
+     "athlete_id": "5109211",
+     "name": "Kaitlyn Flanagan",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174969",
+     "name": "Kendall Eddy",
+     "position": "G"
+    }
+   ]
+  },
+  "52": {
+   "KEY": [
+    {
+     "athlete_id": "4682765",
+     "name": "Jasmine Shavers",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174305",
+     "name": "Sole Williams",
+     "position": "G"
+    }
+   ]
+  },
+  "50": {
+   "KEY": [
+    {
+     "athlete_id": "5243374",
+     "name": "Tahnyjia Purifoy",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315789",
+     "name": "Shaniyah McCarthy",
+     "position": "G"
+    }
+   ]
+  },
+  "357": {
+   "KEY": [
+    {
+     "athlete_id": "4704470",
+     "name": "Chelsea Wooten",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106104",
+     "name": "Marissa Shelton",
+     "position": "G"
+    }
+   ]
+  },
+  "128658": {},
+  "160": {
+   "KEY": [
+    {
+     "athlete_id": "5174382",
+     "name": "Eva DeChent",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174525",
+     "name": "Maggie Cavanaugh",
+     "position": "G"
+    }
+   ]
+  },
+  "402": {},
+  "58": {
+   "KEY": [
+    {
+     "athlete_id": "5105423",
+     "name": "Stefanie Ingram",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107577",
+     "name": "Carla Brito",
+     "position": "F"
+    }
+   ]
+  },
+  "2229": {
+   "KEY": [
+    {
+     "athlete_id": "5174283",
+     "name": "Rhema Collins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312236",
+     "name": "Grecia Ferrer Leal",
+     "position": "G"
+    }
+   ]
+  },
+  "2803": {
+   "KEY": [
+    {
+     "athlete_id": "4704428",
+     "name": "Mimi Rubino",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174514",
+     "name": "Mia Mancini",
+     "position": "G"
+    }
+   ]
+  },
+  "2115": {
+   "KEY": [
+    {
+     "athlete_id": "5106065",
+     "name": "Cierra Pearson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242504",
+     "name": "Lucia Noin",
+     "position": "F"
+    }
+   ]
+  },
+  "151": {
+   "KEY": [
+    {
+     "athlete_id": "4705315",
+     "name": "Anzhane Hutton",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5106189",
+     "name": "Kennedy Fauntleroy",
+     "position": "G"
+    }
+   ]
+  },
+  "350": {
+   "KEY": [
+    {
+     "athlete_id": "5108551",
+     "name": "Mary Ferrito",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177801",
+     "name": "Kylah Silver",
+     "position": "G"
+    }
+   ]
+  },
+  "290": {
+   "KEY": [
+    {
+     "athlete_id": "4713005",
+     "name": "McKenna Eddings",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5115860",
+     "name": "Destiny Garrett",
+     "position": "G"
+    }
+   ]
+  },
+  "2117": {
+   "KEY": [
+    {
+     "athlete_id": "5109085",
+     "name": "Taylor Anderson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242147",
+     "name": "Madi Morson",
+     "position": "G"
+    }
+   ]
+  },
+  "2230": {
+   "KEY": [
+    {
+     "athlete_id": "5107616",
+     "name": "Ornella Niankan",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5312768",
+     "name": "Carryn Easley",
+     "position": "G"
+    }
+   ]
+  },
+  "2002": {},
+  "179": {
+   "KEY": [
+    {
+     "athlete_id": "4898978",
+     "name": "Laycee Drake",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240703",
+     "name": "Mackenzie Pettinelli",
+     "position": "G"
+    }
+   ]
+  },
+  "2365": {},
+  "2116": {
+   "KEY": [
+    {
+     "athlete_id": "5239476",
+     "name": "Summer Yancy",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5239479",
+     "name": "Mahogany Chandler-Roberts",
+     "position": "F"
+    }
+   ]
+  },
+  "2065": {
+   "KEY": [
+    {
+     "athlete_id": "4900216",
+     "name": "Tyler Butler",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5109582",
+     "name": "Daimoni Dorsey",
+     "position": "G"
+    }
+   ]
+  },
+  "276": {
+   "KEY": [
+    {
+     "athlete_id": "5107543",
+     "name": "Timaya Lewis-Eutsey",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108636",
+     "name": "Peyton Ilderton",
+     "position": "G"
+    }
+   ]
+  },
+  "2084": {
+   "KEY": [
+    {
+     "athlete_id": "5241964",
+     "name": "Aniya Rowe",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313773",
+     "name": "Meg Lucas",
+     "position": "F"
+    }
+   ]
+  },
+  "256": {
+   "KEY": [
+    {
+     "athlete_id": "4704990",
+     "name": "Peyton McDaniel",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175694",
+     "name": "Bree Robinson",
+     "position": "G"
+    }
+   ]
+  },
+  "2309": {
+   "KEY": [
+    {
+     "athlete_id": "5109058",
+     "name": "Dionna Gray",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178496",
+     "name": "Mya Babbitt",
+     "position": "G"
+    }
+   ]
+  },
+  "324": {
+   "KEY": [
+    {
+     "athlete_id": "5107541",
+     "name": "Kristin Williams",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175734",
+     "name": "Tessa Grady",
+     "position": "F"
+    }
+   ]
+  },
+  "193": {
+   "KEY": [
+    {
+     "athlete_id": "5109982",
+     "name": "Amber Scalia",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242180",
+     "name": "Tamar Singer",
+     "position": "G"
+    }
+   ]
+  },
+  "233": {
+   "KEY": [
+    {
+     "athlete_id": "5109123",
+     "name": "Angelina Robles",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314693",
+     "name": "Molly Joyce",
+     "position": "G"
+    }
+   ]
+  },
+  "2789": {},
+  "2046": {
+   "KEY": [
+    {
+     "athlete_id": "5240564",
+     "name": "Anovia Sheals",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314792",
+     "name": "Jim'Miyah Branton",
+     "position": "G"
+    }
+   ]
+  },
+  "2553": {},
+  "2427": {
+   "KEY": [
+    {
+     "athlete_id": "5242442",
+     "name": "Nia Green",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313855",
+     "name": "Jamaria Freeman",
+     "position": "G"
+    }
+   ]
+  },
+  "2382": {
+   "KEY": [
+    {
+     "athlete_id": "5177266",
+     "name": "Nahawa Diarra",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178103",
+     "name": "Micah O'Dell",
+     "position": "G"
+    }
+   ]
+  },
+  "96": {
+   "KEY": [
+    {
+     "athlete_id": "4565515",
+     "name": "Tonie Morgan",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239080",
+     "name": "Amelia Hassett",
+     "position": "F"
+    }
+   ]
+  },
+  "2413": {
+   "KEY": [
+    {
+     "athlete_id": "5107436",
+     "name": "Laura Toffali",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107527",
+     "name": "Marie Sepp",
+     "position": "G"
+    }
+   ]
+  },
+  "294": {
+   "KEY": [
+    {
+     "athlete_id": "5109045",
+     "name": "Makiya Miller",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315168",
+     "name": "Tatum Brown",
+     "position": "G"
+    }
+   ]
+  },
+  "2127": {
+   "KEY": [
+    {
+     "athlete_id": "5109808",
+     "name": "Caelan Ellis",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174927",
+     "name": "Tyonna Bailey",
+     "position": "G"
+    }
+   ]
+  },
+  "91": {
+   "KEY": [
+    {
+     "athlete_id": "5240572",
+     "name": "Kayce Hyman",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5242479",
+     "name": "Ava Smith",
+     "position": "G"
+    }
+   ]
+  },
+  "2589": {},
+  "2378": {
+   "KEY": [
+    {
+     "athlete_id": "5107672",
+     "name": "Carmen Yanez",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174737",
+     "name": "Jade Tillman",
+     "position": "F"
+    }
+   ]
+  },
+  "112704": {},
+  "249": {
+   "KEY": [
+    {
+     "athlete_id": "5175419",
+     "name": "Aysia Proctor",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315047",
+     "name": "Megan Nestor",
+     "position": "F"
+    }
+   ]
+  },
+  "589": {},
+  "295": {
+   "KEY": [
+    {
+     "athlete_id": "4703661",
+     "name": "En'Dya Buford",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241087",
+     "name": "Simaru Fields",
+     "position": "G"
+    }
+   ]
+  },
+  "113": {
+   "KEY": [
+    {
+     "athlete_id": "4714498",
+     "name": "Allie Palmieri",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240382",
+     "name": "Yahmani McKayle",
+     "position": "G"
+    }
+   ]
+  },
+  "2000": {
+   "KEY": [
+    {
+     "athlete_id": "5175545",
+     "name": "Payton Hull",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178096",
+     "name": "Erin Woodson",
+     "position": "G"
+    }
+   ]
+  },
+  "2758": {},
+  "2026": {
+   "KEY": [
+    {
+     "athlete_id": "5108919",
+     "name": "Daisia Mitchell",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5109122",
+     "name": "Emma Smith",
+     "position": "G"
+    }
+   ]
+  },
+  "2711": {
+   "KEY": [
+    {
+     "athlete_id": "5109012",
+     "name": "Alli Carlson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241110",
+     "name": "Kailey Starks",
+     "position": "G"
+    }
+   ]
+  },
+  "85": {
+   "KEY": [
+    {
+     "athlete_id": "5177897",
+     "name": "Nevaeh Foster",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5180435",
+     "name": "Olivia Smith",
+     "position": "F"
+    }
+   ]
+  },
+  "282": {
+   "KEY": [
+    {
+     "athlete_id": "5194709",
+     "name": "Samiyah Briggs",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243433",
+     "name": "Tierney Kelsey",
+     "position": "G"
+    }
+   ]
+  },
+  "2247": {
+   "KEY": [
+    {
+     "athlete_id": "5174771",
+     "name": "Crystal Henderson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5245565",
+     "name": "Cheyenne Holloman",
+     "position": "G"
+    }
+   ]
+  },
+  "2476": {},
+  "2579": {
+   "KEY": [
+    {
+     "athlete_id": "4433797",
+     "name": "Raven Johnson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239100",
+     "name": "Joyce Edwards",
+     "position": "F"
+    }
+   ]
+  },
+  "2253": {
+   "KEY": [
+    {
+     "athlete_id": "5175681",
+     "name": "Julianna LaMendola",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239454",
+     "name": "Chloe Mann",
+     "position": "G"
+    }
+   ]
+  },
+  "2509": {
+   "KEY": [
+    {
+     "athlete_id": "4433438",
+     "name": "Madison Layden-Zay",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106182",
+     "name": "Tara Daye",
+     "position": "G"
+    }
+   ]
+  },
+  "161": {
+   "KEY": [
+    {
+     "athlete_id": "5242514",
+     "name": "Ava Renninger",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242518",
+     "name": "Kailee McDonald",
+     "position": "G"
+    }
+   ]
+  },
+  "309": {
+   "KEY": [
+    {
+     "athlete_id": "5176129",
+     "name": "Mikaylah Manley",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315142",
+     "name": "Bianca Silva",
+     "position": "G"
+    }
+   ]
+  },
+  "189": {
+   "KEY": [
+    {
+     "athlete_id": "5178180",
+     "name": "Paige Kohler",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241949",
+     "name": "Johnea Donahue",
+     "position": "G"
+    }
+   ]
+  },
+  "2653": {
+   "KEY": [
+    {
+     "athlete_id": "5113322",
+     "name": "Zay Dyer",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5243423",
+     "name": "Fortuna Ngnawo",
+     "position": "F"
+    }
+   ]
+  },
+  "2649": {
+   "KEY": [
+    {
+     "athlete_id": "4704644",
+     "name": "Patricia Anumgba",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178258",
+     "name": "Kendall Carruthers",
+     "position": "G"
+    }
+   ]
+  },
+  "164": {
+   "KEY": [
+    {
+     "athlete_id": "4433464",
+     "name": "Kaylah Ivey",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174337",
+     "name": "Nene Ndiaye",
+     "position": "G"
+    }
+   ]
+  },
+  "2681": {
+   "KEY": [
+    {
+     "athlete_id": "5242538",
+     "name": "Irene Fernandez de Caleya",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242539",
+     "name": "Keana Foz",
+     "position": "G"
+    }
+   ]
+  },
+  "2641": {
+   "KEY": [
+    {
+     "athlete_id": "5106173",
+     "name": "Bailey Maupin",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107737",
+     "name": "Gemma Nunez",
+     "position": "G"
+    }
+   ]
+  },
+  "2448": {
+   "KEY": [
+    {
+     "athlete_id": "4705328",
+     "name": "D'Mya Tucker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177791",
+     "name": "Paris Locke",
+     "position": "F"
+    }
+   ]
+  },
+  "2529": {
+   "KEY": [
+    {
+     "athlete_id": "5106086",
+     "name": "Amelia Wood",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178254",
+     "name": "Nalyce Dudley",
+     "position": "F"
+    }
+   ]
+  },
+  "2885": {
+   "KEY": [
+    {
+     "athlete_id": "5240680",
+     "name": "Allison Cannon",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240683",
+     "name": "Olivia Kulyk",
+     "position": "G"
+    }
+   ]
+  },
+  "2363": {
+   "KEY": [
+    {
+     "athlete_id": "5110089",
+     "name": "Hana Muhl",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5117741",
+     "name": "Brianna Davis",
+     "position": "G"
+    }
+   ]
+  },
+  "227": {
+   "KEY": [
+    {
+     "athlete_id": "5174391",
+     "name": "Brooklyn Gray",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240389",
+     "name": "Palmire Mbu",
+     "position": "F"
+    }
+   ]
+  },
+  "2193": {
+   "KEY": [
+    {
+     "athlete_id": "5107378",
+     "name": "Anala Nelson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243537",
+     "name": "Carmen Richardson",
+     "position": "G"
+    }
+   ]
+  },
+  "2210": {
+   "KEY": [
+    {
+     "athlete_id": "5109716",
+     "name": "Tyana Walker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177763",
+     "name": "Maraja Pass",
+     "position": "G"
+    }
+   ]
+  },
+  "57": {
+   "KEY": [
+    {
+     "athlete_id": "5174261",
+     "name": "Laila Reynolds",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239072",
+     "name": "Liv McGill",
+     "position": "G"
+    }
+   ]
+  },
+  "2454": {
+   "KEY": [
+    {
+     "athlete_id": "5175464",
+     "name": "Alexa Washington",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240630",
+     "name": "Jamisyn Stinson",
+     "position": "G"
+    }
+   ]
+  },
+  "120": {
+   "KEY": [
+    {
+     "athlete_id": "4433542",
+     "name": "Saylor Poffenbarger",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107834",
+     "name": "Yarden Garzon",
+     "position": "G"
+    }
+   ]
+  },
+  "2352": {
+   "KEY": [
+    {
+     "athlete_id": "4898948",
+     "name": "Koi Sims",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4900552",
+     "name": "Lex Therien",
+     "position": "F"
+    }
+   ]
+  },
+  "2453": {
+   "KEY": [
+    {
+     "athlete_id": "5175461",
+     "name": "Katie Criswell",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5252496",
+     "name": "Alexsandra Alvarado",
+     "position": "G"
+    }
+   ]
+  },
+  "2630": {
+   "KEY": [
+    {
+     "athlete_id": "5106838",
+     "name": "Kenley McCarn",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315636",
+     "name": "Brittani Wells",
+     "position": "G"
+    }
+   ]
+  },
+  "48": {
+   "KEY": [
+    {
+     "athlete_id": "5178505",
+     "name": "Lay Fantroy",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312230",
+     "name": "Kailah Correa",
+     "position": "G"
+    }
+   ]
+  },
+  "2071": {},
+  "277": {
+   "KEY": [
+    {
+     "athlete_id": "4565511",
+     "name": "Sydney Shaw",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108051",
+     "name": "Jordan Harrison",
+     "position": "G"
+    }
+   ]
+  },
+  "2870": {
+   "KEY": [
+    {
+     "athlete_id": "5241140",
+     "name": "Jordan Reid",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5313106",
+     "name": "Alana Nelson",
+     "position": "F"
+    }
+   ]
+  },
+  "325": {
+   "KEY": [
+    {
+     "athlete_id": "4900469",
+     "name": "Colbi Maples",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5109400",
+     "name": "Jada Leonard",
+     "position": "G"
+    }
+   ]
+  },
+  "2130": {
+   "KEY": [
+    {
+     "athlete_id": "5242508",
+     "name": "Marisa Gant",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242509",
+     "name": "Keona McGee",
+     "position": "G"
+    }
+   ]
+  },
+  "2296": {
+   "KEY": [
+    {
+     "athlete_id": "5107913",
+     "name": "Jaileyah Cotton",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5110871",
+     "name": "Derrica McCall",
+     "position": "G"
+    }
+   ]
+  },
+  "130263": {},
+  "218": {
+   "KEY": [
+    {
+     "athlete_id": "5175447",
+     "name": "Saniyah Craig",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5177904",
+     "name": "Kaylah Turner",
+     "position": "G"
+    }
+   ]
+  },
+  "2244": {
+   "KEY": [
+    {
+     "athlete_id": "5107451",
+     "name": "Zahirah Walton",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5174358",
+     "name": "Kennedy Harris",
+     "position": "G"
+    }
+   ]
+  },
+  "270": {
+   "KEY": [
+    {
+     "athlete_id": "5178004",
+     "name": "Payton Rechlicz",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178005",
+     "name": "Jorey Buwalda",
+     "position": "F"
+    }
+   ]
+  },
+  "2350": {
+   "KEY": [
+    {
+     "athlete_id": "5107487",
+     "name": "Kira Chivers",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240373",
+     "name": "Alexa Kinas",
+     "position": "G"
+    }
+   ]
+  },
+  "2724": {
+   "KEY": [
+    {
+     "athlete_id": "5174351",
+     "name": "Taya Davis",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177815",
+     "name": "Jaila Harding",
+     "position": "G"
+    }
+   ]
+  },
+  "2876": {},
+  "2511": {
+   "KEY": [
+    {
+     "athlete_id": "4704839",
+     "name": "Jermany Mapp",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240649",
+     "name": "Dayuna Colvin",
+     "position": "G"
+    }
+   ]
+  },
+  "2241": {
+   "KEY": [
+    {
+     "athlete_id": "4900097",
+     "name": "Jaelyn Acker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175837",
+     "name": "Amina Gray",
+     "position": "G"
+    }
+   ]
+  },
+  "2272": {
+   "KEY": [
+    {
+     "athlete_id": "5107750",
+     "name": "Nevaeh Zavala",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5178156",
+     "name": "Macy Spencer",
+     "position": "G"
+    }
+   ]
+  },
+  "2304": {},
+  "156": {
+   "KEY": [
+    {
+     "athlete_id": "5106179",
+     "name": "Kennedy Townsend",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312680",
+     "name": "Ava Zediker",
+     "position": "G"
+    }
+   ]
+  },
+  "2571": {
+   "KEY": [
+    {
+     "athlete_id": "5109983",
+     "name": "Madison Mathiowetz",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5109985",
+     "name": "Brooklyn Meyer",
+     "position": "F"
+    }
+   ]
+  },
+  "222": {
+   "KEY": [
+    {
+     "athlete_id": "5240245",
+     "name": "Jasmine Bascoe",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312737",
+     "name": "Kennedy Henry",
+     "position": "G"
+    }
+   ]
+  },
+  "322": {
+   "KEY": [
+    {
+     "athlete_id": "5178544",
+     "name": "Teresa Kiewiet",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242753",
+     "name": "Talia Zurinskas",
+     "position": "G"
+    }
+   ]
+  },
+  "2572": {
+   "KEY": [
+    {
+     "athlete_id": "5174253",
+     "name": "Carly Keats",
+     "position": "PG"
+    },
+    {
+     "athlete_id": "5174273",
+     "name": "Meloney Thames",
+     "position": "G"
+    }
+   ]
+  },
+  "2459": {
+   "KEY": [
+    {
+     "athlete_id": "5107918",
+     "name": "Maria Serracanta",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314879",
+     "name": "Emilie Sorensen",
+     "position": "G"
+    }
+   ]
+  },
+  "2460": {
+   "KEY": [
+    {
+     "athlete_id": "5109365",
+     "name": "Taryn Wharton",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242190",
+     "name": "Elise Jaeger",
+     "position": "F"
+    }
+   ]
+  },
+  "2449": {
+   "KEY": [
+    {
+     "athlete_id": "5178276",
+     "name": "Molly Lenz",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241886",
+     "name": "Marisa Frost",
+     "position": "G"
+    }
+   ]
+  },
+  "2016": {
+   "KEY": [
+    {
+     "athlete_id": "5109852",
+     "name": "Nakia Cheatham",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5109853",
+     "name": "Kiarra Henderson",
+     "position": "G"
+    }
+   ]
+  },
+  "2447": {
+   "KEY": [
+    {
+     "athlete_id": "5243622",
+     "name": "Jesslynn Jalomo",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315703",
+     "name": "Anyra Wilson",
+     "position": "G"
+    }
+   ]
+  },
+  "2747": {
+   "KEY": [
+    {
+     "athlete_id": "5177951",
+     "name": "Maddie Heiss",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315725",
+     "name": "Gabby Mundy",
+     "position": "G"
+    }
+   ]
+  },
+  "451": {},
+  "231": {
+   "KEY": [
+    {
+     "athlete_id": "5243587",
+     "name": "Clare Coyle",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5243588",
+     "name": "Raina McGowens",
+     "position": "G"
+    }
+   ]
+  },
+  "2822": {},
+  "88": {
+   "KEY": [
+    {
+     "athlete_id": "5109373",
+     "name": "Ali Saunders",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178431",
+     "name": "Chloe Gannon",
+     "position": "F"
+    }
+   ]
+  },
+  "2233": {},
+  "2405": {
+   "KEY": [
+    {
+     "athlete_id": "5108753",
+     "name": "Alexis Andrews",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311965",
+     "name": "Madalena Amaro",
+     "position": "G"
+    }
+   ]
+  },
+  "121698": {},
+  "2739": {
+   "KEY": [
+    {
+     "athlete_id": "5107855",
+     "name": "Maddy Skorupski",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108672",
+     "name": "Kamy Peppler",
+     "position": "G"
+    }
+   ]
+  },
+  "2743": {},
+  "2198": {
+   "KEY": [
+    {
+     "athlete_id": "5108620",
+     "name": "Althea Kara Angeles",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240592",
+     "name": "Liz Freihofer",
+     "position": "G"
+    }
+   ]
+  },
+  "123358": {},
+  "2635": {
+   "KEY": [
+    {
+     "athlete_id": "4900371",
+     "name": "Reagan Hurst",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106830",
+     "name": "Reghan Grimes",
+     "position": "G"
+    }
+   ]
+  },
+  "511": {},
+  "197": {
+   "KEY": [
+    {
+     "athlete_id": "4899819",
+     "name": "Haleigh Timmer",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175757",
+     "name": "Stailee Heard",
+     "position": "G"
+    }
+   ]
+  },
+  "2443": {
+   "KEY": [
+    {
+     "athlete_id": "5186511",
+     "name": "Lauren Banks",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243255",
+     "name": "Shanihya Brown",
+     "position": "G"
+    }
+   ]
+  },
+  "142": {
+   "KEY": [
+    {
+     "athlete_id": "5174274",
+     "name": "Grace Slaughter",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240803",
+     "name": "Chloe Sotell",
+     "position": "G"
+    }
+   ]
+  },
+  "2110": {
+   "KEY": [
+    {
+     "athlete_id": "4900492",
+     "name": "Shae Littleford",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175432",
+     "name": "Cheyanne Kemp",
+     "position": "G"
+    }
+   ]
+  },
+  "2294": {
+   "KEY": [
+    {
+     "athlete_id": "4682968",
+     "name": "Hannah Stuelke",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5238283",
+     "name": "Chazadi Wright",
+     "position": "G"
+    }
+   ]
+  },
+  "2582": {
+   "KEY": [
+    {
+     "athlete_id": "5106186",
+     "name": "Zaria Hurston",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177923",
+     "name": "Jaylia Reed",
+     "position": "G"
+    }
+   ]
+  },
+  "2287": {
+   "KEY": [
+    {
+     "athlete_id": "4899861",
+     "name": "Addison Martin",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5242017",
+     "name": "Trista Fayta",
+     "position": "G"
+    }
+   ]
+  },
+  "2168": {
+   "KEY": [
+    {
+     "athlete_id": "4705213",
+     "name": "Nicole Stephens",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107405",
+     "name": "Nayo Lear",
+     "position": "G"
+    }
+   ]
+  },
+  "344": {
+   "KEY": [
+    {
+     "athlete_id": "4610043",
+     "name": "Destiney McPhaul",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311605",
+     "name": "Madison Francis",
+     "position": "F"
+    }
+   ]
+  },
+  "2166": {
+   "KEY": [
+    {
+     "athlete_id": "5107752",
+     "name": "Charlise Dunn",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5125384",
+     "name": "Katie Donovan",
+     "position": "G"
+    }
+   ]
+  },
+  "2623": {
+   "KEY": [
+    {
+     "athlete_id": "5178529",
+     "name": "Kaemyn Bekemeier",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312941",
+     "name": "Maiesha Washington",
+     "position": "F"
+    }
+   ]
+  },
+  "139": {
+   "KEY": [
+    {
+     "athlete_id": "4595808",
+     "name": "Zya Nugent",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4704642",
+     "name": "Alexia Nelson",
+     "position": "G"
+    }
+   ]
+  },
+  "2306": {
+   "KEY": [
+    {
+     "athlete_id": "5175751",
+     "name": "Taryn Sides",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312756",
+     "name": "Gina Garcia",
+     "position": "G"
+    }
+   ]
+  },
+  "2437": {
+   "KEY": [
+    {
+     "athlete_id": "5175420",
+     "name": "Sarai Estupinan",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314663",
+     "name": "Avril Smith",
+     "position": "F"
+    }
+   ]
+  },
+  "292": {
+   "KEY": [
+    {
+     "athlete_id": "5108609",
+     "name": "Erin Maguire",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315091",
+     "name": "Jalayah Ingram",
+     "position": "G"
+    }
+   ]
+  },
+  "2610": {},
+  "2433": {
+   "KEY": [
+    {
+     "athlete_id": "5108758",
+     "name": "Nakiyah Mays-Prince",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174392",
+     "name": "Marcavia Shavers",
+     "position": "C"
+    }
+   ]
+  },
+  "2199": {
+   "KEY": [
+    {
+     "athlete_id": "5107447",
+     "name": "Ainhoa Cea",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313742",
+     "name": "Peyton Hill",
+     "position": "PG"
+    }
+   ]
+  },
+  "284": {
+   "KEY": [
+    {
+     "athlete_id": "5178264",
+     "name": "Brooke Paquette",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178265",
+     "name": "Breana Delaney",
+     "position": "G"
+    }
+   ]
+  },
+  "18": {},
+  "251": {
+   "KEY": [
+    {
+     "athlete_id": "5175792",
+     "name": "Madison Booker",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5239104",
+     "name": "Jordan Lee",
+     "position": "G"
+    }
+   ]
+  },
+  "2916": {
+   "KEY": [
+    {
+     "athlete_id": "5108619",
+     "name": "Jorja Elliott",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177964",
+     "name": "Raimi McCrary",
+     "position": "F"
+    }
+   ]
+  },
+  "6": {
+   "KEY": [
+    {
+     "athlete_id": "5107576",
+     "name": "Daniela Gonzalez",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5179307",
+     "name": "Diawna Carter-Hartley",
+     "position": "F"
+    }
+   ]
+  },
+  "2006": {
+   "KEY": [
+    {
+     "athlete_id": "5178181",
+     "name": "Keiryn McGuff",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5314669",
+     "name": "Shaena Brew",
+     "position": "G"
+    }
+   ]
+  },
+  "2032": {
+   "KEY": [
+    {
+     "athlete_id": "5106827",
+     "name": "Zyion Shannon",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174718",
+     "name": "Crislyn Rose",
+     "position": "G"
+    }
+   ]
+  },
+  "2050": {
+   "KEY": [
+    {
+     "athlete_id": "5175045",
+     "name": "Karsyn Norman",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241924",
+     "name": "Grace Kingery",
+     "position": "G"
+    }
+   ]
+  },
+  "2627": {
+   "KEY": [
+    {
+     "athlete_id": "4900624",
+     "name": "Gia Adams",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175530",
+     "name": "Jakoriah Long",
+     "position": "G"
+    }
+   ]
+  },
+  "2544": {},
+  "2856": {
+   "KEY": [
+    {
+     "athlete_id": "5107944",
+     "name": "Filipa Barros",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315736",
+     "name": "Lauren Olsen",
+     "position": "G"
+    }
+   ]
+  },
+  "27": {
+   "KEY": [
+    {
+     "athlete_id": "5240775",
+     "name": "Kaylani Polk",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240777",
+     "name": "Hannah Wickstrom",
+     "position": "G"
+    }
+   ]
+  },
+  "326": {
+   "KEY": [
+    {
+     "athlete_id": "5241466",
+     "name": "Saniya Burks",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315206",
+     "name": "Kyra Anderson",
+     "position": "F"
+    }
+   ]
+  },
+  "195": {
+   "KEY": [
+    {
+     "athlete_id": "5178507",
+     "name": "Bailey Tabeling",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178508",
+     "name": "Asiah Baxter",
+     "position": "G"
+    }
+   ]
+  },
+  "264": {
+   "KEY": [
+    {
+     "athlete_id": "5175965",
+     "name": "Sayvia Sellers",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239666",
+     "name": "Avery Howell",
+     "position": "G"
+    }
+   ]
+  },
+  "2547": {
+   "KEY": [
+    {
+     "athlete_id": "4900571",
+     "name": "Tamia Stricklin",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5174325",
+     "name": "Ella Brubaker",
+     "position": "G"
+    }
+   ]
+  },
+  "2172": {
+   "KEY": [
+    {
+     "athlete_id": "5239532",
+     "name": "Coryn Watts",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314596",
+     "name": "Tori Baker",
+     "position": "G"
+    }
+   ]
+  },
+  "2005": {
+   "KEY": [
+    {
+     "athlete_id": "5109375",
+     "name": "Milahnie Perry",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177199",
+     "name": "Jayda McNabb",
+     "position": "G"
+    }
+   ]
+  },
+  "278": {
+   "KEY": [
+    {
+     "athlete_id": "4899730",
+     "name": "Jaisa Gamble",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5242461",
+     "name": "Danae Powell",
+     "position": "G"
+    }
+   ]
+  },
+  "2235": {},
+  "2565": {
+   "KEY": [
+    {
+     "athlete_id": "5106798",
+     "name": "Macy Silvey",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315601",
+     "name": "Lauren Miller",
+     "position": "F"
+    }
+   ]
+  },
+  "2880": {},
+  "2031": {
+   "KEY": [
+    {
+     "athlete_id": "4899962",
+     "name": "Alaina Payne",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178402",
+     "name": "Jordan Holman",
+     "position": "G"
+    }
+   ]
+  },
+  "3079": {},
+  "9": {
+   "KEY": [
+    {
+     "athlete_id": "4702864",
+     "name": "Gabby Elliott",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178157",
+     "name": "McKinna Brackens",
+     "position": "F"
+    }
+   ]
+  },
+  "2154": {
+   "KEY": [
+    {
+     "athlete_id": "4705331",
+     "name": "Paris McBride",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243425",
+     "name": "Khila Morris",
+     "position": "G"
+    }
+   ]
+  },
+  "253": {
+   "KEY": [
+    {
+     "athlete_id": "5241787",
+     "name": "Kortney Doman",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241789",
+     "name": "Sierra Chambers",
+     "position": "G"
+    }
+   ]
+  },
+  "116420": {},
+  "331": {
+   "KEY": [
+    {
+     "athlete_id": "5107630",
+     "name": "Ella Gallatin",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240978",
+     "name": "Kourtney Grossman",
+     "position": "F"
+    }
+   ]
+  },
+  "2465": {},
+  "2483": {
+   "KEY": [
+    {
+     "athlete_id": "5175891",
+     "name": "Sofia Bell",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240202",
+     "name": "Katie Fiso",
+     "position": "G"
+    }
+   ]
+  },
+  "2698": {
+   "KEY": [
+    {
+     "athlete_id": "5181594",
+     "name": "Grace O'Gara",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240650",
+     "name": "Sydne Tolbert",
+     "position": "G"
+    }
+   ]
+  },
+  "2541": {
+   "KEY": [
+    {
+     "athlete_id": "5175841",
+     "name": "Ashley Hawkins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177244",
+     "name": "Kylee Fox",
+     "position": "F"
+    }
+   ]
+  },
+  "2616": {},
+  "167": {
+   "KEY": [
+    {
+     "athlete_id": "4898851",
+     "name": "Alyssa Hargrove",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242466",
+     "name": "Nayli Padilla",
+     "position": "G"
+    }
+   ]
+  },
+  "2464": {
+   "KEY": [
+    {
+     "athlete_id": "5107711",
+     "name": "Audrey Taylor",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241484",
+     "name": "Naomi White",
+     "position": "G"
+    }
+   ]
+  },
+  "301": {
+   "KEY": [
+    {
+     "athlete_id": "5106695",
+     "name": "Hallie Rhodes",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314937",
+     "name": "Olivia Owens",
+     "position": "G"
+    }
+   ]
+  },
+  "108878": {},
+  "279": {
+   "KEY": [
+    {
+     "athlete_id": "5108600",
+     "name": "Sydney Ward",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240800",
+     "name": "Daria Nestorov",
+     "position": "G"
+    }
+   ]
+  },
+  "28": {
+   "KEY": [
+    {
+     "athlete_id": "5118282",
+     "name": "Makayla Rose",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177255",
+     "name": "Dymonique Maxie",
+     "position": "G"
+    }
+   ]
+  },
+  "2540": {
+   "KEY": [
+    {
+     "athlete_id": "5177878",
+     "name": "Zoe Borter",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5240707",
+     "name": "Zoe Shaw",
+     "position": "G"
+    }
+   ]
+  },
+  "2863": {},
+  "13": {
+   "KEY": [
+    {
+     "athlete_id": "5312904",
+     "name": "Vanessa McManus",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312910",
+     "name": "Charish Thompson",
+     "position": "F"
+    }
+   ]
+  },
+  "498": {},
+  "16": {
+   "KEY": [
+    {
+     "athlete_id": "4899541",
+     "name": "Benthe Versteeg",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175998",
+     "name": "Natalie Picton",
+     "position": "G"
+    }
+   ]
+  },
+  "130215": {},
+  "2934": {
+   "KEY": [
+    {
+     "athlete_id": "5242660",
+     "name": "Chrishawn Coleman",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312894",
+     "name": "Morgan Hawkins",
+     "position": "G"
+    }
+   ]
+  },
+  "3084": {
+   "KEY": [
+    {
+     "athlete_id": "4898428",
+     "name": "Amanda Barcello",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241806",
+     "name": "Cambree Blackham",
+     "position": "G"
+    }
+   ]
+  },
+  "2440": {
+   "KEY": [
+    {
+     "athlete_id": "5177254",
+     "name": "Izzy Sullivan",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315117",
+     "name": "Skylar Durley",
+     "position": "G"
+    }
+   ]
+  },
+  "3182": {},
+  "24": {
+   "KEY": [
+    {
+     "athlete_id": "5175936",
+     "name": "Courtney Ogden",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312414",
+     "name": "Hailee Swain",
+     "position": "G"
+    }
+   ]
+  },
+  "2430": {
+   "KEY": [
+    {
+     "athlete_id": "5108552",
+     "name": "Jeni Levine",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177946",
+     "name": "Makiah Asidanya",
+     "position": "G"
+    }
+   ]
+  },
+  "21": {
+   "KEY": [
+    {
+     "athlete_id": "5242472",
+     "name": "Nat Martinez",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242473",
+     "name": "Naomi Panganiban",
+     "position": "G"
+    }
+   ]
+  },
+  "26": {
+   "KEY": [
+    {
+     "athlete_id": "4565505",
+     "name": "Kiki Rice",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4858656",
+     "name": "Gabriela Jaquez",
+     "position": "G"
+    }
+   ]
+  },
+  "302": {
+   "KEY": [
+    {
+     "athlete_id": "4899721",
+     "name": "Megan Norris",
+     "position": "C"
+    },
+    {
+     "athlete_id": "5240754",
+     "name": "Ryann Bennett",
+     "position": "G"
+    }
+   ]
+  },
+  "3078": {},
+  "2567": {
+   "KEY": [
+    {
+     "athlete_id": "5108566",
+     "name": "Ayanna Thompson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239494",
+     "name": "Zahra King",
+     "position": "G"
+    }
+   ]
+  },
+  "2755": {
+   "KEY": [
+    {
+     "athlete_id": "5108589",
+     "name": "Shaniah Nunn",
+     "position": "SF"
+    },
+    {
+     "athlete_id": "5175556",
+     "name": "Douthshine Prien",
+     "position": "PG"
+    }
+   ]
+  },
+  "79": {
+   "KEY": [
+    {
+     "athlete_id": "5106163",
+     "name": "Kayla Cooper",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240735",
+     "name": "Alayna Kraus",
+     "position": "G"
+    }
+   ]
+  },
+  "2332": {},
+  "152": {
+   "KEY": [
+    {
+     "athlete_id": "5174309",
+     "name": "Khamil Pierre",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5174356",
+     "name": "Zoe Brooks",
+     "position": "G"
+    }
+   ]
+  },
+  "2633": {
+   "KEY": [
+    {
+     "athlete_id": "4682913",
+     "name": "Lazaria Spearman",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4682955",
+     "name": "Talaysia Cooper",
+     "position": "G"
+    }
+   ]
+  },
+  "41": {
+   "KEY": [
+    {
+     "athlete_id": "4433790",
+     "name": "Azzi Fudd",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174493",
+     "name": "Ashlynn Shade",
+     "position": "G"
+    }
+   ]
+  },
+  "97": {
+   "KEY": [
+    {
+     "athlete_id": "5107515",
+     "name": "Laura Ziegler",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5238294",
+     "name": "Tajianna Roberts",
+     "position": "G"
+    }
+   ]
+  },
+  "257": {
+   "KEY": [
+    {
+     "athlete_id": "5107506",
+     "name": "Maggie Doogan",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5174384",
+     "name": "Ally Sweeney",
+     "position": "G"
+    }
+   ]
+  },
+  "116": {
+   "KEY": [
+    {
+     "athlete_id": "4900510",
+     "name": "Jaedyn Jamison",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5109009",
+     "name": "Giana Hoddinott",
+     "position": "G"
+    }
+   ]
+  },
+  "259": {
+   "KEY": [
+    {
+     "athlete_id": "4683000",
+     "name": "Carleigh Wenzel",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174440",
+     "name": "Carys Baker",
+     "position": "F"
+    }
+   ]
+  },
+  "119": {
+   "KEY": [
+    {
+     "athlete_id": "5108882",
+     "name": "India Johnston",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178247",
+     "name": "Thalia Shepard",
+     "position": "G"
+    }
+   ]
+  },
+  "221": {
+   "KEY": [
+    {
+     "athlete_id": "5105422",
+     "name": "Fatima Diakhate",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5312405",
+     "name": "Theresa Hagans Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "2182": {
+   "KEY": [
+    {
+     "athlete_id": "4898936",
+     "name": "Amaris Baker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177761",
+     "name": "Laine McGurk",
+     "position": "G"
+    }
+   ]
+  },
+  "261": {
+   "KEY": [
+    {
+     "athlete_id": "5107682",
+     "name": "Keira Hanson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107684",
+     "name": "Nikola Priede",
+     "position": "C"
+    }
+   ]
+  },
+  "131682": {},
+  "2561": {
+   "KEY": [
+    {
+     "athlete_id": "5174370",
+     "name": "Nicole Melious",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313764",
+     "name": "Francesca Schiro",
+     "position": "G"
+    }
+   ]
+  },
+  "2142": {
+   "KEY": [
+    {
+     "athlete_id": "5109209",
+     "name": "Abbey Ferguson",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5176905",
+     "name": "Ella Meabon",
+     "position": "F"
+    }
+   ]
+  },
+  "399": {
+   "KEY": [
+    {
+     "athlete_id": "5240695",
+     "name": "Martina Borrellas",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240696",
+     "name": "Delanie Hill",
+     "position": "G"
+    }
+   ]
+  },
+  "2368": {
+   "KEY": [
+    {
+     "athlete_id": "4898498",
+     "name": "Lexie Tarul",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5109003",
+     "name": "Jackie Piddock",
+     "position": "G"
+    }
+   ]
+  },
+  "2752": {
+   "KEY": [
+    {
+     "athlete_id": "5174281",
+     "name": "Mariyah Noel",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240248",
+     "name": "Meri Kanerva",
+     "position": "G"
+    }
+   ]
+  },
+  "2441": {
+   "KEY": [
+    {
+     "athlete_id": "5185802",
+     "name": "Aniya McDonald-Perry",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5315218",
+     "name": "Lindsay Hogan",
+     "position": "G"
+    }
+   ]
+  },
+  "127": {
+   "KEY": [
+    {
+     "athlete_id": "5105731",
+     "name": "Grace VanSlooten",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5175696",
+     "name": "Kennedy Blair",
+     "position": "G"
+    }
+   ]
+  },
+  "2385": {
+   "KEY": [
+    {
+     "athlete_id": "5116565",
+     "name": "Jenna Van Schaik",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315195",
+     "name": "Sofia Wilson",
+     "position": "G"
+    }
+   ]
+  },
+  "2132": {
+   "KEY": [
+    {
+     "athlete_id": "5108533",
+     "name": "Mya Perry",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175480",
+     "name": "Reagan Jackson",
+     "position": "G"
+    }
+   ]
+  },
+  "2329": {
+   "KEY": [
+    {
+     "athlete_id": "5109220",
+     "name": "Lily Fandre",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5178555",
+     "name": "Gracyn Lovette",
+     "position": "G"
+    }
+   ]
+  },
+  "130": {
+   "KEY": [
+    {
+     "athlete_id": "5240183",
+     "name": "Olivia Olson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240185",
+     "name": "Syla Swords",
+     "position": "G"
+    }
+   ]
+  },
+  "2099": {
+   "KEY": [
+    {
+     "athlete_id": "5109397",
+     "name": "Franka Wittenberg",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241767",
+     "name": "Yasmine Djibril",
+     "position": "F"
+    }
+   ]
+  },
+  "356": {
+   "KEY": [
+    {
+     "athlete_id": "5240169",
+     "name": "Berry Wallace",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5311535",
+     "name": "Destiny Jackson",
+     "position": "G"
+    }
+   ]
+  },
+  "2546": {
+   "KEY": [
+    {
+     "athlete_id": "4909888",
+     "name": "Carmen Taylor",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107618",
+     "name": "Raissa Nsabua",
+     "position": "G"
+    }
+   ]
+  },
+  "338": {
+   "KEY": [
+    {
+     "athlete_id": "4683157",
+     "name": "Keyarah Berry",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175452",
+     "name": "Trynce Taylor",
+     "position": "F"
+    }
+   ]
+  },
+  "2560": {},
+  "183": {
+   "KEY": [
+    {
+     "athlete_id": "4433541",
+     "name": "Laila Phelia",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174431",
+     "name": "Sophie Burrows",
+     "position": "G"
+    }
+   ]
+  },
+  "2619": {
+   "KEY": [
+    {
+     "athlete_id": "5178540",
+     "name": "Sandra Frau Garcia",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240706",
+     "name": "Caitlin Frost",
+     "position": "F"
+    }
+   ]
+  },
+  "305": {
+   "KEY": [
+    {
+     "athlete_id": "5178415",
+     "name": "Kate Novik",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240901",
+     "name": "Devin Hagemann",
+     "position": "G"
+    }
+   ]
+  },
+  "2674": {
+   "KEY": [
+    {
+     "athlete_id": "5189367",
+     "name": "Mikayla Huffine",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314974",
+     "name": "Allia von Schlegell",
+     "position": "G"
+    }
+   ]
+  },
+  "258": {
+   "KEY": [
+    {
+     "athlete_id": "5105715",
+     "name": "Paris Clark",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174436",
+     "name": "Kymora Johnson",
+     "position": "G"
+    }
+   ]
+  },
+  "2415": {
+   "KEY": [
+    {
+     "athlete_id": "5177906",
+     "name": "Kailyn Nash",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5261304",
+     "name": "Mihjae Hayes",
+     "position": "PG"
+    }
+   ]
+  },
+  "71": {
+   "KEY": [
+    {
+     "athlete_id": "4899398",
+     "name": "Kaylen Nelson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240590",
+     "name": "Mya Wardle",
+     "position": "G"
+    }
+   ]
+  },
+  "546": {},
+  "2335": {
+   "KEY": [
+    {
+     "athlete_id": "5177070",
+     "name": "Elisabeth Aegisdottir",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5239909",
+     "name": "Emmy Stout",
+     "position": "C"
+    }
+   ]
+  },
+  "112702": {},
+  "2603": {
+   "KEY": [
+    {
+     "athlete_id": "5174386",
+     "name": "Aleah Snead",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174388",
+     "name": "Gabby Casey",
+     "position": "G"
+    }
+   ]
+  },
+  "223": {},
+  "2226": {
+   "KEY": [
+    {
+     "athlete_id": "4899768",
+     "name": "Jess Moors",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175038",
+     "name": "Grace Carstensen",
+     "position": "G"
+    }
+   ]
+  },
+  "2227": {},
+  "84": {
+   "KEY": [
+    {
+     "athlete_id": "4688629",
+     "name": "Shay Ciezki",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175680",
+     "name": "Lenee Beaumont",
+     "position": "G"
+    }
+   ]
+  },
+  "288": {
+   "KEY": [
+    {
+     "athlete_id": "5107445",
+     "name": "Molly Heard",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175044",
+     "name": "McKayla Miller",
+     "position": "G"
+    }
+   ]
+  },
+  "2550": {
+   "KEY": [
+    {
+     "athlete_id": "4683035",
+     "name": "Mariana Valenzuela",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5174942",
+     "name": "Savannah Catalon",
+     "position": "G"
+    }
+   ]
+  },
+  "2612": {
+   "KEY": [
+    {
+     "athlete_id": "5109022",
+     "name": "Louella Allana",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5109403",
+     "name": "Nikola Zdenkova",
+     "position": "F"
+    }
+   ]
+  },
+  "2507": {
+   "KEY": [
+    {
+     "athlete_id": "5107988",
+     "name": "Sabou Gueye",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240237",
+     "name": "Orlagh Gormley",
+     "position": "G"
+    }
+   ]
+  },
+  "47": {
+   "KEY": [
+    {
+     "athlete_id": "5105437",
+     "name": "Zennia Thomas",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5109361",
+     "name": "Zoe Stewart",
+     "position": "G"
+    }
+   ]
+  },
+  "304": {
+   "KEY": [
+    {
+     "athlete_id": "5107656",
+     "name": "Kacey Spink",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175989",
+     "name": "Alyse Aby",
+     "position": "G"
+    }
+   ]
+  },
+  "224": {},
+  "2771": {
+   "KEY": [
+    {
+     "athlete_id": "5106082",
+     "name": "Lydia Melaschenko",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178245",
+     "name": "Madison Roman",
+     "position": "F"
+    }
+   ]
+  },
+  "2660": {},
+  "248": {
+   "KEY": [
+    {
+     "athlete_id": "5107568",
+     "name": "TK Pitts",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176535",
+     "name": "Briana Peguero",
+     "position": "G"
+    }
+   ]
+  },
+  "250": {
+   "KEY": [
+    {
+     "athlete_id": "5108115",
+     "name": "Nya Threatt",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315728",
+     "name": "Kira Reynolds",
+     "position": "F"
+    }
+   ]
+  },
+  "8": {
+   "KEY": [
+    {
+     "athlete_id": "5178472",
+     "name": "Taleyah Jones",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178475",
+     "name": "Emily Robinson",
+     "position": "G"
+    }
+   ]
+  },
+  "2348": {
+   "KEY": [
+    {
+     "athlete_id": "5177806",
+     "name": "Jianna Morris",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239975",
+     "name": "Paris Bradley",
+     "position": "G"
+    }
+   ]
+  },
+  "99": {
+   "KEY": [
+    {
+     "athlete_id": "5174267",
+     "name": "Mikaylah Williams",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239081",
+     "name": "Jada Richard",
+     "position": "G"
+    }
+   ]
+  },
+  "2277": {
+   "KEY": [
+    {
+     "athlete_id": "5175424",
+     "name": "Jordan Jackson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241797",
+     "name": "Grace Booth",
+     "position": "G"
+    }
+   ]
+  },
+  "36": {
+   "KEY": [
+    {
+     "athlete_id": "5109390",
+     "name": "Hannah Ronsiek",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242455",
+     "name": "Brooke Carlson",
+     "position": "G"
+    }
+   ]
+  },
+  "2692": {
+   "KEY": [
+    {
+     "athlete_id": "5109760",
+     "name": "Hannah Robbins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175540",
+     "name": "Sydney White",
+     "position": "G"
+    }
+   ]
+  },
+  "2458": {
+   "KEY": [
+    {
+     "athlete_id": "5107717",
+     "name": "Gabi Fields",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241008",
+     "name": "Neenah George",
+     "position": "G"
+    }
+   ]
+  },
+  "3141": {},
+  "135": {
+   "KEY": [
+    {
+     "athlete_id": "4858666",
+     "name": "Mara Braun",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175701",
+     "name": "Grace Grocholski",
+     "position": "G"
+    }
+   ]
+  },
+  "155": {
+   "KEY": [
+    {
+     "athlete_id": "4910164",
+     "name": "Mackenzie Hughes",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241059",
+     "name": "Ava Miller",
+     "position": "F"
+    }
+   ]
+  },
+  "2710": {
+   "KEY": [
+    {
+     "athlete_id": "5109979",
+     "name": "Addi Brownfield",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5110061",
+     "name": "Mia Nicastro",
+     "position": "F"
+    }
+   ]
+  },
+  "111214": {},
+  "2751": {
+   "KEY": [
+    {
+     "athlete_id": "4898996",
+     "name": "Malene Pedersen",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107836",
+     "name": "Henna Sandvik",
+     "position": "G"
+    }
+   ]
+  },
+  "2608": {
+   "KEY": [
+    {
+     "athlete_id": "5240809",
+     "name": "Edie Clarke",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5240810",
+     "name": "Addi Wedin",
+     "position": "G"
+    }
+   ]
+  },
+  "149": {
+   "KEY": [
+    {
+     "athlete_id": "5240219",
+     "name": "Jocelyn Land",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5240991",
+     "name": "Avery Waddington",
+     "position": "G"
+    }
+   ]
+  },
+  "2548": {},
+  "147": {
+   "KEY": [
+    {
+     "athlete_id": "5176000",
+     "name": "Isobel Bunyan",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240996",
+     "name": "Taylee Chirrick",
+     "position": "G"
+    }
+   ]
+  },
+  "2104": {},
+  "2501": {
+   "KEY": [
+    {
+     "athlete_id": "5174320",
+     "name": "Dyani Ananiev",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174323",
+     "name": "Rhyan Mogel",
+     "position": "G"
+    }
+   ]
+  },
+  "2930": {},
+  "2463": {
+   "KEY": [
+    {
+     "athlete_id": "5240401",
+     "name": "Rita Nazario",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312872",
+     "name": "Saray White",
+     "position": "G"
+    }
+   ]
+  },
+  "2239": {
+   "KEY": [
+    {
+     "athlete_id": "5185753",
+     "name": "Kya Pearson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312884",
+     "name": "Cristina Jones",
+     "position": "F"
+    }
+   ]
+  },
+  "2492": {
+   "KEY": [
+    {
+     "athlete_id": "5177240",
+     "name": "Taija Sta. Maria",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242478",
+     "name": "Elli Guiney",
+     "position": "G"
+    }
+   ]
+  },
+  "30": {
+   "KEY": [
+    {
+     "athlete_id": "4698730",
+     "name": "Kara Dunn",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311754",
+     "name": "Jazzy Davidson",
+     "position": "G"
+    }
+   ]
+  },
+  "166": {
+   "KEY": [
+    {
+     "athlete_id": "5107990",
+     "name": "Lucia Yenes",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5177813",
+     "name": "Imani Warren",
+     "position": "G"
+    }
+   ]
+  },
+  "62": {
+   "KEY": [
+    {
+     "athlete_id": "5108733",
+     "name": "Imani Perez",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5312866",
+     "name": "Bailey Flavell",
+     "position": "G"
+    }
+   ]
+  },
+  "2502": {
+   "KEY": [
+    {
+     "athlete_id": "5176460",
+     "name": "Laynee Torres-Kahapea",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241014",
+     "name": "Kyleigh Brown",
+     "position": "G"
+    }
+   ]
+  },
+  "2489": {},
+  "2815": {
+   "KEY": [
+    {
+     "athlete_id": "5178277",
+     "name": "Brooke Coffey",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178395",
+     "name": "Mya Skoff",
+     "position": "G"
+    }
+   ]
+  },
+  "534": {},
+  "300": {
+   "KEY": [
+    {
+     "athlete_id": "4899725",
+     "name": "Hunter Hernandez",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105727",
+     "name": "Jada Wynn",
+     "position": "G"
+    }
+   ]
+  },
+  "2169": {
+   "KEY": [
+    {
+     "athlete_id": "5175528",
+     "name": "Nykesha Sanders",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178014",
+     "name": "Jermesha Frierson",
+     "position": "G"
+    }
+   ]
+  },
+  "131690": {},
+  "2670": {
+   "KEY": [
+    {
+     "athlete_id": "5239443",
+     "name": "Katarina Knezevic",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240700",
+     "name": "Cyriah Griffin",
+     "position": "G"
+    }
+   ]
+  },
+  "2379": {
+   "KEY": [
+    {
+     "athlete_id": "5109724",
+     "name": "Dakieran Turner",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5242662",
+     "name": "Kalise Hill",
+     "position": "G"
+    }
+   ]
+  },
+  "87": {
+   "KEY": [
+    {
+     "athlete_id": "4702867",
+     "name": "Vanessa de Jesus",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174674",
+     "name": "Hannah Hidalgo",
+     "position": "G"
+    }
+   ]
+  },
+  "2217": {
+   "KEY": [
+    {
+     "athlete_id": "5176861",
+     "name": "Kaety L'Amoreaux",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176862",
+     "name": "Meghan Andersen",
+     "position": "F"
+    }
+   ]
+  },
+  "2010": {
+   "KEY": [
+    {
+     "athlete_id": "4704060",
+     "name": "Kalia Walker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315609",
+     "name": "Vanessa Wimberly",
+     "position": "G"
+    }
+   ]
+  },
+  "2625": {},
+  "2344": {
+   "KEY": [
+    {
+     "athlete_id": "5175878",
+     "name": "Malea Brown",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240962",
+     "name": "Jasmine Peaks",
+     "position": "G"
+    }
+   ]
+  },
+  "124954": {},
+  "2261": {
+   "KEY": [
+    {
+     "athlete_id": "5106221",
+     "name": "Kayla Lezama",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177177",
+     "name": "Kiki McElrath",
+     "position": "G"
+    }
+   ]
+  },
+  "3111": {},
+  "2569": {
+   "KEY": [
+    {
+     "athlete_id": "5107993",
+     "name": "Mya Byrd",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5109833",
+     "name": "Shaunice Reed",
+     "position": "G"
+    }
+   ]
+  },
+  "571": {},
+  "111998": {},
+  "202": {
+   "KEY": [
+    {
+     "athlete_id": "5175401",
+     "name": "Mady Cartwright",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175790",
+     "name": "Jade Clack",
+     "position": "G"
+    }
+   ]
+  },
+  "275": {
+   "KEY": [
+    {
+     "athlete_id": "5108547",
+     "name": "Ronnie Porter",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178528",
+     "name": "Kyrah Daniels",
+     "position": "G"
+    }
+   ]
+  },
+  "2539": {
+   "KEY": [
+    {
+     "athlete_id": "5241784",
+     "name": "Candy Edokpaigbe",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314915",
+     "name": "Aina Cargol",
+     "position": "G"
+    }
+   ]
+  },
+  "2305": {
+   "KEY": [
+    {
+     "athlete_id": "5107835",
+     "name": "Lilly Meister",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5175749",
+     "name": "S'Mya Nichols",
+     "position": "G"
+    }
+   ]
+  },
+  "140": {
+   "KEY": [
+    {
+     "athlete_id": "5109861",
+     "name": "Zaire Harrell",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178434",
+     "name": "Elauni Bennett",
+     "position": "G"
+    }
+   ]
+  },
+  "98": {
+   "KEY": [
+    {
+     "athlete_id": "5106154",
+     "name": "Zsofia Telegdy",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5239998",
+     "name": "Torri James",
+     "position": "F"
+    }
+   ]
+  },
+  "2310": {},
+  "77": {
+   "KEY": [
+    {
+     "athlete_id": "4565529",
+     "name": "Caroline Lau",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5109201",
+     "name": "Grace Sullivan",
+     "position": "F"
+    }
+   ]
+  },
+  "245": {
+   "KEY": [
+    {
+     "athlete_id": "5106084",
+     "name": "Ny'Ceara Pryor",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174268",
+     "name": "Janae Kent",
+     "position": "G"
+    }
+   ]
+  },
+  "2351": {
+   "KEY": [
+    {
+     "athlete_id": "5107680",
+     "name": "Andjela Matic",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5184799",
+     "name": "Jess Lawson",
+     "position": "G"
+    }
+   ]
+  },
+  "252": {
+   "KEY": [
+    {
+     "athlete_id": "5313622",
+     "name": "Sydney Benally",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313624",
+     "name": "Olivia Hamlin",
+     "position": "G"
+    }
+   ]
+  },
+  "2439": {
+   "KEY": [
+    {
+     "athlete_id": "4704751",
+     "name": "Aaliyah Alexander",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178158",
+     "name": "Meadow Roland",
+     "position": "F"
+    }
+   ]
+  },
+  "59": {
+   "KEY": [
+    {
+     "athlete_id": "5106230",
+     "name": "Brianna Turnage",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240208",
+     "name": "Talayah Walker",
+     "position": "G"
+    }
+   ]
+  },
+  "2339": {},
+  "2640": {
+   "KEY": [
+    {
+     "athlete_id": "4704024",
+     "name": "Daeja Holmes",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175549",
+     "name": "Maci Quiller",
+     "position": "G"
+    }
+   ]
+  },
+  "2728": {},
+  "2225": {},
+  "339": {
+   "KEY": [
+    {
+     "athlete_id": "5242013",
+     "name": "Camryn Runner",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314928",
+     "name": "Sydney Huber",
+     "position": "G"
+    }
+   ]
+  },
+  "2400": {
+   "KEY": [
+    {
+     "athlete_id": "5243444",
+     "name": "Jaeda Murphy",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243445",
+     "name": "Janiya Jones",
+     "position": "G"
+    }
+   ]
+  },
+  "2628": {
+   "KEY": [
+    {
+     "athlete_id": "4433791",
+     "name": "Olivia Miles",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175915",
+     "name": "Donovyn Hunter",
+     "position": "G"
+    }
+   ]
+  },
+  "53": {},
+  "215": {},
+  "94": {
+   "KEY": [
+    {
+     "athlete_id": "5313062",
+     "name": "Taysha Rushton",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313065",
+     "name": "Karina Bystry",
+     "position": "G"
+    }
+   ]
+  },
+  "109466": {},
+  "2717": {
+   "KEY": [
+    {
+     "athlete_id": "4898985",
+     "name": "Ary Dizon",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5174741",
+     "name": "Ally Hollifield",
+     "position": "G"
+    }
+   ]
+  },
+  "3229": {},
+  "2520": {
+   "KEY": [
+    {
+     "athlete_id": "5178129",
+     "name": "Aliya McIver",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313620",
+     "name": "Aina Perez Mesquida",
+     "position": "G"
+    }
+   ]
+  },
+  "2683": {},
+  "46": {
+   "KEY": [
+    {
+     "athlete_id": "4691700",
+     "name": "Laila Jewett",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174735",
+     "name": "Khia Miller",
+     "position": "G"
+    }
+   ]
+  },
+  "2729": {
+   "KEY": [
+    {
+     "athlete_id": "5177803",
+     "name": "Monet Dance",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177804",
+     "name": "Cassidy Geddes",
+     "position": "G"
+    }
+   ]
+  },
+  "2636": {
+   "KEY": [
+    {
+     "athlete_id": "5108035",
+     "name": "Cheyenne Rowe",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5108300",
+     "name": "Ereauna Hardaway",
+     "position": "PG"
+    }
+   ]
+  },
+  "2325": {
+   "KEY": [
+    {
+     "athlete_id": "5110060",
+     "name": "Ashleigh Connor",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174373",
+     "name": "Aryss Macktoon",
+     "position": "G"
+    }
+   ]
+  },
+  "2369": {},
+  "2215": {},
+  "2324": {},
+  "12": {
+   "KEY": [
+    {
+     "athlete_id": "5108598",
+     "name": "Noelani Cornfield",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177875",
+     "name": "Sumayah Sugapong",
+     "position": "G"
+    }
+   ]
+  },
+  "38": {
+   "KEY": [
+    {
+     "athlete_id": "4565512",
+     "name": "Zyanna Walker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5110056",
+     "name": "Anaelle Dutat",
+     "position": "F"
+    }
+   ]
+  },
+  "3148": {},
+  "2730": {},
+  "219": {
+   "KEY": [
+    {
+     "athlete_id": "5176438",
+     "name": "Mataya Gayle",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241866",
+     "name": "Katie Collins",
+     "position": "F"
+    }
+   ]
+  },
+  "247": {},
+  "2109": {},
+  "315": {
+   "KEY": [
+    {
+     "athlete_id": "5242092",
+     "name": "Talia Dial",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5313609",
+     "name": "Chasity Wilson",
+     "position": "G"
+    }
+   ]
+  },
+  "204": {
+   "KEY": [
+    {
+     "athlete_id": "5175913",
+     "name": "Kennedie Shuler",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175980",
+     "name": "Jenna Villa",
+     "position": "G"
+    }
+   ]
+  },
+  "3106": {},
+  "171": {
+   "KEY": [
+    {
+     "athlete_id": "5108934",
+     "name": "Perri Page",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176366",
+     "name": "Riley Weiss",
+     "position": "G"
+    }
+   ]
+  },
+  "172": {
+   "KEY": [
+    {
+     "athlete_id": "5176410",
+     "name": "Clarke Jackson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241812",
+     "name": "Kelsey Langston",
+     "position": "G"
+    }
+   ]
+  },
+  "43": {
+   "KEY": [
+    {
+     "athlete_id": "5108958",
+     "name": "Kiley Capstraw",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5241578",
+     "name": "Ciniya Moore",
+     "position": "G"
+    }
+   ]
+  },
+  "2170": {},
+  "93": {
+   "KEY": [
+    {
+     "athlete_id": "5177987",
+     "name": "Halli Poock",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178282",
+     "name": "Keslyn Secrist",
+     "position": "G"
+    }
+   ]
+  },
+  "159": {
+   "KEY": [
+    {
+     "athlete_id": "5180453",
+     "name": "Alexandra Eldredge",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241816",
+     "name": "Zeynep Ozel",
+     "position": "G"
+    }
+   ]
+  },
+  "2207": {},
+  "109546": {},
+  "2404": {},
+  "2426": {
+   "KEY": [
+    {
+     "athlete_id": "5178565",
+     "name": "Zanai Barnett-Gay",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315347",
+     "name": "Zoe Mesuch",
+     "position": "G"
+    }
+   ]
+  },
+  "311": {
+   "KEY": [
+    {
+     "athlete_id": "4898966",
+     "name": "Adrianna Smith",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5108015",
+     "name": "Asta Blauenfeldt",
+     "position": "G"
+    }
+   ]
+  },
+  "14": {},
+  "175": {},
+  "225": {
+   "KEY": [
+    {
+     "athlete_id": "5108926",
+     "name": "Grace Arnolie",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176328",
+     "name": "Olivia Young",
+     "position": "G"
+    }
+   ]
+  },
+  "2358": {},
+  "3166": {},
+  "108": {
+   "KEY": [
+    {
+     "athlete_id": "4566914",
+     "name": "Katie Krupa",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5176435",
+     "name": "Abigail Wright",
+     "position": "F"
+    }
+   ]
+  },
+  "328": {
+   "KEY": [
+    {
+     "athlete_id": "5107526",
+     "name": "Karyn Sanford",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242484",
+     "name": "Elise Livingston",
+     "position": "G"
+    }
+   ]
+  },
+  "242": {
+   "KEY": [
+    {
+     "athlete_id": "5108318",
+     "name": "Dominique Ennis",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108319",
+     "name": "Hailey Adams",
+     "position": "G"
+    }
+   ]
+  },
+  "2250": {
+   "KEY": [
+    {
+     "athlete_id": "5204742",
+     "name": "Lauren Whittaker",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5240787",
+     "name": "Allie Turner",
+     "position": "G"
+    }
+   ]
+  },
+  "299": {
+   "KEY": [
+    {
+     "athlete_id": "5108734",
+     "name": "Kennan Ka",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5240763",
+     "name": "JaQuoia Jones-Brown",
+     "position": "G"
+    }
+   ]
+  },
+  "2174": {
+   "KEY": [
+    {
+     "athlete_id": "4903077",
+     "name": "Jasmine Edwards",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5240562",
+     "name": "Nisea Burrell",
+     "position": "G"
+    }
+   ]
+  },
+  "2444": {},
+  "2129": {},
+  "122210": {},
+  "2911": {},
+  "2213": {},
+  "3101": {
+   "KEY": [
+    {
+     "athlete_id": "4900574",
+     "name": "Kaylee Borden",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107757",
+     "name": "Chardonnay Hartley",
+     "position": "G"
+    }
+   ]
+  },
+  "2320": {
+   "KEY": [
+    {
+     "athlete_id": "5177966",
+     "name": "Jacei Denley",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243227",
+     "name": "Kamryn Wilson",
+     "position": "G"
+    }
+   ]
+  },
+  "23": {
+   "KEY": [
+    {
+     "athlete_id": "5177868",
+     "name": "Allie Cummins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178152",
+     "name": "Maya Anderson",
+     "position": "G"
+    }
+   ]
+  },
+  "2716": {},
+  "44": {
+   "KEY": [
+    {
+     "athlete_id": "5242705",
+     "name": "Molly Driscoll",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314864",
+     "name": "Charlotte Tuhy",
+     "position": "F"
+    }
+   ]
+  },
+  "526": {
+   "KEY": [
+    {
+     "athlete_id": "5107402",
+     "name": "Cerina Rolle",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240189",
+     "name": "Sinai Douglas",
+     "position": "G"
+    }
+   ]
+  },
+  "194": {
+   "KEY": [
+    {
+     "athlete_id": "5105729",
+     "name": "Chance Gray",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239683",
+     "name": "Jaloni Cambridge",
+     "position": "G"
+    }
+   ]
+  },
+  "2054": {},
+  "3092": {},
+  "2327": {},
+  "163": {
+   "KEY": [
+    {
+     "athlete_id": "5176453",
+     "name": "Skye Belker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176454",
+     "name": "Ashley Chea",
+     "position": "G"
+    }
+   ]
+  },
+  "2839": {},
+  "2888": {},
+  "2905": {},
+  "330": {},
+  "3152": {},
+  "22": {},
+  "2152": {},
+  "568": {},
+  "2682": {},
+  "2211": {},
+  "3195": {},
+  "2854": {},
+  "108827": {},
+  "63": {},
+  "2703": {},
+  "2013": {},
+  "2699": {},
+  "2424": {},
+  "3174": {},
+  "2871": {},
+  "2347": {},
+  "111228": {},
+  "492": {},
+  "106392": {},
+  "408": {},
+  "3082": {},
+  "131731": {},
+  "109542": {},
+  "2551": {},
+  "2726": {},
+  "2498": {},
+  "2027": {},
+  "3091": {},
+  "387": {},
+  "3178": {},
+  "128474": {},
+  "2606": {},
+  "3120": {},
+  "2637": {},
+  "495": {},
+  "2133": {},
+  "2245": {},
+  "2943": {},
+  "2778": {},
+  "2736": {},
+  "2219": {},
+  "131664": {},
+  "110442": {},
+  "123387": {},
+  "2102": {},
+  "118": {},
+  "108810": {},
+  "2326": {},
+  "2650": {},
+  "100": {},
+  "131833": {},
+  "130129": {},
+  "108866": {},
+  "2948": {},
+  "2518": {},
+  "1": {},
+  "108823": {},
+  "117": {},
+  "121702": {},
+  "126823": {},
+  "2153": {},
+  "2475": {},
+  "411": {},
+  "2123": {},
+  "128307": {},
+  "2410": {},
+  "111203": {},
+  "3163": {},
+  "2281": {},
+  "123310": {},
+  "613": {},
+  "2023": {},
+  "2842": {},
+  "2528": {},
+  "111994": {},
+  "131817": {},
+  "2094": {},
+  "110398": {},
+  "3083": {},
+  "2744": {},
+  "2019": {},
+  "2820": {},
+  "2040": {},
+  "2892": {},
+  "418": {},
+  "112102": {},
+  "241": {},
+  "2866": {},
+  "191": {},
+  "2474": {},
+  "109019": {},
+  "2657": {},
+  "2595": {},
+  "502": {},
+  "2940": {},
+  "5793": {},
+  "2206": {},
+  "2645": {},
+  "109604": {},
+  "2882": {},
+  "130174": {},
+  "2396": {},
+  "2701": {},
+  "2389": {},
+  "2374": {},
+  "2077": {},
+  "2568": {},
+  "15252": {},
+  "509": {},
+  "2176": {},
+  "126756": {},
+  "2167": {},
+  "2267": {},
+  "109704": {},
+  "2573": {},
+  "109680": {},
+  "107607": {},
+  "131653": {},
+  "2345": {},
+  "130132": {},
+  "2891": {},
+  "3233": {},
+  "123311": {},
+  "2658": {},
+  "2299": {},
+  "2148": {},
+  "144": {},
+  "499": {},
+  "2242": {},
+  "111960": {},
+  "110419": {},
+  "458": {},
+  "463": {},
+  "126757": {},
+  "130137": {},
+  "131": {},
+  "561": {},
+  "2862": {},
+  "123": {},
+  "214": {},
+  "2503": {},
+  "2667": {},
+  "2654": {},
+  "2741": {},
+  "366": {},
+  "108867": {},
+  "316": {},
+  "2877": {},
+  "2848": {},
+  "2889": {},
+  "126864": {},
+  "3065": {},
+  "2163": {},
+  "128567": {},
+  "2757": {},
+  "3077": {},
+  "123309": {},
+  "121690": {},
+  "2947": {},
+  "3105": {},
+  "7052": {},
+  "2913": {},
+  "131773": {},
+  "131775": {},
+  "116335": {},
+  "109688": {},
+  "2201": {},
+  "131667": {},
+  "590": {},
+  "109672": {},
+  "3154": {},
+  "2931": {},
+  "121697": {},
+  "2047": {},
+  "3185": {},
+  "2576": {},
+  "109716": {},
+  "286": {},
+  "131604": {},
+  "131832": {},
+  "111205": {}
+ }
+}

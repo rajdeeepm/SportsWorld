@@ -1,0 +1,16 @@
+{
+  "version": "latent_state_dynamics_demo_v1",
+  "data_mode": "synthetic_demo",
+  "dimensions": [
+    "skill",
+    "form",
+    "health",
+    "usage",
+    "experience",
+    "potential",
+    "chemistry",
+    "coaching"
+  ],
+  "training_sequences": 384,
+  "warning": "Synthetic demo dynamics only. Refit on real longitudinal point-in-time entity evidence before empirical claims."
+}

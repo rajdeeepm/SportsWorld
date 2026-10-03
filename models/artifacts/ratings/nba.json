@@ -1,0 +1,20 @@
+{
+  "league": "nba",
+  "params": {
+    "hfa": 2.0833333333333335,
+    "obs_sd": 12.5,
+    "q": 0.032552083333333336,
+    "rho": 0.4,
+    "season_var": 5.425347222222223,
+    "init_var": 126.5625,
+    "newcomer_mean": 0.0
+  },
+  "mean_predictive_loglik": -3.9814010554665957,
+  "n_games": 10056,
+  "fit_window": {
+    "end": "2023-04-22T19:30:00+00:00"
+  },
+  "data_mode": "real_espn",
+  "ep_coef": null,
+  "ep_fit": null
+}

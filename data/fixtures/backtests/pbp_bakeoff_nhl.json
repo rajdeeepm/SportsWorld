@@ -1,0 +1,83 @@
+{
+ "league": "nhl",
+ "rows": 339443,
+ "games": 4214,
+ "train": 203133,
+ "calibration": 69029,
+ "test": 67281,
+ "stride": 4,
+ "models": {
+  "logistic_bootstrap": {
+   "log_loss": 0.52533,
+   "brier": 0.35823,
+   "ece": 0.01964,
+   "accuracy": 0.69974,
+   "n": 67281,
+   "temperature": 0.93,
+   "in_game_only": {
+    "log_loss": 0.52331,
+    "brier": 0.35654,
+    "ece": 0.01956,
+    "accuracy": 0.70188,
+    "n": 66444
+   }
+  },
+  "mlp": {
+   "log_loss": 0.51942,
+   "brier": 0.3562,
+   "ece": 0.01954,
+   "accuracy": 0.70434,
+   "n": 67281,
+   "temperature": 1.107,
+   "in_game_only": {
+    "log_loss": 0.51731,
+    "brier": 0.35447,
+    "ece": 0.01927,
+    "accuracy": 0.70658,
+    "n": 66444
+   },
+   "device": "cuda:0"
+  },
+  "gru_sequence": {
+   "log_loss": 0.52032,
+   "brier": 0.35769,
+   "ece": 0.02408,
+   "accuracy": 0.70192,
+   "n": 67281,
+   "temperature": 1.107,
+   "in_game_only": {
+    "log_loss": 0.51822,
+    "brier": 0.35598,
+    "ece": 0.02399,
+    "accuracy": 0.70395,
+    "n": 66444
+   }
+  }
+ },
+ "paired_game_bootstrap": {
+  "mlp - logistic_bootstrap": {
+   "mean": -0.00591,
+   "ci95": [
+    -0.01127,
+    -0.0008
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.988,
+   "games": 837
+  },
+  "gru_sequence - logistic_bootstrap": {
+   "mean": -0.00501,
+   "ci95": [
+    -0.01175,
+    0.00162
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.9213,
+   "games": 837
+  }
+ },
+ "data_fingerprint": {
+  "rows": 339443,
+  "games": 4214,
+  "hash": "a5d3afd59eb6c6ff"
+ },
+ "runtime_s": 90.1
+}

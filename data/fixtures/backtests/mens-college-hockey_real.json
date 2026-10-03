@@ -1,0 +1,451 @@
+{
+  "run_id": "hockey-mens_college_hockey_bootstrap_real_v1-129fe526",
+  "sport": "hockey",
+  "competition": "mens-college-hockey",
+  "model_version": "mens_college_hockey_bootstrap_real_v1",
+  "feature_schema_version": "league_features_v2_real",
+  "train_window": {
+    "start": "2023-10-07T20:00:00+00:00",
+    "end": "2025-02-16T01:00:00+00:00"
+  },
+  "calibration_window": {
+    "start": "2025-02-15T23:05:00+00:00",
+    "end": "2025-12-06T02:00:00+00:00"
+  },
+  "test_window": {
+    "start": "2025-12-06T00:05:00+00:00",
+    "end": "2026-10-03T05:07:00+00:00"
+  },
+  "split_method": "chronological_holdout",
+  "prediction_horizons": [
+    "pregame",
+    "in_game"
+  ],
+  "sample_counts": {
+    "train": 5781,
+    "calibration": 1969,
+    "test": 1878
+  },
+  "metrics": {
+    "brier": 0.3359600500170932,
+    "log_loss": 0.4961946765551827,
+    "ece": 0.008616030553824408,
+    "accuracy": 0.7401490947816827,
+    "interval_width": 0.03419695420553358
+  },
+  "baselines": {
+    "empirical_base_rate": {
+      "brier": 0.48853250550322797,
+      "log_loss": 0.6816387618473612,
+      "ece": 0.012069117020447773,
+      "accuracy": 0.5766773162939297
+    },
+    "kalman_state_space_only": {
+      "brier": 0.33452960188467734,
+      "log_loss": 0.4944609272181665,
+      "ece": 0.02615995558021359,
+      "accuracy": 0.7369542066027689
+    },
+    "model_selection_calibration_window": {
+      "learned_log_loss": 0.4978216510603993,
+      "kalman_log_loss": 0.4972081607682059
+    },
+    "kalman_state_space_only_pregame": {
+      "brier": 0.4253817160949549,
+      "log_loss": 0.6136273572916368,
+      "ece": 0.04414744553262148,
+      "accuracy": 0.6533546325878594
+    }
+  },
+  "ablations": [
+    {
+      "stage": "A0",
+      "label": "A0 home field only",
+      "feature_count": 1,
+      "brier": 0.4916280254035534,
+      "log_loss": 0.6847629263367737,
+      "ece": 0.040991413209248484,
+      "accuracy": 0.5766773162939297
+    },
+    {
+      "stage": "A1",
+      "label": "A1 + latent rating state (Kalman mean/var, prior season)",
+      "feature_count": 4,
+      "brier": 0.42557669334394094,
+      "log_loss": 0.6133293827985474,
+      "ece": 0.021613233928764682,
+      "accuracy": 0.6565495207667732
+    },
+    {
+      "stage": "A2",
+      "label": "A2 + form / rest context",
+      "feature_count": 6,
+      "brier": 0.4240743180356186,
+      "log_loss": 0.6117789831799201,
+      "ece": 0.03784633335853252,
+      "accuracy": 0.6517571884984026
+    },
+    {
+      "stage": "A3",
+      "label": "A3 + live game state",
+      "feature_count": 10,
+      "brier": 0.33628148761536514,
+      "log_loss": 0.49655679834047134,
+      "ece": 0.009936911812347266,
+      "accuracy": 0.740681576144835
+    }
+  ],
+  "slices": [
+    {
+      "name": "pregame",
+      "count": 626,
+      "brier": 0.42503260031819484,
+      "log_loss": 0.6130232514778812,
+      "ece": 0.02334572850341099,
+      "accuracy": 0.6565495207667732
+    },
+    {
+      "name": "in_game",
+      "count": 1252,
+      "brier": 0.2914237748665424,
+      "log_loss": 0.43778038909383354,
+      "ece": 0.016174288046018823,
+      "accuracy": 0.7819488817891374
+    },
+    {
+      "name": "neutral_site",
+      "count": 135,
+      "brier": 0.2879997662980246,
+      "log_loss": 0.4297312585659452,
+      "ece": 0.06653384776514563,
+      "accuracy": 0.7555555555555555
+    },
+    {
+      "name": "home_underdog",
+      "count": 441,
+      "brier": 0.3322595094512178,
+      "log_loss": 0.49170098435892035,
+      "ece": 0.02634673380965295,
+      "accuracy": 0.764172335600907
+    },
+    {
+      "name": "close_late",
+      "count": 0,
+      "status": "insufficient sample"
+    },
+    {
+      "name": "new_team (<=3 games rated)",
+      "count": 3,
+      "brier": 0.6389104691530494,
+      "log_loss": 0.8374996362150267,
+      "ece": 0.30222653094100455,
+      "accuracy": 0.3333333333333333
+    },
+    {
+      "name": "final_2_minutes",
+      "count": 0,
+      "status": "insufficient sample"
+    }
+  ],
+  "leakage_violations": 0,
+  "reliability": [
+    {
+      "bin_low": 0.0,
+      "bin_high": 0.1,
+      "count": 129,
+      "mean_prediction": 0.03892200735216065,
+      "observed_frequency": 0.031007751937984496
+    },
+    {
+      "bin_low": 0.1,
+      "bin_high": 0.2,
+      "count": 114,
+      "mean_prediction": 0.1494204866250971,
+      "observed_frequency": 0.20175438596491227
+    },
+    {
+      "bin_low": 0.2,
+      "bin_high": 0.30000000000000004,
+      "count": 108,
+      "mean_prediction": 0.25529015784980913,
+      "observed_frequency": 0.3148148148148148
+    },
+    {
+      "bin_low": 0.30000000000000004,
+      "bin_high": 0.4,
+      "count": 179,
+      "mean_prediction": 0.3521767979753622,
+      "observed_frequency": 0.29608938547486036
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.5,
+      "count": 203,
+      "mean_prediction": 0.4533933874227426,
+      "observed_frequency": 0.4876847290640394
+    },
+    {
+      "bin_low": 0.5,
+      "bin_high": 0.6000000000000001,
+      "count": 189,
+      "mean_prediction": 0.5511678758771821,
+      "observed_frequency": 0.5608465608465608
+    },
+    {
+      "bin_low": 0.6000000000000001,
+      "bin_high": 0.7000000000000001,
+      "count": 247,
+      "mean_prediction": 0.6522327792749257,
+      "observed_frequency": 0.6072874493927125
+    },
+    {
+      "bin_low": 0.7000000000000001,
+      "bin_high": 0.8,
+      "count": 247,
+      "mean_prediction": 0.7436657790988945,
+      "observed_frequency": 0.757085020242915
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.9,
+      "count": 191,
+      "mean_prediction": 0.8528745525484419,
+      "observed_frequency": 0.8638743455497382
+    },
+    {
+      "bin_low": 0.9,
+      "bin_high": 1.0,
+      "count": 271,
+      "mean_prediction": 0.9594574485489772,
+      "observed_frequency": 0.966789667896679
+    }
+  ],
+  "rolling": [
+    {
+      "period": "2025-12",
+      "count": 225,
+      "brier": 0.29484145102015247,
+      "log_loss": 0.44476743876723895
+    },
+    {
+      "period": "2026-01",
+      "count": 651,
+      "brier": 0.31823927440054256,
+      "log_loss": 0.47238582766717396
+    },
+    {
+      "period": "2026-02",
+      "count": 595,
+      "brier": 0.37672890160972206,
+      "log_loss": 0.5504666614806641
+    },
+    {
+      "period": "2026-03",
+      "count": 356,
+      "brier": 0.33392194735973896,
+      "log_loss": 0.4920145069800119
+    },
+    {
+      "period": "2026-04",
+      "count": 9,
+      "brier": 0.5104600590060944,
+      "log_loss": 0.6901719821389758
+    },
+    {
+      "period": "2026-10",
+      "count": 42,
+      "brier": 0.23323403735492906,
+      "log_loss": 0.36574712217961974
+    }
+  ],
+  "drift": [
+    {
+      "feature": "rating_uncertainty",
+      "psi": 5.519415986918611,
+      "level": "high"
+    },
+    {
+      "feature": "prior_season_rating_diff",
+      "psi": 0.7034077671211945,
+      "level": "high"
+    },
+    {
+      "feature": "rating_diff",
+      "psi": 0.06481242472581493,
+      "level": "low"
+    },
+    {
+      "feature": "form_diff",
+      "psi": 0.030144917232403555,
+      "level": "low"
+    },
+    {
+      "feature": "rest_diff",
+      "psi": 0.006056202810765432,
+      "level": "low"
+    },
+    {
+      "feature": "live_margin_z",
+      "psi": 0.00392330209036308,
+      "level": "low"
+    },
+    {
+      "feature": "score_margin_scaled",
+      "psi": 0.002236283693328173,
+      "level": "low"
+    },
+    {
+      "feature": "margin_time_interaction",
+      "psi": 0.00020224461833260815,
+      "level": "low"
+    },
+    {
+      "feature": "home_field",
+      "psi": 0.0,
+      "level": "low"
+    },
+    {
+      "feature": "game_elapsed",
+      "psi": 0.0,
+      "level": "low"
+    }
+  ],
+  "errors": [
+    {
+      "event_id": "mens-college-hockey-401822101",
+      "prediction_time": "2025-12-07T04:00:00+00:00",
+      "home_probability": 0.948429643874682,
+      "target_home_win": 0,
+      "confidence": 0.948429643874682,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-hockey-401822123",
+      "prediction_time": "2026-02-14T02:10:00+00:00",
+      "home_probability": 0.9462565899986023,
+      "target_home_win": 0,
+      "confidence": 0.9462565899986023,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-hockey-401821475",
+      "prediction_time": "2026-02-14T01:00:00+00:00",
+      "home_probability": 0.06314535049777462,
+      "target_home_win": 1,
+      "confidence": 0.9368546495022254,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "mens-college-hockey-401822030",
+      "prediction_time": "2026-02-01T02:00:00+00:00",
+      "home_probability": 0.9354897035749261,
+      "target_home_win": 0,
+      "confidence": 0.9354897035749261,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-hockey-401822064",
+      "prediction_time": "2026-02-07T22:00:00+00:00",
+      "home_probability": 0.9299009136832878,
+      "target_home_win": 0,
+      "confidence": 0.9299009136832878,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-hockey-401821858",
+      "prediction_time": "2026-02-07T02:00:00+00:00",
+      "home_probability": 0.07030467573548008,
+      "target_home_win": 1,
+      "confidence": 0.9296953242645198,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "mens-college-hockey-401821621",
+      "prediction_time": "2026-01-25T00:07:00+00:00",
+      "home_probability": 0.9227616974902407,
+      "target_home_win": 0,
+      "confidence": 0.9227616974902407,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-hockey-401822064",
+      "prediction_time": "2026-02-07T21:00:00+00:00",
+      "home_probability": 0.9225364066601974,
+      "target_home_win": 0,
+      "confidence": 0.9225364066601974,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-hockey-401822122",
+      "prediction_time": "2026-01-25T03:37:00+00:00",
+      "home_probability": 0.921707656844326,
+      "target_home_win": 0,
+      "confidence": 0.921707656844326,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-hockey-401821914",
+      "prediction_time": "2026-01-24T02:00:00+00:00",
+      "home_probability": 0.917638243400159,
+      "target_home_win": 0,
+      "confidence": 0.917638243400159,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-hockey-401821732",
+      "prediction_time": "2026-02-07T01:05:00+00:00",
+      "home_probability": 0.09449654448886578,
+      "target_home_win": 1,
+      "confidence": 0.9055034555111343,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "mens-college-hockey-401822030",
+      "prediction_time": "2026-02-01T01:00:00+00:00",
+      "home_probability": 0.9045943458370134,
+      "target_home_win": 0,
+      "confidence": 0.9045943458370134,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    }
+  ],
+  "data_mode": "real_espn",
+  "created_at": "2026-10-03T08:16:11.275933Z",
+  "git_commit": "unknown",
+  "data_snapshot_hash": "129fe5266dc9f5ed"
+}

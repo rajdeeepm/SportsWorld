@@ -1,0 +1,20 @@
+{
+  "league": "mens-college-hockey",
+  "params": {
+    "hfa": 0.2,
+    "obs_sd": 2.3400000000000003,
+    "q": 0.0,
+    "rho": 0.7,
+    "season_var": 0.23472222222222225,
+    "init_var": 5.475600000000002,
+    "newcomer_mean": 0.0
+  },
+  "mean_predictive_loglik": -2.2886744217276807,
+  "n_games": 3505,
+  "fit_window": {
+    "end": "2025-02-15T23:00:00+00:00"
+  },
+  "data_mode": "real_espn",
+  "ep_coef": null,
+  "ep_fit": null
+}

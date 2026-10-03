@@ -1,0 +1,51 @@
+{
+  "model_version": "f1_conditional_softmax_world_demo_v1",
+  "sport": "f1",
+  "competition": null,
+  "algorithm": "bootstrap_conditional_softmax",
+  "feature_schema_version": "f1_features_v3_learned_world",
+  "features": [
+    "position_advantage",
+    "progress_position",
+    "pace_advantage",
+    "reliability_log",
+    "wet_interaction",
+    "pit_penalty",
+    "tyre_penalty",
+    "penalty_penalty",
+    "context_adjustment",
+    "latent_skill",
+    "latent_form",
+    "latent_health",
+    "latent_experience",
+    "latent_potential",
+    "safety_car_position_relief"
+  ],
+  "train_window": {
+    "start": "2024-01-01T12:01:34.063745Z",
+    "end": "2025-12-31T12:13:06.618250Z"
+  },
+  "calibration_window": {
+    "start": "2026-01-01T12:08:35.174966Z",
+    "end": "2026-04-30T12:15:47.413904Z"
+  },
+  "test_window": {
+    "start": "2026-05-01T14:57:30.869152Z",
+    "end": "2027-04-14T14:28:06.388744Z"
+  },
+  "artifact_uri": "f1_conditional_softmax_world_demo_v1.json",
+  "calibration_version": "f1_conditional_softmax_world_demo_v1_temperature_v1",
+  "metrics": {
+    "brier": 0.39155197414293114,
+    "log_loss": 0.6935483508742462,
+    "ece": 0.04578333530031409,
+    "accuracy": 0.7335243553008596,
+    "interval_coverage": 0.44126074498567336,
+    "interval_width": 0.04293433141426628
+  },
+  "data_mode": "synthetic_demo",
+  "notes": [
+    "Shared learned driver scorer supports variable F1 outcome sets and combines live race state with learned latent driver state.",
+    "Synthetic demo artifact; replace with real chronological race history before empirical claims."
+  ]
+}

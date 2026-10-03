@@ -1,0 +1,63 @@
+{
+  "kind": "linear_gaussian_latent_state",
+  "version": "latent_state_dynamics_demo_v1",
+  "data_mode": "synthetic_demo",
+  "dimensions": {
+    "chemistry": {
+      "phi": 0.93,
+      "process_var": 0.015,
+      "observation_var": 0.085,
+      "prior_var": 0.3,
+      "time_unit_days": 14.0
+    },
+    "coaching": {
+      "phi": 0.88,
+      "process_var": 0.035,
+      "observation_var": 0.085,
+      "prior_var": 0.28,
+      "time_unit_days": 30.0
+    },
+    "experience": {
+      "phi": 0.93,
+      "process_var": 0.006,
+      "observation_var": 0.085,
+      "prior_var": 0.18,
+      "time_unit_days": 30.0
+    },
+    "form": {
+      "phi": 0.88,
+      "process_var": 0.035,
+      "observation_var": 0.085,
+      "prior_var": 0.3,
+      "time_unit_days": 7.0
+    },
+    "health": {
+      "phi": 0.72,
+      "process_var": 0.07,
+      "observation_var": 0.085,
+      "prior_var": 0.35,
+      "time_unit_days": 7.0
+    },
+    "potential": {
+      "phi": 0.96,
+      "process_var": 0.006,
+      "observation_var": 0.13,
+      "prior_var": 0.28,
+      "time_unit_days": 30.0
+    },
+    "skill": {
+      "phi": 0.93,
+      "process_var": 0.006,
+      "observation_var": 0.085,
+      "prior_var": 0.2,
+      "time_unit_days": 30.0
+    },
+    "usage": {
+      "phi": 0.8,
+      "process_var": 0.07,
+      "observation_var": 0.05,
+      "prior_var": 0.3,
+      "time_unit_days": 7.0
+    }
+  }
+}

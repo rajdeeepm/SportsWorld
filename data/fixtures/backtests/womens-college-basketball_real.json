@@ -1,0 +1,454 @@
+{
+  "run_id": "basketball-womens_college_basketball_bootstrap_real_v1-ef923c0a",
+  "sport": "basketball",
+  "competition": "womens-college-basketball",
+  "model_version": "womens_college_basketball_bootstrap_real_v1",
+  "feature_schema_version": "league_features_v2_real",
+  "train_window": {
+    "start": "2022-11-07T16:00:00+00:00",
+    "end": "2025-01-03T02:15:00+00:00"
+  },
+  "calibration_window": {
+    "start": "2025-01-03T00:30:00+00:00",
+    "end": "2025-11-28T22:15:00+00:00"
+  },
+  "test_window": {
+    "start": "2025-11-28T20:30:00+00:00",
+    "end": "2026-04-05T21:45:00+00:00"
+  },
+  "split_method": "chronological_holdout",
+  "prediction_horizons": [
+    "pregame",
+    "in_game"
+  ],
+  "sample_counts": {
+    "train": 57040,
+    "calibration": 18844,
+    "test": 18964
+  },
+  "metrics": {
+    "brier": 0.2442848146102182,
+    "log_loss": 0.37253459436613784,
+    "ece": 0.012183084817885242,
+    "accuracy": 0.8164416789706813,
+    "interval_width": 0.007493506698867262
+  },
+  "baselines": {
+    "empirical_base_rate": {
+      "brier": 0.48430752961797807,
+      "log_loss": 0.6775900014096957,
+      "ece": 0.04332759523987728,
+      "accuracy": 0.5986078886310905
+    },
+    "kalman_state_space_only": {
+      "brier": 0.24303289854564322,
+      "log_loss": 0.37423202635764585,
+      "ece": 0.025381589934453518,
+      "accuracy": 0.818709133094284
+    },
+    "model_selection_calibration_window": {
+      "learned_log_loss": 0.3714178510665038,
+      "kalman_log_loss": 0.37650444667128463
+    },
+    "kalman_state_space_only_pregame": {
+      "brier": 0.3035199155696771,
+      "log_loss": 0.45582112469137837,
+      "ece": 0.018822613454784518,
+      "accuracy": 0.7633410672853829
+    }
+  },
+  "ablations": [
+    {
+      "stage": "A0",
+      "label": "A0 home field only",
+      "feature_count": 1,
+      "brier": 0.48300408933275213,
+      "log_loss": 0.6761448458150827,
+      "ece": 0.03607838985263411,
+      "accuracy": 0.5986078886310905
+    },
+    {
+      "stage": "A1",
+      "label": "A1 + latent rating state (Kalman mean/var, prior season)",
+      "feature_count": 4,
+      "brier": 0.30884265294406243,
+      "log_loss": 0.4628019720251025,
+      "ece": 0.02516058337519975,
+      "accuracy": 0.760599029740561
+    },
+    {
+      "stage": "A2",
+      "label": "A2 + form / rest context",
+      "feature_count": 6,
+      "brier": 0.308041209934716,
+      "log_loss": 0.46209348661816946,
+      "ece": 0.02227650683962183,
+      "accuracy": 0.7599662518456022
+    },
+    {
+      "stage": "A3",
+      "label": "A3 + live game state",
+      "feature_count": 10,
+      "brier": 0.2443233299927968,
+      "log_loss": 0.372619717765406,
+      "ece": 0.012826943277036661,
+      "accuracy": 0.8161780215144484
+    }
+  ],
+  "slices": [
+    {
+      "name": "pregame",
+      "count": 4741,
+      "brier": 0.3074025372999871,
+      "log_loss": 0.46258250317447,
+      "ece": 0.02230165181591118,
+      "accuracy": 0.7603881037755748
+    },
+    {
+      "name": "in_game",
+      "count": 14223,
+      "brier": 0.22324557371362852,
+      "log_loss": 0.3425186247633604,
+      "ece": 0.013893911490181992,
+      "accuracy": 0.8351262040357168
+    },
+    {
+      "name": "neutral_site",
+      "count": 1764,
+      "brier": 0.26538972683502254,
+      "log_loss": 0.40055529303392534,
+      "ece": 0.018171296754918558,
+      "accuracy": 0.79421768707483
+    },
+    {
+      "name": "home_underdog",
+      "count": 6284,
+      "brier": 0.2714412538615233,
+      "log_loss": 0.41214783769849045,
+      "ece": 0.008970157178043225,
+      "accuracy": 0.799013367281986
+    },
+    {
+      "name": "close_late",
+      "count": 1541,
+      "brier": 0.40517239164632657,
+      "log_loss": 0.5880738191866907,
+      "ece": 0.04827974591780209,
+      "accuracy": 0.6781310837118754
+    },
+    {
+      "name": "new_team (<=3 games rated)",
+      "count": 436,
+      "brier": 0.04055601531247567,
+      "log_loss": 0.0802489564909435,
+      "ece": 0.026320551811390126,
+      "accuracy": 0.9770642201834863
+    },
+    {
+      "name": "final_2_minutes",
+      "count": 0,
+      "status": "insufficient sample"
+    }
+  ],
+  "leakage_violations": 0,
+  "reliability": [
+    {
+      "bin_low": 0.0,
+      "bin_high": 0.1,
+      "count": 2210,
+      "mean_prediction": 0.03704374820041337,
+      "observed_frequency": 0.023076923076923078
+    },
+    {
+      "bin_low": 0.1,
+      "bin_high": 0.2,
+      "count": 1259,
+      "mean_prediction": 0.14872987025648413,
+      "observed_frequency": 0.15091342335186655
+    },
+    {
+      "bin_low": 0.2,
+      "bin_high": 0.30000000000000004,
+      "count": 1142,
+      "mean_prediction": 0.2485145523765367,
+      "observed_frequency": 0.2539404553415061
+    },
+    {
+      "bin_low": 0.30000000000000004,
+      "bin_high": 0.4,
+      "count": 1089,
+      "mean_prediction": 0.3507883928532236,
+      "observed_frequency": 0.3269054178145087
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.5,
+      "count": 1205,
+      "mean_prediction": 0.45192194649884254,
+      "observed_frequency": 0.4149377593360996
+    },
+    {
+      "bin_low": 0.5,
+      "bin_high": 0.6000000000000001,
+      "count": 1187,
+      "mean_prediction": 0.5497147130216772,
+      "observed_frequency": 0.4903117101937658
+    },
+    {
+      "bin_low": 0.6000000000000001,
+      "bin_high": 0.7000000000000001,
+      "count": 1347,
+      "mean_prediction": 0.650962790298562,
+      "observed_frequency": 0.5671863400148478
+    },
+    {
+      "bin_low": 0.7000000000000001,
+      "bin_high": 0.8,
+      "count": 1621,
+      "mean_prediction": 0.7522051386547377,
+      "observed_frequency": 0.7193090684762492
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.9,
+      "count": 2100,
+      "mean_prediction": 0.8522017432449566,
+      "observed_frequency": 0.8538095238095238
+    },
+    {
+      "bin_low": 0.9,
+      "bin_high": 1.0,
+      "count": 5804,
+      "mean_prediction": 0.9704959609512397,
+      "observed_frequency": 0.9751895244658856
+    }
+  ],
+  "rolling": [
+    {
+      "period": "2025-11",
+      "count": 637,
+      "brier": 0.21213571739149625,
+      "log_loss": 0.3239868915748139
+    },
+    {
+      "period": "2025-12",
+      "count": 4333,
+      "brier": 0.1889908328612073,
+      "log_loss": 0.29280501306228707
+    },
+    {
+      "period": "2026-01",
+      "count": 6142,
+      "brier": 0.26238921416571864,
+      "log_loss": 0.3989947400235327
+    },
+    {
+      "period": "2026-02",
+      "count": 5413,
+      "brier": 0.26290465688990217,
+      "log_loss": 0.3996099357969022
+    },
+    {
+      "period": "2026-03",
+      "count": 2411,
+      "brier": 0.263159362162267,
+      "log_loss": 0.39912239272459726
+    },
+    {
+      "period": "2026-04",
+      "count": 28,
+      "brier": 0.3362432206454762,
+      "log_loss": 0.4872825526863691
+    }
+  ],
+  "drift": [
+    {
+      "feature": "rating_uncertainty",
+      "psi": 0.7376988322754787,
+      "level": "high"
+    },
+    {
+      "feature": "prior_season_rating_diff",
+      "psi": 0.6214238200711901,
+      "level": "high"
+    },
+    {
+      "feature": "rest_diff",
+      "psi": 0.02551224855314003,
+      "level": "low"
+    },
+    {
+      "feature": "form_diff",
+      "psi": 0.01604122601440482,
+      "level": "low"
+    },
+    {
+      "feature": "rating_diff",
+      "psi": 0.012522799820308409,
+      "level": "low"
+    },
+    {
+      "feature": "live_margin_z",
+      "psi": 0.006443262256916943,
+      "level": "low"
+    },
+    {
+      "feature": "score_margin_scaled",
+      "psi": 0.006100010684134252,
+      "level": "low"
+    },
+    {
+      "feature": "margin_time_interaction",
+      "psi": 0.005620688783741865,
+      "level": "low"
+    },
+    {
+      "feature": "home_field",
+      "psi": 0.0,
+      "level": "low"
+    },
+    {
+      "feature": "game_elapsed",
+      "psi": 0.0,
+      "level": "low"
+    }
+  ],
+  "errors": [
+    {
+      "event_id": "womens-college-basketball-401825153",
+      "prediction_time": "2025-12-07T23:15:00+00:00",
+      "home_probability": 0.011483508558353343,
+      "target_home_win": 1,
+      "confidence": 0.9885164914416467,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "womens-college-basketball-401807952",
+      "prediction_time": "2026-01-09T01:30:00+00:00",
+      "home_probability": 0.9884940424531563,
+      "target_home_win": 0,
+      "confidence": 0.9884940424531563,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "womens-college-basketball-401823201",
+      "prediction_time": "2026-01-03T19:45:00+00:00",
+      "home_probability": 0.9840130285648604,
+      "target_home_win": 0,
+      "confidence": 0.9840130285648604,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "womens-college-basketball-401823201",
+      "prediction_time": "2026-01-03T19:00:00+00:00",
+      "home_probability": 0.9837497588776372,
+      "target_home_win": 0,
+      "confidence": 0.9837497588776372,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "womens-college-basketball-401825069",
+      "prediction_time": "2025-12-19T01:30:00+00:00",
+      "home_probability": 0.9827537281978931,
+      "target_home_win": 0,
+      "confidence": 0.9827537281978931,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "womens-college-basketball-401817707",
+      "prediction_time": "2025-12-30T01:30:00+00:00",
+      "home_probability": 0.9824250020037952,
+      "target_home_win": 0,
+      "confidence": 0.9824250020037952,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "womens-college-basketball-401825135",
+      "prediction_time": "2025-12-02T02:15:00+00:00",
+      "home_probability": 0.9813105006141786,
+      "target_home_win": 0,
+      "confidence": 0.9813105006141786,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "womens-college-basketball-401823969",
+      "prediction_time": "2026-01-03T21:15:00+00:00",
+      "home_probability": 0.9805503283793409,
+      "target_home_win": 0,
+      "confidence": 0.9805503283793409,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "womens-college-basketball-401807885",
+      "prediction_time": "2026-02-06T02:45:00+00:00",
+      "home_probability": 0.9800052596830968,
+      "target_home_win": 0,
+      "confidence": 0.9800052596830968,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "womens-college-basketball-401825135",
+      "prediction_time": "2025-12-02T01:30:00+00:00",
+      "home_probability": 0.976235256766824,
+      "target_home_win": 0,
+      "confidence": 0.976235256766824,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "womens-college-basketball-401808798",
+      "prediction_time": "2026-01-10T19:30:00+00:00",
+      "home_probability": 0.025080853040745494,
+      "target_home_win": 1,
+      "confidence": 0.9749191469592545,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "womens-college-basketball-401824004",
+      "prediction_time": "2026-02-12T02:15:00+00:00",
+      "home_probability": 0.9744078430011286,
+      "target_home_win": 0,
+      "confidence": 0.9744078430011286,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    }
+  ],
+  "data_mode": "real_espn",
+  "created_at": "2026-10-03T08:15:35.557487Z",
+  "git_commit": "unknown",
+  "data_snapshot_hash": "ef923c0acb2264fa"
+}

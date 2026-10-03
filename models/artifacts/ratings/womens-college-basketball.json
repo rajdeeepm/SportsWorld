@@ -1,0 +1,20 @@
+{
+  "league": "womens-college-basketball",
+  "params": {
+    "hfa": 3.125,
+    "obs_sd": 10.0,
+    "q": 0.08680555555555557,
+    "rho": 1.0,
+    "season_var": 5.425347222222223,
+    "init_var": 126.5625,
+    "newcomer_mean": -12.5
+  },
+  "mean_predictive_loglik": -3.8701045751519274,
+  "n_games": 23712,
+  "fit_window": {
+    "end": "2025-01-03T00:00:00+00:00"
+  },
+  "data_mode": "real_espn",
+  "ep_coef": null,
+  "ep_fit": null
+}

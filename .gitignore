@@ -1,0 +1,40 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+node_modules/
+dist/
+.DS_Store
+coverage.xml
+htmlcov/
+*.log
+.terraform/
+*.tfstate*
+
+# --- SportsWorld repo hygiene ---
+# secrets (tokens for SpacetimeDB, LLM, OpenF1 live in .env only)
+.env
+.env.*
+!.env.example
+# raw ESPN / OpenF1 / Jolpica archives: large and re-downloadable (scripts/backfill_*.py)
+data/real/
+# local tooling, caches and run logs
+.claude/
+.impeccable/live/
+.impeccable/build/
+logs/
+logs_*.out
+ops/state.json
+ops/events.log
+ops/gpus.json
+ops/logs/
+*.egg-info/
+frontend/legacy/
+# cluster-specific orchestration (host names, accounts); kept local only
+ops/orchestrator.py
+ops/tasks.json
+ops/backlog.json
+ops/remote/
+docs/overnight_plan.md

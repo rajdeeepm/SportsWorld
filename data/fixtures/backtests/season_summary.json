@@ -1,0 +1,1068 @@
+{
+ "summary": [
+  {
+   "league": "college-football",
+   "checkpoint": 0.0,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.935,
+   "wins_mae_pace_baseline": 2.2494,
+   "wins_90_coverage": 0.9261,
+   "champion_log_loss": 3.2907,
+   "champion_uniform_log_loss": 4.9052,
+   "champion_prob": 0.0527
+  },
+  {
+   "league": "college-football",
+   "checkpoint": 0.0,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.9892,
+   "wins_mae_pace_baseline": 2.2494,
+   "wins_90_coverage": 0.7223,
+   "champion_log_loss": 4.8845,
+   "champion_uniform_log_loss": 4.9052,
+   "champion_prob": 0.0717
+  },
+  {
+   "league": "college-football",
+   "checkpoint": 0.25,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.6041,
+   "wins_mae_pace_baseline": 3.1866,
+   "wins_90_coverage": 0.9223,
+   "champion_log_loss": 3.5659,
+   "champion_uniform_log_loss": 4.9052,
+   "champion_prob": 0.0591
+  },
+  {
+   "league": "college-football",
+   "checkpoint": 0.25,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.6238,
+   "wins_mae_pace_baseline": 3.1866,
+   "wins_90_coverage": 0.8184,
+   "champion_log_loss": 4.7135,
+   "champion_uniform_log_loss": 4.9052,
+   "champion_prob": 0.0674
+  },
+  {
+   "league": "college-football",
+   "checkpoint": 0.5,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.1222,
+   "wins_mae_pace_baseline": 1.5382,
+   "wins_90_coverage": 0.9443,
+   "champion_log_loss": 2.3782,
+   "champion_uniform_log_loss": 4.9052,
+   "champion_prob": 0.1374
+  },
+  {
+   "league": "college-football",
+   "checkpoint": 0.5,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.1322,
+   "wins_mae_pace_baseline": 1.5382,
+   "wins_90_coverage": 0.8889,
+   "champion_log_loss": 2.6303,
+   "champion_uniform_log_loss": 4.9052,
+   "champion_prob": 0.1647
+  },
+  {
+   "league": "college-football",
+   "checkpoint": 0.75,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 0.7017,
+   "wins_mae_pace_baseline": 0.8278,
+   "wins_90_coverage": 0.974,
+   "champion_log_loss": 1.9245,
+   "champion_uniform_log_loss": 4.9052,
+   "champion_prob": 0.147
+  },
+  {
+   "league": "college-football",
+   "checkpoint": 0.75,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 0.6999,
+   "wins_mae_pace_baseline": 0.8278,
+   "wins_90_coverage": 0.963,
+   "champion_log_loss": 1.7318,
+   "champion_uniform_log_loss": 4.9052,
+   "champion_prob": 0.1784
+  },
+  {
+   "league": "mens-college-basketball",
+   "checkpoint": 0.0,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 3.8725,
+   "wins_mae_pace_baseline": 4.485,
+   "wins_90_coverage": 0.9081,
+   "champion_log_loss": 5.3187,
+   "champion_uniform_log_loss": 5.8985,
+   "champion_prob": 0.0049
+  },
+  {
+   "league": "mens-college-basketball",
+   "checkpoint": 0.0,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 3.9917,
+   "wins_mae_pace_baseline": 4.485,
+   "wins_90_coverage": 0.6077,
+   "champion_log_loss": 7.1309,
+   "champion_uniform_log_loss": 5.8985,
+   "champion_prob": 0.0008
+  },
+  {
+   "league": "mens-college-basketball",
+   "checkpoint": 0.25,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 2.7328,
+   "wins_mae_pace_baseline": 4.6851,
+   "wins_90_coverage": 0.9067,
+   "champion_log_loss": 2.9062,
+   "champion_uniform_log_loss": 5.8985,
+   "champion_prob": 0.0756
+  },
+  {
+   "league": "mens-college-basketball",
+   "checkpoint": 0.25,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 2.7554,
+   "wins_mae_pace_baseline": 4.6851,
+   "wins_90_coverage": 0.7599,
+   "champion_log_loss": 2.7769,
+   "champion_uniform_log_loss": 5.8985,
+   "champion_prob": 0.087
+  },
+  {
+   "league": "mens-college-basketball",
+   "checkpoint": 0.5,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.9919,
+   "wins_mae_pace_baseline": 2.9766,
+   "wins_90_coverage": 0.9026,
+   "champion_log_loss": 2.2595,
+   "champion_uniform_log_loss": 5.8985,
+   "champion_prob": 0.1308
+  },
+  {
+   "league": "mens-college-basketball",
+   "checkpoint": 0.5,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.9965,
+   "wins_mae_pace_baseline": 2.9766,
+   "wins_90_coverage": 0.8313,
+   "champion_log_loss": 2.2157,
+   "champion_uniform_log_loss": 5.8985,
+   "champion_prob": 0.1418
+  },
+  {
+   "league": "mens-college-basketball",
+   "checkpoint": 0.75,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.2137,
+   "wins_mae_pace_baseline": 1.4608,
+   "wins_90_coverage": 0.9479,
+   "champion_log_loss": 2.2482,
+   "champion_uniform_log_loss": 5.8985,
+   "champion_prob": 0.1157
+  },
+  {
+   "league": "mens-college-basketball",
+   "checkpoint": 0.75,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.213,
+   "wins_mae_pace_baseline": 1.4608,
+   "wins_90_coverage": 0.9259,
+   "champion_log_loss": 2.196,
+   "champion_uniform_log_loss": 5.8985,
+   "champion_prob": 0.1234
+  },
+  {
+   "league": "nba",
+   "checkpoint": 0.0,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.2111,
+   "playoff_log_loss": 0.6047,
+   "playoff_brier_base_rate": 0.2489,
+   "playoff_log_loss_base_rate": 0.6909,
+   "wins_mae": 9.2373,
+   "wins_mae_pace_baseline": 11.1,
+   "wins_90_coverage": 0.8667,
+   "champion_log_loss": 2.7563,
+   "champion_uniform_log_loss": 3.4012,
+   "champion_prob": 0.0666
+  },
+  {
+   "league": "nba",
+   "checkpoint": 0.0,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.2525,
+   "playoff_log_loss": 0.805,
+   "playoff_brier_base_rate": 0.2489,
+   "playoff_log_loss_base_rate": 0.6909,
+   "wins_mae": 9.134,
+   "wins_mae_pace_baseline": 11.1,
+   "wins_90_coverage": 0.4833,
+   "champion_log_loss": 2.8384,
+   "champion_uniform_log_loss": 3.4012,
+   "champion_prob": 0.0718
+  },
+  {
+   "league": "nba",
+   "checkpoint": 0.25,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.1079,
+   "playoff_log_loss": 0.345,
+   "playoff_brier_base_rate": 0.2489,
+   "playoff_log_loss_base_rate": 0.6909,
+   "wins_mae": 5.3655,
+   "wins_mae_pace_baseline": 6.6451,
+   "wins_90_coverage": 0.8333,
+   "champion_log_loss": 2.1091,
+   "champion_uniform_log_loss": 3.4012,
+   "champion_prob": 0.1492
+  },
+  {
+   "league": "nba",
+   "checkpoint": 0.25,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.1138,
+   "playoff_log_loss": 0.3891,
+   "playoff_brier_base_rate": 0.2489,
+   "playoff_log_loss_base_rate": 0.6909,
+   "wins_mae": 5.3803,
+   "wins_mae_pace_baseline": 6.6451,
+   "wins_90_coverage": 0.6833,
+   "champion_log_loss": 2.0916,
+   "champion_uniform_log_loss": 3.4012,
+   "champion_prob": 0.177
+  },
+  {
+   "league": "nba",
+   "checkpoint": 0.5,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.0864,
+   "playoff_log_loss": 0.2591,
+   "playoff_brier_base_rate": 0.2489,
+   "playoff_log_loss_base_rate": 0.6909,
+   "wins_mae": 4.1362,
+   "wins_mae_pace_baseline": 4.1997,
+   "wins_90_coverage": 0.8333,
+   "champion_log_loss": 2.1909,
+   "champion_uniform_log_loss": 3.4012,
+   "champion_prob": 0.2358
+  },
+  {
+   "league": "nba",
+   "checkpoint": 0.5,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.0924,
+   "playoff_log_loss": 0.2659,
+   "playoff_brier_base_rate": 0.2489,
+   "playoff_log_loss_base_rate": 0.6909,
+   "wins_mae": 4.1003,
+   "wins_mae_pace_baseline": 4.1997,
+   "wins_90_coverage": 0.7333,
+   "champion_log_loss": 2.3008,
+   "champion_uniform_log_loss": 3.4012,
+   "champion_prob": 0.2939
+  },
+  {
+   "league": "nba",
+   "checkpoint": 0.75,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.0742,
+   "playoff_log_loss": 0.2135,
+   "playoff_brier_base_rate": 0.2489,
+   "playoff_log_loss_base_rate": 0.6909,
+   "wins_mae": 2.3108,
+   "wins_mae_pace_baseline": 2.6355,
+   "wins_90_coverage": 0.85,
+   "champion_log_loss": 1.7005,
+   "champion_uniform_log_loss": 3.4012,
+   "champion_prob": 0.2564
+  },
+  {
+   "league": "nba",
+   "checkpoint": 0.75,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.0763,
+   "playoff_log_loss": 0.2174,
+   "playoff_brier_base_rate": 0.2489,
+   "playoff_log_loss_base_rate": 0.6909,
+   "wins_mae": 2.3015,
+   "wins_mae_pace_baseline": 2.6355,
+   "wins_90_coverage": 0.8333,
+   "champion_log_loss": 1.8025,
+   "champion_uniform_log_loss": 3.4012,
+   "champion_prob": 0.2715
+  },
+  {
+   "league": "nfl",
+   "checkpoint": 0.0,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.2427,
+   "playoff_log_loss": 0.6823,
+   "playoff_brier_base_rate": 0.2461,
+   "playoff_log_loss_base_rate": 0.6853,
+   "wins_mae": 2.8187,
+   "wins_mae_pace_baseline": 3.0,
+   "wins_90_coverage": 0.8594,
+   "champion_log_loss": 3.6775,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0255
+  },
+  {
+   "league": "nfl",
+   "checkpoint": 0.0,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.2528,
+   "playoff_log_loss": 0.7181,
+   "playoff_brier_base_rate": 0.2461,
+   "playoff_log_loss_base_rate": 0.6853,
+   "wins_mae": 2.8034,
+   "wins_mae_pace_baseline": 3.0,
+   "wins_90_coverage": 0.6719,
+   "champion_log_loss": 3.9025,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0203
+  },
+  {
+   "league": "nfl",
+   "checkpoint": 0.25,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.1965,
+   "playoff_log_loss": 0.5709,
+   "playoff_brier_base_rate": 0.2461,
+   "playoff_log_loss_base_rate": 0.6853,
+   "wins_mae": 2.2331,
+   "wins_mae_pace_baseline": 2.7859,
+   "wins_90_coverage": 0.8906,
+   "champion_log_loss": 3.3496,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.039
+  },
+  {
+   "league": "nfl",
+   "checkpoint": 0.25,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.2035,
+   "playoff_log_loss": 0.6048,
+   "playoff_brier_base_rate": 0.2461,
+   "playoff_log_loss_base_rate": 0.6853,
+   "wins_mae": 2.2261,
+   "wins_mae_pace_baseline": 2.7859,
+   "wins_90_coverage": 0.75,
+   "champion_log_loss": 3.67,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0327
+  },
+  {
+   "league": "nfl",
+   "checkpoint": 0.5,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.13,
+   "playoff_log_loss": 0.3949,
+   "playoff_brier_base_rate": 0.2461,
+   "playoff_log_loss_base_rate": 0.6853,
+   "wins_mae": 1.5166,
+   "wins_mae_pace_baseline": 1.5332,
+   "wins_90_coverage": 0.9062,
+   "champion_log_loss": 2.5947,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0772
+  },
+  {
+   "league": "nfl",
+   "checkpoint": 0.5,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.1348,
+   "playoff_log_loss": 0.4141,
+   "playoff_brier_base_rate": 0.2461,
+   "playoff_log_loss_base_rate": 0.6853,
+   "wins_mae": 1.5064,
+   "wins_mae_pace_baseline": 1.5332,
+   "wins_90_coverage": 0.875,
+   "champion_log_loss": 2.677,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0744
+  },
+  {
+   "league": "nfl",
+   "checkpoint": 0.75,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.0775,
+   "playoff_log_loss": 0.233,
+   "playoff_brier_base_rate": 0.2461,
+   "playoff_log_loss_base_rate": 0.6853,
+   "wins_mae": 1.0123,
+   "wins_mae_pace_baseline": 1.0896,
+   "wins_90_coverage": 0.9375,
+   "champion_log_loss": 2.1095,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.1225
+  },
+  {
+   "league": "nfl",
+   "checkpoint": 0.75,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.0775,
+   "playoff_log_loss": 0.2339,
+   "playoff_brier_base_rate": 0.2461,
+   "playoff_log_loss_base_rate": 0.6853,
+   "wins_mae": 1.0056,
+   "wins_mae_pace_baseline": 1.0896,
+   "wins_90_coverage": 0.9062,
+   "champion_log_loss": 2.0535,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.1304
+  },
+  {
+   "league": "nhl",
+   "checkpoint": 0.0,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.2389,
+   "playoff_log_loss": 0.6658,
+   "playoff_brier_base_rate": 0.25,
+   "playoff_log_loss_base_rate": 0.6931,
+   "wins_mae": 5.8684,
+   "wins_mae_pace_baseline": 5.9062,
+   "wins_90_coverage": 0.9688,
+   "champion_log_loss": 2.7761,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0633
+  },
+  {
+   "league": "nhl",
+   "checkpoint": 0.0,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.2748,
+   "playoff_log_loss": 0.7849,
+   "playoff_brier_base_rate": 0.25,
+   "playoff_log_loss_base_rate": 0.6931,
+   "wins_mae": 5.9619,
+   "wins_mae_pace_baseline": 5.9062,
+   "wins_90_coverage": 0.75,
+   "champion_log_loss": 2.3857,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.095
+  },
+  {
+   "league": "nhl",
+   "checkpoint": 0.25,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.197,
+   "playoff_log_loss": 0.586,
+   "playoff_brier_base_rate": 0.25,
+   "playoff_log_loss_base_rate": 0.6931,
+   "wins_mae": 4.7908,
+   "wins_mae_pace_baseline": 6.0923,
+   "wins_90_coverage": 0.9219,
+   "champion_log_loss": 2.5928,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.076
+  },
+  {
+   "league": "nhl",
+   "checkpoint": 0.25,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.2139,
+   "playoff_log_loss": 0.6967,
+   "playoff_brier_base_rate": 0.25,
+   "playoff_log_loss_base_rate": 0.6931,
+   "wins_mae": 4.8467,
+   "wins_mae_pace_baseline": 6.0923,
+   "wins_90_coverage": 0.7812,
+   "champion_log_loss": 2.6054,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0828
+  },
+  {
+   "league": "nhl",
+   "checkpoint": 0.5,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.1055,
+   "playoff_log_loss": 0.3276,
+   "playoff_brier_base_rate": 0.25,
+   "playoff_log_loss_base_rate": 0.6931,
+   "wins_mae": 2.6802,
+   "wins_mae_pace_baseline": 3.0175,
+   "wins_90_coverage": 0.9219,
+   "champion_log_loss": 2.9088,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0556
+  },
+  {
+   "league": "nhl",
+   "checkpoint": 0.5,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.1049,
+   "playoff_log_loss": 0.3202,
+   "playoff_brier_base_rate": 0.25,
+   "playoff_log_loss_base_rate": 0.6931,
+   "wins_mae": 2.7023,
+   "wins_mae_pace_baseline": 3.0175,
+   "wins_90_coverage": 0.8594,
+   "champion_log_loss": 2.8993,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0579
+  },
+  {
+   "league": "nhl",
+   "checkpoint": 0.75,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.0998,
+   "playoff_log_loss": 0.2899,
+   "playoff_brier_base_rate": 0.25,
+   "playoff_log_loss_base_rate": 0.6931,
+   "wins_mae": 1.9209,
+   "wins_mae_pace_baseline": 2.0475,
+   "wins_90_coverage": 0.9219,
+   "champion_log_loss": 2.4026,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0905
+  },
+  {
+   "league": "nhl",
+   "checkpoint": 0.75,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": 0.1002,
+   "playoff_log_loss": 0.2908,
+   "playoff_brier_base_rate": 0.25,
+   "playoff_log_loss_base_rate": 0.6931,
+   "wins_mae": 1.9236,
+   "wins_mae_pace_baseline": 2.0475,
+   "wins_90_coverage": 0.9219,
+   "champion_log_loss": 2.4177,
+   "champion_uniform_log_loss": 3.4657,
+   "champion_prob": 0.0892
+  },
+  {
+   "league": "wnba",
+   "checkpoint": 0.0,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 6.2633,
+   "wins_mae_pace_baseline": 6.7308,
+   "wins_90_coverage": 0.8782,
+   "champion_log_loss": null,
+   "champion_uniform_log_loss": 2.5249,
+   "champion_prob": null
+  },
+  {
+   "league": "wnba",
+   "checkpoint": 0.0,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 6.2993,
+   "wins_mae_pace_baseline": 6.7308,
+   "wins_90_coverage": 0.5609,
+   "champion_log_loss": null,
+   "champion_uniform_log_loss": 2.5249,
+   "champion_prob": null
+  },
+  {
+   "league": "wnba",
+   "checkpoint": 0.25,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 3.3654,
+   "wins_mae_pace_baseline": 4.6092,
+   "wins_90_coverage": 0.8397,
+   "champion_log_loss": null,
+   "champion_uniform_log_loss": 2.5249,
+   "champion_prob": null
+  },
+  {
+   "league": "wnba",
+   "checkpoint": 0.25,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 3.4323,
+   "wins_mae_pace_baseline": 4.6092,
+   "wins_90_coverage": 0.7564,
+   "champion_log_loss": null,
+   "champion_uniform_log_loss": 2.5249,
+   "champion_prob": null
+  },
+  {
+   "league": "wnba",
+   "checkpoint": 0.5,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 2.6281,
+   "wins_mae_pace_baseline": 3.0686,
+   "wins_90_coverage": 0.8429,
+   "champion_log_loss": null,
+   "champion_uniform_log_loss": 2.5249,
+   "champion_prob": null
+  },
+  {
+   "league": "wnba",
+   "checkpoint": 0.5,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 2.6265,
+   "wins_mae_pace_baseline": 3.0686,
+   "wins_90_coverage": 0.7628,
+   "champion_log_loss": null,
+   "champion_uniform_log_loss": 2.5249,
+   "champion_prob": null
+  },
+  {
+   "league": "wnba",
+   "checkpoint": 0.75,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.5187,
+   "wins_mae_pace_baseline": 1.5976,
+   "wins_90_coverage": 0.9615,
+   "champion_log_loss": null,
+   "champion_uniform_log_loss": 2.5249,
+   "champion_prob": null
+  },
+  {
+   "league": "wnba",
+   "checkpoint": 0.75,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.5254,
+   "wins_mae_pace_baseline": 1.5976,
+   "wins_90_coverage": 0.8397,
+   "champion_log_loss": null,
+   "champion_uniform_log_loss": 2.5249,
+   "champion_prob": null
+  },
+  {
+   "league": "womens-college-basketball",
+   "checkpoint": 0.0,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 4.0011,
+   "wins_mae_pace_baseline": 5.3391,
+   "wins_90_coverage": 0.8842,
+   "champion_log_loss": 2.4724,
+   "champion_uniform_log_loss": 5.893,
+   "champion_prob": 0.0943
+  },
+  {
+   "league": "womens-college-basketball",
+   "checkpoint": 0.0,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 4.1366,
+   "wins_mae_pace_baseline": 5.3391,
+   "wins_90_coverage": 0.5628,
+   "champion_log_loss": 2.4624,
+   "champion_uniform_log_loss": 5.893,
+   "champion_prob": 0.1108
+  },
+  {
+   "league": "womens-college-basketball",
+   "checkpoint": 0.25,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 2.4308,
+   "wins_mae_pace_baseline": 4.805,
+   "wins_90_coverage": 0.9186,
+   "champion_log_loss": 2.0021,
+   "champion_uniform_log_loss": 5.893,
+   "champion_prob": 0.1368
+  },
+  {
+   "league": "womens-college-basketball",
+   "checkpoint": 0.25,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 2.4327,
+   "wins_mae_pace_baseline": 4.805,
+   "wins_90_coverage": 0.7628,
+   "champion_log_loss": 1.8662,
+   "champion_uniform_log_loss": 5.893,
+   "champion_prob": 0.1574
+  },
+  {
+   "league": "womens-college-basketball",
+   "checkpoint": 0.5,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.7068,
+   "wins_mae_pace_baseline": 2.814,
+   "wins_90_coverage": 0.92,
+   "champion_log_loss": 1.9074,
+   "champion_uniform_log_loss": 5.893,
+   "champion_prob": 0.1485
+  },
+  {
+   "league": "womens-college-basketball",
+   "checkpoint": 0.5,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.7092,
+   "wins_mae_pace_baseline": 2.814,
+   "wins_90_coverage": 0.8386,
+   "champion_log_loss": 1.8434,
+   "champion_uniform_log_loss": 5.893,
+   "champion_prob": 0.1587
+  },
+  {
+   "league": "womens-college-basketball",
+   "checkpoint": 0.75,
+   "mode": "dynamic",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.0781,
+   "wins_mae_pace_baseline": 1.327,
+   "wins_90_coverage": 0.9448,
+   "champion_log_loss": 1.7273,
+   "champion_uniform_log_loss": 5.893,
+   "champion_prob": 0.1785
+  },
+  {
+   "league": "womens-college-basketball",
+   "checkpoint": 0.75,
+   "mode": "fast",
+   "seasons": [
+    2024,
+    2025
+   ],
+   "playoff_brier": null,
+   "playoff_log_loss": null,
+   "playoff_brier_base_rate": null,
+   "playoff_log_loss_base_rate": null,
+   "wins_mae": 1.0813,
+   "wins_mae_pace_baseline": 1.327,
+   "wins_90_coverage": 0.92,
+   "champion_log_loss": 1.718,
+   "champion_uniform_log_loss": 5.893,
+   "champion_prob": 0.1797
+  }
+ ]
+}

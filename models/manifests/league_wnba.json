@@ -1,0 +1,47 @@
+{
+  "model_version": "wnba_bootstrap_real_v1",
+  "sport": "basketball",
+  "competition": "wnba",
+  "algorithm": "bootstrap_logistic",
+  "feature_schema_version": "league_features_v2_real",
+  "features": [
+    "home_field",
+    "rating_diff",
+    "rating_uncertainty",
+    "prior_season_rating_diff",
+    "form_diff",
+    "rest_diff",
+    "score_margin_scaled",
+    "game_elapsed",
+    "margin_time_interaction",
+    "live_margin_z"
+  ],
+  "train_window": {
+    "start": "2023-05-19T23:00:00+00:00",
+    "end": "2025-08-03T21:15:00+00:00"
+  },
+  "calibration_window": {
+    "start": "2025-08-03T22:00:00+00:00",
+    "end": "2026-06-17T01:15:00+00:00"
+  },
+  "test_window": {
+    "start": "2026-06-17T23:00:00+00:00",
+    "end": "2026-10-03T03:15:00+00:00"
+  },
+  "artifact_uri": "wnba_bootstrap_real_v1.json",
+  "calibration_version": "wnba_bootstrap_real_v1_temperature_v1",
+  "metrics": {
+    "brier": 0.3223099636371895,
+    "log_loss": 0.4815925099217509,
+    "ece": 0.021915396212959792,
+    "accuracy": 0.7468085106382979,
+    "interval_width": 0.04375004696444204
+  },
+  "data_mode": "real_espn",
+  "notes": [
+    "WNBA: 1176 completed games, 4704 point-in-time rows (pregame + end of each regulation period).",
+    "Latent team strength is a Kalman-filtered rating whose dynamics were fit on the training window only.",
+    "Market odds are archived but excluded from features so SportsWorld can be compared against external consensus.",
+    "M4 selection on the calibration window: learned 0.5061 vs Kalman analytic 0.5209 -> serving bootstrap_logistic. Caveat: the learned model's 1-parameter temperature is fit on the same window, which slightly favours it; card metrics are the held-out test metrics of the SERVED model."
+  ]
+}

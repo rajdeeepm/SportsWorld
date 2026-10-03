@@ -1,0 +1,20 @@
+{
+  "league": "nhl",
+  "params": {
+    "hfa": 0.2,
+    "obs_sd": 2.4,
+    "q": 0.0,
+    "rho": 0.7,
+    "season_var": 0.19999999999999996,
+    "init_var": 4.6656,
+    "newcomer_mean": -1.2
+  },
+  "mean_predictive_loglik": -2.3284306051410737,
+  "n_games": 10417,
+  "fit_window": {
+    "end": "2023-10-18T23:00:00+00:00"
+  },
+  "data_mode": "real_espn",
+  "ep_coef": null,
+  "ep_fit": null
+}

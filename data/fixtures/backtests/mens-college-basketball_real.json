@@ -1,0 +1,451 @@
+{
+  "run_id": "basketball-mens_college_basketball_bootstrap_real_v1-ed3b46bc",
+  "sport": "basketball",
+  "competition": "mens-college-basketball",
+  "model_version": "mens_college_basketball_bootstrap_real_v1",
+  "feature_schema_version": "league_features_v2_real",
+  "train_window": {
+    "start": "2022-11-07T17:00:00+00:00",
+    "end": "2024-12-29T21:30:00+00:00"
+  },
+  "calibration_window": {
+    "start": "2024-12-29T20:30:00+00:00",
+    "end": "2025-11-26T01:30:00+00:00"
+  },
+  "test_window": {
+    "start": "2025-11-26T00:30:00+00:00",
+    "end": "2026-04-07T02:20:00+00:00"
+  },
+  "split_method": "chronological_holdout",
+  "prediction_horizons": [
+    "pregame",
+    "in_game"
+  ],
+  "sample_counts": {
+    "train": 30080,
+    "calibration": 10024,
+    "test": 10010
+  },
+  "metrics": {
+    "brier": 0.32038116073807427,
+    "log_loss": 0.47559095053084577,
+    "ece": 0.022380035311602556,
+    "accuracy": 0.7536463536463537,
+    "interval_width": 0.013906412919050376
+  },
+  "baselines": {
+    "empirical_base_rate": {
+      "brier": 0.46938887932037404,
+      "log_loss": 0.6627420371055529,
+      "ece": 0.050343140901651595,
+      "accuracy": 0.6335664335664336
+    },
+    "kalman_state_space_only": {
+      "brier": 0.3202191157786504,
+      "log_loss": 0.4796160813290191,
+      "ece": 0.025945387573846297,
+      "accuracy": 0.7558441558441559
+    },
+    "model_selection_calibration_window": {
+      "learned_log_loss": 0.4507669738789407,
+      "kalman_log_loss": 0.45518906942020826
+    },
+    "kalman_state_space_only_pregame": {
+      "brier": 0.36089200878838956,
+      "log_loss": 0.5300317223729906,
+      "ece": 0.01225627870967487,
+      "accuracy": 0.7176823176823177
+    }
+  },
+  "ablations": [
+    {
+      "stage": "A0",
+      "label": "A0 home field only",
+      "feature_count": 1,
+      "brier": 0.4657892812292431,
+      "log_loss": 0.6586410550215341,
+      "ece": 0.028209053465561237,
+      "accuracy": 0.6335664335664336
+    },
+    {
+      "stage": "A1",
+      "label": "A1 + latent rating state (Kalman mean/var, prior season)",
+      "feature_count": 4,
+      "brier": 0.3669319021315459,
+      "log_loss": 0.5369453323245686,
+      "ece": 0.030284466121109577,
+      "accuracy": 0.7100899100899101
+    },
+    {
+      "stage": "A2",
+      "label": "A2 + form / rest context",
+      "feature_count": 6,
+      "brier": 0.3662640616529028,
+      "log_loss": 0.5359192049962346,
+      "ece": 0.02864172590723724,
+      "accuracy": 0.7112887112887113
+    },
+    {
+      "stage": "A3",
+      "label": "A3 + live game state",
+      "feature_count": 10,
+      "brier": 0.3203040560045207,
+      "log_loss": 0.4755203044092437,
+      "ece": 0.021395952852057247,
+      "accuracy": 0.7538461538461538
+    }
+  ],
+  "slices": [
+    {
+      "name": "pregame",
+      "count": 5005,
+      "brier": 0.3654545339174499,
+      "log_loss": 0.53520945744598,
+      "ece": 0.022804232606229387,
+      "accuracy": 0.7134865134865135
+    },
+    {
+      "name": "in_game",
+      "count": 5005,
+      "brier": 0.27530778755869867,
+      "log_loss": 0.4159724436157115,
+      "ece": 0.02195583801697565,
+      "accuracy": 0.7938061938061938
+    },
+    {
+      "name": "neutral_site",
+      "count": 1088,
+      "brier": 0.37348966953673207,
+      "log_loss": 0.5436462536820421,
+      "ece": 0.03516488227586142,
+      "accuracy": 0.703125
+    },
+    {
+      "name": "home_underdog",
+      "count": 2702,
+      "brier": 0.37444096748860084,
+      "log_loss": 0.5494768523408013,
+      "ece": 0.01477916599667215,
+      "accuracy": 0.7017024426350851
+    },
+    {
+      "name": "close_late",
+      "count": 0,
+      "status": "insufficient sample"
+    },
+    {
+      "name": "new_team (<=3 games rated)",
+      "count": 246,
+      "brier": 0.03161163528632413,
+      "log_loss": 0.07761702154607325,
+      "ece": 0.027103753224697588,
+      "accuracy": 0.9878048780487805
+    },
+    {
+      "name": "final_2_minutes",
+      "count": 0,
+      "status": "insufficient sample"
+    }
+  ],
+  "leakage_violations": 0,
+  "reliability": [
+    {
+      "bin_low": 0.0,
+      "bin_high": 0.1,
+      "count": 331,
+      "mean_prediction": 0.05298208305279637,
+      "observed_frequency": 0.0513595166163142
+    },
+    {
+      "bin_low": 0.1,
+      "bin_high": 0.2,
+      "count": 387,
+      "mean_prediction": 0.15317720854892525,
+      "observed_frequency": 0.1343669250645995
+    },
+    {
+      "bin_low": 0.2,
+      "bin_high": 0.30000000000000004,
+      "count": 486,
+      "mean_prediction": 0.2510439745582522,
+      "observed_frequency": 0.19958847736625515
+    },
+    {
+      "bin_low": 0.30000000000000004,
+      "bin_high": 0.4,
+      "count": 600,
+      "mean_prediction": 0.3516771034664246,
+      "observed_frequency": 0.32
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.5,
+      "count": 806,
+      "mean_prediction": 0.45235538976576195,
+      "observed_frequency": 0.4292803970223325
+    },
+    {
+      "bin_low": 0.5,
+      "bin_high": 0.6000000000000001,
+      "count": 965,
+      "mean_prediction": 0.552786355952369,
+      "observed_frequency": 0.5005181347150259
+    },
+    {
+      "bin_low": 0.6000000000000001,
+      "bin_high": 0.7000000000000001,
+      "count": 1239,
+      "mean_prediction": 0.6501211387753236,
+      "observed_frequency": 0.5932203389830508
+    },
+    {
+      "bin_low": 0.7000000000000001,
+      "bin_high": 0.8,
+      "count": 1354,
+      "mean_prediction": 0.7509201908778556,
+      "observed_frequency": 0.6816838995568686
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.9,
+      "count": 1491,
+      "mean_prediction": 0.8519264319874549,
+      "observed_frequency": 0.8142186452045607
+    },
+    {
+      "bin_low": 0.9,
+      "bin_high": 1.0,
+      "count": 2351,
+      "mean_prediction": 0.9615178355700148,
+      "observed_frequency": 0.9710761378136963
+    }
+  ],
+  "rolling": [
+    {
+      "period": "2025-11",
+      "count": 550,
+      "brier": 0.2711590365957956,
+      "log_loss": 0.40683344023534024
+    },
+    {
+      "period": "2025-12",
+      "count": 2346,
+      "brier": 0.23011344096178787,
+      "log_loss": 0.3516468868528208
+    },
+    {
+      "period": "2026-01",
+      "count": 3049,
+      "brier": 0.35402915253110273,
+      "log_loss": 0.5235010470848284
+    },
+    {
+      "period": "2026-02",
+      "count": 2739,
+      "brier": 0.3550623232989603,
+      "log_loss": 0.5220396586910488
+    },
+    {
+      "period": "2026-03",
+      "count": 1300,
+      "brier": 0.3519521689550858,
+      "log_loss": 0.5177509319517296
+    },
+    {
+      "period": "2026-04",
+      "count": 26,
+      "brier": 0.32859258228023136,
+      "log_loss": 0.4940729566899548
+    }
+  ],
+  "drift": [
+    {
+      "feature": "rating_uncertainty",
+      "psi": 0.9888292330667594,
+      "level": "high"
+    },
+    {
+      "feature": "prior_season_rating_diff",
+      "psi": 0.5173039163126378,
+      "level": "high"
+    },
+    {
+      "feature": "rest_diff",
+      "psi": 0.02181480572911374,
+      "level": "low"
+    },
+    {
+      "feature": "form_diff",
+      "psi": 0.019689968051884988,
+      "level": "low"
+    },
+    {
+      "feature": "rating_diff",
+      "psi": 0.008102162398690974,
+      "level": "low"
+    },
+    {
+      "feature": "score_margin_scaled",
+      "psi": 0.006382782765843497,
+      "level": "low"
+    },
+    {
+      "feature": "margin_time_interaction",
+      "psi": 0.006382782765843497,
+      "level": "low"
+    },
+    {
+      "feature": "live_margin_z",
+      "psi": 0.006116085455822669,
+      "level": "low"
+    },
+    {
+      "feature": "home_field",
+      "psi": 0.0,
+      "level": "low"
+    },
+    {
+      "feature": "game_elapsed",
+      "psi": 0.0,
+      "level": "low"
+    }
+  ],
+  "errors": [
+    {
+      "event_id": "mens-college-basketball-401825402",
+      "prediction_time": "2025-12-07T00:30:00+00:00",
+      "home_probability": 0.9871894777416239,
+      "target_home_win": 0,
+      "confidence": 0.9871894777416239,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-basketball-401825581",
+      "prediction_time": "2025-12-07T02:30:00+00:00",
+      "home_probability": 0.017570347363591303,
+      "target_home_win": 1,
+      "confidence": 0.9824296526364087,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "mens-college-basketball-401828295",
+      "prediction_time": "2025-12-18T02:00:00+00:00",
+      "home_probability": 0.9796647906177555,
+      "target_home_win": 0,
+      "confidence": 0.9796647906177555,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-basketball-401828295",
+      "prediction_time": "2025-12-18T03:30:00+00:00",
+      "home_probability": 0.9761918827461451,
+      "target_home_win": 0,
+      "confidence": 0.9761918827461451,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-basketball-401824116",
+      "prediction_time": "2025-12-20T03:00:00+00:00",
+      "home_probability": 0.9734539034215394,
+      "target_home_win": 0,
+      "confidence": 0.9734539034215394,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-basketball-401822916",
+      "prediction_time": "2026-01-24T19:00:00+00:00",
+      "home_probability": 0.970583519476553,
+      "target_home_win": 0,
+      "confidence": 0.970583519476553,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-basketball-401822882",
+      "prediction_time": "2026-01-03T18:30:00+00:00",
+      "home_probability": 0.9704585560251268,
+      "target_home_win": 0,
+      "confidence": 0.9704585560251268,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-basketball-401826978",
+      "prediction_time": "2025-12-04T01:30:00+00:00",
+      "home_probability": 0.9656449193465242,
+      "target_home_win": 0,
+      "confidence": 0.9656449193465242,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-basketball-401856577",
+      "prediction_time": "2026-03-29T22:35:00+00:00",
+      "home_probability": 0.9653014269832628,
+      "target_home_win": 0,
+      "confidence": 0.9653014269832628,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-basketball-401817687",
+      "prediction_time": "2026-03-01T01:30:00+00:00",
+      "home_probability": 0.9647874995934809,
+      "target_home_win": 0,
+      "confidence": 0.9647874995934809,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-basketball-401823829",
+      "prediction_time": "2026-02-14T04:30:00+00:00",
+      "home_probability": 0.9576880633471444,
+      "target_home_win": 0,
+      "confidence": 0.9576880633471444,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "mens-college-basketball-401824394",
+      "prediction_time": "2026-02-19T00:30:00+00:00",
+      "home_probability": 0.9560570513932699,
+      "target_home_win": 0,
+      "confidence": 0.9560570513932699,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    }
+  ],
+  "data_mode": "real_espn",
+  "created_at": "2026-10-03T08:14:19.358664Z",
+  "git_commit": "unknown",
+  "data_snapshot_hash": "ed3b46bce0847d1b"
+}

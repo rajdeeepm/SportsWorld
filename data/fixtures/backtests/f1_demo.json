@@ -1,0 +1,495 @@
+{
+  "run_id": "f1-f1_conditional_softmax_world_demo_v1-b76f5c9f",
+  "sport": "f1",
+  "competition": "demo-f1",
+  "model_version": "f1_conditional_softmax_world_demo_v1",
+  "feature_schema_version": "f1_features_v3_learned_world",
+  "train_window": {
+    "start": "2024-01-01T12:01:34.063745Z",
+    "end": "2025-12-31T12:13:06.618250Z"
+  },
+  "calibration_window": {
+    "start": "2026-01-01T12:08:35.174966Z",
+    "end": "2026-04-30T12:15:47.413904Z"
+  },
+  "test_window": {
+    "start": "2026-05-01T14:57:30.869152Z",
+    "end": "2027-04-14T14:28:06.388744Z"
+  },
+  "split_method": "chronological_holdout",
+  "prediction_horizons": [
+    "pre_race",
+    "in_race"
+  ],
+  "sample_counts": {
+    "train": 731,
+    "calibration": 120,
+    "test": 349
+  },
+  "metrics": {
+    "brier": 0.39155197414293114,
+    "log_loss": 0.6935483508742462,
+    "ece": 0.04578333530031409,
+    "accuracy": 0.7335243553008596,
+    "interval_coverage": 0.44126074498567336,
+    "interval_width": 0.04293433141426628
+  },
+  "baselines": {
+    "empirical_winner_rate": {
+      "brier": 0.7069073835659504,
+      "log_loss": 1.2937608662052573,
+      "ece": 0.0010465704239981388,
+      "accuracy": 0.3868194842406877
+    }
+  },
+  "ablations": [
+    {
+      "stage": "A0",
+      "label": "A0 grid/position",
+      "feature_count": 2,
+      "brier": 0.4133610676955992,
+      "log_loss": 0.743928648748928,
+      "ece": 0.06617977191647267,
+      "accuracy": 0.7277936962750716
+    },
+    {
+      "stage": "A1",
+      "label": "A1 + pace/reliability",
+      "feature_count": 4,
+      "brier": 0.40433637699451236,
+      "log_loss": 0.7250449497281554,
+      "ece": 0.03480163315288454,
+      "accuracy": 0.7277936962750716
+    },
+    {
+      "stage": "A2",
+      "label": "A2 + learned driver state/context",
+      "feature_count": 10,
+      "brier": 0.4038269747462674,
+      "log_loss": 0.7227407828494421,
+      "ece": 0.03722685568936612,
+      "accuracy": 0.7306590257879656
+    },
+    {
+      "stage": "A3",
+      "label": "A3 + strategy/weather/live race",
+      "feature_count": 15,
+      "brier": 0.39170227103281363,
+      "log_loss": 0.6944197094918045,
+      "ece": 0.06055995387981058,
+      "accuracy": 0.7363896848137536
+    }
+  ],
+  "slices": [
+    {
+      "name": "wet_race",
+      "count": 302,
+      "brier": 0.4014320267411331,
+      "log_loss": 0.7069165264766823,
+      "ece": 0.06254117225962247,
+      "accuracy": 0.7218543046357616
+    },
+    {
+      "name": "late_race",
+      "count": 141,
+      "brier": 0.29070235363838065,
+      "log_loss": 0.5262188736077336,
+      "ece": 0.04503301064020128,
+      "accuracy": 0.8085106382978723
+    },
+    {
+      "name": "reliability_stress",
+      "count": 3,
+      "brier": 0.43551092680343234,
+      "log_loss": 0.7124960631182716,
+      "ece": 0.10050516782830246,
+      "accuracy": 0.6666666666666666
+    }
+  ],
+  "leakage_violations": 0,
+  "reliability": [
+    {
+      "bin_low": 0.0,
+      "bin_high": 0.1,
+      "count": 0,
+      "mean_prediction": 0.0,
+      "observed_frequency": 0.0
+    },
+    {
+      "bin_low": 0.1,
+      "bin_high": 0.2,
+      "count": 0,
+      "mean_prediction": 0.0,
+      "observed_frequency": 0.0
+    },
+    {
+      "bin_low": 0.2,
+      "bin_high": 0.30000000000000004,
+      "count": 0,
+      "mean_prediction": 0.0,
+      "observed_frequency": 0.0
+    },
+    {
+      "bin_low": 0.30000000000000004,
+      "bin_high": 0.4,
+      "count": 0,
+      "mean_prediction": 0.0,
+      "observed_frequency": 0.0
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.5,
+      "count": 7,
+      "mean_prediction": 0.45219996578962585,
+      "observed_frequency": 0.42857142857142855
+    },
+    {
+      "bin_low": 0.5,
+      "bin_high": 0.6000000000000001,
+      "count": 41,
+      "mean_prediction": 0.5579103536542422,
+      "observed_frequency": 0.4634146341463415
+    },
+    {
+      "bin_low": 0.6000000000000001,
+      "bin_high": 0.7000000000000001,
+      "count": 66,
+      "mean_prediction": 0.6581244753720271,
+      "observed_frequency": 0.7272727272727273
+    },
+    {
+      "bin_low": 0.7000000000000001,
+      "bin_high": 0.8,
+      "count": 101,
+      "mean_prediction": 0.7515212245575656,
+      "observed_frequency": 0.693069306930693
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.9,
+      "count": 120,
+      "mean_prediction": 0.8471488731518699,
+      "observed_frequency": 0.85
+    },
+    {
+      "bin_low": 0.9,
+      "bin_high": 1.0,
+      "count": 14,
+      "mean_prediction": 0.9193502691484033,
+      "observed_frequency": 1.0
+    }
+  ],
+  "rolling": [
+    {
+      "period": "2026-05",
+      "count": 31,
+      "brier": 0.35079521970980976,
+      "log_loss": 0.5882102838838763
+    },
+    {
+      "period": "2026-06",
+      "count": 30,
+      "brier": 0.40593019032143113,
+      "log_loss": 0.7198137111091043
+    },
+    {
+      "period": "2026-07",
+      "count": 31,
+      "brier": 0.39197867869449327,
+      "log_loss": 0.7726354906697379
+    },
+    {
+      "period": "2026-08",
+      "count": 31,
+      "brier": 0.3882548188616843,
+      "log_loss": 0.6942053196100746
+    },
+    {
+      "period": "2026-09",
+      "count": 30,
+      "brier": 0.41128369720373625,
+      "log_loss": 0.737252229235926
+    },
+    {
+      "period": "2026-10",
+      "count": 31,
+      "brier": 0.22804101498749438,
+      "log_loss": 0.43065307891448884
+    },
+    {
+      "period": "2026-11",
+      "count": 30,
+      "brier": 0.5191208257347372,
+      "log_loss": 0.903611116651792
+    },
+    {
+      "period": "2026-12",
+      "count": 31,
+      "brier": 0.258433360511253,
+      "log_loss": 0.502445605852131
+    },
+    {
+      "period": "2027-01",
+      "count": 31,
+      "brier": 0.38664463121287973,
+      "log_loss": 0.6836462763515546
+    },
+    {
+      "period": "2027-02",
+      "count": 28,
+      "brier": 0.40768204882177833,
+      "log_loss": 0.7242184271163847
+    },
+    {
+      "period": "2027-03",
+      "count": 31,
+      "brier": 0.49530157928436824,
+      "log_loss": 0.8243047313726436
+    },
+    {
+      "period": "2027-04",
+      "count": 14,
+      "brier": 0.547397986425327,
+      "log_loss": 0.8264873142613407
+    }
+  ],
+  "drift": [
+    {
+      "feature": "wet_interaction",
+      "psi": 0.0148390277954637,
+      "level": "low"
+    },
+    {
+      "feature": "reliability_log",
+      "psi": 0.010447169512071893,
+      "level": "low"
+    },
+    {
+      "feature": "latent_experience",
+      "psi": 0.009426513312179198,
+      "level": "low"
+    },
+    {
+      "feature": "latent_skill",
+      "psi": 0.007940561520855057,
+      "level": "low"
+    },
+    {
+      "feature": "pace_advantage",
+      "psi": 0.0074167040732129735,
+      "level": "low"
+    },
+    {
+      "feature": "latent_health",
+      "psi": 0.006650738997638928,
+      "level": "low"
+    },
+    {
+      "feature": "progress_position",
+      "psi": 0.0057183669567721085,
+      "level": "low"
+    },
+    {
+      "feature": "latent_form",
+      "psi": 0.0057064660325564336,
+      "level": "low"
+    },
+    {
+      "feature": "context_adjustment",
+      "psi": 0.0041392162719923326,
+      "level": "low"
+    },
+    {
+      "feature": "latent_potential",
+      "psi": 0.0038634541120050607,
+      "level": "low"
+    },
+    {
+      "feature": "tyre_penalty",
+      "psi": 0.00360756421379352,
+      "level": "low"
+    },
+    {
+      "feature": "penalty_penalty",
+      "psi": 0.001973867466475438,
+      "level": "low"
+    },
+    {
+      "feature": "safety_car_position_relief",
+      "psi": 0.0017426542338490122,
+      "level": "low"
+    },
+    {
+      "feature": "pit_penalty",
+      "psi": 0.001611550117200758,
+      "level": "low"
+    },
+    {
+      "feature": "position_advantage",
+      "psi": 0.0,
+      "level": "low"
+    }
+  ],
+  "errors": [
+    {
+      "event_id": "f1-synth-1170",
+      "prediction_time": "2027-03-16T13:13:23.447144Z",
+      "predicted": "Norris",
+      "actual": "Verstappen",
+      "confidence": 0.8828263378885615,
+      "probabilities": {
+        "Norris": 0.8828263378885615,
+        "Verstappen": 0.09281400988088054,
+        "Leclerc": 0.007538677375175034,
+        "Other": 0.016820974855382934
+      }
+    },
+    {
+      "event_id": "f1-synth-1181",
+      "prediction_time": "2027-03-27T13:30:52.318939Z",
+      "predicted": "Leclerc",
+      "actual": "Verstappen",
+      "confidence": 0.8742128620946981,
+      "probabilities": {
+        "Norris": 0.004661681474951398,
+        "Verstappen": 0.05284270144493559,
+        "Leclerc": 0.8742128620946981,
+        "Other": 0.06828275498541495
+      }
+    },
+    {
+      "event_id": "f1-synth-1167",
+      "prediction_time": "2027-03-13T14:47:12.289142Z",
+      "predicted": "Verstappen",
+      "actual": "Norris",
+      "confidence": 0.8648179903996426,
+      "probabilities": {
+        "Norris": 0.11934914740669697,
+        "Verstappen": 0.8648179903996426,
+        "Leclerc": 0.008918705208856535,
+        "Other": 0.006914156984804108
+      }
+    },
+    {
+      "event_id": "f1-synth-1045",
+      "prediction_time": "2026-11-11T13:03:47.214592Z",
+      "predicted": "Leclerc",
+      "actual": "Norris",
+      "confidence": 0.8622961281037941,
+      "probabilities": {
+        "Norris": 0.10788928882017565,
+        "Verstappen": 0.00818522391630456,
+        "Leclerc": 0.8622961281037941,
+        "Other": 0.021629359159725636
+      }
+    },
+    {
+      "event_id": "f1-synth-1184",
+      "prediction_time": "2027-03-30T13:05:30.708591Z",
+      "predicted": "Leclerc",
+      "actual": "Verstappen",
+      "confidence": 0.8596264892288423,
+      "probabilities": {
+        "Norris": 0.026756493236121837,
+        "Verstappen": 0.10801945216771086,
+        "Leclerc": 0.8596264892288423,
+        "Other": 0.005597565367324959
+      }
+    },
+    {
+      "event_id": "f1-synth-0904",
+      "prediction_time": "2026-06-23T13:47:29.266695Z",
+      "predicted": "Verstappen",
+      "actual": "Leclerc",
+      "confidence": 0.8559405861215901,
+      "probabilities": {
+        "Norris": 0.0595812218723433,
+        "Verstappen": 0.8559405861215901,
+        "Leclerc": 0.07862893831610034,
+        "Other": 0.005849253689966264
+      }
+    },
+    {
+      "event_id": "f1-synth-1042",
+      "prediction_time": "2026-11-08T14:05:12.323449Z",
+      "predicted": "Leclerc",
+      "actual": "Other",
+      "confidence": 0.843511104264513,
+      "probabilities": {
+        "Norris": 0.10077769907322784,
+        "Verstappen": 0.012860036314905234,
+        "Leclerc": 0.843511104264513,
+        "Other": 0.0428511603473539
+      }
+    },
+    {
+      "event_id": "f1-synth-1171",
+      "prediction_time": "2027-03-17T12:02:23.353182Z",
+      "predicted": "Verstappen",
+      "actual": "Norris",
+      "confidence": 0.8393811423140984,
+      "probabilities": {
+        "Norris": 0.11935855153510867,
+        "Verstappen": 0.8393811423140984,
+        "Leclerc": 0.03214591444795562,
+        "Other": 0.009114391702837028
+      }
+    },
+    {
+      "event_id": "f1-synth-1067",
+      "prediction_time": "2026-12-03T14:21:00.786984Z",
+      "predicted": "Verstappen",
+      "actual": "Other",
+      "confidence": 0.8364946904447407,
+      "probabilities": {
+        "Norris": 0.02417949631579682,
+        "Verstappen": 0.8364946904447407,
+        "Leclerc": 0.0041762811300979415,
+        "Other": 0.13514953210936456
+      }
+    },
+    {
+      "event_id": "f1-synth-0978",
+      "prediction_time": "2026-09-05T14:49:27.105373Z",
+      "predicted": "Leclerc",
+      "actual": "Verstappen",
+      "confidence": 0.8335887481621185,
+      "probabilities": {
+        "Norris": 0.09949444871636043,
+        "Verstappen": 0.05797710525145126,
+        "Leclerc": 0.8335887481621185,
+        "Other": 0.00893969787006997
+      }
+    },
+    {
+      "event_id": "f1-synth-0994",
+      "prediction_time": "2026-09-21T12:32:19.341429Z",
+      "predicted": "Leclerc",
+      "actual": "Verstappen",
+      "confidence": 0.832845537139393,
+      "probabilities": {
+        "Norris": 0.005045480178965208,
+        "Verstappen": 0.1443122802430837,
+        "Leclerc": 0.832845537139393,
+        "Other": 0.01779670243855805
+      }
+    },
+    {
+      "event_id": "f1-synth-1115",
+      "prediction_time": "2027-01-20T14:31:32.267031Z",
+      "predicted": "Verstappen",
+      "actual": "Other",
+      "confidence": 0.83057705422367,
+      "probabilities": {
+        "Norris": 0.10641187809455462,
+        "Verstappen": 0.83057705422367,
+        "Leclerc": 0.011958471213962568,
+        "Other": 0.05105259646781282
+      }
+    }
+  ],
+  "data_mode": "synthetic_demo",
+  "created_at": "2026-10-03T03:01:23.279712Z",
+  "git_commit": "unknown",
+  "data_snapshot_hash": "b76f5c9f8b04fd3c"
+}

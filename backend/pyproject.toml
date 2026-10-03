@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sportsworld"
+version = "1.2.0"
+description = "SportsWorld: point-in-time-valid multi-sport probabilistic forecasting engine for MHacks 2026"
+requires-python = ">=3.11"
+authors = [{name = "SportsWorld Team"}]
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.8",
+  "pydantic-settings>=2.4",
+  "numpy>=1.26",
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+postgres = ["psycopg[binary]>=3.2"]
+fetch = ["uagents>=0.22"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "httpx>=0.27"]
+
+[project.scripts]
+sportsworld-api = "sportsworld.api.main:run"
+sportsworld-seed = "sportsworld.demo.seed:main"
+sportsworld-backtest = "sportsworld.backtest.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

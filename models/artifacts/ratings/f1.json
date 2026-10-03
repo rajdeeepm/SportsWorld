@@ -1,0 +1,19 @@
+{
+  "league": "f1",
+  "params": {
+    "obs_sd": 0.35,
+    "q_driver": 0.0,
+    "q_car": 0.0,
+    "rho_driver": 0.8,
+    "rho_car": 0.9,
+    "season_var_car": 0.02,
+    "season_var_driver": 0.02,
+    "init_var_driver": 0.12,
+    "init_var_car": 0.15,
+    "rel_decay": 0.9
+  },
+  "mean_predictive_loglik": -0.49627744269823815,
+  "fit_window": {
+    "end": "2024-11-03T23:59:59+00:00"
+  }
+}

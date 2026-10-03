@@ -1,0 +1,20 @@
+{
+  "league": "wnba",
+  "params": {
+    "hfa": 1.9166666666666667,
+    "obs_sd": 11.5,
+    "q": 0.0,
+    "rho": 0.4,
+    "season_var": 18.368055555555557,
+    "init_var": 107.12249999999999,
+    "newcomer_mean": 0.0
+  },
+  "mean_predictive_loglik": -3.9052785271440067,
+  "n_games": 1176,
+  "fit_window": {
+    "end": "2025-08-03T19:00:00+00:00"
+  },
+  "data_mode": "real_espn",
+  "ep_coef": null,
+  "ep_fit": null
+}

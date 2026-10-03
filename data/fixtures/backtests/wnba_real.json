@@ -1,0 +1,445 @@
+{
+  "run_id": "basketball-wnba_bootstrap_real_v1-101defcb",
+  "sport": "basketball",
+  "competition": "wnba",
+  "model_version": "wnba_bootstrap_real_v1",
+  "feature_schema_version": "league_features_v2_real",
+  "train_window": {
+    "start": "2023-05-19T23:00:00+00:00",
+    "end": "2025-08-03T21:15:00+00:00"
+  },
+  "calibration_window": {
+    "start": "2025-08-03T22:00:00+00:00",
+    "end": "2026-06-17T01:15:00+00:00"
+  },
+  "test_window": {
+    "start": "2026-06-17T23:00:00+00:00",
+    "end": "2026-10-03T03:15:00+00:00"
+  },
+  "split_method": "chronological_holdout",
+  "prediction_horizons": [
+    "pregame",
+    "in_game"
+  ],
+  "sample_counts": {
+    "train": 2828,
+    "calibration": 936,
+    "test": 940
+  },
+  "metrics": {
+    "brier": 0.3223099636371895,
+    "log_loss": 0.4815925099217509,
+    "ece": 0.021915396212959792,
+    "accuracy": 0.7468085106382979,
+    "interval_width": 0.04375004696444204
+  },
+  "baselines": {
+    "empirical_base_rate": {
+      "brier": 0.4923404995968357,
+      "log_loss": 0.6854732341396423,
+      "ece": 0.022817418519967547,
+      "accuracy": 0.5659574468085107
+    },
+    "kalman_state_space_only": {
+      "brier": 0.32850462998854985,
+      "log_loss": 0.4915503483227386,
+      "ece": 0.03913719777644921,
+      "accuracy": 0.7457446808510638
+    },
+    "model_selection_calibration_window": {
+      "learned_log_loss": 0.5060516932261684,
+      "kalman_log_loss": 0.5209465815794742
+    },
+    "kalman_state_space_only_pregame": {
+      "brier": 0.3902799292297414,
+      "log_loss": 0.5784565768992666,
+      "ece": 0.04620545036702017,
+      "accuracy": 0.6978723404255319
+    }
+  },
+  "ablations": [
+    {
+      "stage": "A0",
+      "label": "A0 home field only",
+      "feature_count": 1,
+      "brier": 0.4924503761026025,
+      "log_loss": 0.685584578895227,
+      "ece": 0.026124348295348154,
+      "accuracy": 0.5659574468085107
+    },
+    {
+      "stage": "A1",
+      "label": "A1 + latent rating state (Kalman mean/var, prior season)",
+      "feature_count": 4,
+      "brier": 0.39181949671301275,
+      "log_loss": 0.5796512979920363,
+      "ece": 0.043198596078337634,
+      "accuracy": 0.7021276595744681
+    },
+    {
+      "stage": "A2",
+      "label": "A2 + form / rest context",
+      "feature_count": 6,
+      "brier": 0.3923020560070881,
+      "log_loss": 0.5799869696491315,
+      "ece": 0.05127759225926928,
+      "accuracy": 0.6936170212765957
+    },
+    {
+      "stage": "A3",
+      "label": "A3 + live game state",
+      "feature_count": 10,
+      "brier": 0.3223426495960285,
+      "log_loss": 0.4814552141385576,
+      "ece": 0.01925349167394502,
+      "accuracy": 0.7510638297872341
+    }
+  ],
+  "slices": [
+    {
+      "name": "pregame",
+      "count": 235,
+      "brier": 0.4002147199422987,
+      "log_loss": 0.5888441677170798,
+      "ece": 0.06497352438811362,
+      "accuracy": 0.7021276595744681
+    },
+    {
+      "name": "in_game",
+      "count": 705,
+      "brier": 0.29634171153548644,
+      "log_loss": 0.44584195732330784,
+      "ece": 0.02911766081721576,
+      "accuracy": 0.7617021276595745
+    },
+    {
+      "name": "neutral_site",
+      "count": 4,
+      "brier": 0.511181482224607,
+      "log_loss": 0.7049651696835156,
+      "ece": 0.5019713814332978,
+      "accuracy": 0.75
+    },
+    {
+      "name": "home_underdog",
+      "count": 324,
+      "brier": 0.35231449501550377,
+      "log_loss": 0.5233732455801741,
+      "ece": 0.044775383685180394,
+      "accuracy": 0.7345679012345679
+    },
+    {
+      "name": "close_late",
+      "count": 69,
+      "brier": 0.48909096432694543,
+      "log_loss": 0.6972816574902023,
+      "ece": 0.08283104581994166,
+      "accuracy": 0.5942028985507246
+    },
+    {
+      "name": "new_team (<=3 games rated)",
+      "count": 0,
+      "status": "insufficient sample"
+    },
+    {
+      "name": "final_2_minutes",
+      "count": 0,
+      "status": "insufficient sample"
+    }
+  ],
+  "leakage_violations": 0,
+  "reliability": [
+    {
+      "bin_low": 0.0,
+      "bin_high": 0.1,
+      "count": 88,
+      "mean_prediction": 0.052305178688505614,
+      "observed_frequency": 0.056818181818181816
+    },
+    {
+      "bin_low": 0.1,
+      "bin_high": 0.2,
+      "count": 65,
+      "mean_prediction": 0.15175869699036992,
+      "observed_frequency": 0.2
+    },
+    {
+      "bin_low": 0.2,
+      "bin_high": 0.30000000000000004,
+      "count": 66,
+      "mean_prediction": 0.2502402698886217,
+      "observed_frequency": 0.21212121212121213
+    },
+    {
+      "bin_low": 0.30000000000000004,
+      "bin_high": 0.4,
+      "count": 86,
+      "mean_prediction": 0.34898838685247324,
+      "observed_frequency": 0.3953488372093023
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.5,
+      "count": 93,
+      "mean_prediction": 0.45106853253041096,
+      "observed_frequency": 0.5161290322580645
+    },
+    {
+      "bin_low": 0.5,
+      "bin_high": 0.6000000000000001,
+      "count": 99,
+      "mean_prediction": 0.5443961809371123,
+      "observed_frequency": 0.494949494949495
+    },
+    {
+      "bin_low": 0.6000000000000001,
+      "bin_high": 0.7000000000000001,
+      "count": 114,
+      "mean_prediction": 0.6485081476234534,
+      "observed_frequency": 0.7105263157894737
+    },
+    {
+      "bin_low": 0.7000000000000001,
+      "bin_high": 0.8,
+      "count": 97,
+      "mean_prediction": 0.7511585039678864,
+      "observed_frequency": 0.7628865979381443
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.9,
+      "count": 91,
+      "mean_prediction": 0.8473492044903564,
+      "observed_frequency": 0.8571428571428571
+    },
+    {
+      "bin_low": 0.9,
+      "bin_high": 1.0,
+      "count": 141,
+      "mean_prediction": 0.9569450308092452,
+      "observed_frequency": 0.9645390070921985
+    }
+  ],
+  "rolling": [
+    {
+      "period": "2026-06",
+      "count": 154,
+      "brier": 0.42773433530084415,
+      "log_loss": 0.609535475310902
+    },
+    {
+      "period": "2026-07",
+      "count": 276,
+      "brier": 0.3462088778825991,
+      "log_loss": 0.5127920389247224
+    },
+    {
+      "period": "2026-08",
+      "count": 350,
+      "brier": 0.2786682260756743,
+      "log_loss": 0.4300015091636383
+    },
+    {
+      "period": "2026-09",
+      "count": 146,
+      "brier": 0.2585353879409593,
+      "log_loss": 0.39712775825193863
+    },
+    {
+      "period": "2026-10",
+      "count": 14,
+      "brier": 0.44761300865462267,
+      "log_loss": 0.6297651766633664
+    }
+  ],
+  "drift": [
+    {
+      "feature": "rating_uncertainty",
+      "psi": 4.765575959748323,
+      "level": "high"
+    },
+    {
+      "feature": "prior_season_rating_diff",
+      "psi": 0.43931594547290903,
+      "level": "high"
+    },
+    {
+      "feature": "rest_diff",
+      "psi": 0.05876643412856684,
+      "level": "low"
+    },
+    {
+      "feature": "rating_diff",
+      "psi": 0.03473061569390494,
+      "level": "low"
+    },
+    {
+      "feature": "form_diff",
+      "psi": 0.02069876838964571,
+      "level": "low"
+    },
+    {
+      "feature": "live_margin_z",
+      "psi": 0.013033297064910446,
+      "level": "low"
+    },
+    {
+      "feature": "score_margin_scaled",
+      "psi": 0.011587436036726137,
+      "level": "low"
+    },
+    {
+      "feature": "margin_time_interaction",
+      "psi": 0.011054660369514576,
+      "level": "low"
+    },
+    {
+      "feature": "home_field",
+      "psi": 0.0,
+      "level": "low"
+    },
+    {
+      "feature": "game_elapsed",
+      "psi": 0.0,
+      "level": "low"
+    }
+  ],
+  "errors": [
+    {
+      "event_id": "wnba-401857212",
+      "prediction_time": "2026-09-23T02:45:00+00:00",
+      "home_probability": 0.046328520931638764,
+      "target_home_win": 1,
+      "confidence": 0.9536714790683611,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "wnba-401857120",
+      "prediction_time": "2026-08-07T02:30:00+00:00",
+      "home_probability": 0.9373125248986612,
+      "target_home_win": 0,
+      "confidence": 0.9373125248986612,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "wnba-401857010",
+      "prediction_time": "2026-06-21T23:30:00+00:00",
+      "home_probability": 0.9372402506703827,
+      "target_home_win": 0,
+      "confidence": 0.9372402506703827,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "wnba-401857117",
+      "prediction_time": "2026-08-06T01:00:00+00:00",
+      "home_probability": 0.06997898455263822,
+      "target_home_win": 1,
+      "confidence": 0.9300210154473617,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "wnba-401857098",
+      "prediction_time": "2026-07-30T03:30:00+00:00",
+      "home_probability": 0.07916898084320227,
+      "target_home_win": 1,
+      "confidence": 0.9208310191567977,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "wnba-401857105",
+      "prediction_time": "2026-08-01T19:15:00+00:00",
+      "home_probability": 0.08110358359059307,
+      "target_home_win": 1,
+      "confidence": 0.918896416409407,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "wnba-401857011",
+      "prediction_time": "2026-06-22T01:30:00+00:00",
+      "home_probability": 0.08995549774065652,
+      "target_home_win": 1,
+      "confidence": 0.9100445022593435,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "wnba-401857120",
+      "prediction_time": "2026-08-07T03:15:00+00:00",
+      "home_probability": 0.9094171301949436,
+      "target_home_win": 0,
+      "confidence": 0.9094171301949436,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "wnba-401857010",
+      "prediction_time": "2026-06-22T00:15:00+00:00",
+      "home_probability": 0.9063192740409881,
+      "target_home_win": 0,
+      "confidence": 0.9063192740409881,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "wnba-401857097",
+      "prediction_time": "2026-07-30T02:15:00+00:00",
+      "home_probability": 0.9005819270980471,
+      "target_home_win": 0,
+      "confidence": 0.9005819270980471,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "wnba-401857034",
+      "prediction_time": "2026-07-03T01:00:00+00:00",
+      "home_probability": 0.11683659210147976,
+      "target_home_win": 1,
+      "confidence": 0.8831634078985203,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "wnba-401857183",
+      "prediction_time": "2026-08-29T03:30:00+00:00",
+      "home_probability": 0.11975234714083108,
+      "target_home_win": 1,
+      "confidence": 0.8802476528591688,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    }
+  ],
+  "data_mode": "real_espn",
+  "created_at": "2026-10-03T08:13:37.892173Z",
+  "git_commit": "unknown",
+  "data_snapshot_hash": "101defcb8ffa0f51"
+}

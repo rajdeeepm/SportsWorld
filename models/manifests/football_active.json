@@ -1,0 +1,58 @@
+{
+  "model_version": "football_bootstrap_world_demo_v3",
+  "sport": "football",
+  "competition": null,
+  "algorithm": "bootstrap_logistic",
+  "feature_schema_version": "football_features_v3_world_state",
+  "features": [
+    "strength_diff",
+    "historical_strength_diff",
+    "recent_form_diff",
+    "health_diff",
+    "usage_stability_diff",
+    "experience_diff",
+    "potential_diff",
+    "chemistry_diff",
+    "matchup_advantage",
+    "context_mean_shift",
+    "human_context_diff",
+    "environment_context_diff",
+    "context_volatility",
+    "score_diff_scaled",
+    "time_elapsed",
+    "score_time_interaction",
+    "possession_home",
+    "field_position_home",
+    "home_qb_available",
+    "away_qb_available",
+    "weather_severity",
+    "home_field"
+  ],
+  "train_window": {
+    "start": "2024-01-01T13:13:58.219744Z",
+    "end": "2025-12-31T14:47:21.736257Z"
+  },
+  "calibration_window": {
+    "start": "2026-01-01T14:44:21.796440Z",
+    "end": "2026-04-30T12:05:20.231910Z"
+  },
+  "test_window": {
+    "start": "2026-05-01T14:59:07.317015Z",
+    "end": "2026-09-26T12:14:06.828530Z"
+  },
+  "artifact_uri": "football_bootstrap_world_demo_v3.json",
+  "calibration_version": "football_bootstrap_world_demo_v3_temperature_v1",
+  "metrics": {
+    "brier": 0.3232066447308298,
+    "log_loss": 0.4928403948714832,
+    "ece": 0.04455002299670154,
+    "accuracy": 0.7785234899328859,
+    "interval_coverage": 0.7315436241610739,
+    "interval_width": 0.12268524490071771
+  },
+  "data_mode": "synthetic_demo",
+  "notes": [
+    "Learned bootstrap ensemble consumes learned latent-state aggregates, matchup/context, and live game state.",
+    "Synthetic demo artifact; replace with real chronological sports history before empirical claims."
+  ]
+}

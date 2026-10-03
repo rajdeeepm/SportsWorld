@@ -1,0 +1,20 @@
+{
+  "league": "mens-college-basketball",
+  "params": {
+    "hfa": 3.8333333333333335,
+    "obs_sd": 10.35,
+    "q": 0.027552083333333335,
+    "rho": 1.0,
+    "season_var": 4.592013888888889,
+    "init_var": 107.12249999999999,
+    "newcomer_mean": -11.5
+  },
+  "mean_predictive_loglik": -3.818411810196526,
+  "n_games": 25057,
+  "fit_window": {
+    "end": "2024-12-29T20:00:00+00:00"
+  },
+  "data_mode": "real_espn",
+  "ep_coef": null,
+  "ep_fit": null
+}

@@ -1,0 +1,519 @@
+{
+  "run_id": "football-college_football_bootstrap_real_v1-e1d0c02d",
+  "sport": "football",
+  "competition": "college-football",
+  "model_version": "college_football_bootstrap_real_v1",
+  "feature_schema_version": "league_features_v2_real",
+  "train_window": {
+    "start": "2018-08-25T21:30:00+00:00",
+    "end": "2023-09-10T02:00:00+00:00"
+  },
+  "calibration_window": {
+    "start": "2023-09-09T22:30:00+00:00",
+    "end": "2024-11-16T05:00:00+00:00"
+  },
+  "test_window": {
+    "start": "2024-11-16T02:00:00+00:00",
+    "end": "2026-10-03T03:57:24+00:00"
+  },
+  "split_method": "chronological_holdout",
+  "prediction_horizons": [
+    "pregame",
+    "in_game"
+  ],
+  "sample_counts": {
+    "train": 276462,
+    "calibration": 90471,
+    "test": 92938
+  },
+  "metrics": {
+    "brier": 0.2187080406106294,
+    "log_loss": 0.3400490373752751,
+    "ece": 0.007174944277120141,
+    "accuracy": 0.8431642600443306,
+    "interval_width": 0.003442528034752847
+  },
+  "baselines": {
+    "empirical_base_rate": {
+      "brier": 0.4536475278114446,
+      "log_loss": 0.646128025932816,
+      "ece": 0.028881188367956057,
+      "accuracy": 0.654952764208397
+    },
+    "kalman_state_space_only": {
+      "brier": 0.22113067833971647,
+      "log_loss": 0.3531495956113877,
+      "ece": 0.012521473294908561,
+      "accuracy": 0.8406894919193441
+    },
+    "model_selection_calibration_window": {
+      "learned_log_loss": 0.3605853390683516,
+      "kalman_log_loss": 0.37372976528757984
+    },
+    "kalman_state_space_only_pregame": {
+      "brier": 0.31749334876657553,
+      "log_loss": 0.4821731793261669,
+      "ece": 0.027050595924620384,
+      "accuracy": 0.7615334632878492
+    },
+    "external_espn_published_wp (same plays)": {
+      "brier": 0.2113380782971852,
+      "log_loss": 0.32581848729240626,
+      "ece": 0.004082216446385977,
+      "accuracy": 0.843897583365592
+    },
+    "sportsworld (same plays)": {
+      "brier": 0.21685682088747832,
+      "log_loss": 0.3374098022905692,
+      "ece": 0.006673793152437597,
+      "accuracy": 0.844583310291434
+    }
+  },
+  "ablations": [
+    {
+      "stage": "A0",
+      "label": "A0 home field only",
+      "feature_count": 1,
+      "brier": 0.4526000132272708,
+      "log_loss": 0.6450554917342839,
+      "ece": 0.043132513582381606,
+      "accuracy": 0.654952764208397
+    },
+    {
+      "stage": "A1",
+      "label": "A1 + latent rating state (Kalman mean/var, prior season)",
+      "feature_count": 4,
+      "brier": 0.3192809990619857,
+      "log_loss": 0.48062227696849175,
+      "ece": 0.014141102802845463,
+      "accuracy": 0.7565688953926274
+    },
+    {
+      "stage": "A2",
+      "label": "A2 + form / rest context",
+      "feature_count": 6,
+      "brier": 0.3175340361281829,
+      "log_loss": 0.47864410091625853,
+      "ece": 0.013112640253362106,
+      "accuracy": 0.758914545180658
+    },
+    {
+      "stage": "A3",
+      "label": "A3 + live score/clock",
+      "feature_count": 10,
+      "brier": 0.2190616163732689,
+      "log_loss": 0.34055974491381746,
+      "ece": 0.006926406968636256,
+      "accuracy": 0.8427769050334631
+    },
+    {
+      "stage": "A4",
+      "label": "A4 + possession / field position (learned EP)",
+      "feature_count": 11,
+      "brier": 0.21872528167952765,
+      "log_loss": 0.3400603018962411,
+      "ece": 0.007042858418408148,
+      "accuracy": 0.8430781811530268
+    }
+  ],
+  "slices": [
+    {
+      "name": "pregame",
+      "count": 1539,
+      "brier": 0.31691108310176314,
+      "log_loss": 0.4813392968938235,
+      "ece": 0.03944599723530038,
+      "accuracy": 0.7621832358674464
+    },
+    {
+      "name": "in_game",
+      "count": 91399,
+      "brier": 0.2170544723834731,
+      "log_loss": 0.337669955444411,
+      "ece": 0.006664082035622289,
+      "accuracy": 0.8445278394730795
+    },
+    {
+      "name": "neutral_site",
+      "count": 6665,
+      "brier": 0.28968750834903323,
+      "log_loss": 0.4333864195851598,
+      "ece": 0.024764560548440825,
+      "accuracy": 0.7782445611402851
+    },
+    {
+      "name": "home_underdog",
+      "count": 24024,
+      "brier": 0.2796190457263233,
+      "log_loss": 0.4254444383095834,
+      "ece": 0.011310836783391962,
+      "accuracy": 0.7962454212454212
+    },
+    {
+      "name": "close_late",
+      "count": 9035,
+      "brier": 0.36125371686197577,
+      "log_loss": 0.5450873644688795,
+      "ece": 0.029451916127252203,
+      "accuracy": 0.7397897066961815
+    },
+    {
+      "name": "new_team (<=3 games rated)",
+      "count": 878,
+      "brier": 0.03311368413604813,
+      "log_loss": 0.08191087779485212,
+      "ece": 0.06692834994774613,
+      "accuracy": 0.9965831435079726
+    },
+    {
+      "name": "final_2_minutes",
+      "count": 5406,
+      "brier": 0.13441707610207485,
+      "log_loss": 0.21781323366869387,
+      "ece": 0.013359018497955257,
+      "accuracy": 0.9089900110987791
+    }
+  ],
+  "leakage_violations": 0,
+  "reliability": [
+    {
+      "bin_low": 0.0,
+      "bin_high": 0.1,
+      "count": 9228,
+      "mean_prediction": 0.0363181312017626,
+      "observed_frequency": 0.03673602080624187
+    },
+    {
+      "bin_low": 0.1,
+      "bin_high": 0.2,
+      "count": 4939,
+      "mean_prediction": 0.14822319892608873,
+      "observed_frequency": 0.1405142741445637
+    },
+    {
+      "bin_low": 0.2,
+      "bin_high": 0.30000000000000004,
+      "count": 4548,
+      "mean_prediction": 0.25112828085637157,
+      "observed_frequency": 0.23306948109058928
+    },
+    {
+      "bin_low": 0.30000000000000004,
+      "bin_high": 0.4,
+      "count": 4988,
+      "mean_prediction": 0.3497425938257931,
+      "observed_frequency": 0.2898957497995188
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.5,
+      "count": 5159,
+      "mean_prediction": 0.45029539435226745,
+      "observed_frequency": 0.41597208761387866
+    },
+    {
+      "bin_low": 0.5,
+      "bin_high": 0.6000000000000001,
+      "count": 5527,
+      "mean_prediction": 0.5502111670775739,
+      "observed_frequency": 0.5407997105120318
+    },
+    {
+      "bin_low": 0.6000000000000001,
+      "bin_high": 0.7000000000000001,
+      "count": 6639,
+      "mean_prediction": 0.6518357984788745,
+      "observed_frequency": 0.6409097755686097
+    },
+    {
+      "bin_low": 0.7000000000000001,
+      "bin_high": 0.8,
+      "count": 7502,
+      "mean_prediction": 0.7526142096088464,
+      "observed_frequency": 0.7484670754465476
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.9,
+      "count": 9725,
+      "mean_prediction": 0.8527996195228333,
+      "observed_frequency": 0.8587146529562982
+    },
+    {
+      "bin_low": 0.9,
+      "bin_high": 1.0,
+      "count": 34683,
+      "mean_prediction": 0.9745976834447966,
+      "observed_frequency": 0.9795865409566646
+    }
+  ],
+  "rolling": [
+    {
+      "period": "2024-11",
+      "count": 10153,
+      "brier": 0.24758496017247225,
+      "log_loss": 0.38234886631218323
+    },
+    {
+      "period": "2024-12",
+      "count": 3860,
+      "brier": 0.2771583792808528,
+      "log_loss": 0.4234806821944559
+    },
+    {
+      "period": "2025-01",
+      "count": 720,
+      "brier": 0.1796302656042568,
+      "log_loss": 0.29609541990074484
+    },
+    {
+      "period": "2025-08",
+      "count": 5700,
+      "brier": 0.12952779264123268,
+      "log_loss": 0.22536470702558067
+    },
+    {
+      "period": "2025-09",
+      "count": 16658,
+      "brier": 0.21287833150671243,
+      "log_loss": 0.3273940123600383
+    },
+    {
+      "period": "2025-10",
+      "count": 14269,
+      "brier": 0.26409126320335813,
+      "log_loss": 0.40384618692152996
+    },
+    {
+      "period": "2025-11",
+      "count": 17954,
+      "brier": 0.23890627989622426,
+      "log_loss": 0.3645737896341696
+    },
+    {
+      "period": "2025-12",
+      "count": 2760,
+      "brier": 0.3384943332950433,
+      "log_loss": 0.5332573644635658
+    },
+    {
+      "period": "2026-01",
+      "count": 671,
+      "brier": 0.2172970866561931,
+      "log_loss": 0.3419553931475864
+    },
+    {
+      "period": "2026-08",
+      "count": 488,
+      "brier": 0.24489043617787215,
+      "log_loss": 0.3590305885618622
+    },
+    {
+      "period": "2026-09",
+      "count": 19389,
+      "brier": 0.15439822074567452,
+      "log_loss": 0.24921393850912982
+    },
+    {
+      "period": "2026-10",
+      "count": 316,
+      "brier": 0.24725017167003113,
+      "log_loss": 0.3761377734458415
+    }
+  ],
+  "drift": [
+    {
+      "feature": "prior_season_rating_diff",
+      "psi": 0.22999450257831774,
+      "level": "moderate"
+    },
+    {
+      "feature": "rating_uncertainty",
+      "psi": 0.15609803133454853,
+      "level": "moderate"
+    },
+    {
+      "feature": "form_diff",
+      "psi": 0.023038187543247074,
+      "level": "low"
+    },
+    {
+      "feature": "rating_diff",
+      "psi": 0.022565723092019152,
+      "level": "low"
+    },
+    {
+      "feature": "live_margin_z",
+      "psi": 0.01301095799103371,
+      "level": "low"
+    },
+    {
+      "feature": "score_margin_scaled",
+      "psi": 0.0102479037151751,
+      "level": "low"
+    },
+    {
+      "feature": "game_elapsed",
+      "psi": 0.009785702175245686,
+      "level": "low"
+    },
+    {
+      "feature": "margin_time_interaction",
+      "psi": 0.009119676194519125,
+      "level": "low"
+    },
+    {
+      "feature": "rest_diff",
+      "psi": 0.0040700149128160895,
+      "level": "low"
+    },
+    {
+      "feature": "possession_ep",
+      "psi": 0.001622388130102518,
+      "level": "low"
+    },
+    {
+      "feature": "home_field",
+      "psi": 0.0,
+      "level": "low"
+    }
+  ],
+  "errors": [
+    {
+      "event_id": "college-football-401866418",
+      "prediction_time": "2026-09-12T23:52:00+00:00",
+      "home_probability": 5.4879345363175266e-14,
+      "target_home_win": 1,
+      "confidence": 0.9999999999999452,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:38:00+00:00",
+      "home_probability": 0.9971064695282755,
+      "target_home_win": 0,
+      "confidence": 0.9971064695282755,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:41:56+00:00",
+      "home_probability": 0.9964876308765919,
+      "target_home_win": 0,
+      "confidence": 0.9964876308765919,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:49:04+00:00",
+      "home_probability": 0.9964678985193842,
+      "target_home_win": 0,
+      "confidence": 0.9964678985193842,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:13:00+00:00",
+      "home_probability": 0.9962402787047807,
+      "target_home_win": 0,
+      "confidence": 0.9962402787047807,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:45:36+00:00",
+      "home_probability": 0.9960574600796352,
+      "target_home_win": 0,
+      "confidence": 0.9960574600796352,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:35:04+00:00",
+      "home_probability": 0.9955350527186575,
+      "target_home_win": 0,
+      "confidence": 0.9955350527186575,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:09:28+00:00",
+      "home_probability": 0.9955340865198514,
+      "target_home_win": 0,
+      "confidence": 0.9955340865198514,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:18:24+00:00",
+      "home_probability": 0.9955250129951911,
+      "target_home_win": 0,
+      "confidence": 0.9955250129951911,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:12:00+00:00",
+      "home_probability": 0.9954298764847093,
+      "target_home_win": 0,
+      "confidence": 0.9954298764847093,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:20:44+00:00",
+      "home_probability": 0.9949675727852335,
+      "target_home_win": 0,
+      "confidence": 0.9949675727852335,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "college-football-401836198",
+      "prediction_time": "2025-12-06T21:23:52+00:00",
+      "home_probability": 0.9947921253148982,
+      "target_home_win": 0,
+      "confidence": 0.9947921253148982,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    }
+  ],
+  "data_mode": "real_espn",
+  "created_at": "2026-10-03T08:12:47.138406Z",
+  "git_commit": "unknown",
+  "data_snapshot_hash": "e1d0c02d6dc9a073"
+}

@@ -1,0 +1,48 @@
+{
+  "model_version": "nfl_bootstrap_real_v1",
+  "sport": "football",
+  "competition": "nfl",
+  "algorithm": "bootstrap_logistic",
+  "feature_schema_version": "league_features_v2_real",
+  "features": [
+    "home_field",
+    "rating_diff",
+    "rating_uncertainty",
+    "prior_season_rating_diff",
+    "form_diff",
+    "rest_diff",
+    "score_margin_scaled",
+    "game_elapsed",
+    "margin_time_interaction",
+    "live_margin_z",
+    "possession_ep"
+  ],
+  "train_window": {
+    "start": "2018-09-07T00:55:00+00:00",
+    "end": "2023-01-22T01:28:20+00:00"
+  },
+  "calibration_window": {
+    "start": "2023-01-22T01:15:00+00:00",
+    "end": "2024-11-18T01:22:24+00:00"
+  },
+  "test_window": {
+    "start": "2024-11-18T01:20:00+00:00",
+    "end": "2026-10-02T04:14:20+00:00"
+  },
+  "artifact_uri": "nfl_bootstrap_real_v1.json",
+  "calibration_version": "nfl_bootstrap_real_v1_temperature_v1",
+  "metrics": {
+    "brier": 0.3131441454588081,
+    "log_loss": 0.46864748952163476,
+    "ece": 0.005004327850204475,
+    "accuracy": 0.7639056617176956,
+    "interval_width": 0.00799713590372023
+  },
+  "data_mode": "real_espn",
+  "notes": [
+    "NFL: 2276 completed games, 136376 point-in-time rows (pregame + end of each regulation period).",
+    "Latent team strength is a Kalman-filtered rating whose dynamics were fit on the training window only.",
+    "Market odds are archived but excluded from features so SportsWorld can be compared against external consensus.",
+    "M4 selection on the calibration window: learned 0.4725 vs Kalman analytic 0.4863 -> serving bootstrap_logistic. Caveat: the learned model's 1-parameter temperature is fit on the same window, which slightly favours it; card metrics are the held-out test metrics of the SERVED model."
+  ]
+}

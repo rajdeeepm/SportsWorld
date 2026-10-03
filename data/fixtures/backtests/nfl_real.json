@@ -1,0 +1,516 @@
+{
+  "run_id": "football-nfl_bootstrap_real_v1-782ca14d",
+  "sport": "football",
+  "competition": "nfl",
+  "model_version": "nfl_bootstrap_real_v1",
+  "feature_schema_version": "league_features_v2_real",
+  "train_window": {
+    "start": "2018-09-07T00:55:00+00:00",
+    "end": "2023-01-22T01:28:20+00:00"
+  },
+  "calibration_window": {
+    "start": "2023-01-22T01:15:00+00:00",
+    "end": "2024-11-18T01:22:24+00:00"
+  },
+  "test_window": {
+    "start": "2024-11-18T01:20:00+00:00",
+    "end": "2026-10-02T04:14:20+00:00"
+  },
+  "split_method": "chronological_holdout",
+  "prediction_horizons": [
+    "pregame",
+    "in_game"
+  ],
+  "sample_counts": {
+    "train": 79734,
+    "calibration": 28488,
+    "test": 28154
+  },
+  "metrics": {
+    "brier": 0.3131441454588081,
+    "log_loss": 0.46864748952163476,
+    "ece": 0.005004327850204475,
+    "accuracy": 0.7639056617176956,
+    "interval_width": 0.00799713590372023
+  },
+  "baselines": {
+    "empirical_base_rate": {
+      "brier": 0.49531614533837054,
+      "log_loss": 0.6884570169654035,
+      "ece": 0.011436690596431931,
+      "accuracy": 0.5497265042267528
+    },
+    "kalman_state_space_only": {
+      "brier": 0.31631565983313104,
+      "log_loss": 0.48885023348306084,
+      "ece": 0.02876636003786774,
+      "accuracy": 0.7637635859913334
+    },
+    "model_selection_calibration_window": {
+      "learned_log_loss": 0.47252980535081446,
+      "kalman_log_loss": 0.48625385939984933
+    },
+    "kalman_state_space_only_pregame": {
+      "brier": 0.43572512121997947,
+      "log_loss": 0.6256915256925084,
+      "ece": 0.052812767676914694,
+      "accuracy": 0.6453744493392071
+    },
+    "external_espn_published_wp (same plays)": {
+      "brier": 0.31087820090375284,
+      "log_loss": 0.4639467276031965,
+      "ece": 0.009361803858638175,
+      "accuracy": 0.7657463802472738
+    },
+    "sportsworld (same plays)": {
+      "brier": 0.3112225960454466,
+      "log_loss": 0.4660994698643481,
+      "ece": 0.004639607502749582,
+      "accuracy": 0.7657828513074875
+    }
+  },
+  "ablations": [
+    {
+      "stage": "A0",
+      "label": "A0 home field only",
+      "feature_count": 1,
+      "brier": 0.49478293675486296,
+      "log_loss": 0.6879205049089842,
+      "ece": 0.0008307287052281564,
+      "accuracy": 0.5497265042267528
+    },
+    {
+      "stage": "A1",
+      "label": "A1 + latent rating state (Kalman mean/var, prior season)",
+      "feature_count": 4,
+      "brier": 0.4469954390275416,
+      "log_loss": 0.6378797327797097,
+      "ece": 0.027409172711083465,
+      "accuracy": 0.6336932585067842
+    },
+    {
+      "stage": "A2",
+      "label": "A2 + form / rest context",
+      "feature_count": 6,
+      "brier": 0.44477312584504664,
+      "log_loss": 0.6354807450217553,
+      "ece": 0.029501536129667386,
+      "accuracy": 0.6379200113660581
+    },
+    {
+      "stage": "A3",
+      "label": "A3 + live score/clock",
+      "feature_count": 10,
+      "brier": 0.3137967701734827,
+      "log_loss": 0.4695686898471281,
+      "ece": 0.004472996266618044,
+      "accuracy": 0.761952120480216
+    },
+    {
+      "stage": "A4",
+      "label": "A4 + possession / field position (learned EP)",
+      "feature_count": 11,
+      "brier": 0.31314901207208934,
+      "log_loss": 0.46864217598282537,
+      "ece": 0.004501686981802984,
+      "accuracy": 0.7638346238545145
+    }
+  ],
+  "slices": [
+    {
+      "name": "pregame",
+      "count": 454,
+      "brier": 0.4407363239605452,
+      "log_loss": 0.6311561923023314,
+      "ece": 0.035629945063745595,
+      "accuracy": 0.6431718061674009
+    },
+    {
+      "name": "in_game",
+      "count": 27700,
+      "brier": 0.3110529234718122,
+      "log_loss": 0.4659839894832797,
+      "ece": 0.004636398501706194,
+      "accuracy": 0.765884476534296
+    },
+    {
+      "name": "neutral_site",
+      "count": 699,
+      "brier": 0.2250106565568006,
+      "log_loss": 0.36383521279996345,
+      "ece": 0.10836784187377081,
+      "accuracy": 0.8612303290414879
+    },
+    {
+      "name": "home_underdog",
+      "count": 6778,
+      "brier": 0.29265322965429896,
+      "log_loss": 0.4463723933188347,
+      "ece": 0.027520448113939645,
+      "accuracy": 0.7947772204190027
+    },
+    {
+      "name": "close_late",
+      "count": 3511,
+      "brier": 0.3874557852973735,
+      "log_loss": 0.567817142069544,
+      "ece": 0.017707362851641477,
+      "accuracy": 0.7006550840216462
+    },
+    {
+      "name": "new_team (<=3 games rated)",
+      "count": 0,
+      "status": "insufficient sample"
+    },
+    {
+      "name": "final_2_minutes",
+      "count": 1800,
+      "brier": 0.1810224971776023,
+      "log_loss": 0.2842965678543789,
+      "ece": 0.011491979735649084,
+      "accuracy": 0.8705555555555555
+    }
+  ],
+  "leakage_violations": 0,
+  "reliability": [
+    {
+      "bin_low": 0.0,
+      "bin_high": 0.1,
+      "count": 3041,
+      "mean_prediction": 0.038705543254508555,
+      "observed_frequency": 0.060506412364353834
+    },
+    {
+      "bin_low": 0.1,
+      "bin_high": 0.2,
+      "count": 1985,
+      "mean_prediction": 0.15076226833403888,
+      "observed_frequency": 0.181360201511335
+    },
+    {
+      "bin_low": 0.2,
+      "bin_high": 0.30000000000000004,
+      "count": 2155,
+      "mean_prediction": 0.2480601213814902,
+      "observed_frequency": 0.2988399071925754
+    },
+    {
+      "bin_low": 0.30000000000000004,
+      "bin_high": 0.4,
+      "count": 2410,
+      "mean_prediction": 0.3499754331608883,
+      "observed_frequency": 0.337344398340249
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.5,
+      "count": 2783,
+      "mean_prediction": 0.4524463776892756,
+      "observed_frequency": 0.4207689543657923
+    },
+    {
+      "bin_low": 0.5,
+      "bin_high": 0.6000000000000001,
+      "count": 2842,
+      "mean_prediction": 0.5491522836628706,
+      "observed_frequency": 0.5214637579169599
+    },
+    {
+      "bin_low": 0.6000000000000001,
+      "bin_high": 0.7000000000000001,
+      "count": 3106,
+      "mean_prediction": 0.6500259482994649,
+      "observed_frequency": 0.6535737282678686
+    },
+    {
+      "bin_low": 0.7000000000000001,
+      "bin_high": 0.8,
+      "count": 2611,
+      "mean_prediction": 0.7502391378809824,
+      "observed_frequency": 0.7694369973190348
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.9,
+      "count": 2618,
+      "mean_prediction": 0.8490872107444034,
+      "observed_frequency": 0.8781512605042017
+    },
+    {
+      "bin_low": 0.9,
+      "bin_high": 1.0,
+      "count": 4603,
+      "mean_prediction": 0.9632870114160951,
+      "observed_frequency": 0.9743645448620465
+    }
+  ],
+  "rolling": [
+    {
+      "period": "2024-11",
+      "count": 1227,
+      "brier": 0.2157647799509847,
+      "log_loss": 0.3377883593841803
+    },
+    {
+      "period": "2024-12",
+      "count": 4561,
+      "brier": 0.267473729878057,
+      "log_loss": 0.41177185415120626
+    },
+    {
+      "period": "2025-01",
+      "count": 1739,
+      "brier": 0.3465724123620518,
+      "log_loss": 0.49833250646769695
+    },
+    {
+      "period": "2025-02",
+      "count": 63,
+      "brier": 0.053164752029912575,
+      "log_loss": 0.11431923832211287
+    },
+    {
+      "period": "2025-09",
+      "count": 3895,
+      "brier": 0.29640013159771145,
+      "log_loss": 0.4497779973434958
+    },
+    {
+      "period": "2025-10",
+      "count": 3565,
+      "brier": 0.3436403994310556,
+      "log_loss": 0.517456378214613
+    },
+    {
+      "period": "2025-11",
+      "count": 4279,
+      "brier": 0.3423905949312368,
+      "log_loss": 0.5075403548705092
+    },
+    {
+      "period": "2025-12",
+      "count": 3973,
+      "brier": 0.32085751388815403,
+      "log_loss": 0.4712288288993363
+    },
+    {
+      "period": "2026-01",
+      "count": 1724,
+      "brier": 0.3469212798409431,
+      "log_loss": 0.5144333386863357
+    },
+    {
+      "period": "2026-02",
+      "count": 70,
+      "brier": 0.07856737406949402,
+      "log_loss": 0.17762764258260472
+    },
+    {
+      "period": "2026-09",
+      "count": 2992,
+      "brier": 0.3286030969513961,
+      "log_loss": 0.48748451072878285
+    },
+    {
+      "period": "2026-10",
+      "count": 66,
+      "brier": 0.293108123571042,
+      "log_loss": 0.44691007287757506
+    }
+  ],
+  "drift": [
+    {
+      "feature": "rating_uncertainty",
+      "psi": 1.6875804560365109,
+      "level": "high"
+    },
+    {
+      "feature": "prior_season_rating_diff",
+      "psi": 0.3594993120336493,
+      "level": "high"
+    },
+    {
+      "feature": "form_diff",
+      "psi": 0.03239518408015345,
+      "level": "low"
+    },
+    {
+      "feature": "rest_diff",
+      "psi": 0.03180485128444126,
+      "level": "low"
+    },
+    {
+      "feature": "possession_ep",
+      "psi": 0.02731788093337273,
+      "level": "low"
+    },
+    {
+      "feature": "rating_diff",
+      "psi": 0.02047202691595907,
+      "level": "low"
+    },
+    {
+      "feature": "score_margin_scaled",
+      "psi": 0.006053741544135408,
+      "level": "low"
+    },
+    {
+      "feature": "margin_time_interaction",
+      "psi": 0.002109266625491622,
+      "level": "low"
+    },
+    {
+      "feature": "live_margin_z",
+      "psi": 0.0013628045683790958,
+      "level": "low"
+    },
+    {
+      "feature": "game_elapsed",
+      "psi": 0.0007411064087070909,
+      "level": "low"
+    },
+    {
+      "feature": "home_field",
+      "psi": 0.0,
+      "level": "low"
+    }
+  ],
+  "errors": [
+    {
+      "event_id": "nfl-401772747",
+      "prediction_time": "2025-10-05T23:13:36+00:00",
+      "home_probability": 0.9836666147157181,
+      "target_home_win": 0,
+      "confidence": 0.9836666147157181,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "nfl-401772890",
+      "prediction_time": "2025-11-23T23:04:56+00:00",
+      "home_probability": 0.0176281793268494,
+      "target_home_win": 1,
+      "confidence": 0.9823718206731505,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "nfl-401772747",
+      "prediction_time": "2025-10-05T23:07:56+00:00",
+      "home_probability": 0.9809536697776717,
+      "target_home_win": 0,
+      "confidence": 0.9809536697776717,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "nfl-401772747",
+      "prediction_time": "2025-10-05T23:16:48+00:00",
+      "home_probability": 0.9806176689668077,
+      "target_home_win": 0,
+      "confidence": 0.9806176689668077,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "nfl-401772747",
+      "prediction_time": "2025-10-05T22:39:44+00:00",
+      "home_probability": 0.9805930741694685,
+      "target_home_win": 0,
+      "confidence": 0.9805930741694685,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "nfl-401772747",
+      "prediction_time": "2025-10-05T23:02:08+00:00",
+      "home_probability": 0.9803723620661582,
+      "target_home_win": 0,
+      "confidence": 0.9803723620661582,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "nfl-401772747",
+      "prediction_time": "2025-10-05T22:36:04+00:00",
+      "home_probability": 0.9799757965810026,
+      "target_home_win": 0,
+      "confidence": 0.9799757965810026,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "nfl-401772747",
+      "prediction_time": "2025-10-05T22:52:20+00:00",
+      "home_probability": 0.9791249796540319,
+      "target_home_win": 0,
+      "confidence": 0.9791249796540319,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "nfl-401772890",
+      "prediction_time": "2025-11-23T23:10:40+00:00",
+      "home_probability": 0.02102973492131931,
+      "target_home_win": 1,
+      "confidence": 0.9789702650786808,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "nfl-401772747",
+      "prediction_time": "2025-10-05T22:14:08+00:00",
+      "home_probability": 0.9780054904394917,
+      "target_home_win": 0,
+      "confidence": 0.9780054904394917,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "nfl-401772747",
+      "prediction_time": "2025-10-05T22:54:52+00:00",
+      "home_probability": 0.9776579342969695,
+      "target_home_win": 0,
+      "confidence": 0.9776579342969695,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "nfl-401772747",
+      "prediction_time": "2025-10-06T00:05:00+00:00",
+      "home_probability": 0.9769511061063506,
+      "target_home_win": 0,
+      "confidence": 0.9769511061063506,
+      "weather_severity": 0.0,
+      "strength_diff": 0.0,
+      "predicted": "home",
+      "actual": "away"
+    }
+  ],
+  "data_mode": "real_espn",
+  "created_at": "2026-10-03T08:05:56.028014Z",
+  "git_commit": "unknown",
+  "data_snapshot_hash": "782ca14db8a71ed1"
+}

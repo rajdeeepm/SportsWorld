@@ -1,0 +1,5601 @@
+{
+ "league": "mens-college-basketball",
+ "model_version": "player_impact_mens-college-basketball_v1",
+ "data_mode": "real_espn",
+ "fit_window": {
+  "start": "2024-11-16T20:00:00+00:00",
+  "end": "2026-04-07T00:50:00+00:00"
+ },
+ "n_games": 10643,
+ "residual_sd": 10.792,
+ "variance_explained": 0.00071,
+ "by_position": {
+  "KEY": {
+   "points": -0.89,
+   "se": 0.311,
+   "t": -2.86,
+   "games_with_absence": 1074
+  }
+ },
+ "definition": "count of the team's top-2 minutes players (>=5 prior games) who did not play",
+ "created_at": "2026-10-03T07:42:50.045382+00:00",
+ "current_season": 2025,
+ "current_key_players": {
+  "2737": {
+   "KEY": [
+    {
+     "athlete_id": "4906515",
+     "name": "Kody Clouet",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105885",
+     "name": "Kareem Rozier",
+     "position": "G"
+    }
+   ]
+  },
+  "2511": {
+   "KEY": [
+    {
+     "athlete_id": "5107088",
+     "name": "Chris Ashby",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176643",
+     "name": "Nasir Mann",
+     "position": "G"
+    }
+   ]
+  },
+  "179": {
+   "KEY": [
+    {
+     "athlete_id": "5107180",
+     "name": "Frank Mitchell",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5175657",
+     "name": "Darryl Simmons II",
+     "position": "G"
+    }
+   ]
+  },
+  "71": {
+   "KEY": [
+    {
+     "athlete_id": "4702993",
+     "name": "Alex Huibregtse",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241360",
+     "name": "Jaquan Johnson",
+     "position": "G"
+    }
+   ]
+  },
+  "2837": {
+   "KEY": [
+    {
+     "athlete_id": "4431815",
+     "name": "Gianni Hunt",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241435",
+     "name": "Ronnie Harrison",
+     "position": "F"
+    }
+   ]
+  },
+  "3166": {},
+  "2320": {
+   "KEY": [
+    {
+     "athlete_id": "5116468",
+     "name": "Andrew Holifield",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5313558",
+     "name": "Rob Lee Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "130174": {},
+  "2504": {
+   "KEY": [
+    {
+     "athlete_id": "4904928",
+     "name": "Cory Wells",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4904931",
+     "name": "Lance Williams",
+     "position": "G"
+    }
+   ]
+  },
+  "128256": {
+   "KEY": [
+    {
+     "athlete_id": "5315998",
+     "name": "Darion Ramos",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5316005",
+     "name": "Alvin Kay",
+     "position": "F"
+    }
+   ]
+  },
+  "93": {
+   "KEY": [
+    {
+     "athlete_id": "5113534",
+     "name": "Javon Jackson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313873",
+     "name": "Roman Domon",
+     "position": "G"
+    }
+   ]
+  },
+  "2437": {
+   "KEY": [
+    {
+     "athlete_id": "5107268",
+     "name": "Tony Osburn",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107275",
+     "name": "Lance Waddles",
+     "position": "G"
+    }
+   ]
+  },
+  "2617": {
+   "KEY": [
+    {
+     "athlete_id": "5106037",
+     "name": "Keon Thompson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177516",
+     "name": "Chrishawn Christmas",
+     "position": "G"
+    }
+   ]
+  },
+  "2398": {},
+  "2181": {
+   "KEY": [
+    {
+     "athlete_id": "5105965",
+     "name": "Jalen Quinn",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107963",
+     "name": "Andrew Alia",
+     "position": "G"
+    }
+   ]
+  },
+  "2464": {
+   "KEY": [
+    {
+     "athlete_id": "5107851",
+     "name": "Ryan Abelman",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313239",
+     "name": "Chris Komin",
+     "position": "G"
+    }
+   ]
+  },
+  "284": {
+   "KEY": [
+    {
+     "athlete_id": "5242407",
+     "name": "Hermann Koffi",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315084",
+     "name": "Davante Hackett",
+     "position": "G"
+    }
+   ]
+  },
+  "2645": {},
+  "2678": {
+   "KEY": [
+    {
+     "athlete_id": "5107076",
+     "name": "TJ Johnson",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5176530",
+     "name": "Tan Yildizoglu",
+     "position": "G"
+    }
+   ]
+  },
+  "3169": {},
+  "2182": {
+   "KEY": [
+    {
+     "athlete_id": "5105778",
+     "name": "Shane Blakeney",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239624",
+     "name": "Kevon Vanderhorst",
+     "position": "G"
+    }
+   ]
+  },
+  "2725": {},
+  "46": {
+   "KEY": [
+    {
+     "athlete_id": "5061569",
+     "name": "Caleb Williams",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5175952",
+     "name": "Malik Mack",
+     "position": "G"
+    }
+   ]
+  },
+  "2415": {
+   "KEY": [
+    {
+     "athlete_id": "5107977",
+     "name": "Rob Lawson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5263816",
+     "name": "Elijah Davis",
+     "position": "G"
+    }
+   ]
+  },
+  "2599": {
+   "KEY": [
+    {
+     "athlete_id": "4565698",
+     "name": "Bryce Hopkins",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5106262",
+     "name": "Zuby Ejiofor",
+     "position": "F"
+    }
+   ]
+  },
+  "2514": {
+   "KEY": [
+    {
+     "athlete_id": "5107321",
+     "name": "Amarri Monroe",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5242905",
+     "name": "Grant Randall",
+     "position": "F"
+    }
+   ]
+  },
+  "120": {
+   "KEY": [
+    {
+     "athlete_id": "4870565",
+     "name": "Elijah Saunders",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5144378",
+     "name": "Andre Mills",
+     "position": "G"
+    }
+   ]
+  },
+  "2154": {
+   "KEY": [
+    {
+     "athlete_id": "4896959",
+     "name": "Hassan Perkins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176265",
+     "name": "Khali Horton",
+     "position": "F"
+    }
+   ]
+  },
+  "194": {
+   "KEY": [
+    {
+     "athlete_id": "4895776",
+     "name": "Devin Royal",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5105837",
+     "name": "Bruce Thornton",
+     "position": "G"
+    }
+   ]
+  },
+  "85": {
+   "KEY": [
+    {
+     "athlete_id": "5313210",
+     "name": "Finley Woodward",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5313212",
+     "name": "Kyler D'Augustino",
+     "position": "G"
+    }
+   ]
+  },
+  "2084": {
+   "KEY": [
+    {
+     "athlete_id": "5105803",
+     "name": "Noah Batchelor",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177188",
+     "name": "Ryan Sabol",
+     "position": "G"
+    }
+   ]
+  },
+  "2572": {
+   "KEY": [
+    {
+     "athlete_id": "5180818",
+     "name": "Dylan Brumfield",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313270",
+     "name": "Tylik Weeks",
+     "position": "F"
+    }
+   ]
+  },
+  "2272": {
+   "KEY": [
+    {
+     "athlete_id": "5107904",
+     "name": "Rob Martin",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108084",
+     "name": "Terry Anderson",
+     "position": "F"
+    }
+   ]
+  },
+  "231": {
+   "KEY": [
+    {
+     "athlete_id": "5243230",
+     "name": "Charles Johnston",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5314511",
+     "name": "Alex Wilkins",
+     "position": "G"
+    }
+   ]
+  },
+  "2619": {
+   "KEY": [
+    {
+     "athlete_id": "4898228",
+     "name": "Rob Brown III",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105560",
+     "name": "Erik Pratt",
+     "position": "G"
+    }
+   ]
+  },
+  "3149": {},
+  "2199": {
+   "KEY": [
+    {
+     "athlete_id": "4592404",
+     "name": "Addison Patterson",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5242937",
+     "name": "Mohammad Habhab",
+     "position": "F"
+    }
+   ]
+  },
+  "2247": {
+   "KEY": [
+    {
+     "athlete_id": "5164367",
+     "name": "Malachi Brown",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313068",
+     "name": "Micah Tucker",
+     "position": "G"
+    }
+   ]
+  },
+  "2083": {
+   "KEY": [
+    {
+     "athlete_id": "5242553",
+     "name": "Jayden Williams",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242555",
+     "name": "Achile Spadone",
+     "position": "G"
+    }
+   ]
+  },
+  "48": {
+   "KEY": [
+    {
+     "athlete_id": "5142618",
+     "name": "Christian Bliss",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239618",
+     "name": "Macon Emory",
+     "position": "F"
+    }
+   ]
+  },
+  "87": {
+   "KEY": [
+    {
+     "athlete_id": "4912455",
+     "name": "Braeden Shrewsberry",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5144373",
+     "name": "Cole Certa",
+     "position": "G"
+    }
+   ]
+  },
+  "112358": {
+   "KEY": [
+    {
+     "athlete_id": "5122836",
+     "name": "Jamal Fuller",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177096",
+     "name": "Greg Gordon",
+     "position": "G"
+    }
+   ]
+  },
+  "258": {
+   "KEY": [
+    {
+     "athlete_id": "5105464",
+     "name": "Dallin Hall",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311846",
+     "name": "Thijs De Ridder",
+     "position": "F"
+    }
+   ]
+  },
+  "2520": {
+   "KEY": [
+    {
+     "athlete_id": "5105581",
+     "name": "Zion Cruz",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242911",
+     "name": "Flash Burton",
+     "position": "G"
+    }
+   ]
+  },
+  "2115": {
+   "KEY": [
+    {
+     "athlete_id": "4703644",
+     "name": "Jay Rodgers",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177229",
+     "name": "Darin Smith Jr.",
+     "position": "F"
+    }
+   ]
+  },
+  "126751": {},
+  "41": {
+   "KEY": [
+    {
+     "athlete_id": "4917149",
+     "name": "Alex Karaban",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5054083",
+     "name": "Silas Demary Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "2441": {
+   "KEY": [
+    {
+     "athlete_id": "5185239",
+     "name": "Jabri Fitzpatrick",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314323",
+     "name": "Najimi George",
+     "position": "G"
+    }
+   ]
+  },
+  "228": {
+   "KEY": [
+    {
+     "athlete_id": "5105445",
+     "name": "Dillon Hunter",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106880",
+     "name": "Jestin Porter",
+     "position": "G"
+    }
+   ]
+  },
+  "160": {
+   "KEY": [
+    {
+     "athlete_id": "5174630",
+     "name": "Jack Graham",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175705",
+     "name": "Davide Poser",
+     "position": "F"
+    }
+   ]
+  },
+  "2168": {
+   "KEY": [
+    {
+     "athlete_id": "5106599",
+     "name": "Javon Bennett",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175785",
+     "name": "Keonte Jones",
+     "position": "G"
+    }
+   ]
+  },
+  "2099": {
+   "KEY": [
+    {
+     "athlete_id": "5175788",
+     "name": "Bryan Ndjonga",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5176059",
+     "name": "Kahlil Singleton",
+     "position": "G"
+    }
+   ]
+  },
+  "2184": {
+   "KEY": [
+    {
+     "athlete_id": "5240353",
+     "name": "Jimmie Williams",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243000",
+     "name": "Tarence Guinyard",
+     "position": "G"
+    }
+   ]
+  },
+  "315": {
+   "KEY": [
+    {
+     "athlete_id": "5314356",
+     "name": "Justin Hawkins",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5314357",
+     "name": "Reggie Prudhomme",
+     "position": "G"
+    }
+   ]
+  },
+  "227": {
+   "KEY": [
+    {
+     "athlete_id": "4431930",
+     "name": "Tyler Cochran",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239711",
+     "name": "Jonah Hinton",
+     "position": "G"
+    }
+   ]
+  },
+  "56": {
+   "KEY": [
+    {
+     "athlete_id": "5314558",
+     "name": "Ethan Copeland",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314562",
+     "name": "Jake Johnson",
+     "position": "G"
+    }
+   ]
+  },
+  "2226": {
+   "KEY": [
+    {
+     "athlete_id": "4683761",
+     "name": "Kanaan Carlyle",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4869767",
+     "name": "Isaiah Elohim",
+     "position": "G"
+    }
+   ]
+  },
+  "103": {
+   "KEY": [
+    {
+     "athlete_id": "4683629",
+     "name": "Donald Hand Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4684268",
+     "name": "Fred Payne",
+     "position": "G"
+    }
+   ]
+  },
+  "152": {
+   "KEY": [
+    {
+     "athlete_id": "4683860",
+     "name": "Quadir Copeland",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4937074",
+     "name": "Darrion Williams",
+     "position": "F"
+    }
+   ]
+  },
+  "2428": {
+   "KEY": [
+    {
+     "athlete_id": "5108775",
+     "name": "Dionte Johnson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314190",
+     "name": "Gage Lattimore",
+     "position": "G"
+    }
+   ]
+  },
+  "153": {
+   "KEY": [
+    {
+     "athlete_id": "4873181",
+     "name": "Jarin Stevenson",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5105571",
+     "name": "Henri Veesaar",
+     "position": "C"
+    }
+   ]
+  },
+  "2110": {
+   "KEY": [
+    {
+     "athlete_id": "4897018",
+     "name": "Camren Hunter",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312926",
+     "name": "Luke Moore",
+     "position": "G"
+    }
+   ]
+  },
+  "221": {
+   "KEY": [
+    {
+     "athlete_id": "4712902",
+     "name": "Cameron Corhen",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5107652",
+     "name": "Damarco Minor",
+     "position": "G"
+    }
+   ]
+  },
+  "2754": {
+   "KEY": [
+    {
+     "athlete_id": "5107077",
+     "name": "Bryson Dawkins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241706",
+     "name": "Cris Carroll",
+     "position": "F"
+    }
+   ]
+  },
+  "183": {
+   "KEY": [
+    {
+     "athlete_id": "5174557",
+     "name": "Naithan George",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240882",
+     "name": "Nate Kingz",
+     "position": "G"
+    }
+   ]
+  },
+  "2066": {
+   "KEY": [
+    {
+     "athlete_id": "4897008",
+     "name": "Wes Peterson Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177097",
+     "name": "Jeremiah Quigley",
+     "position": "G"
+    }
+   ]
+  },
+  "259": {
+   "KEY": [
+    {
+     "athlete_id": "4873105",
+     "name": "Ben Hammond",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311829",
+     "name": "Neo Avdalas",
+     "position": "G"
+    }
+   ]
+  },
+  "2127": {
+   "KEY": [
+    {
+     "athlete_id": "5106775",
+     "name": "A'lahn Sumler",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243382",
+     "name": "Jesse Hafemeister",
+     "position": "F"
+    }
+   ]
+  },
+  "2132": {
+   "KEY": [
+    {
+     "athlete_id": "5075626",
+     "name": "Baba Miller",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5175032",
+     "name": "Day Day Thomas",
+     "position": "G"
+    }
+   ]
+  },
+  "2717": {
+   "KEY": [
+    {
+     "athlete_id": "5105455",
+     "name": "Cord Stansberry",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107345",
+     "name": "Marcus Kell",
+     "position": "F"
+    }
+   ]
+  },
+  "2006": {
+   "KEY": [
+    {
+     "athlete_id": "5105847",
+     "name": "Evan Mahaffey",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5108059",
+     "name": "Tavari Johnson",
+     "position": "G"
+    }
+   ]
+  },
+  "256": {
+   "KEY": [
+    {
+     "athlete_id": "5176669",
+     "name": "Cliff Davis",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177352",
+     "name": "Bradley Douglas",
+     "position": "G"
+    }
+   ]
+  },
+  "2561": {
+   "KEY": [
+    {
+     "athlete_id": "5242922",
+     "name": "Justice Shoats",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242926",
+     "name": "Gavin Doty",
+     "position": "G"
+    }
+   ]
+  },
+  "2803": {
+   "KEY": [
+    {
+     "athlete_id": "5313075",
+     "name": "Ashley Sims II",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5313085",
+     "name": "Timofei Rudovskii",
+     "position": "F"
+    }
+   ]
+  },
+  "2050": {
+   "KEY": [
+    {
+     "athlete_id": "5176167",
+     "name": "Mason Jones",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5177148",
+     "name": "Armoni Zeigler",
+     "position": "G"
+    }
+   ]
+  },
+  "309": {
+   "KEY": [
+    {
+     "athlete_id": "5106265",
+     "name": "Dorian Finister",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241686",
+     "name": "De'Vion Lavergne",
+     "position": "G"
+    }
+   ]
+  },
+  "2603": {
+   "KEY": [
+    {
+     "athlete_id": "5105858",
+     "name": "Derek Simpson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5142608",
+     "name": "Jaiden Glover-Toscano",
+     "position": "G"
+    }
+   ]
+  },
+  "322": {
+   "KEY": [
+    {
+     "athlete_id": "5176065",
+     "name": "Mark Butler",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176067",
+     "name": "Andrew Phillips",
+     "position": "G"
+    }
+   ]
+  },
+  "2670": {
+   "KEY": [
+    {
+     "athlete_id": "5105987",
+     "name": "Barry Evans",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5175368",
+     "name": "Lazar Djokovic",
+     "position": "F"
+    }
+   ]
+  },
+  "2681": {
+   "KEY": [
+    {
+     "athlete_id": "5176342",
+     "name": "Eddie Placer",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5317314",
+     "name": "Nick Jones",
+     "position": "G"
+    }
+   ]
+  },
+  "2309": {
+   "KEY": [
+    {
+     "athlete_id": "5108093",
+     "name": "Delrecco Gillespie",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5174637",
+     "name": "Cian Medley",
+     "position": "G"
+    }
+   ]
+  },
+  "2653": {
+   "KEY": [
+    {
+     "athlete_id": "5176732",
+     "name": "Thomas Dowd",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5240745",
+     "name": "Cooper Campbell",
+     "position": "G"
+    }
+   ]
+  },
+  "213": {
+   "KEY": [
+    {
+     "athlete_id": "4838723",
+     "name": "Josh Reed",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5144108",
+     "name": "Kayden Mingo",
+     "position": "G"
+    }
+   ]
+  },
+  "2217": {
+   "KEY": [
+    {
+     "athlete_id": "5108879",
+     "name": "Braden Sparks",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311735",
+     "name": "Declan Wucherpfennig",
+     "position": "G"
+    }
+   ]
+  },
+  "526": {
+   "KEY": [
+    {
+     "athlete_id": "4575837",
+     "name": "J.R. Konieczny",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4895738",
+     "name": "Rahmir Barno",
+     "position": "G"
+    }
+   ]
+  },
+  "128550": {},
+  "94": {
+   "KEY": [
+    {
+     "athlete_id": "5106776",
+     "name": "LJ Wells",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5241674",
+     "name": "Dan Gherezgher",
+     "position": "G"
+    }
+   ]
+  },
+  "108799": {},
+  "2750": {
+   "KEY": [
+    {
+     "athlete_id": "5177215",
+     "name": "Solomon Callaghan",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243109",
+     "name": "Dominic Pangonis",
+     "position": "G"
+    }
+   ]
+  },
+  "2233": {},
+  "189": {
+   "KEY": [
+    {
+     "athlete_id": "4703531",
+     "name": "Sam Towns",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5242560",
+     "name": "Javontae Campbell",
+     "position": "G"
+    }
+   ]
+  },
+  "326": {
+   "KEY": [
+    {
+     "athlete_id": "5240685",
+     "name": "Mark Drone",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313358",
+     "name": "DJ Hall",
+     "position": "F"
+    }
+   ]
+  },
+  "2117": {
+   "KEY": [
+    {
+     "athlete_id": "5313260",
+     "name": "Tamario Adley",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313263",
+     "name": "Nathan Claerbaut",
+     "position": "C"
+    }
+   ]
+  },
+  "2026": {
+   "KEY": [
+    {
+     "athlete_id": "4700841",
+     "name": "Kasen Jennings",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108925",
+     "name": "Alonzo Dodd",
+     "position": "G"
+    }
+   ]
+  },
+  "2649": {
+   "KEY": [
+    {
+     "athlete_id": "4845365",
+     "name": "Sonny Wilson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314225",
+     "name": "Leroy Blyden Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "6": {
+   "KEY": [
+    {
+     "athlete_id": "5189001",
+     "name": "Chaze Harris",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313206",
+     "name": "Adam Olsen",
+     "position": "F"
+    }
+   ]
+  },
+  "2633": {
+   "KEY": [
+    {
+     "athlete_id": "5107968",
+     "name": "Ja'Kobi Gillespie",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5164559",
+     "name": "Nate Ament",
+     "position": "F"
+    }
+   ]
+  },
+  "2382": {
+   "KEY": [
+    {
+     "athlete_id": "4917161",
+     "name": "Armani Mighty",
+     "position": "C"
+    },
+    {
+     "athlete_id": "5174594",
+     "name": "Baraka Okojie",
+     "position": "G"
+    }
+   ]
+  },
+  "350": {
+   "KEY": [
+    {
+     "athlete_id": "5106731",
+     "name": "Nolan Hodge",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108909",
+     "name": "Greedy Williams",
+     "position": "G"
+    }
+   ]
+  },
+  "2418": {},
+  "2515": {
+   "KEY": [
+    {
+     "athlete_id": "4848630",
+     "name": "Dennis Parker Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4873143",
+     "name": "Del Jones",
+     "position": "G"
+    }
+   ]
+  },
+  "2710": {
+   "KEY": [
+    {
+     "athlete_id": "5176322",
+     "name": "Isaiah Griffin",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5314440",
+     "name": "Lucas Lorenzen",
+     "position": "G"
+    }
+   ]
+  },
+  "2244": {
+   "KEY": [
+    {
+     "athlete_id": "4433512",
+     "name": "Jahari Long",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175671",
+     "name": "Kory Mincy",
+     "position": "G"
+    }
+   ]
+  },
+  "2747": {
+   "KEY": [
+    {
+     "athlete_id": "5175080",
+     "name": "Nils Machowski",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176177",
+     "name": "Cayden Vasko",
+     "position": "G"
+    }
+   ]
+  },
+  "2349": {
+   "KEY": [
+    {
+     "athlete_id": "5313151",
+     "name": "Darrel Yepdo",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313152",
+     "name": "Xavier Spencer",
+     "position": "G"
+    }
+   ]
+  },
+  "111913": {},
+  "261": {
+   "KEY": [
+    {
+     "athlete_id": "5107295",
+     "name": "TJ Hurley",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5239825",
+     "name": "Sean Blake",
+     "position": "G"
+    }
+   ]
+  },
+  "7933": {},
+  "8": {
+   "KEY": [
+    {
+     "athlete_id": "4698719",
+     "name": "Trevon Brazile",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5142620",
+     "name": "Darius Acuff Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "2582": {
+   "KEY": [
+    {
+     "athlete_id": "4905542",
+     "name": "DaMariee Jones",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5243366",
+     "name": "Michael Jacobs",
+     "position": "G"
+    }
+   ]
+  },
+  "2330": {
+   "KEY": [
+    {
+     "athlete_id": "5177248",
+     "name": "Deng Garang",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177250",
+     "name": "Trent Mosquera",
+     "position": "G"
+    }
+   ]
+  },
+  "3156": {},
+  "12": {
+   "KEY": [
+    {
+     "athlete_id": "4432737",
+     "name": "Jaden Bradley",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5082206",
+     "name": "Brayden Burries",
+     "position": "G"
+    }
+   ]
+  },
+  "57": {
+   "KEY": [
+    {
+     "athlete_id": "5080489",
+     "name": "Thomas Haugh",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5238195",
+     "name": "Boogie Fland",
+     "position": "G"
+    }
+   ]
+  },
+  "2344": {
+   "KEY": [
+    {
+     "athlete_id": "4684309",
+     "name": "Elijah Tucker",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4845378",
+     "name": "Jacoi Hutchinson",
+     "position": "G"
+    }
+   ]
+  },
+  "124942": {},
+  "127": {
+   "KEY": [
+    {
+     "athlete_id": "4711255",
+     "name": "Jeremy Fears Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4872740",
+     "name": "Coen Carr",
+     "position": "F"
+    }
+   ]
+  },
+  "2142": {
+   "KEY": [
+    {
+     "athlete_id": "5176046",
+     "name": "Jalen Cox",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314481",
+     "name": "Andrew Alekseyenko",
+     "position": "F"
+    }
+   ]
+  },
+  "113": {
+   "KEY": [
+    {
+     "athlete_id": "4896505",
+     "name": "Leonardo Bettiol",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4897361",
+     "name": "Marcus Banks Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "276": {
+   "KEY": [
+    {
+     "athlete_id": "4704015",
+     "name": "Jalen Speer",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313147",
+     "name": "Noah Otshudi",
+     "position": "G"
+    }
+   ]
+  },
+  "232": {
+   "KEY": [
+    {
+     "athlete_id": "5106754",
+     "name": "Jlynn Counter",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313547",
+     "name": "Martin Kalu",
+     "position": "G"
+    }
+   ]
+  },
+  "2839": {},
+  "2729": {
+   "KEY": [
+    {
+     "athlete_id": "5106734",
+     "name": "Chase Lowe",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174608",
+     "name": "Tunde Vahlberg Fasasi",
+     "position": "F"
+    }
+   ]
+  },
+  "111179": {},
+  "55": {
+   "KEY": [
+    {
+     "athlete_id": "5240082",
+     "name": "Mostapha El Moutaouakkil",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312340",
+     "name": "Jacoby Hill",
+     "position": "G"
+    }
+   ]
+  },
+  "3083": {},
+  "338": {
+   "KEY": [
+    {
+     "athlete_id": "5176186",
+     "name": "RJ Johnson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242126",
+     "name": "Braedan Lue",
+     "position": "F"
+    }
+   ]
+  },
+  "2488": {},
+  "2335": {
+   "KEY": [
+    {
+     "athlete_id": "5107069",
+     "name": "Zach Cleveland",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5242130",
+     "name": "Brett Decker Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "3077": {},
+  "2413": {
+   "KEY": [
+    {
+     "athlete_id": "5107477",
+     "name": "Davion Cunningham",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177360",
+     "name": "George Marshall",
+     "position": "G"
+    }
+   ]
+  },
+  "111166": {},
+  "2166": {
+   "KEY": [
+    {
+     "athlete_id": "4845382",
+     "name": "Parker Friedrichsen",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176031",
+     "name": "Josh Scovens",
+     "position": "G"
+    }
+   ]
+  },
+  "111949": {},
+  "2450": {
+   "KEY": [
+    {
+     "athlete_id": "5106767",
+     "name": "Elijah Jamison",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108049",
+     "name": "Anthony McComb III",
+     "position": "G"
+    }
+   ]
+  },
+  "50024": {},
+  "2229": {
+   "KEY": [
+    {
+     "athlete_id": "5175759",
+     "name": "Corey Stephenson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242602",
+     "name": "Zawdie Jackson",
+     "position": "G"
+    }
+   ]
+  },
+  "107730": {},
+  "195": {
+   "KEY": [
+    {
+     "athlete_id": "5107317",
+     "name": "Jackson Paveletzke",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108011",
+     "name": "Aidan Hadaway",
+     "position": "F"
+    }
+   ]
+  },
+  "2032": {
+   "KEY": [
+    {
+     "athlete_id": "4712843",
+     "name": "Chandler Jackson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312387",
+     "name": "Christian Harmon",
+     "position": "G"
+    }
+   ]
+  },
+  "2711": {
+   "KEY": [
+    {
+     "athlete_id": "5106869",
+     "name": "Jayden Brewer",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243096",
+     "name": "EJ Ryans",
+     "position": "G"
+    }
+   ]
+  },
+  "324": {
+   "KEY": [
+    {
+     "athlete_id": "5107346",
+     "name": "Rasheed Jones",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177247",
+     "name": "AJ Dancler",
+     "position": "G"
+    }
+   ]
+  },
+  "47": {
+   "KEY": [
+    {
+     "athlete_id": "4897768",
+     "name": "Bryce Harris",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176075",
+     "name": "Cam Gillus",
+     "position": "G"
+    }
+   ]
+  },
+  "142": {
+   "KEY": [
+    {
+     "athlete_id": "4433285",
+     "name": "Mark Mitchell Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5054085",
+     "name": "Anthony Robinson II",
+     "position": "G"
+    }
+   ]
+  },
+  "236": {
+   "KEY": [
+    {
+     "athlete_id": "5314470",
+     "name": "Tate Darner",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314472",
+     "name": "Jordan Frison",
+     "position": "G"
+    }
+   ]
+  },
+  "2841": {},
+  "2643": {
+   "KEY": [
+    {
+     "athlete_id": "5114809",
+     "name": "Sola Adebisi",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5314553",
+     "name": "Braxton Williams",
+     "position": "F"
+    }
+   ]
+  },
+  "2215": {},
+  "193": {
+   "KEY": [
+    {
+     "athlete_id": "5093252",
+     "name": "Eian Elmer",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243053",
+     "name": "Brant Byers",
+     "position": "G"
+    }
+   ]
+  },
+  "295": {
+   "KEY": [
+    {
+     "athlete_id": "4896969",
+     "name": "Jordan Battle",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243387",
+     "name": "KC Shaw",
+     "position": "G"
+    }
+   ]
+  },
+  "2507": {
+   "KEY": [
+    {
+     "athlete_id": "4898010",
+     "name": "Jaylin Sellers",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311991",
+     "name": "Stefan Vaaks",
+     "position": "G"
+    }
+   ]
+  },
+  "107": {
+   "KEY": [
+    {
+     "athlete_id": "5143603",
+     "name": "Gabe Warren",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242942",
+     "name": "Tyler Boston",
+     "position": "G"
+    }
+   ]
+  },
+  "2752": {
+   "KEY": [
+    {
+     "athlete_id": "5105454",
+     "name": "Malik Messina-Moore",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105569",
+     "name": "Filip Borovicanin",
+     "position": "F"
+    }
+   ]
+  },
+  "2368": {
+   "KEY": [
+    {
+     "athlete_id": "5107299",
+     "name": "Rhyjon Blackwell",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242619",
+     "name": "Jadin Collins-Roberts",
+     "position": "G"
+    }
+   ]
+  },
+  "2057": {
+   "KEY": [
+    {
+     "athlete_id": "4683944",
+     "name": "Tyler Lundblade",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241334",
+     "name": "Jabez Jenkins",
+     "position": "G"
+    }
+   ]
+  },
+  "2005": {
+   "KEY": [
+    {
+     "athlete_id": "5313893",
+     "name": "Kam Sanders",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313899",
+     "name": "Lucas Hobin",
+     "position": "F"
+    }
+   ]
+  },
+  "2506": {
+   "KEY": [
+    {
+     "athlete_id": "5175672",
+     "name": "Carl Parrish",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175673",
+     "name": "Jonah Pierce",
+     "position": "F"
+    }
+   ]
+  },
+  "2426": {
+   "KEY": [
+    {
+     "athlete_id": "5105691",
+     "name": "Austin Benigni",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105698",
+     "name": "Aidan Kehoe",
+     "position": "C"
+    }
+   ]
+  },
+  "59": {
+   "KEY": [
+    {
+     "athlete_id": "4683757",
+     "name": "Kowacie Reeves Jr.",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5106284",
+     "name": "Lamar Washington",
+     "position": "G"
+    }
+   ]
+  },
+  "2379": {
+   "KEY": [
+    {
+     "athlete_id": "4898212",
+     "name": "Jaden Cooper",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5179096",
+     "name": "Michael Teal",
+     "position": "G"
+    }
+   ]
+  },
+  "61": {
+   "KEY": [
+    {
+     "athlete_id": "5174661",
+     "name": "Blue Cain",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176681",
+     "name": "Marcus Millender",
+     "position": "G"
+    }
+   ]
+  },
+  "91": {
+   "KEY": [
+    {
+     "athlete_id": "4823976",
+     "name": "Brian Waddell",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5175850",
+     "name": "Kenyon Goodin",
+     "position": "G"
+    }
+   ]
+  },
+  "2534": {
+   "KEY": [
+    {
+     "athlete_id": "4896936",
+     "name": "Damon Nicholas Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5117648",
+     "name": "Kashie Natt",
+     "position": "G"
+    }
+   ]
+  },
+  "2326": {},
+  "98": {
+   "KEY": [
+    {
+     "athlete_id": "5105587",
+     "name": "Grant Newell",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5176780",
+     "name": "Teagan Moore",
+     "position": "G"
+    }
+   ]
+  },
+  "2635": {
+   "KEY": [
+    {
+     "athlete_id": "5175414",
+     "name": "Mekhi Cameron",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314364",
+     "name": "Ty Owens",
+     "position": "G"
+    }
+   ]
+  },
+  "111": {
+   "KEY": [
+    {
+     "athlete_id": "5174569",
+     "name": "Mike Loughnane",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175016",
+     "name": "William Kermoury",
+     "position": "G"
+    }
+   ]
+  },
+  "104": {
+   "KEY": [
+    {
+     "athlete_id": "5176039",
+     "name": "Michael McNair",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314460",
+     "name": "Chance Gladden",
+     "position": "G"
+    }
+   ]
+  },
+  "5": {
+   "KEY": [
+    {
+     "athlete_id": "4683680",
+     "name": "Chance Westry",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105982",
+     "name": "Daniel Rivera",
+     "position": "F"
+    }
+   ]
+  },
+  "2400": {
+   "KEY": [
+    {
+     "athlete_id": "5314771",
+     "name": "Patrick Punch",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314773",
+     "name": "Michael James",
+     "position": "G"
+    }
+   ]
+  },
+  "2550": {
+   "KEY": [
+    {
+     "athlete_id": "4703837",
+     "name": "AJ Staton-McCray",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177275",
+     "name": "Adam Clark",
+     "position": "G"
+    }
+   ]
+  },
+  "2612": {
+   "KEY": [
+    {
+     "athlete_id": "4898256",
+     "name": "Brent Bland",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176176",
+     "name": "Bryce Eaton",
+     "position": "G"
+    }
+   ]
+  },
+  "2755": {
+   "KEY": [
+    {
+     "athlete_id": "4700968",
+     "name": "Derrius Ward",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177557",
+     "name": "Roderick Coffee III",
+     "position": "F"
+    }
+   ]
+  },
+  "2281": {},
+  "2377": {
+   "KEY": [
+    {
+     "athlete_id": "4701125",
+     "name": "Javohn Garcia",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5077373",
+     "name": "Garwey Dual",
+     "position": "G"
+    }
+   ]
+  },
+  "3134": {
+   "KEY": [
+    {
+     "athlete_id": "5317855",
+     "name": "Fred'travious Benjamin",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5317856",
+     "name": "Cam Parker",
+     "position": "G"
+    }
+   ]
+  },
+  "2628": {
+   "KEY": [
+    {
+     "athlete_id": "5103589",
+     "name": "Brock Harding",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105619",
+     "name": "Jayden Pierre",
+     "position": "G"
+    }
+   ]
+  },
+  "2443": {
+   "KEY": [
+    {
+     "athlete_id": "5108082",
+     "name": "Jakevion Buckley",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108809",
+     "name": "Coleton Benson",
+     "position": "G"
+    }
+   ]
+  },
+  "145": {
+   "KEY": [
+    {
+     "athlete_id": "5105603",
+     "name": "AJ Storr",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311523",
+     "name": "Ilias Kamardine",
+     "position": "G"
+    }
+   ]
+  },
+  "2545": {
+   "KEY": [
+    {
+     "athlete_id": "5106865",
+     "name": "Isaiah Gaines",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5243102",
+     "name": "Jeremy Elyzee",
+     "position": "F"
+    }
+   ]
+  },
+  "2390": {
+   "KEY": [
+    {
+     "athlete_id": "4837356",
+     "name": "Tre Donaldson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5101809",
+     "name": "Shelton Henderson",
+     "position": "F"
+    }
+   ]
+  },
+  "294": {
+   "KEY": [
+    {
+     "athlete_id": "4845388",
+     "name": "Jaylen Jones",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313674",
+     "name": "Hayden Wood",
+     "position": "G"
+    }
+   ]
+  },
+  "333": {
+   "KEY": [
+    {
+     "athlete_id": "4873090",
+     "name": "Labaron Philon Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5101833",
+     "name": "Amari Allen",
+     "position": "F"
+    }
+   ]
+  },
+  "155": {
+   "KEY": [
+    {
+     "athlete_id": "5106253",
+     "name": "Eli King",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241648",
+     "name": "Greyson Uelmen",
+     "position": "G"
+    }
+   ]
+  },
+  "66": {
+   "KEY": [
+    {
+     "athlete_id": "4848637",
+     "name": "Milan Momcilovic",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4870564",
+     "name": "Joshua Jefferson",
+     "position": "F"
+    }
+   ]
+  },
+  "161": {
+   "KEY": [
+    {
+     "athlete_id": "5107349",
+     "name": "Taeshaud Jackson",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5313932",
+     "name": "Joey Niesman",
+     "position": "G"
+    }
+   ]
+  },
+  "45": {
+   "KEY": [
+    {
+     "athlete_id": "4685650",
+     "name": "Christian Jones",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174599",
+     "name": "Trey Autry",
+     "position": "G"
+    }
+   ]
+  },
+  "311": {
+   "KEY": [
+    {
+     "athlete_id": "5108029",
+     "name": "Ryan Mabrey",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177368",
+     "name": "TJ Biel",
+     "position": "F"
+    }
+   ]
+  },
+  "2350": {
+   "KEY": [
+    {
+     "athlete_id": "5174609",
+     "name": "Miles Rubin",
+     "position": "C"
+    },
+    {
+     "athlete_id": "5176275",
+     "name": "Deywilk Tavarez",
+     "position": "G"
+    }
+   ]
+  },
+  "325": {
+   "KEY": [
+    {
+     "athlete_id": "5177686",
+     "name": "Jaidon Lipscomb",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5182601",
+     "name": "Tre Beard",
+     "position": "G"
+    }
+   ]
+  },
+  "139": {
+   "KEY": [
+    {
+     "athlete_id": "4917097",
+     "name": "Robbie Avila",
+     "position": "C"
+    },
+    {
+     "athlete_id": "5175171",
+     "name": "Quentin Jones",
+     "position": "G"
+    }
+   ]
+  },
+  "2546": {
+   "KEY": [
+    {
+     "athlete_id": "5107891",
+     "name": "Braxton Stacker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177367",
+     "name": "BJ Ward",
+     "position": "G"
+    }
+   ]
+  },
+  "2567": {
+   "KEY": [
+    {
+     "athlete_id": "4703115",
+     "name": "Jaron Pierre Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4898283",
+     "name": "Boopie Miller",
+     "position": "G"
+    }
+   ]
+  },
+  "2627": {
+   "KEY": [
+    {
+     "athlete_id": "5241436",
+     "name": "Jordan Mizell",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314859",
+     "name": "Kaia Isaac",
+     "position": "G"
+    }
+   ]
+  },
+  "154": {
+   "KEY": [
+    {
+     "athlete_id": "5142609",
+     "name": "Juke Harris",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176758",
+     "name": "Tre'Von Spillers",
+     "position": "F"
+    }
+   ]
+  },
+  "44": {
+   "KEY": [
+    {
+     "athlete_id": "5176028",
+     "name": "Greg Jones",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5176029",
+     "name": "Matt Mayock",
+     "position": "F"
+    }
+   ]
+  },
+  "239": {
+   "KEY": [
+    {
+     "athlete_id": "5095152",
+     "name": "Tounde Yessoufou",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5113969",
+     "name": "Cameron Carr",
+     "position": "G"
+    }
+   ]
+  },
+  "292": {
+   "KEY": [
+    {
+     "athlete_id": "5108718",
+     "name": "Marvin McGhee III",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176333",
+     "name": "Koree Cotton",
+     "position": "G"
+    }
+   ]
+  },
+  "2305": {
+   "KEY": [
+    {
+     "athlete_id": "5044426",
+     "name": "Flory Bidunga",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5177301",
+     "name": "Melvin Council Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "2739": {
+   "KEY": [
+    {
+     "athlete_id": "4897485",
+     "name": "Preston Ruedinger",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241635",
+     "name": "C.J. O'Hara",
+     "position": "G"
+    }
+   ]
+  },
+  "77": {
+   "KEY": [
+    {
+     "athlete_id": "4895746",
+     "name": "Jayden Reid",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105832",
+     "name": "Nick Martinelli",
+     "position": "F"
+    }
+   ]
+  },
+  "2385": {
+   "KEY": [
+    {
+     "athlete_id": "4873160",
+     "name": "Qadir Martin",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4898243",
+     "name": "Bernie Blunt III",
+     "position": "G"
+    }
+   ]
+  },
+  "2429": {
+   "KEY": [
+    {
+     "athlete_id": "5239828",
+     "name": "Ben Bradford",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240545",
+     "name": "Dezayne Mingo",
+     "position": "G"
+    }
+   ]
+  },
+  "282": {
+   "KEY": [
+    {
+     "athlete_id": "5115354",
+     "name": "Ian Scott",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5175821",
+     "name": "Camp Wagner",
+     "position": "G"
+    }
+   ]
+  },
+  "270": {
+   "KEY": [
+    {
+     "athlete_id": "5176835",
+     "name": "Aaron Franklin",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313242",
+     "name": "Isaiah Dorceus",
+     "position": "G"
+    }
+   ]
+  },
+  "2261": {
+   "KEY": [
+    {
+     "athlete_id": "4896367",
+     "name": "Xzavier Long",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5239644",
+     "name": "Daniel Johnson",
+     "position": "G"
+    }
+   ]
+  },
+  "305": {
+   "KEY": [
+    {
+     "athlete_id": "4845358",
+     "name": "Layden Blocker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105796",
+     "name": "CJ Gunn",
+     "position": "G"
+    }
+   ]
+  },
+  "2130": {
+   "KEY": [
+    {
+     "athlete_id": "5106744",
+     "name": "Marcus Tankersley",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313922",
+     "name": "CJ Ray",
+     "position": "F"
+    }
+   ]
+  },
+  "269": {
+   "KEY": [
+    {
+     "athlete_id": "5105598",
+     "name": "Chase Ross",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5144086",
+     "name": "Nigel James Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "399": {
+   "KEY": [
+    {
+     "athlete_id": "5177685",
+     "name": "Okechukwu Okeke",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5239812",
+     "name": "Amir Lindsey",
+     "position": "G"
+    }
+   ]
+  },
+  "82": {
+   "KEY": [
+    {
+     "athlete_id": "5175146",
+     "name": "Mekhi Lowery",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313880",
+     "name": "Andy Johnson",
+     "position": "G"
+    }
+   ]
+  },
+  "2174": {
+   "KEY": [
+    {
+     "athlete_id": "5108764",
+     "name": "Orlando Lovejoy",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241618",
+     "name": "TJ Nadeau",
+     "position": "G"
+    }
+   ]
+  },
+  "2459": {
+   "KEY": [
+    {
+     "athlete_id": "5241390",
+     "name": "Makhai Valentine",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241714",
+     "name": "Gianni Cobb",
+     "position": "G"
+    }
+   ]
+  },
+  "2433": {
+   "KEY": [
+    {
+     "athlete_id": "5105539",
+     "name": "MJ Russell",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313381",
+     "name": "Krystian Lewis",
+     "position": "G"
+    }
+   ]
+  },
+  "2": {
+   "KEY": [
+    {
+     "athlete_id": "4873089",
+     "name": "Tahaad Pettiford",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5075625",
+     "name": "Keyshawn Hall",
+     "position": "F"
+    }
+   ]
+  },
+  "2065": {
+   "KEY": [
+    {
+     "athlete_id": "5106279",
+     "name": "Arterio Morris",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178199",
+     "name": "Jakobi Heady",
+     "position": "G"
+    }
+   ]
+  },
+  "250": {
+   "KEY": [
+    {
+     "athlete_id": "5113390",
+     "name": "Marcell McCreary",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241424",
+     "name": "Raysean Seamster",
+     "position": "F"
+    }
+   ]
+  },
+  "126794": {},
+  "248": {
+   "KEY": [
+    {
+     "athlete_id": "5106272",
+     "name": "Milos Uzan",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5149077",
+     "name": "Kingston Flemings",
+     "position": "G"
+    }
+   ]
+  },
+  "2329": {
+   "KEY": [
+    {
+     "athlete_id": "5176076",
+     "name": "Nasir Whitlock",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176077",
+     "name": "Joshua Ingram",
+     "position": "G"
+    }
+   ]
+  },
+  "238": {
+   "KEY": [
+    {
+     "athlete_id": "4838721",
+     "name": "Tyler Nickel",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5187600",
+     "name": "Tyler Tanner",
+     "position": "G"
+    }
+   ]
+  },
+  "288": {
+   "KEY": [
+    {
+     "athlete_id": "4897583",
+     "name": "Grant Asman",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5107530",
+     "name": "Mateo Esmeraldo",
+     "position": "G"
+    }
+   ]
+  },
+  "158": {
+   "KEY": [
+    {
+     "athlete_id": "4858604",
+     "name": "Pryce Sandfort",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4897432",
+     "name": "Sam Hoiberg",
+     "position": "G"
+    }
+   ]
+  },
+  "2698": {
+   "KEY": [
+    {
+     "athlete_id": "5240027",
+     "name": "Shelton Williams-Dryden",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5240029",
+     "name": "Kolten Griffin",
+     "position": "F"
+    }
+   ]
+  },
+  "302": {
+   "KEY": [
+    {
+     "athlete_id": "5176386",
+     "name": "Connor Sevilla",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241070",
+     "name": "Marcus Wilson",
+     "position": "G"
+    }
+   ]
+  },
+  "2381": {},
+  "349": {
+   "KEY": [
+    {
+     "athlete_id": "5176030",
+     "name": "Ryan Curry",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243043",
+     "name": "Jacen Holloway",
+     "position": "F"
+    }
+   ]
+  },
+  "2951": {},
+  "275": {
+   "KEY": [
+    {
+     "athlete_id": "4702654",
+     "name": "Nick Boyd",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5103630",
+     "name": "John Blackwell",
+     "position": "G"
+    }
+   ]
+  },
+  "2097": {
+   "KEY": [
+    {
+     "athlete_id": "4897215",
+     "name": "DJ Smith",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106610",
+     "name": "Cam Gregory",
+     "position": "G"
+    }
+   ]
+  },
+  "135": {
+   "KEY": [
+    {
+     "athlete_id": "5107970",
+     "name": "Cade Tyson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5144165",
+     "name": "Isaac Asuma",
+     "position": "G"
+    }
+   ]
+  },
+  "2241": {
+   "KEY": [
+    {
+     "athlete_id": "5240419",
+     "name": "Colin Hawkins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241489",
+     "name": "Jacob Hogarth",
+     "position": "F"
+    }
+   ]
+  },
+  "2010": {
+   "KEY": [
+    {
+     "athlete_id": "5174561",
+     "name": "Koron Davis",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177572",
+     "name": "Kintavious Dozier",
+     "position": "G"
+    }
+   ]
+  },
+  "494": {},
+  "202": {
+   "KEY": [
+    {
+     "athlete_id": "5241411",
+     "name": "Miles Barnstable",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313566",
+     "name": "Ade Popoola",
+     "position": "G"
+    }
+   ]
+  },
+  "589": {},
+  "2277": {
+   "KEY": [
+    {
+     "athlete_id": "5176325",
+     "name": "Trent Johnson",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5241376",
+     "name": "Kylin Green",
+     "position": "G"
+    }
+   ]
+  },
+  "2568": {},
+  "79": {
+   "KEY": [
+    {
+     "athlete_id": "4711281",
+     "name": "Drew Steffe",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242121",
+     "name": "Quel'Ron House",
+     "position": "G"
+    }
+   ]
+  },
+  "2816": {},
+  "2634": {
+   "KEY": [
+    {
+     "athlete_id": "4596531",
+     "name": "Dante Harris",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242985",
+     "name": "Travis Harper II",
+     "position": "G"
+    }
+   ]
+  },
+  "2225": {},
+  "245": {
+   "KEY": [
+    {
+     "athlete_id": "4593815",
+     "name": "Rashaun Agee",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4683682",
+     "name": "Rylan Griffen",
+     "position": "G"
+    }
+   ]
+  },
+  "2466": {
+   "KEY": [
+    {
+     "athlete_id": "4897467",
+     "name": "Micah Thomas",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176672",
+     "name": "Chris Mubiru",
+     "position": "G"
+    }
+   ]
+  },
+  "140": {
+   "KEY": [
+    {
+     "athlete_id": "5177741",
+     "name": "Jayson Petty",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314675",
+     "name": "CJ Evans",
+     "position": "G"
+    }
+   ]
+  },
+  "2865": {},
+  "233": {
+   "KEY": [
+    {
+     "athlete_id": "5105758",
+     "name": "Jordan Crawford",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314750",
+     "name": "Uzziah Buntyn",
+     "position": "G"
+    }
+   ]
+  },
+  "3101": {
+   "KEY": [
+    {
+     "athlete_id": "4897982",
+     "name": "Chance Trujillo",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5245765",
+     "name": "Noah Bolanga",
+     "position": "G"
+    }
+   ]
+  },
+  "201": {
+   "KEY": [
+    {
+     "athlete_id": "4576062",
+     "name": "Nijel Pack",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174633",
+     "name": "Xzayvier Brown",
+     "position": "G"
+    }
+   ]
+  },
+  "2598": {
+   "KEY": [
+    {
+     "athlete_id": "4703980",
+     "name": "Skylar Wicks",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4898334",
+     "name": "Zion Russell",
+     "position": "G"
+    }
+   ]
+  },
+  "357": {
+   "KEY": [
+    {
+     "athlete_id": "5241914",
+     "name": "Nick Shogbonyo",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243128",
+     "name": "Sheldon Williams",
+     "position": "F"
+    }
+   ]
+  },
+  "386": {},
+  "2751": {
+   "KEY": [
+    {
+     "athlete_id": "4712838",
+     "name": "Leland Walker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177137",
+     "name": "Khaden Bennett",
+     "position": "G"
+    }
+   ]
+  },
+  "425": {},
+  "130": {
+   "KEY": [
+    {
+     "athlete_id": "4869764",
+     "name": "Elliot Cadeau",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175737",
+     "name": "Yaxel Lendeborg",
+     "position": "F"
+    }
+   ]
+  },
+  "2473": {
+   "KEY": [
+    {
+     "athlete_id": "5107377",
+     "name": "Brody Robinson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177207",
+     "name": "Tuburu Naivalurua",
+     "position": "F"
+    }
+   ]
+  },
+  "2655": {
+   "KEY": [
+    {
+     "athlete_id": "4683782",
+     "name": "Curtis Williams Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106280",
+     "name": "Rowan Brumbaugh",
+     "position": "G"
+    }
+   ]
+  },
+  "2535": {
+   "KEY": [
+    {
+     "athlete_id": "4702680",
+     "name": "Jadin Booth",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241374",
+     "name": "Cade Norris",
+     "position": "G"
+    }
+   ]
+  },
+  "356": {
+   "KEY": [
+    {
+     "athlete_id": "5254165",
+     "name": "Keaton Wagler",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311832",
+     "name": "David Mirkovic",
+     "position": "F"
+    }
+   ]
+  },
+  "2296": {
+   "KEY": [
+    {
+     "athlete_id": "4432638",
+     "name": "Daeshun Ruffin",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4897873",
+     "name": "Jayme Mitchell Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "249": {
+   "KEY": [
+    {
+     "athlete_id": "5177691",
+     "name": "David Terrell Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241608",
+     "name": "Je'Shawn Stevenson",
+     "position": "G"
+    }
+   ]
+  },
+  "2424": {},
+  "2046": {
+   "KEY": [
+    {
+     "athlete_id": "5239748",
+     "name": "Tate McCubbin",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5312891",
+     "name": "Collin Parker",
+     "position": "F"
+    }
+   ]
+  },
+  "2081": {},
+  "2116": {
+   "KEY": [
+    {
+     "athlete_id": "4704078",
+     "name": "Themus Fulks",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5060684",
+     "name": "Jordan Burks",
+     "position": "F"
+    }
+   ]
+  },
+  "2275": {
+   "KEY": [
+    {
+     "athlete_id": "5107198",
+     "name": "Cruz Davis",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5236222",
+     "name": "Preston Edmead",
+     "position": "G"
+    }
+   ]
+  },
+  "58": {
+   "KEY": [
+    {
+     "athlete_id": "4699760",
+     "name": "Joseph Pinion",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313560",
+     "name": "Wes Enis",
+     "position": "G"
+    }
+   ]
+  },
+  "50": {
+   "KEY": [
+    {
+     "athlete_id": "4897175",
+     "name": "Tyler Shirley",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5105593",
+     "name": "Jaquan Sanders",
+     "position": "G"
+    }
+   ]
+  },
+  "97": {
+   "KEY": [
+    {
+     "athlete_id": "4712845",
+     "name": "Isaac McKneely",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107157",
+     "name": "Ryan Conwell",
+     "position": "G"
+    }
+   ]
+  },
+  "2569": {
+   "KEY": [
+    {
+     "athlete_id": "5243404",
+     "name": "Florian Tenebay",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243405",
+     "name": "Jayden Johnson",
+     "position": "G"
+    }
+   ]
+  },
+  "38": {
+   "KEY": [
+    {
+     "athlete_id": "4712832",
+     "name": "Barrington Hargress",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5254159",
+     "name": "Isaiah Johnson",
+     "position": "G"
+    }
+   ]
+  },
+  "147": {
+   "KEY": [
+    {
+     "athlete_id": "4897923",
+     "name": "Patrick McMahon",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107844",
+     "name": "Jed Miller",
+     "position": "G"
+    }
+   ]
+  },
+  "254": {
+   "KEY": [
+    {
+     "athlete_id": "4903216",
+     "name": "Don McHenry",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177233",
+     "name": "Terrence Brown",
+     "position": "G"
+    }
+   ]
+  },
+  "23": {
+   "KEY": [
+    {
+     "athlete_id": "5101782",
+     "name": "Melvin Bell Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176315",
+     "name": "Colby Garland",
+     "position": "G"
+    }
+   ]
+  },
+  "2352": {
+   "KEY": [
+    {
+     "athlete_id": "5176082",
+     "name": "Jordan Stiemke",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242964",
+     "name": "Braeden Speed",
+     "position": "G"
+    }
+   ]
+  },
+  "119": {
+   "KEY": [
+    {
+     "athlete_id": "5106727",
+     "name": "Dylan Williamson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175148",
+     "name": "Tyler Tejada",
+     "position": "G"
+    }
+   ]
+  },
+  "2253": {
+   "KEY": [
+    {
+     "athlete_id": "4898210",
+     "name": "Nana Owusu-Anane",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5105821",
+     "name": "Jaden Henley",
+     "position": "G"
+    }
+   ]
+  },
+  "2870": {
+   "KEY": [
+    {
+     "athlete_id": "5177573",
+     "name": "Mikale Stevenson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177707",
+     "name": "Corey Hadnot II",
+     "position": "G"
+    }
+   ]
+  },
+  "2000": {
+   "KEY": [
+    {
+     "athlete_id": "5241310",
+     "name": "Rich Smith",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241314",
+     "name": "Bradyn Hubbard",
+     "position": "F"
+    }
+   ]
+  },
+  "241": {},
+  "36": {
+   "KEY": [
+    {
+     "athlete_id": "5103590",
+     "name": "Brandon Rechsteiner",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108770",
+     "name": "Jevin Muniz",
+     "position": "G"
+    }
+   ]
+  },
+  "2916": {
+   "KEY": [
+    {
+     "athlete_id": "4896368",
+     "name": "Tahj Staveskie",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176164",
+     "name": "Davion Bailey",
+     "position": "G"
+    }
+   ]
+  },
+  "68": {
+   "KEY": [
+    {
+     "athlete_id": "5081887",
+     "name": "Andrew Meadow",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5105636",
+     "name": "Dylan Andrews",
+     "position": "G"
+    }
+   ]
+  },
+  "2269": {},
+  "2250": {
+   "KEY": [
+    {
+     "athlete_id": "4703396",
+     "name": "Graham Ike",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5176787",
+     "name": "Emmanuel Innocenti",
+     "position": "F"
+    }
+   ]
+  },
+  "2640": {
+   "KEY": [
+    {
+     "athlete_id": "5108778",
+     "name": "Troy Hupstead",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5185673",
+     "name": "Zaire Hayes",
+     "position": "G"
+    }
+   ]
+  },
+  "2492": {
+   "KEY": [
+    {
+     "athlete_id": "4895742",
+     "name": "Aaron Clark",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241336",
+     "name": "Styles Phipps",
+     "position": "G"
+    }
+   ]
+  },
+  "109670": {},
+  "2692": {
+   "KEY": [
+    {
+     "athlete_id": "5177717",
+     "name": "Malek Gomma",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5313292",
+     "name": "Tijan Saine Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "110418": {},
+  "328": {
+   "KEY": [
+    {
+     "athlete_id": "5105401",
+     "name": "MJ Collins Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107864",
+     "name": "Mason Falslev",
+     "position": "G"
+    }
+   ]
+  },
+  "224": {},
+  "149": {
+   "KEY": [
+    {
+     "athlete_id": "5060727",
+     "name": "Tyler Thompson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177694",
+     "name": "Money Williams",
+     "position": "G"
+    }
+   ]
+  },
+  "3218": {},
+  "2638": {
+   "KEY": [
+    {
+     "athlete_id": "5108719",
+     "name": "Kaseem Watson",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5176665",
+     "name": "Jamal West Jr.",
+     "position": "F"
+    }
+   ]
+  },
+  "3081": {},
+  "2771": {
+   "KEY": [
+    {
+     "athlete_id": "5314297",
+     "name": "Ernest Shelton",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314298",
+     "name": "Kevair Kennedy",
+     "position": "G"
+    }
+   ]
+  },
+  "2571": {
+   "KEY": [
+    {
+     "athlete_id": "5177048",
+     "name": "Joe Sayler",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241454",
+     "name": "Jaden Jackson",
+     "position": "G"
+    }
+   ]
+  },
+  "252": {
+   "KEY": [
+    {
+     "athlete_id": "5060709",
+     "name": "Robert Wright III",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5142718",
+     "name": "AJ Dybantsa",
+     "position": "F"
+    }
+   ]
+  },
+  "222": {
+   "KEY": [
+    {
+     "athlete_id": "4870569",
+     "name": "Duke Brennan",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5144105",
+     "name": "Acaden Lewis",
+     "position": "G"
+    }
+   ]
+  },
+  "265": {
+   "KEY": [
+    {
+     "athlete_id": "5175078",
+     "name": "Eemeli Yalaho",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5313054",
+     "name": "Ace Glass",
+     "position": "G"
+    }
+   ]
+  },
+  "70": {
+   "KEY": [
+    {
+     "athlete_id": "5176318",
+     "name": "Kolton Mitchell",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5237588",
+     "name": "Jackson Rasmussen",
+     "position": "F"
+    }
+   ]
+  },
+  "204": {
+   "KEY": [
+    {
+     "athlete_id": "5175011",
+     "name": "Josiah Lake II",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240883",
+     "name": "Isaiah Sy",
+     "position": "F"
+    }
+   ]
+  },
+  "2449": {
+   "KEY": [
+    {
+     "athlete_id": "5241640",
+     "name": "Andy Stefonowicz",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314778",
+     "name": "Trevian Carson",
+     "position": "G"
+    }
+   ]
+  },
+  "2458": {
+   "KEY": [
+    {
+     "athlete_id": "4897944",
+     "name": "Zach Bloch",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176300",
+     "name": "Quinn Denker",
+     "position": "G"
+    }
+   ]
+  },
+  "2144": {},
+  "30": {
+   "KEY": [
+    {
+     "athlete_id": "4873219",
+     "name": "Jacob Cofie",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5106051",
+     "name": "Ezra Ausar",
+     "position": "F"
+    }
+   ]
+  },
+  "13": {
+   "KEY": [
+    {
+     "athlete_id": "5239525",
+     "name": "Hamad Mousa",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242268",
+     "name": "Peter Bandelj",
+     "position": "G"
+    }
+   ]
+  },
+  "25": {
+   "KEY": [
+    {
+     "athlete_id": "4684155",
+     "name": "John Camden",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4845373",
+     "name": "Dai Dai Ames",
+     "position": "G"
+    }
+   ]
+  },
+  "2934": {
+   "KEY": [
+    {
+     "athlete_id": "4703106",
+     "name": "Dailin Smith",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4897668",
+     "name": "AJ George",
+     "position": "G"
+    }
+   ]
+  },
+  "2239": {
+   "KEY": [
+    {
+     "athlete_id": "5176246",
+     "name": "Jefferson De La Cruz Monegro",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5180837",
+     "name": "Joshua Ward",
+     "position": "G"
+    }
+   ]
+  },
+  "110450": {},
+  "2463": {
+   "KEY": [
+    {
+     "athlete_id": "4684167",
+     "name": "Joshua O'Garro",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106291",
+     "name": "Josiah Davis",
+     "position": "G"
+    }
+   ]
+  },
+  "130201": {
+   "KEY": [
+    {
+     "athlete_id": "5318056",
+     "name": "Caleb Palmer",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5318057",
+     "name": "Mykale Mundy",
+     "position": "G"
+    }
+   ]
+  },
+  "2351": {
+   "KEY": [
+    {
+     "athlete_id": "4897534",
+     "name": "Myron Amey Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5037870",
+     "name": "Rodney Brown Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "124946": {
+   "KEY": [
+    {
+     "athlete_id": "5258843",
+     "name": "Claude McKesey",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5258849",
+     "name": "Laolu Kalejaiye",
+     "position": "G"
+    }
+   ]
+  },
+  "2501": {
+   "KEY": [
+    {
+     "athlete_id": "5314720",
+     "name": "Garrett Nuckolls",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314722",
+     "name": "Joel Foxwell",
+     "position": "G"
+    }
+   ]
+  },
+  "2930": {},
+  "2547": {
+   "KEY": [
+    {
+     "athlete_id": "5176261",
+     "name": "Junseok Yeo",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5177716",
+     "name": "Will Heimbrodt",
+     "position": "F"
+    }
+   ]
+  },
+  "2172": {
+   "KEY": [
+    {
+     "athlete_id": "5176954",
+     "name": "Jeremiah Burke",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5314641",
+     "name": "Carson Johnson",
+     "position": "G"
+    }
+   ]
+  },
+  "27": {
+   "KEY": [
+    {
+     "athlete_id": "5174613",
+     "name": "Marqui Worthy Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5181503",
+     "name": "Andrew Henderson",
+     "position": "G"
+    }
+   ]
+  },
+  "3167": {},
+  "2539": {
+   "KEY": [
+    {
+     "athlete_id": "5037875",
+     "name": "Tyrone Riley IV",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176425",
+     "name": "Ryan Beasley",
+     "position": "G"
+    }
+   ]
+  },
+  "2662": {},
+  "28": {
+   "KEY": [
+    {
+     "athlete_id": "5106867",
+     "name": "Leo Beath",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5176372",
+     "name": "Tom Beattie",
+     "position": "G"
+    }
+   ]
+  },
+  "2318": {},
+  "2608": {
+   "KEY": [
+    {
+     "athlete_id": "5174955",
+     "name": "Paulius Murauskas",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5183875",
+     "name": "Joshua Dent",
+     "position": "G"
+    }
+   ]
+  },
+  "2900": {
+   "KEY": [
+    {
+     "athlete_id": "5060721",
+     "name": "Nick Janowski",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241415",
+     "name": "Nolan Minessale",
+     "position": "G"
+    }
+   ]
+  },
+  "300": {
+   "KEY": [
+    {
+     "athlete_id": "4711267",
+     "name": "Jurian Dixon",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176395",
+     "name": "Derin Saran",
+     "position": "G"
+    }
+   ]
+  },
+  "3246": {
+   "KEY": [
+    {
+     "athlete_id": "5182174",
+     "name": "Camron Durr",
+     "position": "PG"
+    },
+    {
+     "athlete_id": "5250041",
+     "name": "Miles Sulka",
+     "position": "SG"
+    }
+   ]
+  },
+  "26": {
+   "KEY": [
+    {
+     "athlete_id": "5060706",
+     "name": "Trent Perry",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107782",
+     "name": "Donovan Dent",
+     "position": "G"
+    }
+   ]
+  },
+  "331": {
+   "KEY": [
+    {
+     "athlete_id": "5176412",
+     "name": "Isaiah Moses",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313112",
+     "name": "Alton Hamilton IV",
+     "position": "F"
+    }
+   ]
+  },
+  "2856": {
+   "KEY": [
+    {
+     "athlete_id": "4702158",
+     "name": "Martel Williams",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5178207",
+     "name": "Dominique Daniels Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "2908": {
+   "KEY": [
+    {
+     "athlete_id": "5183294",
+     "name": "Carmelo Adkins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241748",
+     "name": "Karmani Gregory",
+     "position": "G"
+    }
+   ]
+  },
+  "278": {
+   "KEY": [
+    {
+     "athlete_id": "4903264",
+     "name": "Jake Heidbreder",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5315579",
+     "name": "DeShawn Gory",
+     "position": "F"
+    }
+   ]
+  },
+  "2235": {},
+  "264": {
+   "KEY": [
+    {
+     "athlete_id": "4897465",
+     "name": "Quimari Peterson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5281370",
+     "name": "Hannes Steinbach",
+     "position": "F"
+    }
+   ]
+  },
+  "2029": {
+   "KEY": [
+    {
+     "athlete_id": "5106274",
+     "name": "Quion Williams",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5185598",
+     "name": "Trevon Payton",
+     "position": "G"
+    }
+   ]
+  },
+  "2378": {
+   "KEY": [
+    {
+     "athlete_id": "5174860",
+     "name": "Ace Valentine",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5252505",
+     "name": "DJ Armstrong Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "112706": {},
+  "2509": {
+   "KEY": [
+    {
+     "athlete_id": "5105853",
+     "name": "Fletcher Loyer",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105854",
+     "name": "Braden Smith",
+     "position": "G"
+    }
+   ]
+  },
+  "339": {
+   "KEY": [
+    {
+     "athlete_id": "4433286",
+     "name": "AJ Casey",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5313847",
+     "name": "Leif Moeller",
+     "position": "G"
+    }
+   ]
+  },
+  "277": {
+   "KEY": [
+    {
+     "athlete_id": "4897365",
+     "name": "Honor Huff",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106864",
+     "name": "Brenen Lorient",
+     "position": "F"
+    }
+   ]
+  },
+  "116": {
+   "KEY": [
+    {
+     "athlete_id": "4702218",
+     "name": "Xavier Lipscomb",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242635",
+     "name": "Arlandus Keyes",
+     "position": "G"
+    }
+   ]
+  },
+  "151": {
+   "KEY": [
+    {
+     "athlete_id": "4683942",
+     "name": "Jordan Riley",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4896939",
+     "name": "Giovanni Emejuru",
+     "position": "C"
+    }
+   ]
+  },
+  "290": {
+   "KEY": [
+    {
+     "athlete_id": "4898382",
+     "name": "Alden Applewhite",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5312457",
+     "name": "Spudd Webb",
+     "position": "G"
+    }
+   ]
+  },
+  "2230": {
+   "KEY": [
+    {
+     "athlete_id": "5174571",
+     "name": "Rikus Schulte",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5175415",
+     "name": "Dejour Reaves",
+     "position": "G"
+    }
+   ]
+  },
+  "2885": {
+   "KEY": [
+    {
+     "athlete_id": "5239758",
+     "name": "Ari Fulton",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313131",
+     "name": "David Bolden",
+     "position": "G"
+    }
+   ]
+  },
+  "2529": {
+   "KEY": [
+    {
+     "athlete_id": "4712834",
+     "name": "Dashon Gittens",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105988",
+     "name": "Yann Farell",
+     "position": "F"
+    }
+   ]
+  },
+  "2383": {},
+  "2363": {
+   "KEY": [
+    {
+     "athlete_id": "5105895",
+     "name": "Devin Dinkins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5177116",
+     "name": "Jaden Winston",
+     "position": "G"
+    }
+   ]
+  },
+  "2990": {},
+  "2405": {
+   "KEY": [
+    {
+     "athlete_id": "5106703",
+     "name": "Jack Collins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174288",
+     "name": "Jason Rivera-Torres",
+     "position": "F"
+    }
+   ]
+  },
+  "2857": {},
+  "2193": {
+   "KEY": [
+    {
+     "athlete_id": "5106766",
+     "name": "Brian Taylor II",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5174800",
+     "name": "Blake Barkley",
+     "position": "F"
+    }
+   ]
+  },
+  "124947": {},
+  "52": {
+   "KEY": [
+    {
+     "athlete_id": "4685802",
+     "name": "Robert McCray V",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5108969",
+     "name": "Lajae Jones",
+     "position": "G"
+    }
+   ]
+  },
+  "2016": {
+   "KEY": [
+    {
+     "athlete_id": "5107789",
+     "name": "Shane Lancaster",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242279",
+     "name": "Nick Woodard",
+     "position": "SF"
+    }
+   ]
+  },
+  "96": {
+   "KEY": [
+    {
+     "athlete_id": "5105527",
+     "name": "Denzel Aberdeen",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106270",
+     "name": "Otega Oweh",
+     "position": "G"
+    }
+   ]
+  },
+  "2447": {
+   "KEY": [
+    {
+     "athlete_id": "4897337",
+     "name": "Trae English",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107701",
+     "name": "Sincere Malone",
+     "position": "F"
+    }
+   ]
+  },
+  "2579": {
+   "KEY": [
+    {
+     "athlete_id": "4710770",
+     "name": "Meechie Johnson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4896884",
+     "name": "Kobe Knox",
+     "position": "G"
+    }
+   ]
+  },
+  "2448": {
+   "KEY": [
+    {
+     "athlete_id": "5174601",
+     "name": "Zamoku Weluche-Ume",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5239649",
+     "name": "Lewis Walker",
+     "position": "F"
+    }
+   ]
+  },
+  "2565": {
+   "KEY": [
+    {
+     "athlete_id": "5107627",
+     "name": "Jack Campion",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107655",
+     "name": "Arnas Sakenis",
+     "position": "C"
+    }
+   ]
+  },
+  "3107": {},
+  "2724": {
+   "KEY": [
+    {
+     "athlete_id": "5107508",
+     "name": "Kenyon Giles",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176140",
+     "name": "Karon Boyd",
+     "position": "F"
+    }
+   ]
+  },
+  "2427": {
+   "KEY": [
+    {
+     "athlete_id": "5176355",
+     "name": "Toyaz Solomon",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5241756",
+     "name": "Kam Taylor",
+     "position": "G"
+    }
+   ]
+  },
+  "197": {
+   "KEY": [
+    {
+     "athlete_id": "4701189",
+     "name": "Anthony Roy",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105844",
+     "name": "Kanye Clary",
+     "position": "G"
+    }
+   ]
+  },
+  "198": {
+   "KEY": [
+    {
+     "athlete_id": "5101865",
+     "name": "Connor Dow",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175352",
+     "name": "Ofri Naveh",
+     "position": "F"
+    }
+   ]
+  },
+  "2306": {
+   "KEY": [
+    {
+     "athlete_id": "4898278",
+     "name": "Nate Johnson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106275",
+     "name": "P.J. Haggerty",
+     "position": "G"
+    }
+   ]
+  },
+  "2430": {
+   "KEY": [
+    {
+     "athlete_id": "4896620",
+     "name": "Justin Neely",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5314574",
+     "name": "KJ Younger",
+     "position": "G"
+    }
+   ]
+  },
+  "2641": {
+   "KEY": [
+    {
+     "athlete_id": "5060701",
+     "name": "Christian Anderson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107355",
+     "name": "Donovan Atwell",
+     "position": "G"
+    }
+   ]
+  },
+  "2815": {
+   "KEY": [
+    {
+     "athlete_id": "5176213",
+     "name": "Mekhi Cooper",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242437",
+     "name": "Anias Futrell",
+     "position": "G"
+    }
+   ]
+  },
+  "2674": {
+   "KEY": [
+    {
+     "athlete_id": "5313883",
+     "name": "Rakim Chaney",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313886",
+     "name": "JT Pettigrew",
+     "position": "F"
+    }
+   ]
+  },
+  "2197": {
+   "KEY": [
+    {
+     "athlete_id": "4898343",
+     "name": "Kooper Jacobi",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5311580",
+     "name": "Meechie White",
+     "position": "G"
+    }
+   ]
+  },
+  "2623": {
+   "KEY": [
+    {
+     "athlete_id": "5190926",
+     "name": "Kobi Williams",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313696",
+     "name": "Keith Palek III",
+     "position": "F"
+    }
+   ]
+  },
+  "2403": {},
+  "2031": {
+   "KEY": [
+    {
+     "athlete_id": "4432589",
+     "name": "Johnathan Lawson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107792",
+     "name": "Braxton Bayless",
+     "position": "G"
+    }
+   ]
+  },
+  "2027": {},
+  "242": {
+   "KEY": [
+    {
+     "athlete_id": "4690767",
+     "name": "Jalen Smith",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4702522",
+     "name": "Trae Broadnax",
+     "position": "G"
+    }
+   ]
+  },
+  "3084": {
+   "KEY": [
+    {
+     "athlete_id": "5105468",
+     "name": "Trevan Leonhardt",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176632",
+     "name": "Jackson Holcombe",
+     "position": "G"
+    }
+   ]
+  },
+  "2294": {
+   "KEY": [
+    {
+     "athlete_id": "4873203",
+     "name": "Cooper Koch",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5241364",
+     "name": "Bennett Stirtz",
+     "position": "G"
+    }
+   ]
+  },
+  "2523": {
+   "KEY": [
+    {
+     "athlete_id": "5108062",
+     "name": "Ryan Prather Jr.",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241658",
+     "name": "DeSean Goode",
+     "position": "F"
+    }
+   ]
+  },
+  "150": {
+   "KEY": [
+    {
+     "athlete_id": "5041935",
+     "name": "Cameron Boozer",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5061585",
+     "name": "Isaiah Evans",
+     "position": "G"
+    }
+   ]
+  },
+  "251": {
+   "KEY": [
+    {
+     "athlete_id": "4848625",
+     "name": "Dailyn Swain",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105624",
+     "name": "Jordan Pope",
+     "position": "G"
+    }
+   ]
+  },
+  "9": {
+   "KEY": [
+    {
+     "athlete_id": "5105457",
+     "name": "Maurice Odum",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311903",
+     "name": "Massamba Diop",
+     "position": "C"
+    }
+   ]
+  },
+  "253": {
+   "KEY": [
+    {
+     "athlete_id": "5105463",
+     "name": "Tanner Hayhurst",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242946",
+     "name": "Jaiden Feroah",
+     "position": "F"
+    }
+   ]
+  },
+  "301": {
+   "KEY": [
+    {
+     "athlete_id": "4702226",
+     "name": "Toneari Lane",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5185563",
+     "name": "Adrian McIntyre",
+     "position": "G"
+    }
+   ]
+  },
+  "2475": {},
+  "2540": {
+   "KEY": [
+    {
+     "athlete_id": "4684628",
+     "name": "Aidan Mahaney",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5215271",
+     "name": "CJ Shaw",
+     "position": "G"
+    }
+   ]
+  },
+  "22": {},
+  "166": {
+   "KEY": [
+    {
+     "athlete_id": "5176298",
+     "name": "Julius Mims",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5241846",
+     "name": "Jemel Jones",
+     "position": "G"
+    }
+   ]
+  },
+  "2001": {},
+  "24": {
+   "KEY": [
+    {
+     "athlete_id": "5105633",
+     "name": "Benny Gealer",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5258459",
+     "name": "Ebuka Okorie",
+     "position": "G"
+    }
+   ]
+  },
+  "2502": {
+   "KEY": [
+    {
+     "athlete_id": "5175974",
+     "name": "Jaylin Henderson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175976",
+     "name": "Terri Miller Jr.",
+     "position": "F"
+    }
+   ]
+  },
+  "2439": {
+   "KEY": [
+    {
+     "athlete_id": "4711259",
+     "name": "Dra Gibbs-Lawhorn",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105538",
+     "name": "Kimani Hamilton",
+     "position": "F"
+    }
+   ]
+  },
+  "2630": {
+   "KEY": [
+    {
+     "athlete_id": "5242999",
+     "name": "Andrija Bukumirovic",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5314377",
+     "name": "Matas Deniusas",
+     "position": "F"
+    }
+   ]
+  },
+  "21": {
+   "KEY": [
+    {
+     "athlete_id": "5107804",
+     "name": "Miles Byrd",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313927",
+     "name": "Reese Dixon-Waters",
+     "position": "G"
+    }
+   ]
+  },
+  "299": {
+   "KEY": [
+    {
+     "athlete_id": "5196921",
+     "name": "Gavin Sykes",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5238187",
+     "name": "Petar Majstorovic",
+     "position": "F"
+    }
+   ]
+  },
+  "304": {
+   "KEY": [
+    {
+     "athlete_id": "5241283",
+     "name": "Connor Hollenbeck",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5241308",
+     "name": "Lachlan Brewer",
+     "position": "G"
+    }
+   ]
+  },
+  "123350": {},
+  "2541": {
+   "KEY": [
+    {
+     "athlete_id": "5176359",
+     "name": "Christian Hammond",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241069",
+     "name": "Elijah Mahi",
+     "position": "F"
+    }
+   ]
+  },
+  "6183": {},
+  "2440": {
+   "KEY": [
+    {
+     "athlete_id": "5176317",
+     "name": "Elijah Price",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5177690",
+     "name": "Corey Camper Jr.",
+     "position": "G"
+    }
+   ]
+  },
+  "2348": {
+   "KEY": [
+    {
+     "athlete_id": "5060724",
+     "name": "AJ Bates",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313667",
+     "name": "DJ Dudley",
+     "position": "G"
+    }
+   ]
+  },
+  "16": {
+   "KEY": [
+    {
+     "athlete_id": "5177722",
+     "name": "Prophet Johnson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5313277",
+     "name": "Mark Lavrenov",
+     "position": "F"
+    }
+   ]
+  },
+  "2957": {},
+  "2483": {
+   "KEY": [
+    {
+     "athlete_id": "4683769",
+     "name": "Kwame Evans Jr.",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5174937",
+     "name": "Takai Simpkins",
+     "position": "G"
+    }
+   ]
+  },
+  "62": {
+   "KEY": [
+    {
+     "athlete_id": "4701217",
+     "name": "Hunter Erickson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106877",
+     "name": "Dre Bullock",
+     "position": "G"
+    }
+   ]
+  },
+  "2393": {
+   "KEY": [
+    {
+     "athlete_id": "4610140",
+     "name": "Kamari Lands",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176763",
+     "name": "Torey Alston",
+     "position": "F"
+    }
+   ]
+  },
+  "2397": {},
+  "164": {
+   "KEY": [
+    {
+     "athlete_id": "5142358",
+     "name": "Jamichael Davis",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175809",
+     "name": "Tariq Francis",
+     "position": "G"
+    }
+   ]
+  },
+  "178": {},
+  "495": {},
+  "2325": {
+   "KEY": [
+    {
+     "athlete_id": "5174292",
+     "name": "Rob Dockery",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5311862",
+     "name": "Ashton Walker",
+     "position": "G"
+    }
+   ]
+  },
+  "108942": {},
+  "257": {
+   "KEY": [
+    {
+     "athlete_id": "4897192",
+     "name": "AJ Lopez",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105481",
+     "name": "Will Johnston",
+     "position": "G"
+    }
+   ]
+  },
+  "2896": {},
+  "2086": {
+   "KEY": [
+    {
+     "athlete_id": "4848619",
+     "name": "Finley Bizjack",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176517",
+     "name": "Michael Ajayi",
+     "position": "F"
+    }
+   ]
+  },
+  "88": {
+   "KEY": [
+    {
+     "athlete_id": "4711838",
+     "name": "Ismail Habib",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5314340",
+     "name": "Tolu Samuels",
+     "position": "F"
+    }
+   ]
+  },
+  "2355": {},
+  "548": {},
+  "177": {},
+  "218": {
+   "KEY": [
+    {
+     "athlete_id": "4684720",
+     "name": "Derrian Ford",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240369",
+     "name": "Aiden Tobiason",
+     "position": "G"
+    }
+   ]
+  },
+  "2169": {
+   "KEY": [
+    {
+     "athlete_id": "4897761",
+     "name": "Corey Perkins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243399",
+     "name": "Ponce James",
+     "position": "G"
+    }
+   ]
+  },
+  "2163": {},
+  "2210": {
+   "KEY": [
+    {
+     "athlete_id": "5175741",
+     "name": "Chandler Cuthrell",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5177193",
+     "name": "Randall Pettus II",
+     "position": "G"
+    }
+   ]
+  },
+  "2058": {},
+  "111926": {},
+  "2175": {},
+  "2688": {},
+  "126826": {},
+  "2636": {
+   "KEY": [
+    {
+     "athlete_id": "5111919",
+     "name": "Jamir Simpson",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5221325",
+     "name": "Dorian Hayes",
+     "position": "G"
+    }
+   ]
+  },
+  "156": {
+   "KEY": [
+    {
+     "athlete_id": "5105577",
+     "name": "Jasen Green",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5105800",
+     "name": "Josh Dix",
+     "position": "G"
+    }
+   ]
+  },
+  "99": {
+   "KEY": [
+    {
+     "athlete_id": "5105785",
+     "name": "Max Mackinnon",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5107264",
+     "name": "Marquel Sutton",
+     "position": "F"
+    }
+   ]
+  },
+  "84": {
+   "KEY": [
+    {
+     "athlete_id": "4837238",
+     "name": "Tucker DeVries",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5105876",
+     "name": "Lamar Wilkerson",
+     "position": "G"
+    }
+   ]
+  },
+  "344": {
+   "KEY": [
+    {
+     "athlete_id": "4895740",
+     "name": "Josh Hubbard",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105791",
+     "name": "Jayden Epps",
+     "position": "G"
+    }
+   ]
+  },
+  "2453": {
+   "KEY": [
+    {
+     "athlete_id": "4709454",
+     "name": "Dallas Howell",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5239797",
+     "name": "Donte Bacchus",
+     "position": "F"
+    }
+   ]
+  },
+  "111254": {},
+  "167": {
+   "KEY": [
+    {
+     "athlete_id": "5188026",
+     "name": "Luke Haupt",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5254338",
+     "name": "Jake Hall",
+     "position": "G"
+    }
+   ]
+  },
+  "279": {
+   "KEY": [
+    {
+     "athlete_id": "4683947",
+     "name": "TJ Wainwright",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5240903",
+     "name": "Elias Ralph",
+     "position": "F"
+    }
+   ]
+  },
+  "2486": {},
+  "3183": {},
+  "2850": {},
+  "3164": {},
+  "40": {},
+  "2287": {
+   "KEY": [
+    {
+     "athlete_id": "4702671",
+     "name": "Boden Skunberg",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5176352",
+     "name": "Johnny Kinziger",
+     "position": "G"
+    }
+   ]
+  },
+  "2018": {},
+  "2648": {},
+  "112686": {},
+  "2062": {},
+  "424": {},
+  "108806": {
+   "KEY": [
+    {
+     "athlete_id": "5247420",
+     "name": "Tyus Williams",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5320706",
+     "name": "Latrell Thompson",
+     "position": "G"
+    }
+   ]
+  },
+  "73": {},
+  "2886": {},
+  "110414": {},
+  "3153": {},
+  "2177": {},
+  "2460": {
+   "KEY": [
+    {
+     "athlete_id": "4838704",
+     "name": "Leon Bond III",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5107887",
+     "name": "Trey Campbell",
+     "position": "G"
+    }
+   ]
+  },
+  "3155": {},
+  "2454": {
+   "KEY": [
+    {
+     "athlete_id": "5119069",
+     "name": "Kamrin Oriol",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5243208",
+     "name": "Kent Jackson",
+     "position": "G"
+    }
+   ]
+  },
+  "2650": {},
+  "2198": {
+   "KEY": [
+    {
+     "athlete_id": "4898333",
+     "name": "Montavious Myrick",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5106705",
+     "name": "Turner Buttry",
+     "position": "G"
+    }
+   ]
+  },
+  "512": {},
+  "2732": {},
+  "502": {},
+  "171": {
+   "KEY": [
+    {
+     "athlete_id": "5106236",
+     "name": "Kenny Noland",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106237",
+     "name": "Blair Thompson",
+     "position": "F"
+    }
+   ]
+  },
+  "2299": {},
+  "108": {
+   "KEY": [
+    {
+     "athlete_id": "4902967",
+     "name": "Chandler Pigge",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5241728",
+     "name": "Tey Barbour",
+     "position": "G"
+    }
+   ]
+  },
+  "109": {},
+  "219": {
+   "KEY": [
+    {
+     "athlete_id": "4684843",
+     "name": "TJ Power",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5108877",
+     "name": "Michael Zanoni",
+     "position": "F"
+    }
+   ]
+  },
+  "2827": {},
+  "225": {
+   "KEY": [
+    {
+     "athlete_id": "4873101",
+     "name": "Jeremiah Jenkins",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5175855",
+     "name": "Adrian Uchidiuno",
+     "position": "G"
+    }
+   ]
+  },
+  "2365": {},
+  "172": {
+   "KEY": [
+    {
+     "athlete_id": "5106243",
+     "name": "Adam Hinton",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5106247",
+     "name": "Cooper Noard",
+     "position": "G"
+    }
+   ]
+  },
+  "6371": {},
+  "314": {
+   "KEY": [
+    {
+     "athlete_id": "4897054",
+     "name": "CJ Anthony",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4897691",
+     "name": "Lamin Sabally",
+     "position": "F"
+    }
+   ]
+  },
+  "123362": {},
+  "2938": {},
+  "455": {},
+  "2011": {
+   "KEY": [
+    {
+     "athlete_id": "4897484",
+     "name": "Cameron Palesse",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5242807",
+     "name": "Micah Simpson",
+     "position": "G"
+    }
+   ]
+  },
+  "3229": {
+   "KEY": [
+    {
+     "athlete_id": "5323010",
+     "name": "Filaun Paythress",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5323014",
+     "name": "Zephaniah Williams",
+     "position": "F"
+    }
+   ]
+  },
+  "289": {},
+  "2652": {},
+  "130183": {},
+  "2862": {},
+  "43": {
+   "KEY": [
+    {
+     "athlete_id": "5107174",
+     "name": "Nick Townsend",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5241754",
+     "name": "Isaac Celiscar",
+     "position": "F"
+    }
+   ]
+  },
+  "2720": {},
+  "2703": {},
+  "3078": {},
+  "163": {
+   "KEY": [
+    {
+     "athlete_id": "5177174",
+     "name": "Jackson Hicke",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5221328",
+     "name": "Landon Clark",
+     "position": "G"
+    }
+   ]
+  },
+  "126910": {},
+  "235": {
+   "KEY": [
+    {
+     "athlete_id": "5037872",
+     "name": "Curtis Givens III",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5105805",
+     "name": "Dug McDaniel",
+     "position": "G"
+    }
+   ]
+  },
+  "2590": {},
+  "2129": {},
+  "2047": {},
+  "2693": {},
+  "2823": {},
+  "2301": {},
+  "127162": {},
+  "159": {
+   "KEY": [
+    {
+     "athlete_id": "5152623",
+     "name": "Connor Amundsen",
+     "position": "PG"
+    },
+    {
+     "athlete_id": "5241721",
+     "name": "Kareem Thomas",
+     "position": "G"
+    }
+   ]
+  },
+  "2936": {},
+  "2358": {},
+  "2474": {},
+  "2404": {},
+  "3120": {
+   "KEY": [
+    {
+     "athlete_id": "5324493",
+     "name": "Christian Ford",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5324497",
+     "name": "Adrian Nelson",
+     "position": "PG"
+    }
+   ]
+  },
+  "2890": {},
+  "2891": {},
+  "130195": {},
+  "3242": {},
+  "2242": {},
+  "2822": {},
+  "2564": {},
+  "2892": {},
+  "130262": {},
+  "2903": {},
+  "3238": {},
+  "3189": {},
+  "3196": {},
+  "126848": {},
+  "128438": {},
+  "2107": {},
+  "3173": {},
+  "111914": {},
+  "2595": {},
+  "561": {},
+  "185": {},
+  "2262": {},
+  "2211": {},
+  "3243": {},
+  "2932": {},
+  "2073": {},
+  "375": {},
+  "2207": {},
+  "126821": {},
+  "2061": {},
+  "212": {},
+  "2232": {},
+  "5345": {},
+  "2679": {},
+  "2689": {},
+  "2304": {},
+  "109700": {},
+  "190": {},
+  "2196": {},
+  "2131": {},
+  "511": {},
+  "2879": {},
+  "263": {},
+  "2519": {},
+  "2025": {},
+  "596": {},
+  "2141": {},
+  "2202": {},
+  "131638": {},
+  "66786": {},
+  "126890": {},
+  "2064": {},
+  "111226": {},
+  "535": {},
+  "2730": {},
+  "111902": {},
+  "3121": {},
+  "170": {},
+  "2937": {},
+  "2838": {},
+  "2939": {},
+  "507": {},
+  "3170": {},
+  "2866": {},
+  "2980": {},
+  "2871": {},
+  "2524": {},
+  "63": {},
+  "551": {},
+  "2758": {},
+  "2544": {},
+  "123306": {},
+  "3185": {},
+  "2551": {},
+  "128342": {},
+  "2639": {},
+  "2374": {},
+  "2124": {},
+  "2370": {},
+  "370": {},
+  "2003": {},
+  "2845": {},
+  "2776": {},
+  "2855": {},
+  "2496": {},
+  "2384": {},
+  "402": {},
+  "117": {},
+  "330": {},
+  "2119": {},
+  "103524": {},
+  "2632": {},
+  "2880": {},
+  "2395": {},
+  "144": {},
+  "108842": {},
+  "111170": {},
+  "108862": {},
+  "461": {},
+  "2310": {},
+  "3174": {},
+  "355": {},
+  "3158": {},
+  "29": {},
+  "2518": {},
+  "3126": {},
+  "268": {},
+  "353": {},
+  "108838": {},
+  "196": {},
+  "2591": {},
+  "2347": {},
+  "2615": {},
+  "3111": {},
+  "101": {},
+  "3138": {},
+  "573": {},
+  "126824": {},
+  "131632": {},
+  "2071": {},
+  "2945": {},
+  "5426": {},
+  "2508": {},
+  "130196": {},
+  "2684": {},
+  "2333": {},
+  "111180": {},
+  "131603": {},
+  "374": {},
+  "533": {},
+  "128531": {},
+  "111948": {},
+  "2227": {},
+  "2075": {},
+  "417": {},
+  "2476": {},
+  "486": {},
+  "2040": {},
+  "2096": {},
+  "2576": {},
+  "2517": {},
+  "510": {},
+  "2178": {},
+  "524": {},
+  "2605": {},
+  "16231": {},
+  "509": {},
+  "131858": {},
+  "2267": {},
+  "2854": {},
+  "2600": {},
+  "1": {},
+  "2913": {},
+  "108807": {},
+  "513": {},
+  "415": {},
+  "612": {},
+  "2952": {},
+  "125330": {},
+  "2644": {},
+  "3071": {},
+  "3141": {},
+  "2013": {},
+  "2098": {},
+  "2772": {},
+  "126972": {},
+  "109998": {},
+  "2145": {},
+  "128501": {},
+  "123410": {},
+  "354": {},
+  "2077": {},
+  "148": {},
+  "571": {},
+  "131642": {},
+  "2701": {},
+  "130190": {},
+  "109671": {},
+  "538": {},
+  "2562": {},
+  "534": {},
+  "2491": {},
+  "2573": {},
+  "111199": {},
+  "465": {},
+  "126954": {},
+  "2161": {},
+  "420": {},
+  "2660": {},
+  "124809": {},
+  "2114": {},
+  "608": {},
+  "2465": {},
+  "2256": {},
+  "2944": {},
+  "2981": {},
+  "2706": {},
+  "130401": {},
+  "407": {},
+  "121894": {},
+  "484": {},
+  "132013": {},
+  "2828": {},
+  "131584": {},
+  "3245": {},
+  "3154": {},
+  "594": {},
+  "562": {},
+  "347": {},
+  "111947": {},
+  "2246": {},
+  "2148": {},
+  "2189": {},
+  "110031": {},
+  "2920": {},
+  "2113": {},
+  "554": {},
+  "2033": {},
+  "108820": {},
+  "131761": {},
+  "2070": {},
+  "60": {}
+ }
+}

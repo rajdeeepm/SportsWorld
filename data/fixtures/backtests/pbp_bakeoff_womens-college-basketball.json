@@ -1,0 +1,83 @@
+{
+ "league": "womens-college-basketball",
+ "rows": 1249057,
+ "games": 11813,
+ "train": 695345,
+ "calibration": 281510,
+ "test": 272202,
+ "stride": 4,
+ "models": {
+  "logistic_bootstrap": {
+   "log_loss": 0.34114,
+   "brier": 0.22237,
+   "ece": 0.00931,
+   "accuracy": 0.83587,
+   "n": 272202,
+   "temperature": 0.93,
+   "in_game_only": {
+    "log_loss": 0.33976,
+    "brier": 0.2214,
+    "ece": 0.00941,
+    "accuracy": 0.8367,
+    "n": 269848
+   }
+  },
+  "mlp": {
+   "log_loss": 0.3395,
+   "brier": 0.2215,
+   "ece": 0.0052,
+   "accuracy": 0.83572,
+   "n": 272202,
+   "temperature": 1.06,
+   "in_game_only": {
+    "log_loss": 0.33814,
+    "brier": 0.22053,
+    "ece": 0.005,
+    "accuracy": 0.8366,
+    "n": 269848
+   },
+   "device": "cuda:0"
+  },
+  "gru_sequence": {
+   "log_loss": 0.33959,
+   "brier": 0.22188,
+   "ece": 0.00416,
+   "accuracy": 0.83515,
+   "n": 272202,
+   "temperature": 0.972,
+   "in_game_only": {
+    "log_loss": 0.33824,
+    "brier": 0.22093,
+    "ece": 0.00414,
+    "accuracy": 0.83596,
+    "n": 269848
+   }
+  }
+ },
+ "paired_game_bootstrap": {
+  "mlp - logistic_bootstrap": {
+   "mean": -0.00164,
+   "ci95": [
+    -0.00451,
+    0.00129
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.882,
+   "games": 2354
+  },
+  "gru_sequence - logistic_bootstrap": {
+   "mean": -0.00155,
+   "ci95": [
+    -0.00383,
+    0.00071
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.9127,
+   "games": 2354
+  }
+ },
+ "data_fingerprint": {
+  "rows": 1249057,
+  "games": 11813,
+  "hash": "bd66cdde585e3a5d"
+ },
+ "runtime_s": 278.4
+}

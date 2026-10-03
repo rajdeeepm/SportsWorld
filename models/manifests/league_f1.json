@@ -1,0 +1,42 @@
+{
+  "model_version": "f1_conditional_softmax_real_v1",
+  "sport": "f1",
+  "competition": "f1",
+  "algorithm": "bootstrap_conditional_softmax",
+  "feature_schema_version": "f1_real_features_v1",
+  "features": [
+    "position_advantage",
+    "progress_position",
+    "driver_rating",
+    "car_rating",
+    "rating_uncertainty",
+    "reliability_remaining",
+    "gap_advantage",
+    "progress_gap"
+  ],
+  "train_window": {
+    "start": "2018-03-25T05:05:00+00:00",
+    "end": "2024-11-03T18:34:30+00:00"
+  },
+  "calibration_window": {
+    "start": "2024-11-23T05:55:00+00:00",
+    "end": "2025-10-05T13:34:30+00:00"
+  },
+  "test_window": {
+    "start": "2025-10-19T18:55:00+00:00",
+    "end": "2026-09-26T12:34:30+00:00"
+  },
+  "artifact_uri": "f1_conditional_softmax_real_v1.json",
+  "calibration_version": "f1_conditional_softmax_real_v1_temperature_v1",
+  "metrics": {
+    "brier": 0.45864826723418606,
+    "log_loss": 0.9170806019043443,
+    "ece": 0.07137912422361171,
+    "accuracy": 0.6761904761904762
+  },
+  "data_mode": "real_jolpica_openf1",
+  "notes": [
+    "188 races since 2018; in-race checkpoints from OpenF1 lap timing (85 races).",
+    "Driver and car are separate Kalman latent states; reliability is a decayed classified-finish rate per car."
+  ]
+}

@@ -1,0 +1,1159 @@
+{
+  "profiles": [
+    {
+      "entity_id": "team:michigan",
+      "sport": "football",
+      "entity_type": "team",
+      "display_name": "Michigan",
+      "attributes": {
+        "side": "home",
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.43,
+        "form": 0.26,
+        "health": 0.34,
+        "experience": 0.36,
+        "potential": 0.44,
+        "chemistry": 0.31,
+        "rush_offense": 0.62,
+        "pass_offense": 0.34,
+        "run_defense": 0.55,
+        "pass_defense": 0.4,
+        "pass_protection": 0.48,
+        "pass_rush": 0.45,
+        "special_teams": 0.18
+      },
+      "importance": 1.0,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "team:ohio-state",
+      "sport": "football",
+      "entity_type": "team",
+      "display_name": "Ohio State",
+      "attributes": {
+        "side": "away",
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.46,
+        "form": 0.18,
+        "health": 0.39,
+        "experience": 0.29,
+        "potential": 0.52,
+        "chemistry": 0.27,
+        "rush_offense": 0.41,
+        "pass_offense": 0.61,
+        "run_defense": 0.44,
+        "pass_defense": 0.56,
+        "pass_protection": 0.4,
+        "pass_rush": 0.64,
+        "special_teams": 0.21
+      },
+      "importance": 1.0,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "player:mich-qb1",
+      "sport": "football",
+      "entity_type": "player",
+      "display_name": "Michigan QB1",
+      "team_id": "team:michigan",
+      "role": "starting_qb",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.38,
+        "form": 0.28,
+        "health": 0.72,
+        "usage": 0.76,
+        "experience": 0.18,
+        "potential": 0.67
+      },
+      "importance": 0.98,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "player:mich-rb1",
+      "sport": "football",
+      "entity_type": "player",
+      "display_name": "Michigan RB1",
+      "team_id": "team:michigan",
+      "role": "rb1",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.48,
+        "form": 0.41,
+        "health": 0.61,
+        "usage": 0.71,
+        "experience": 0.31,
+        "potential": 0.46
+      },
+      "importance": 0.84,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "unit:mich-ol",
+      "sport": "football",
+      "entity_type": "unit",
+      "display_name": "Michigan Offensive Line",
+      "team_id": "team:michigan",
+      "role": "offensive_line",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.4,
+        "form": 0.35,
+        "health": 0.45,
+        "chemistry": 0.56,
+        "rush_offense": 0.67,
+        "pass_protection": 0.49
+      },
+      "importance": 0.88,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "player:osu-qb1",
+      "sport": "football",
+      "entity_type": "player",
+      "display_name": "Ohio State QB1",
+      "team_id": "team:ohio-state",
+      "role": "starting_qb",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.51,
+        "form": 0.17,
+        "health": 0.8,
+        "usage": 0.79,
+        "experience": 0.23,
+        "potential": 0.7
+      },
+      "importance": 0.98,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "player:osu-wr1",
+      "sport": "football",
+      "entity_type": "player",
+      "display_name": "Ohio State WR1",
+      "team_id": "team:ohio-state",
+      "role": "wr1",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.59,
+        "form": 0.33,
+        "health": 0.69,
+        "usage": 0.66,
+        "experience": 0.16,
+        "potential": 0.76
+      },
+      "importance": 0.87,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "unit:osu-dl",
+      "sport": "football",
+      "entity_type": "unit",
+      "display_name": "Ohio State Defensive Front",
+      "team_id": "team:ohio-state",
+      "role": "defensive_line",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.55,
+        "form": 0.27,
+        "health": 0.51,
+        "chemistry": 0.44,
+        "run_defense": 0.47,
+        "pass_rush": 0.68
+      },
+      "importance": 0.9,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "team:home-five",
+      "sport": "basketball",
+      "entity_type": "team",
+      "display_name": "Home Five",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.35,
+        "form": 0.31,
+        "health": 0.4,
+        "experience": 0.22,
+        "potential": 0.38,
+        "chemistry": 0.45,
+        "shot_creation": 0.52,
+        "shot_defense": 0.34,
+        "rim_pressure": 0.48,
+        "rim_protection": 0.31,
+        "rebounding": 0.28,
+        "turnover_control": 0.44,
+        "turnover_pressure": 0.3
+      },
+      "importance": 1.0,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "team:away-five",
+      "sport": "basketball",
+      "entity_type": "team",
+      "display_name": "Away Five",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.31,
+        "form": 0.2,
+        "health": 0.46,
+        "experience": 0.34,
+        "potential": 0.3,
+        "chemistry": 0.36,
+        "shot_creation": 0.39,
+        "shot_defense": 0.42,
+        "rim_pressure": 0.35,
+        "rim_protection": 0.45,
+        "rebounding": 0.37,
+        "turnover_control": 0.33,
+        "turnover_pressure": 0.41
+      },
+      "importance": 1.0,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "player:home-star",
+      "sport": "basketball",
+      "entity_type": "player",
+      "display_name": "Home Star",
+      "team_id": "team:home-five",
+      "role": "primary_creator",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.58,
+        "form": 0.44,
+        "health": 0.63,
+        "usage": 0.82,
+        "experience": 0.4,
+        "potential": 0.55
+      },
+      "importance": 0.98,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "player:away-star",
+      "sport": "basketball",
+      "entity_type": "player",
+      "display_name": "Away Star",
+      "team_id": "team:away-five",
+      "role": "primary_creator",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.53,
+        "form": 0.29,
+        "health": 0.72,
+        "usage": 0.79,
+        "experience": 0.47,
+        "potential": 0.49
+      },
+      "importance": 0.98,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "driver:norris",
+      "sport": "f1",
+      "entity_type": "driver",
+      "display_name": "Norris",
+      "role": "driver",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.61,
+        "form": 0.57,
+        "health": 0.82,
+        "experience": 0.49,
+        "potential": 0.66,
+        "chemistry": 0.46
+      },
+      "importance": 1.0,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "driver:verstappen",
+      "sport": "f1",
+      "entity_type": "driver",
+      "display_name": "Verstappen",
+      "role": "driver",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.76,
+        "form": 0.51,
+        "health": 0.85,
+        "experience": 0.72,
+        "potential": 0.73,
+        "chemistry": 0.55
+      },
+      "importance": 1.0,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "driver:leclerc",
+      "sport": "f1",
+      "entity_type": "driver",
+      "display_name": "Leclerc",
+      "role": "driver",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.64,
+        "form": 0.34,
+        "health": 0.79,
+        "experience": 0.63,
+        "potential": 0.64,
+        "chemistry": 0.43
+      },
+      "importance": 1.0,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    },
+    {
+      "entity_id": "driver:other",
+      "sport": "f1",
+      "entity_type": "driver",
+      "display_name": "Other",
+      "role": "field",
+      "attributes": {
+        "synthetic": true
+      },
+      "capabilities": {
+        "skill": 0.32,
+        "form": 0.28,
+        "health": 0.74,
+        "experience": 0.48,
+        "potential": 0.37,
+        "chemistry": 0.32
+      },
+      "importance": 1.0,
+      "source_ids": [
+        "synthetic-history"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "entity_id": "team:michigan",
+      "sport": "football",
+      "metric": "season_rush_yards_per_game",
+      "dimension": "form",
+      "raw_value": 188,
+      "normalized_value": 0.34,
+      "unit": "yd/game",
+      "sample_size": 11,
+      "occurred_at": "2026-11-20T17:00:00Z",
+      "known_to_model_time": "2026-11-20T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.97,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "team:michigan",
+      "sport": "football",
+      "metric": "opponent_adjusted_efficiency",
+      "dimension": "skill",
+      "raw_value": 0.71,
+      "normalized_value": 0.44,
+      "unit": "index",
+      "sample_size": 11,
+      "occurred_at": "2026-11-18T17:00:00Z",
+      "known_to_model_time": "2026-11-18T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.97,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "team:ohio-state",
+      "sport": "football",
+      "metric": "season_pass_yards_per_game",
+      "dimension": "form",
+      "raw_value": 282,
+      "normalized_value": 0.38,
+      "unit": "yd/game",
+      "sample_size": 11,
+      "occurred_at": "2026-11-20T17:00:00Z",
+      "known_to_model_time": "2026-11-20T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.97,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "team:ohio-state",
+      "sport": "football",
+      "metric": "opponent_adjusted_efficiency",
+      "dimension": "skill",
+      "raw_value": 0.74,
+      "normalized_value": 0.48,
+      "unit": "index",
+      "sample_size": 11,
+      "occurred_at": "2026-11-18T17:00:00Z",
+      "known_to_model_time": "2026-11-18T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.97,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "team:michigan",
+      "sport": "football",
+      "metric": "last_3_vs_opponent_rush_yards_per_game",
+      "dimension": "form",
+      "raw_value": 176,
+      "normalized_value": 0.28,
+      "unit": "yd/game",
+      "sample_size": 3,
+      "occurred_at": "2026-07-31T17:00:00Z",
+      "known_to_model_time": "2026-07-31T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.9,
+      "season": "2026",
+      "opponent_id": "team:ohio-state",
+      "tags": [
+        "synthetic_demo",
+        "matchup_history",
+        "rivalry"
+      ]
+    },
+    {
+      "entity_id": "team:ohio-state",
+      "sport": "football",
+      "metric": "last_3_vs_opponent_pressure_rate",
+      "dimension": "form",
+      "raw_value": 0.36,
+      "normalized_value": 0.38,
+      "unit": "rate",
+      "sample_size": 3,
+      "occurred_at": "2026-07-31T17:00:00Z",
+      "known_to_model_time": "2026-07-31T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.9,
+      "season": "2026",
+      "opponent_id": "team:michigan",
+      "tags": [
+        "synthetic_demo",
+        "matchup_history",
+        "rivalry"
+      ]
+    },
+    {
+      "entity_id": "player:mich-qb1",
+      "sport": "football",
+      "metric": "career_passing_touchdowns",
+      "dimension": "skill",
+      "raw_value": 42,
+      "normalized_value": 0.36,
+      "unit": "TD",
+      "sample_size": 31,
+      "occurred_at": "2026-11-14T17:00:00Z",
+      "known_to_model_time": "2026-11-14T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.98,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "player:mich-qb1",
+      "sport": "football",
+      "metric": "last_5_epa_per_dropback",
+      "dimension": "form",
+      "raw_value": 0.19,
+      "normalized_value": 0.42,
+      "unit": "EPA/dropback",
+      "sample_size": 5,
+      "occurred_at": "2026-11-22T17:00:00Z",
+      "known_to_model_time": "2026-11-22T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.96,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "player:mich-qb1",
+      "sport": "football",
+      "metric": "practice_availability",
+      "dimension": "health",
+      "raw_value": "full",
+      "normalized_value": 0.75,
+      "unit": null,
+      "sample_size": 1,
+      "occurred_at": "2026-11-26T17:00:00Z",
+      "known_to_model_time": "2026-11-26T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.95,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "player:mich-rb1",
+      "sport": "football",
+      "metric": "career_rushing_yards",
+      "dimension": "skill",
+      "raw_value": 2550,
+      "normalized_value": 0.45,
+      "unit": "yd",
+      "sample_size": 28,
+      "occurred_at": "2026-11-07T17:00:00Z",
+      "known_to_model_time": "2026-11-07T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.98,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "player:mich-rb1",
+      "sport": "football",
+      "metric": "last_5_rush_yards_per_game",
+      "dimension": "form",
+      "raw_value": 104,
+      "normalized_value": 0.51,
+      "unit": "yd/game",
+      "sample_size": 5,
+      "occurred_at": "2026-11-22T17:00:00Z",
+      "known_to_model_time": "2026-11-22T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.96,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "unit:mich-ol",
+      "sport": "football",
+      "metric": "last_5_stuff_rate_allowed",
+      "dimension": "form",
+      "raw_value": ".15",
+      "normalized_value": 0.43,
+      "unit": "rate",
+      "sample_size": 5,
+      "occurred_at": "2026-11-22T17:00:00Z",
+      "known_to_model_time": "2026-11-22T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.94,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "player:osu-qb1",
+      "sport": "football",
+      "metric": "career_passing_touchdowns",
+      "dimension": "skill",
+      "raw_value": 48,
+      "normalized_value": 0.46,
+      "unit": "TD",
+      "sample_size": 30,
+      "occurred_at": "2026-11-14T17:00:00Z",
+      "known_to_model_time": "2026-11-14T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.98,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "player:osu-qb1",
+      "sport": "football",
+      "metric": "last_5_epa_per_dropback",
+      "dimension": "form",
+      "raw_value": 0.12,
+      "normalized_value": 0.24,
+      "unit": "EPA/dropback",
+      "sample_size": 5,
+      "occurred_at": "2026-11-22T17:00:00Z",
+      "known_to_model_time": "2026-11-22T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.96,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "player:osu-wr1",
+      "sport": "football",
+      "metric": "career_receiving_touchdowns",
+      "dimension": "skill",
+      "raw_value": 21,
+      "normalized_value": 0.52,
+      "unit": "TD",
+      "sample_size": 27,
+      "occurred_at": "2026-11-14T17:00:00Z",
+      "known_to_model_time": "2026-11-14T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.98,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "unit:osu-dl",
+      "sport": "football",
+      "metric": "season_pressure_rate",
+      "dimension": "form",
+      "raw_value": 0.39,
+      "normalized_value": 0.52,
+      "unit": "rate",
+      "sample_size": 11,
+      "occurred_at": "2026-11-21T17:00:00Z",
+      "known_to_model_time": "2026-11-21T19:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.96,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "player:home-star",
+      "sport": "basketball",
+      "metric": "last_10_points",
+      "dimension": "form",
+      "raw_value": 27.8,
+      "normalized_value": 0.46,
+      "unit": "pts/game",
+      "sample_size": 10,
+      "occurred_at": "2026-10-12T23:00:00Z",
+      "known_to_model_time": "2026-10-13T01:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.97,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "player:home-star",
+      "sport": "basketball",
+      "metric": "career_usage_rate",
+      "dimension": "usage",
+      "raw_value": 0.31,
+      "normalized_value": 0.58,
+      "unit": "rate",
+      "sample_size": 180,
+      "occurred_at": "2026-10-01T23:00:00Z",
+      "known_to_model_time": "2026-10-02T01:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.99,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "player:away-star",
+      "sport": "basketball",
+      "metric": "last_10_points",
+      "dimension": "form",
+      "raw_value": 24.1,
+      "normalized_value": 0.31,
+      "unit": "pts/game",
+      "sample_size": 10,
+      "occurred_at": "2026-10-12T23:00:00Z",
+      "known_to_model_time": "2026-10-13T01:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.97,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "team:home-five",
+      "sport": "basketball",
+      "metric": "recent_net_rating",
+      "dimension": "form",
+      "raw_value": 7.2,
+      "normalized_value": 0.4,
+      "unit": "per100",
+      "sample_size": 8,
+      "occurred_at": "2026-10-13T23:00:00Z",
+      "known_to_model_time": "2026-10-14T01:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.95,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "team:away-five",
+      "sport": "basketball",
+      "metric": "recent_net_rating",
+      "dimension": "form",
+      "raw_value": 3.1,
+      "normalized_value": 0.2,
+      "unit": "per100",
+      "sample_size": 8,
+      "occurred_at": "2026-10-13T23:00:00Z",
+      "known_to_model_time": "2026-10-14T01:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.95,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "driver:norris",
+      "sport": "f1",
+      "metric": "recent_qualifying_percentile",
+      "dimension": "form",
+      "raw_value": 0.86,
+      "normalized_value": 0.61,
+      "unit": "percentile",
+      "sample_size": 6,
+      "occurred_at": "2026-09-27T12:00:00Z",
+      "known_to_model_time": "2026-09-27T14:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.97,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "driver:norris",
+      "sport": "f1",
+      "metric": "career_podium_rate",
+      "dimension": "skill",
+      "raw_value": 0.28,
+      "normalized_value": 0.52,
+      "unit": "rate",
+      "sample_size": 120,
+      "occurred_at": "2026-09-13T12:00:00Z",
+      "known_to_model_time": "2026-09-13T14:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.99,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "driver:verstappen",
+      "sport": "f1",
+      "metric": "recent_qualifying_percentile",
+      "dimension": "form",
+      "raw_value": 0.89,
+      "normalized_value": 0.66,
+      "unit": "percentile",
+      "sample_size": 6,
+      "occurred_at": "2026-09-27T12:00:00Z",
+      "known_to_model_time": "2026-09-27T14:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.97,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "driver:verstappen",
+      "sport": "f1",
+      "metric": "career_podium_rate",
+      "dimension": "skill",
+      "raw_value": 0.61,
+      "normalized_value": 0.78,
+      "unit": "rate",
+      "sample_size": 180,
+      "occurred_at": "2026-09-13T12:00:00Z",
+      "known_to_model_time": "2026-09-13T14:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.99,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    },
+    {
+      "entity_id": "driver:leclerc",
+      "sport": "f1",
+      "metric": "recent_qualifying_percentile",
+      "dimension": "form",
+      "raw_value": 0.77,
+      "normalized_value": 0.45,
+      "unit": "percentile",
+      "sample_size": 6,
+      "occurred_at": "2026-09-27T12:00:00Z",
+      "known_to_model_time": "2026-09-27T14:00:00Z",
+      "source_id": "synthetic-history",
+      "source_type": "stats",
+      "confidence": 0.97,
+      "season": "2026",
+      "opponent_id": null,
+      "tags": [
+        "synthetic_demo"
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "event_id": "mich-osu-2026-demo",
+      "sport": "football",
+      "category": "rivalry",
+      "effect": "variance",
+      "label": "Rivalry regime",
+      "summary": "Synthetic demo rivalry context: historical matchup is treated as a possible variance modifier, not a magic rivalry bonus.",
+      "target_entity_id": null,
+      "direction": 0,
+      "strength": 0.75,
+      "volatility": 0.48,
+      "sentiment": "neutral",
+      "observed_at": "2026-11-14T17:00:00Z",
+      "known_to_model_time": "2026-11-14T17:05:00Z",
+      "source_id": "synthetic-context",
+      "source_type": "news",
+      "confidence": 0.9,
+      "verified": true,
+      "public_evidence_only": true,
+      "metadata": {
+        "synthetic_demo": true,
+        "runtime": false
+      }
+    },
+    {
+      "event_id": "mich-osu-2026-demo",
+      "sport": "football",
+      "category": "environment",
+      "effect": "mean",
+      "label": "Home environment",
+      "summary": "Synthetic demo home-field/crowd context for the listed home team.",
+      "target_entity_id": "team:michigan",
+      "direction": 0.3,
+      "strength": 0.65,
+      "volatility": 0,
+      "sentiment": "neutral",
+      "observed_at": "2026-10-29T17:00:00Z",
+      "known_to_model_time": "2026-10-29T17:05:00Z",
+      "source_id": "synthetic-context",
+      "source_type": "news",
+      "confidence": 0.98,
+      "verified": true,
+      "public_evidence_only": true,
+      "metadata": {
+        "synthetic_demo": true,
+        "runtime": false
+      }
+    },
+    {
+      "event_id": "mich-osu-2026-demo",
+      "sport": "football",
+      "category": "health",
+      "effect": "mean",
+      "label": "QB practice status",
+      "summary": "Synthetic official-style note indicates Michigan QB1 practiced fully; this is public availability evidence, not an inferred mental/medical state.",
+      "target_entity_id": "player:mich-qb1",
+      "direction": 0.24,
+      "strength": 0.55,
+      "volatility": 0,
+      "sentiment": "positive",
+      "observed_at": "2026-11-26T17:00:00Z",
+      "known_to_model_time": "2026-11-26T17:05:00Z",
+      "source_id": "synthetic-official",
+      "source_type": "official",
+      "confidence": 0.95,
+      "verified": true,
+      "public_evidence_only": true,
+      "metadata": {
+        "synthetic_demo": true,
+        "runtime": false
+      }
+    },
+    {
+      "event_id": "mich-osu-2026-demo",
+      "sport": "football",
+      "category": "narrative",
+      "effect": "state_only",
+      "label": "Public expectation split",
+      "summary": "Synthetic media/public narrative is mixed. Displayed for context; state_only means it does not directly move the mean forecast.",
+      "target_entity_id": null,
+      "direction": 0,
+      "strength": 0.35,
+      "volatility": 0,
+      "sentiment": "mixed",
+      "observed_at": "2026-11-27T17:00:00Z",
+      "known_to_model_time": "2026-11-27T17:05:00Z",
+      "source_id": "synthetic-context",
+      "source_type": "news",
+      "confidence": 0.7,
+      "verified": true,
+      "public_evidence_only": true,
+      "metadata": {
+        "synthetic_demo": true,
+        "runtime": false
+      }
+    },
+    {
+      "event_id": "mich-osu-2026-demo",
+      "sport": "football",
+      "category": "stakes",
+      "effect": "variance",
+      "label": "High-stakes game",
+      "summary": "Synthetic high-stakes context increases modeled uncertainty rather than assigning a team a hand-written advantage.",
+      "target_entity_id": null,
+      "direction": 0,
+      "strength": 0.6,
+      "volatility": 0.3,
+      "sentiment": "neutral",
+      "observed_at": "2026-11-08T17:00:00Z",
+      "known_to_model_time": "2026-11-08T17:05:00Z",
+      "source_id": "synthetic-context",
+      "source_type": "news",
+      "confidence": 0.92,
+      "verified": true,
+      "public_evidence_only": true,
+      "metadata": {
+        "synthetic_demo": true,
+        "runtime": false
+      }
+    },
+    {
+      "event_id": "basketball-2026-demo",
+      "sport": "basketball",
+      "category": "rest",
+      "effect": "mean",
+      "label": "Rest advantage",
+      "summary": "Synthetic home team has an extra rest day.",
+      "target_entity_id": "team:home-five",
+      "direction": 0.24,
+      "strength": 0.45,
+      "volatility": 0,
+      "sentiment": "neutral",
+      "observed_at": "2026-10-13T23:00:00Z",
+      "known_to_model_time": "2026-10-13T23:05:00Z",
+      "source_id": "synthetic-context",
+      "source_type": "news",
+      "confidence": 0.96,
+      "verified": true,
+      "public_evidence_only": true,
+      "metadata": {
+        "synthetic_demo": true,
+        "runtime": false
+      }
+    },
+    {
+      "event_id": "basketball-2026-demo",
+      "sport": "basketball",
+      "category": "sentiment",
+      "effect": "state_only",
+      "label": "Lineup confidence note",
+      "summary": "Synthetic public lineup commentary is positive but displayed without directly changing the mean forecast.",
+      "target_entity_id": "team:home-five",
+      "direction": 0,
+      "strength": 0.25,
+      "volatility": 0,
+      "sentiment": "positive",
+      "observed_at": "2026-10-15T15:00:00Z",
+      "known_to_model_time": "2026-10-15T15:05:00Z",
+      "source_id": "synthetic-context",
+      "source_type": "news",
+      "confidence": 0.75,
+      "verified": true,
+      "public_evidence_only": true,
+      "metadata": {
+        "synthetic_demo": true,
+        "runtime": false
+      }
+    },
+    {
+      "event_id": "demo-gp-2026",
+      "sport": "f1",
+      "category": "weather",
+      "effect": "variance",
+      "label": "Rain risk before start",
+      "summary": "Synthetic forecast indicates meaningful rain risk; this primarily increases race-state uncertainty before live weather arrives.",
+      "target_entity_id": null,
+      "direction": 0,
+      "strength": 0.55,
+      "volatility": 0.42,
+      "sentiment": "neutral",
+      "observed_at": "2026-10-04T07:00:00Z",
+      "known_to_model_time": "2026-10-04T07:05:00Z",
+      "source_id": "synthetic-context",
+      "source_type": "news",
+      "confidence": 0.92,
+      "verified": true,
+      "public_evidence_only": true,
+      "metadata": {
+        "synthetic_demo": true,
+        "runtime": false
+      }
+    },
+    {
+      "event_id": "demo-gp-2026",
+      "sport": "f1",
+      "category": "form",
+      "effect": "mean",
+      "label": "Recent form context",
+      "summary": "Synthetic recent-form context modestly favors Norris.",
+      "target_entity_id": "driver:norris",
+      "direction": 0.28,
+      "strength": 0.42,
+      "volatility": 0,
+      "sentiment": "neutral",
+      "observed_at": "2026-10-02T12:00:00Z",
+      "known_to_model_time": "2026-10-02T12:05:00Z",
+      "source_id": "synthetic-context",
+      "source_type": "news",
+      "confidence": 0.9,
+      "verified": true,
+      "public_evidence_only": true,
+      "metadata": {
+        "synthetic_demo": true,
+        "runtime": false
+      }
+    },
+    {
+      "event_id": "demo-gp-2026",
+      "sport": "f1",
+      "category": "experience",
+      "effect": "mean",
+      "label": "Experience prior",
+      "summary": "Synthetic experience context modestly favors Verstappen.",
+      "target_entity_id": "driver:verstappen",
+      "direction": 0.3,
+      "strength": 0.38,
+      "volatility": 0,
+      "sentiment": "neutral",
+      "observed_at": "2026-09-29T12:00:00Z",
+      "known_to_model_time": "2026-09-29T12:05:00Z",
+      "source_id": "synthetic-context",
+      "source_type": "news",
+      "confidence": 0.95,
+      "verified": true,
+      "public_evidence_only": true,
+      "metadata": {
+        "synthetic_demo": true,
+        "runtime": false
+      }
+    }
+  ],
+  "data_mode": "synthetic_demo"
+}

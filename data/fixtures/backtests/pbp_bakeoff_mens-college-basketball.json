@@ -1,0 +1,83 @@
+{
+ "league": "mens-college-basketball",
+ "rows": 1293474,
+ "games": 12410,
+ "train": 718412,
+ "calibration": 293355,
+ "test": 281707,
+ "stride": 4,
+ "models": {
+  "logistic_bootstrap": {
+   "log_loss": 0.42435,
+   "brier": 0.28171,
+   "ece": 0.01924,
+   "accuracy": 0.78778,
+   "n": 281707,
+   "temperature": 0.972,
+   "in_game_only": {
+    "log_loss": 0.42294,
+    "brier": 0.28064,
+    "ece": 0.01926,
+    "accuracy": 0.78874,
+    "n": 279233
+   }
+  },
+  "mlp": {
+   "log_loss": 0.42042,
+   "brier": 0.27977,
+   "ece": 0.01086,
+   "accuracy": 0.78906,
+   "n": 281707,
+   "temperature": 1.107,
+   "in_game_only": {
+    "log_loss": 0.41896,
+    "brier": 0.27867,
+    "ece": 0.01067,
+    "accuracy": 0.79001,
+    "n": 279233
+   },
+   "device": "cuda:0"
+  },
+  "gru_sequence": {
+   "log_loss": 0.4246,
+   "brier": 0.28235,
+   "ece": 0.0074,
+   "accuracy": 0.78651,
+   "n": 281707,
+   "temperature": 1.235,
+   "in_game_only": {
+    "log_loss": 0.42313,
+    "brier": 0.28123,
+    "ece": 0.00729,
+    "accuracy": 0.78749,
+    "n": 279233
+   }
+  }
+ },
+ "paired_game_bootstrap": {
+  "mlp - logistic_bootstrap": {
+   "mean": -0.00393,
+   "ci95": [
+    -0.00811,
+    0.0003
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.9673,
+   "games": 2474
+  },
+  "gru_sequence - logistic_bootstrap": {
+   "mean": 0.00025,
+   "ci95": [
+    -0.00371,
+    0.00447
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.446,
+   "games": 2474
+  }
+ },
+ "data_fingerprint": {
+  "rows": 1293474,
+  "games": 12410,
+  "hash": "ee1094c932b191c3"
+ },
+ "runtime_s": 300.9
+}

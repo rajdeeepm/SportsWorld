@@ -1,0 +1,69 @@
+from __future__ import annotations
+
+from abc import ABC, abstractmethod
+from datetime import datetime
+
+from sportsworld.schemas import (
+    ContextSignal,
+    ContextSnapshot,
+    CounterfactualResult,
+    EntityMetric,
+    EntityProfile,
+    EventRecord,
+    Forecast,
+    Observation,
+    Sport,
+    WorldState,
+)
+
+
+class Store(ABC):
+    @abstractmethod
+    def create_event(self, event: EventRecord, initial_state: WorldState) -> None: ...
+    @abstractmethod
+    def list_events(self) -> list[EventRecord]: ...
+    @abstractmethod
+    def get_event(self, event_id: str) -> EventRecord: ...
+    @abstractmethod
+    def get_state(self, event_id: str, version: int | None = None) -> WorldState: ...
+    @abstractmethod
+    def save_state(self, state: WorldState) -> None: ...
+    @abstractmethod
+    def append_observation(self, obs: Observation) -> bool: ...
+    @abstractmethod
+    def list_observations(self, event_id: str) -> list[Observation]: ...
+    @abstractmethod
+    def save_forecast(self, forecast: Forecast) -> None: ...
+    @abstractmethod
+    def list_forecasts(self, event_id: str) -> list[Forecast]: ...
+    @abstractmethod
+    def save_counterfactual(self, result: CounterfactualResult) -> None: ...
+
+    # Historical/context memory -------------------------------------------------
+    @abstractmethod
+    def upsert_entity_profile(self, profile: EntityProfile) -> None: ...
+    @abstractmethod
+    def get_entity_profile(self, entity_id: str) -> EntityProfile: ...
+    @abstractmethod
+    def list_entity_profiles(self, sport: Sport | None = None, team_id: str | None = None) -> list[EntityProfile]: ...
+    @abstractmethod
+    def append_entity_metric(self, metric: EntityMetric) -> bool: ...
+    @abstractmethod
+    def list_entity_metrics(self, entity_id: str, as_of: datetime | None = None) -> list[EntityMetric]: ...
+    @abstractmethod
+    def append_context_signal(self, signal: ContextSignal) -> bool: ...
+    @abstractmethod
+    def list_context_signals(self, event_id: str, as_of: datetime | None = None) -> list[ContextSignal]: ...
+    @abstractmethod
+    def save_context_snapshot(self, snapshot: ContextSnapshot) -> None: ...
+    @abstractmethod
+    def get_context_snapshot(self, event_id: str, state_version: int | None = None) -> ContextSnapshot: ...
+    @abstractmethod
+    def list_context_snapshots(self, event_id: str) -> list[ContextSnapshot]: ...
+
+    def update_event(self, event_id: str, status: str | None = None, metadata: dict | None = None) -> None:
+        """Update lifecycle status / merge metadata for a tracked event."""
+        raise NotImplementedError(f"{type(self).__name__} does not support event updates")
+
+    @abstractmethod
+    def clear_event_runtime(self, event_id: str) -> None: ...

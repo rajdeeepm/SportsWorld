@@ -1,0 +1,464 @@
+{
+  "run_id": "football-football_bootstrap_world_demo_v3-de4aeb24",
+  "sport": "football",
+  "competition": "demo-football",
+  "model_version": "football_bootstrap_world_demo_v3",
+  "feature_schema_version": "football_features_v3_world_state",
+  "train_window": {
+    "start": "2024-01-01T13:13:58.219744Z",
+    "end": "2025-12-31T14:47:21.736257Z"
+  },
+  "calibration_window": {
+    "start": "2026-01-01T14:44:21.796440Z",
+    "end": "2026-04-30T12:05:20.231910Z"
+  },
+  "test_window": {
+    "start": "2026-05-01T14:59:07.317015Z",
+    "end": "2026-09-26T12:14:06.828530Z"
+  },
+  "split_method": "chronological_holdout",
+  "prediction_horizons": [
+    "pregame",
+    "in_game"
+  ],
+  "sample_counts": {
+    "train": 731,
+    "calibration": 120,
+    "test": 149
+  },
+  "metrics": {
+    "brier": 0.3232066447308298,
+    "log_loss": 0.4928403948714832,
+    "ece": 0.04455002299670154,
+    "accuracy": 0.7785234899328859,
+    "interval_coverage": 0.7315436241610739,
+    "interval_width": 0.12268524490071771
+  },
+  "baselines": {
+    "empirical_base_rate": {
+      "brier": 0.4983301575943639,
+      "log_loss": 0.6914770372047981,
+      "ece": 0.00878634581661586,
+      "accuracy": 0.5302013422818792
+    }
+  },
+  "ablations": [
+    {
+      "stage": "A0",
+      "label": "A0 raw strength + venue",
+      "feature_count": 2,
+      "brier": 0.4230314540386939,
+      "log_loss": 0.6151415586027092,
+      "ece": 0.0626787754086914,
+      "accuracy": 0.6577181208053692
+    },
+    {
+      "stage": "A1",
+      "label": "A1 + learned latent state",
+      "feature_count": 8,
+      "brier": 0.43121952901704563,
+      "log_loss": 0.621579457523576,
+      "ece": 0.03503134360219929,
+      "accuracy": 0.6711409395973155
+    },
+    {
+      "stage": "A2",
+      "label": "A2 + matchup/context",
+      "feature_count": 13,
+      "brier": 0.43250900979524454,
+      "log_loss": 0.6218489297945664,
+      "ece": 0.06520694390228507,
+      "accuracy": 0.6845637583892618
+    },
+    {
+      "stage": "A3",
+      "label": "A3 + live game state",
+      "feature_count": 22,
+      "brier": 0.3234023631406686,
+      "log_loss": 0.490687593488715,
+      "ece": 0.04734508054474852,
+      "accuracy": 0.7785234899328859
+    }
+  ],
+  "slices": [
+    {
+      "name": "high_weather",
+      "count": 11,
+      "brier": 0.36311977328988704,
+      "log_loss": 0.5474430544392767,
+      "ece": 0.2298146751752657,
+      "accuracy": 0.8181818181818182
+    },
+    {
+      "name": "qb_availability_change",
+      "count": 19,
+      "brier": 0.42618135888025555,
+      "log_loss": 0.6186977172709439,
+      "ece": 0.13026568437622987,
+      "accuracy": 0.7368421052631579
+    },
+    {
+      "name": "home_underdog",
+      "count": 56,
+      "brier": 0.2882780764728845,
+      "log_loss": 0.4421360213188271,
+      "ece": 0.07399903296462902,
+      "accuracy": 0.8035714285714286
+    }
+  ],
+  "leakage_violations": 0,
+  "reliability": [
+    {
+      "bin_low": 0.0,
+      "bin_high": 0.1,
+      "count": 13,
+      "mean_prediction": 0.048903830525151445,
+      "observed_frequency": 0.0
+    },
+    {
+      "bin_low": 0.1,
+      "bin_high": 0.2,
+      "count": 11,
+      "mean_prediction": 0.14983651418151755,
+      "observed_frequency": 0.09090909090909091
+    },
+    {
+      "bin_low": 0.2,
+      "bin_high": 0.30000000000000004,
+      "count": 18,
+      "mean_prediction": 0.2629004460399841,
+      "observed_frequency": 0.3333333333333333
+    },
+    {
+      "bin_low": 0.30000000000000004,
+      "bin_high": 0.4,
+      "count": 22,
+      "mean_prediction": 0.35357864582356957,
+      "observed_frequency": 0.22727272727272727
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.5,
+      "count": 7,
+      "mean_prediction": 0.4373460722172314,
+      "observed_frequency": 0.7142857142857143
+    },
+    {
+      "bin_low": 0.5,
+      "bin_high": 0.6000000000000001,
+      "count": 17,
+      "mean_prediction": 0.5490236194272416,
+      "observed_frequency": 0.6470588235294118
+    },
+    {
+      "bin_low": 0.6000000000000001,
+      "bin_high": 0.7000000000000001,
+      "count": 16,
+      "mean_prediction": 0.6530371767031964,
+      "observed_frequency": 0.8125
+    },
+    {
+      "bin_low": 0.7000000000000001,
+      "bin_high": 0.8,
+      "count": 14,
+      "mean_prediction": 0.7448420962435932,
+      "observed_frequency": 0.8571428571428571
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.9,
+      "count": 15,
+      "mean_prediction": 0.8583321062817911,
+      "observed_frequency": 0.8
+    },
+    {
+      "bin_low": 0.9,
+      "bin_high": 1.0,
+      "count": 16,
+      "mean_prediction": 0.9462743873866268,
+      "observed_frequency": 0.875
+    }
+  ],
+  "rolling": [
+    {
+      "period": "2026-05",
+      "count": 31,
+      "brier": 0.29598809750083055,
+      "log_loss": 0.4644707116275106
+    },
+    {
+      "period": "2026-06",
+      "count": 30,
+      "brier": 0.3342613526410655,
+      "log_loss": 0.5002946882388081
+    },
+    {
+      "period": "2026-07",
+      "count": 31,
+      "brier": 0.32678316430045207,
+      "log_loss": 0.47594362799837353
+    },
+    {
+      "period": "2026-08",
+      "count": 31,
+      "brier": 0.37286770629210514,
+      "log_loss": 0.5702025064705409
+    },
+    {
+      "period": "2026-09",
+      "count": 26,
+      "brier": 0.2794285182602559,
+      "log_loss": 0.44597138306529105
+    }
+  ],
+  "drift": [
+    {
+      "feature": "human_context_diff",
+      "psi": 0.13079675482294637,
+      "level": "moderate"
+    },
+    {
+      "feature": "environment_context_diff",
+      "psi": 0.12006372545641274,
+      "level": "moderate"
+    },
+    {
+      "feature": "chemistry_diff",
+      "psi": 0.06545885238322321,
+      "level": "low"
+    },
+    {
+      "feature": "strength_diff",
+      "psi": 0.06523699632148933,
+      "level": "low"
+    },
+    {
+      "feature": "health_diff",
+      "psi": 0.06423772582143114,
+      "level": "low"
+    },
+    {
+      "feature": "recent_form_diff",
+      "psi": 0.06422039238169225,
+      "level": "low"
+    },
+    {
+      "feature": "context_volatility",
+      "psi": 0.060931826740432765,
+      "level": "low"
+    },
+    {
+      "feature": "weather_severity",
+      "psi": 0.05780486745762795,
+      "level": "low"
+    },
+    {
+      "feature": "historical_strength_diff",
+      "psi": 0.05566068322330147,
+      "level": "low"
+    },
+    {
+      "feature": "potential_diff",
+      "psi": 0.044671801477911534,
+      "level": "low"
+    },
+    {
+      "feature": "score_diff_scaled",
+      "psi": 0.04366064651534887,
+      "level": "low"
+    },
+    {
+      "feature": "matchup_advantage",
+      "psi": 0.040742466748856385,
+      "level": "low"
+    },
+    {
+      "feature": "field_position_home",
+      "psi": 0.03829291267397267,
+      "level": "low"
+    },
+    {
+      "feature": "score_time_interaction",
+      "psi": 0.03407130328074463,
+      "level": "low"
+    },
+    {
+      "feature": "context_mean_shift",
+      "psi": 0.033357148872481146,
+      "level": "low"
+    },
+    {
+      "feature": "time_elapsed",
+      "psi": 0.025070120446410646,
+      "level": "low"
+    },
+    {
+      "feature": "usage_stability_diff",
+      "psi": 0.02403408005347726,
+      "level": "low"
+    },
+    {
+      "feature": "experience_diff",
+      "psi": 0.02240737453823078,
+      "level": "low"
+    },
+    {
+      "feature": "possession_home",
+      "psi": 0.0,
+      "level": "low"
+    },
+    {
+      "feature": "home_qb_available",
+      "psi": 0.0,
+      "level": "low"
+    },
+    {
+      "feature": "away_qb_available",
+      "psi": 0.0,
+      "level": "low"
+    },
+    {
+      "feature": "home_field",
+      "psi": 0.0,
+      "level": "low"
+    }
+  ],
+  "errors": [
+    {
+      "event_id": "synth-0961",
+      "prediction_time": "2026-08-19T12:39:36.779490Z",
+      "home_probability": 0.948885932992839,
+      "target_home_win": 0,
+      "confidence": 0.948885932992839,
+      "weather_severity": 0.1042124241667661,
+      "strength_diff": 0.5199747631387684,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "synth-0968",
+      "prediction_time": "2026-08-26T14:28:19.956723Z",
+      "home_probability": 0.9034133137820787,
+      "target_home_win": 0,
+      "confidence": 0.9034133137820787,
+      "weather_severity": 0.09606664499890788,
+      "strength_diff": 0.642914310168313,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "synth-0904",
+      "prediction_time": "2026-06-23T12:35:20.247280Z",
+      "home_probability": 0.1363628248391713,
+      "target_home_win": 1,
+      "confidence": 0.8636371751608286,
+      "weather_severity": 0.3148816889775881,
+      "strength_diff": -1.2766198327931149,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "synth-0859",
+      "prediction_time": "2026-05-09T14:46:10.596753Z",
+      "home_probability": 0.8526210670619414,
+      "target_home_win": 0,
+      "confidence": 0.8526210670619414,
+      "weather_severity": 0.4153325790677685,
+      "strength_diff": 1.264652758700678,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "synth-0867",
+      "prediction_time": "2026-05-17T12:12:05.481845Z",
+      "home_probability": 0.8479839926671642,
+      "target_home_win": 0,
+      "confidence": 0.8479839926671642,
+      "weather_severity": 0.6569676147199406,
+      "strength_diff": -0.09346355916660175,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "synth-0868",
+      "prediction_time": "2026-05-18T14:31:52.493248Z",
+      "home_probability": 0.8409958853252948,
+      "target_home_win": 0,
+      "confidence": 0.8409958853252948,
+      "weather_severity": 0.1254842957455089,
+      "strength_diff": 0.19594424740100988,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "synth-0921",
+      "prediction_time": "2026-07-10T12:09:02.954358Z",
+      "home_probability": 0.22535209823511376,
+      "target_home_win": 1,
+      "confidence": 0.7746479017648862,
+      "weather_severity": 0.22987260445447913,
+      "strength_diff": -0.005516945295706483,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "synth-0996",
+      "prediction_time": "2026-09-23T14:56:58.868119Z",
+      "home_probability": 0.2265200174248724,
+      "target_home_win": 1,
+      "confidence": 0.7734799825751276,
+      "weather_severity": 0.01476760037307363,
+      "strength_diff": -1.1591049577454309,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "synth-0894",
+      "prediction_time": "2026-06-13T12:14:29.060298Z",
+      "home_probability": 0.7606807131137424,
+      "target_home_win": 0,
+      "confidence": 0.7606807131137424,
+      "weather_severity": 0.38754806721290586,
+      "strength_diff": 0.8981239174206549,
+      "predicted": "home",
+      "actual": "away"
+    },
+    {
+      "event_id": "synth-0887",
+      "prediction_time": "2026-06-06T14:31:19.427323Z",
+      "home_probability": 0.2455406584970101,
+      "target_home_win": 1,
+      "confidence": 0.7544593415029899,
+      "weather_severity": 0.4083634000104348,
+      "strength_diff": -0.5220898330515849,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "synth-0967",
+      "prediction_time": "2026-08-25T14:56:19.067653Z",
+      "home_probability": 0.25558053809721415,
+      "target_home_win": 1,
+      "confidence": 0.7444194619027859,
+      "weather_severity": 0.09059574608376478,
+      "strength_diff": -0.5843724200488501,
+      "predicted": "away",
+      "actual": "home"
+    },
+    {
+      "event_id": "synth-0895",
+      "prediction_time": "2026-06-14T13:05:30.086105Z",
+      "home_probability": 0.29126825256735633,
+      "target_home_win": 1,
+      "confidence": 0.7087317474326437,
+      "weather_severity": 0.4921922794969468,
+      "strength_diff": -0.5432150825709582,
+      "predicted": "away",
+      "actual": "home"
+    }
+  ],
+  "data_mode": "synthetic_demo",
+  "created_at": "2026-10-03T03:01:20.294744Z",
+  "git_commit": "unknown",
+  "data_snapshot_hash": "de4aeb24f6c9db3a"
+}

@@ -1,0 +1,180 @@
+{
+ "league": "nfl",
+ "rows": 136376,
+ "train": 79734,
+ "calibration": 28488,
+ "test": 28154,
+ "features": [
+  "home_field",
+  "rating_diff",
+  "rating_uncertainty",
+  "prior_season_rating_diff",
+  "form_diff",
+  "rest_diff",
+  "score_margin_scaled",
+  "game_elapsed",
+  "margin_time_interaction",
+  "live_margin_z",
+  "possession_ep",
+  "score_diff",
+  "seconds_remaining",
+  "period",
+  "poss",
+  "down",
+  "distance",
+  "ytg"
+ ],
+ "models": {
+  "logistic_bootstrap": {
+   "log_loss": 0.46702,
+   "brier": 0.31191,
+   "ece": 0.00402,
+   "accuracy": 0.76511,
+   "n": 28154,
+   "same_plays_as_espn": {
+    "log_loss": 0.46442,
+    "brier": 0.30995,
+    "ece": 0.00371,
+    "accuracy": 0.76699,
+    "n": 27419
+   },
+   "temperature": 0.891
+  },
+  "lightgbm": {
+   "log_loss": 0.48343,
+   "brier": 0.32271,
+   "ece": 0.0241,
+   "accuracy": 0.75151,
+   "n": 28154,
+   "same_plays_as_espn": {
+    "log_loss": 0.48074,
+    "brier": 0.32055,
+    "ece": 0.02414,
+    "accuracy": 0.75342,
+    "n": 27419
+   },
+   "temperature": 0.951,
+   "trees": 48
+  },
+  "mlp": {
+   "log_loss": 0.46911,
+   "brier": 0.31171,
+   "ece": 0.01498,
+   "accuracy": 0.76554,
+   "n": 28154,
+   "same_plays_as_espn": {
+    "log_loss": 0.46651,
+    "brier": 0.30978,
+    "ece": 0.01383,
+    "accuracy": 0.76786,
+    "n": 27419
+   },
+   "temperature": 1.157,
+   "device": "cuda:0",
+   "config": {
+    "hidden": 128,
+    "layers": 2,
+    "dropout": 0.1,
+    "lr": 0.002,
+    "seed": 0
+   },
+   "calibration_log_loss": 0.48934
+  },
+  "gru_sequence": {
+   "log_loss": 0.46531,
+   "brier": 0.30968,
+   "ece": 0.01375,
+   "accuracy": 0.77033,
+   "n": 28154,
+   "same_plays_as_espn": {
+    "log_loss": 0.46252,
+    "brier": 0.30757,
+    "ece": 0.01349,
+    "accuracy": 0.77246,
+    "n": 27419
+   },
+   "temperature": 1.015,
+   "max_seq_len": 80
+  },
+  "external_espn_published_wp": {
+   "same_plays_as_espn": {
+    "log_loss": 0.46395,
+    "brier": 0.31088,
+    "ece": 0.00936,
+    "accuracy": 0.76575,
+    "n": 27419
+   }
+  }
+ },
+ "paired_game_bootstrap": {
+  "logistic_bootstrap - external_espn_published_wp": {
+   "mean_log_loss_diff": 0.00048,
+   "ci95": [
+    -0.01087,
+    0.01133
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.495,
+   "games": 454
+  },
+  "lightgbm - external_espn_published_wp": {
+   "mean_log_loss_diff": 0.01679,
+   "ci95": [
+    0.00068,
+    0.03381
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.02,
+   "games": 454
+  },
+  "mlp - external_espn_published_wp": {
+   "mean_log_loss_diff": 0.00256,
+   "ci95": [
+    -0.01343,
+    0.01837
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.3745,
+   "games": 454
+  },
+  "gru_sequence - external_espn_published_wp": {
+   "mean_log_loss_diff": -0.00143,
+   "ci95": [
+    -0.01339,
+    0.01066
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.58,
+   "games": 454
+  },
+  "lightgbm - logistic_bootstrap": {
+   "mean_log_loss_diff": 0.01641,
+   "ci95": [
+    0.00143,
+    0.03247
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.015,
+   "games": 454
+  },
+  "mlp - logistic_bootstrap": {
+   "mean_log_loss_diff": 0.00209,
+   "ci95": [
+    -0.01139,
+    0.01551
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.3955,
+   "games": 454
+  },
+  "gru_sequence - logistic_bootstrap": {
+   "mean_log_loss_diff": -0.00171,
+   "ci95": [
+    -0.01184,
+    0.0084
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.642,
+   "games": 454
+  }
+ },
+ "data_fingerprint": {
+  "rows": 136376,
+  "games": 2268,
+  "hash": "96ac757b3f7c4dc3"
+ },
+ "runtime_s": 58.5
+}

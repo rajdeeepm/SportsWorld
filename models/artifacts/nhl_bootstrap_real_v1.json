@@ -1,0 +1,432 @@
+{
+  "model": {
+    "kind": "bootstrap_binary_logistic",
+    "positive_label": "home",
+    "negative_label": "away",
+    "members": [
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.04147661787013058,
+          0.44087426665919516,
+          -0.012240890260327182,
+          0.35310056860924904,
+          0.02659546973363164,
+          0.03031816032234098,
+          1.2502885107311372,
+          0.005668337637300666,
+          0.7130340213144102,
+          0.7813121841344952
+        ],
+        "bias": 0.039400284257346554
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.04367344939425682,
+          0.45825714066747314,
+          -0.0066385993612801215,
+          0.40687678594709725,
+          0.016505010179358223,
+          0.03420598271150202,
+          1.2649223411307524,
+          -0.005388675553261956,
+          0.7140136639179153,
+          0.7890335527145005
+        ],
+        "bias": 0.04594202285481454
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.04112522334193242,
+          0.5262421881019368,
+          0.02605556488285039,
+          0.4072375126820868,
+          0.04893985861978068,
+          0.054680280269991444,
+          1.2706948391554413,
+          -0.017446103370371977,
+          0.7222799917974418,
+          0.8123743606390084
+        ],
+        "bias": 0.05128476584411326
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.03472308059236122,
+          0.4726772764916027,
+          0.01943869129872567,
+          0.35026928725674505,
+          0.04045126425537876,
+          0.04317408586794084,
+          1.2838134821994924,
+          -0.02438494780383154,
+          0.7317126000526649,
+          0.8090388935868055
+        ],
+        "bias": 0.04574367568257367
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.0448625862079143,
+          0.4748845475281047,
+          0.024832888580438955,
+          0.405340748724468,
+          0.024367459268340143,
+          0.032091710709266356,
+          1.2406999673273138,
+          0.02117731916233783,
+          0.7064152408104964,
+          0.7834763392653633
+        ],
+        "bias": 0.054314097609362406
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.045567124424459336,
+          0.4826892663285173,
+          0.025975644321638153,
+          0.3951540394880445,
+          0.009854243825105273,
+          0.10287105652219253,
+          1.262637029513401,
+          -0.050367689612360954,
+          0.7225700557400799,
+          0.801490268254651
+        ],
+        "bias": 0.038583350174869566
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.055324151007854844,
+          0.39029925814506666,
+          0.008848902757419553,
+          0.36335914514457535,
+          0.012188964638262094,
+          0.02589392817944439,
+          1.265916139189086,
+          0.0034125859480591382,
+          0.7126904086546844,
+          0.7709328278069484
+        ],
+        "bias": 0.055082063127980516
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.04191503421917246,
+          0.4657947240398049,
+          0.03211067868323688,
+          0.3842460308507432,
+          0.017327830301012512,
+          0.06306573150656129,
+          1.2607505310447562,
+          -0.0395118629960001,
+          0.7093777749596033,
+          0.787115417048897
+        ],
+        "bias": 0.037521745340646284
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.049525637431929545,
+          0.37179180059852357,
+          0.006391974248171042,
+          0.4087678447367582,
+          0.04203744968328186,
+          0.05509823160100133,
+          1.244971717429355,
+          -0.08110083717442894,
+          0.7041128072035534,
+          0.7592687322956382
+        ],
+        "bias": 0.05566952152105759
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.04484341424181492,
+          0.43452002139787177,
+          0.009105871806128043,
+          0.350740907991455,
+          0.03543608974264875,
+          0.031221499495650378,
+          1.2719672203169163,
+          -0.01902580581412368,
+          0.7167007680204507,
+          0.7851256866104236
+        ],
+        "bias": 0.05037870800830614
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.03723016691500545,
+          0.4157465561684577,
+          0.03969174832169417,
+          0.4019671030193818,
+          0.001127614404477392,
+          0.030042101332399457,
+          1.2826660020670757,
+          -0.01432383324527267,
+          0.7223709880530435,
+          0.787160669543966
+        ],
+        "bias": 0.04734769268271745
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.04122514097270282,
+          0.46611562212027047,
+          -0.01091116898455362,
+          0.3133765247726508,
+          0.010496718581285524,
+          0.01568112315438833,
+          1.3022132681693803,
+          -0.06245879377718808,
+          0.733054860470425,
+          0.8115225347409729
+        ],
+        "bias": 0.04026461213143303
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.033336573443770355,
+          0.48673401253125326,
+          0.03218752471573048,
+          0.39123535112936636,
+          -0.010664257955863876,
+          0.013560713596186935,
+          1.303840758018613,
+          -0.05211914439395779,
+          0.7224980923415106,
+          0.8109803857110262
+        ],
+        "bias": 0.05053832742408662
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.025038649687790352,
+          0.4769256994383157,
+          0.040171884440071956,
+          0.40130857682156107,
+          0.018771873126214176,
+          0.007265518342327005,
+          1.246209122548459,
+          0.031370642832450446,
+          0.6992939770146062,
+          0.7786146546643339
+        ],
+        "bias": 0.03462882941234016
+      },
+      {
+        "features": [
+          "home_field",
+          "rating_diff",
+          "rating_uncertainty",
+          "prior_season_rating_diff",
+          "form_diff",
+          "rest_diff",
+          "score_margin_scaled",
+          "game_elapsed",
+          "margin_time_interaction",
+          "live_margin_z"
+        ],
+        "weights": [
+          0.039896250519864014,
+          0.5046006837502184,
+          0.033925980965005646,
+          0.3876789482054506,
+          -0.012289877637247629,
+          0.052930877411182777,
+          1.2913542383978083,
+          -0.02848923168531491,
+          0.7227218393661846,
+          0.8108770426823323
+        ],
+        "bias": 0.05254419287333336
+      }
+    ]
+  },
+  "calibrator": {
+    "temperature": 0.8911777314159358,
+    "version": "nhl_bootstrap_real_v1_temperature_v1"
+  },
+  "data_mode": "real_espn",
+  "rating_params": {
+    "hfa": 0.2,
+    "obs_sd": 2.4,
+    "q": 0.0,
+    "rho": 0.7,
+    "season_var": 0.19999999999999996,
+    "init_var": 4.6656,
+    "newcomer_mean": -1.2
+  },
+  "ep_coef": null,
+  "ep_fit": null,
+  "source": "ESPN public scoreboard archive",
+  "warning": "Trained on real archived results. Live use depends on the unofficial ESPN feed staying available."
+}

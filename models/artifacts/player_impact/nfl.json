@@ -1,0 +1,313 @@
+{
+ "league": "nfl",
+ "model_version": "player_impact_nfl_v1",
+ "data_mode": "real_espn",
+ "fit_window": {
+  "start": "2023-09-22T00:15:00+00:00",
+  "end": "2026-10-02T00:15:00+00:00"
+ },
+ "n_games": 776,
+ "residual_sd": 13.074,
+ "variance_explained": 0.02915,
+ "by_position": {
+  "QB": {
+   "points": -3.967,
+   "se": 0.83,
+   "t": -4.78,
+   "games_with_absence": 248
+  }
+ },
+ "definition": "primary passer differs from the team's established starter (>=2 prior starts)",
+ "created_at": "2026-10-03T07:34:41.771849+00:00",
+ "current_season": 2026,
+ "current_key_players": {
+  "26": {
+   "QB": [
+    {
+     "athlete_id": "3924327",
+     "name": "Drew Lock",
+     "position": null
+    }
+   ]
+  },
+  "17": {
+   "QB": [
+    {
+     "athlete_id": "4431452",
+     "name": "Drake Maye",
+     "position": null
+    }
+   ]
+  },
+  "14": {
+   "QB": [
+    {
+     "athlete_id": "12483",
+     "name": "Matthew Stafford",
+     "position": null
+    }
+   ]
+  },
+  "25": {
+   "QB": [
+    {
+     "athlete_id": "4361741",
+     "name": "Brock Purdy",
+     "position": null
+    }
+   ]
+  },
+  "23": {
+   "QB": [
+    {
+     "athlete_id": "8439",
+     "name": "Aaron Rodgers",
+     "position": null
+    }
+   ]
+  },
+  "1": {
+   "QB": [
+    {
+     "athlete_id": "2972515",
+     "name": "Cooper Rush",
+     "position": null
+    }
+   ]
+  },
+  "11": {
+   "QB": [
+    {
+     "athlete_id": "3917792",
+     "name": "Daniel Jones",
+     "position": null
+    }
+   ]
+  },
+  "33": {
+   "QB": [
+    {
+     "athlete_id": "3916387",
+     "name": "Lamar Jackson",
+     "position": null
+    }
+   ]
+  },
+  "34": {
+   "QB": [
+    {
+     "athlete_id": "4432577",
+     "name": "C.J. Stroud",
+     "position": null
+    }
+   ]
+  },
+  "2": {
+   "QB": [
+    {
+     "athlete_id": "3918298",
+     "name": "Josh Allen",
+     "position": null
+    }
+   ]
+  },
+  "29": {
+   "QB": [
+    {
+     "athlete_id": "4685720",
+     "name": "Bryce Young",
+     "position": null
+    }
+   ]
+  },
+  "3": {
+   "QB": [
+    {
+     "athlete_id": "4431611",
+     "name": "Caleb Williams",
+     "position": null
+    }
+   ]
+  },
+  "30": {
+   "QB": [
+    {
+     "athlete_id": "4360310",
+     "name": "Trevor Lawrence",
+     "position": null
+    }
+   ]
+  },
+  "5": {
+   "QB": [
+    {
+     "athlete_id": "3122840",
+     "name": "Deshaun Watson",
+     "position": null
+    }
+   ]
+  },
+  "8": {
+   "QB": [
+    {
+     "athlete_id": "3046779",
+     "name": "Jared Goff",
+     "position": null
+    }
+   ]
+  },
+  "18": {
+   "QB": [
+    {
+     "athlete_id": "4360689",
+     "name": "Tyler Shough",
+     "position": null
+    }
+   ]
+  },
+  "10": {
+   "QB": [
+    {
+     "athlete_id": "4688380",
+     "name": "Cam Ward",
+     "position": null
+    }
+   ]
+  },
+  "20": {
+   "QB": [
+    {
+     "athlete_id": "15864",
+     "name": "Geno Smith",
+     "position": null
+    }
+   ]
+  },
+  "4": {
+   "QB": [
+    {
+     "athlete_id": "3915511",
+     "name": "Joe Burrow",
+     "position": null
+    }
+   ]
+  },
+  "27": {
+   "QB": [
+    {
+     "athlete_id": "3052587",
+     "name": "Baker Mayfield",
+     "position": null
+    }
+   ]
+  },
+  "24": {
+   "QB": [
+    {
+     "athlete_id": "4038941",
+     "name": "Justin Herbert",
+     "position": null
+    }
+   ]
+  },
+  "22": {
+   "QB": [
+    {
+     "athlete_id": "2578570",
+     "name": "Jacoby Brissett",
+     "position": null
+    }
+   ]
+  },
+  "16": {
+   "QB": [
+    {
+     "athlete_id": "2573079",
+     "name": "Carson Wentz",
+     "position": null
+    }
+   ]
+  },
+  "9": {
+   "QB": [
+    {
+     "athlete_id": "4036378",
+     "name": "Jordan Love",
+     "position": null
+    }
+   ]
+  },
+  "13": {
+   "QB": [
+    {
+     "athlete_id": "14880",
+     "name": "Kirk Cousins",
+     "position": null
+    }
+   ]
+  },
+  "15": {
+   "QB": [
+    {
+     "athlete_id": "4242512",
+     "name": "Malik Willis",
+     "position": null
+    }
+   ]
+  },
+  "21": {
+   "QB": [
+    {
+     "athlete_id": "4040715",
+     "name": "Jalen Hurts",
+     "position": null
+    }
+   ]
+  },
+  "28": {
+   "QB": [
+    {
+     "athlete_id": "4426348",
+     "name": "Jayden Daniels",
+     "position": null
+    }
+   ]
+  },
+  "19": {
+   "QB": [
+    {
+     "athlete_id": "2969939",
+     "name": "Jameis Winston",
+     "position": null
+    }
+   ]
+  },
+  "6": {
+   "QB": [
+    {
+     "athlete_id": "2577417",
+     "name": "Dak Prescott",
+     "position": null
+    }
+   ]
+  },
+  "12": {
+   "QB": [
+    {
+     "athlete_id": "3139477",
+     "name": "Patrick Mahomes",
+     "position": null
+    }
+   ]
+  },
+  "7": {
+   "QB": [
+    {
+     "athlete_id": "4426338",
+     "name": "Bo Nix",
+     "position": null
+    }
+   ]
+  }
+ }
+}

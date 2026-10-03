@@ -1,0 +1,83 @@
+{
+ "league": "nba",
+ "rows": 1201970,
+ "games": 10056,
+ "train": 719317,
+ "calibration": 238013,
+ "test": 244640,
+ "stride": 4,
+ "models": {
+  "logistic_bootstrap": {
+   "log_loss": 0.45162,
+   "brier": 0.30116,
+   "ece": 0.0096,
+   "accuracy": 0.77225,
+   "n": 244640,
+   "temperature": 0.91,
+   "in_game_only": {
+    "log_loss": 0.45031,
+    "brier": 0.30017,
+    "ece": 0.01012,
+    "accuracy": 0.77297,
+    "n": 242629
+   }
+  },
+  "mlp": {
+   "log_loss": 0.45245,
+   "brier": 0.30081,
+   "ece": 0.0037,
+   "accuracy": 0.77356,
+   "n": 244640,
+   "temperature": 1.037,
+   "in_game_only": {
+    "log_loss": 0.45114,
+    "brier": 0.29982,
+    "ece": 0.00378,
+    "accuracy": 0.77444,
+    "n": 242629
+   },
+   "device": "cuda:0"
+  },
+  "gru_sequence": {
+   "log_loss": 0.44632,
+   "brier": 0.29709,
+   "ece": 0.00284,
+   "accuracy": 0.77662,
+   "n": 244640,
+   "temperature": 0.93,
+   "in_game_only": {
+    "log_loss": 0.44503,
+    "brier": 0.29611,
+    "ece": 0.00301,
+    "accuracy": 0.77743,
+    "n": 242629
+   }
+  }
+ },
+ "paired_game_bootstrap": {
+  "mlp - logistic_bootstrap": {
+   "mean": 0.00083,
+   "ci95": [
+    -0.00526,
+    0.00773
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.402,
+   "games": 2011
+  },
+  "gru_sequence - logistic_bootstrap": {
+   "mean": -0.00529,
+   "ci95": [
+    -0.00845,
+    -0.00204
+   ],
+   "share_of_bootstrap_draws_favoring_a": 0.9993,
+   "games": 2011
+  }
+ },
+ "data_fingerprint": {
+  "rows": 1201970,
+  "games": 10056,
+  "hash": "64f11c7645a259d2"
+ },
+ "runtime_s": 279.5
+}

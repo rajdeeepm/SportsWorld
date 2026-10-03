@@ -1,0 +1,31 @@
+{
+ "league": "wnba",
+ "origins": [
+  {
+   "origin_season": 2025,
+   "test_games": 311,
+   "test_rows": 1244,
+   "model": {
+    "brier": 0.35615,
+    "log_loss": 0.52355,
+    "ece": 0.03761,
+    "accuracy": 0.73553,
+    "interval_width": 0.05997
+   },
+   "kalman_only": {
+    "brier": 0.35658,
+    "log_loss": 0.52948,
+    "ece": 0.04214,
+    "accuracy": 0.73071
+   },
+   "leakage_violations": 0
+  }
+ ],
+ "model_log_loss_mean": 0.52355,
+ "model_log_loss_sd": 0.0,
+ "kalman_only_log_loss_mean": 0.52948,
+ "kalman_only_log_loss_sd": 0.0,
+ "model_minus_kalman_by_origin": [
+  -0.00593
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "league": "college-football",
+ "origins": [
+  {
+   "origin_season": 2022,
+   "test_games": 971,
+   "test_rows": 56479,
+   "model": {
+    "brier": 0.26069,
+    "log_loss": 0.39135,
+    "ece": 0.02597,
+    "accuracy": 0.79959,
+    "interval_coverage": NaN,
+    "interval_width": 0.00511
+   },
+   "kalman_only": {
+    "brier": 0.25967,
+    "log_loss": 0.40214,
+    "ece": 0.03667,
+    "accuracy": 0.80458
+   },
+   "leakage_violations": 0
+  },
+  {
+   "origin_season": 2023,
+   "test_games": 966,
+   "test_rows": 56689,
+   "model": {
+    "brier": 0.21993,
+    "log_loss": 0.34457,
+    "ece": 0.02082,
+    "accuracy": 0.84189,
+    "interval_coverage": NaN,
+    "interval_width": 0.0036
+   },
+   "kalman_only": {
+    "brier": 0.21819,
+    "log_loss": 0.35013,
+    "ece": 0.01031,
+    "accuracy": 0.84512
+   },
+   "leakage_violations": 0
+  },
+  {
+   "origin_season": 2024,
+   "test_games": 965,
+   "test_rows": 57068,
+   "model": {
+    "brier": 0.23908,
+    "log_loss": 0.36668,
+    "ece": 0.01588,
+    "accuracy": 0.82537,
+    "interval_coverage": NaN,
+    "interval_width": 0.00407
+   },
+   "kalman_only": {
+    "brier": 0.24005,
+    "log_loss": 0.38384,
+    "ece": 0.02335,
+    "accuracy": 0.82665
+   },
+   "leakage_violations": 0
+  },
+  {
+   "origin_season": 2025,
+   "test_games": 958,
+   "test_rows": 58012,
+   "model": {
+    "brier": 0.23118,
+    "log_loss": 0.35752,
+    "ece": 0.00686,
+    "accuracy": 0.83378,
+    "interval_coverage": NaN,
+    "interval_width": 0.00371
+   },
+   "kalman_only": {
+    "brier": 0.23365,
+    "log_loss": 0.37068,
+    "ece": 0.01765,
+    "accuracy": 0.83054
+   },
+   "leakage_violations": 0
+  }
+ ],
+ "model_log_loss_mean": 0.36503,
+ "model_log_loss_sd": 0.01975,
+ "kalman_only_log_loss_mean": 0.3767,
+ "kalman_only_log_loss_sd": 0.02191,
+ "model_minus_kalman_by_origin": [
+  -0.01079,
+  -0.00556,
+  -0.01716,
+  -0.01316
+ ]
+}

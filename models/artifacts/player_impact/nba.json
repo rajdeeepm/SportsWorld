@@ -1,0 +1,445 @@
+{
+ "league": "nba",
+ "model_version": "player_impact_nba_v1",
+ "data_mode": "real_espn",
+ "fit_window": {
+  "start": "2018-10-26T23:00:00+00:00",
+  "end": "2026-06-14T00:30:00+00:00"
+ },
+ "n_games": 9456,
+ "residual_sd": 12.991,
+ "variance_explained": 0.01607,
+ "by_position": {
+  "KEY": {
+   "points": -2.472,
+   "se": 0.199,
+   "t": -12.4,
+   "games_with_absence": 3173
+  }
+ },
+ "definition": "count of the team's top-2 minutes players (>=5 prior games) who did not play",
+ "created_at": "2026-10-03T07:42:41.036915+00:00",
+ "current_season": 2025,
+ "current_key_players": {
+  "25": {
+   "KEY": [
+    {
+     "athlete_id": "4278073",
+     "name": "Shai Gilgeous-Alexander",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4433255",
+     "name": "Chet Holmgren",
+     "position": "C"
+    }
+   ]
+  },
+  "10": {
+   "KEY": [
+    {
+     "athlete_id": "4432639",
+     "name": "Jabari Smith Jr.",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4684740",
+     "name": "Amen Thompson",
+     "position": "G"
+    }
+   ]
+  },
+  "13": {
+   "KEY": [
+    {
+     "athlete_id": "1966",
+     "name": "LeBron James",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4066648",
+     "name": "Rui Hachimura",
+     "position": "F"
+    }
+   ]
+  },
+  "9": {
+   "KEY": [
+    {
+     "athlete_id": "4709138",
+     "name": "Brandin Podziemski",
+     "position": "G"
+    },
+    {
+     "athlete_id": "6589",
+     "name": "Draymond Green",
+     "position": "F"
+    }
+   ]
+  },
+  "18": {
+   "KEY": [
+    {
+     "athlete_id": "3147657",
+     "name": "Mikal Bridges",
+     "position": "G"
+    },
+    {
+     "athlete_id": "3934672",
+     "name": "Jalen Brunson",
+     "position": "G"
+    }
+   ]
+  },
+  "5": {
+   "KEY": [
+    {
+     "athlete_id": "3908809",
+     "name": "Donovan Mitchell",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4432158",
+     "name": "Evan Mobley",
+     "position": "C"
+    }
+   ]
+  },
+  "30": {
+   "KEY": [
+    {
+     "athlete_id": "4066383",
+     "name": "Miles Bridges",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5061575",
+     "name": "Kon Knueppel",
+     "position": "G"
+    }
+   ]
+  },
+  "17": {
+   "KEY": [
+    {
+     "athlete_id": "4278067",
+     "name": "Nic Claxton",
+     "position": "C"
+    },
+    {
+     "athlete_id": "4712896",
+     "name": "Noah Clowney",
+     "position": "F"
+    }
+   ]
+  },
+  "19": {
+   "KEY": [
+    {
+     "athlete_id": "4066320",
+     "name": "Desmond Bane",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4432573",
+     "name": "Paolo Banchero",
+     "position": "F"
+    }
+   ]
+  },
+  "14": {
+   "KEY": [
+    {
+     "athlete_id": "4066261",
+     "name": "Bam Adebayo",
+     "position": "C"
+    },
+    {
+     "athlete_id": "4432848",
+     "name": "Jaime Jaquez Jr.",
+     "position": "F"
+    }
+   ]
+  },
+  "1": {
+   "KEY": [
+    {
+     "athlete_id": "4278039",
+     "name": "Nickeil Alexander-Walker",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4701230",
+     "name": "Jalen Johnson",
+     "position": "F"
+    }
+   ]
+  },
+  "28": {
+   "KEY": [
+    {
+     "athlete_id": "3913176",
+     "name": "Brandon Ingram",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4433134",
+     "name": "Scottie Barnes",
+     "position": "F"
+    }
+   ]
+  },
+  "2": {
+   "KEY": [
+    {
+     "athlete_id": "3078576",
+     "name": "Derrick White",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4066354",
+     "name": "Payton Pritchard",
+     "position": "G"
+    }
+   ]
+  },
+  "20": {
+   "KEY": [
+    {
+     "athlete_id": "4431678",
+     "name": "Tyrese Maxey",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5124612",
+     "name": "VJ Edgecombe",
+     "position": "G"
+    }
+   ]
+  },
+  "4": {
+   "KEY": [
+    {
+     "athlete_id": "4395626",
+     "name": "Tre Jones",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4711294",
+     "name": "Matas Buzelis",
+     "position": "F"
+    }
+   ]
+  },
+  "8": {
+   "KEY": [
+    {
+     "athlete_id": "3157465",
+     "name": "Duncan Robinson",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4432166",
+     "name": "Cade Cunningham",
+     "position": "G"
+    }
+   ]
+  },
+  "29": {
+   "KEY": [
+    {
+     "athlete_id": "4433083",
+     "name": "Cam Spencer",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5112087",
+     "name": "Jaylen Wells",
+     "position": "F"
+    }
+   ]
+  },
+  "3": {
+   "KEY": [
+    {
+     "athlete_id": "4397136",
+     "name": "Saddiq Bey",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4397688",
+     "name": "Trey Murphy III",
+     "position": "F"
+    }
+   ]
+  },
+  "15": {
+   "KEY": [
+    {
+     "athlete_id": "4397475",
+     "name": "AJ Green",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4591725",
+     "name": "Ryan Rollins",
+     "position": "G"
+    }
+   ]
+  },
+  "27": {
+   "KEY": [
+    {
+     "athlete_id": "4845374",
+     "name": "Bub Carrington",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5144126",
+     "name": "Will Riley",
+     "position": "G"
+    }
+   ]
+  },
+  "26": {
+   "KEY": [
+    {
+     "athlete_id": "4684793",
+     "name": "Kyle Filipowski",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4873138",
+     "name": "Ace Bailey",
+     "position": "G"
+    }
+   ]
+  },
+  "12": {
+   "KEY": [
+    {
+     "athlete_id": "2991139",
+     "name": "Kris Dunn",
+     "position": "G"
+    },
+    {
+     "athlete_id": "6450",
+     "name": "Kawhi Leonard",
+     "position": "F"
+    }
+   ]
+  },
+  "6": {
+   "KEY": [
+    {
+     "athlete_id": "4432582",
+     "name": "Max Christie",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5041939",
+     "name": "Cooper Flagg",
+     "position": "F"
+    }
+   ]
+  },
+  "24": {
+   "KEY": [
+    {
+     "athlete_id": "4066259",
+     "name": "De'Aaron Fox",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4592479",
+     "name": "Julian Champagnie",
+     "position": "F"
+    }
+   ]
+  },
+  "21": {
+   "KEY": [
+    {
+     "athlete_id": "2583632",
+     "name": "Royce O'Neale",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4278585",
+     "name": "Collin Gillespie",
+     "position": "G"
+    }
+   ]
+  },
+  "23": {
+   "KEY": [
+    {
+     "athlete_id": "3978",
+     "name": "DeMar DeRozan",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4898371",
+     "name": "Maxime Raynaud",
+     "position": "C"
+    }
+   ]
+  },
+  "22": {
+   "KEY": [
+    {
+     "athlete_id": "4431736",
+     "name": "Toumani Camara",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4683021",
+     "name": "Deni Avdija",
+     "position": "F"
+    }
+   ]
+  },
+  "16": {
+   "KEY": [
+    {
+     "athlete_id": "3032976",
+     "name": "Rudy Gobert",
+     "position": "C"
+    },
+    {
+     "athlete_id": "3064514",
+     "name": "Julius Randle",
+     "position": "F"
+    }
+   ]
+  },
+  "11": {
+   "KEY": [
+    {
+     "athlete_id": "3149673",
+     "name": "Pascal Siakam",
+     "position": "F"
+    },
+    {
+     "athlete_id": "5106060",
+     "name": "Jarace Walker",
+     "position": "F"
+    }
+   ]
+  },
+  "7": {
+   "KEY": [
+    {
+     "athlete_id": "3112335",
+     "name": "Nikola Jokic",
+     "position": "C"
+    },
+    {
+     "athlete_id": "3936299",
+     "name": "Jamal Murray",
+     "position": "G"
+    }
+   ]
+  }
+ }
+}

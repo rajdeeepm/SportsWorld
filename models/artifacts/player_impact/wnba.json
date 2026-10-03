@@ -1,0 +1,235 @@
+{
+ "league": "wnba",
+ "model_version": "player_impact_wnba_v1",
+ "data_mode": "real_espn",
+ "fit_window": {
+  "start": "2023-06-02T00:00:00+00:00",
+  "end": "2026-10-03T01:00:00+00:00"
+ },
+ "n_games": 1056,
+ "residual_sd": 12.046,
+ "variance_explained": 0.02025,
+ "by_position": {
+  "KEY": {
+   "points": -3.727,
+   "se": 0.796,
+   "t": -4.68,
+   "games_with_absence": 199
+  }
+ },
+ "definition": "count of the team's top-2 minutes players (>=5 prior games) who did not play",
+ "created_at": "2026-10-03T07:42:41.675407+00:00",
+ "current_season": 2026,
+ "current_key_players": {
+  "9": {
+   "KEY": [
+    {
+     "athlete_id": "2998928",
+     "name": "Breanna Stewart",
+     "position": "F"
+    },
+    {
+     "athlete_id": "2999101",
+     "name": "Jonquel Jones",
+     "position": "C"
+    }
+   ]
+  },
+  "18": {
+   "KEY": [
+    {
+     "athlete_id": "4433635",
+     "name": "Diamond Miller",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4703609",
+     "name": "Charlisse Leger-Walker",
+     "position": "G"
+    }
+   ]
+  },
+  "131935": {
+   "KEY": [
+    {
+     "athlete_id": "3904576",
+     "name": "Marina Mabrey",
+     "position": "G"
+    },
+    {
+     "athlete_id": "5345444",
+     "name": "Laura Juskaite",
+     "position": "F"
+    }
+   ]
+  },
+  "16": {
+   "KEY": [
+    {
+     "athlete_id": "4398911",
+     "name": "Shakira Austin",
+     "position": "C"
+    },
+    {
+     "athlete_id": "4433524",
+     "name": "Sonia Citron",
+     "position": "G"
+    }
+   ]
+  },
+  "14": {
+   "KEY": [
+    {
+     "athlete_id": "3906753",
+     "name": "Natisha Hiedeman",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4698736",
+     "name": "Flau'jae Johnson",
+     "position": "G"
+    }
+   ]
+  },
+  "129689": {
+   "KEY": [
+    {
+     "athlete_id": "2529622",
+     "name": "Kayla Thornton",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4398935",
+     "name": "Veronica Burton",
+     "position": "G"
+    }
+   ]
+  },
+  "5": {
+   "KEY": [
+    {
+     "athlete_id": "3142191",
+     "name": "Kelsey Mitchell",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4433403",
+     "name": "Caitlin Clark",
+     "position": "G"
+    }
+   ]
+  },
+  "3": {
+   "KEY": [
+    {
+     "athlete_id": "3906949",
+     "name": "Jessica Shepard",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4433730",
+     "name": "Paige Bueckers",
+     "position": "G"
+    }
+   ]
+  },
+  "17": {
+   "KEY": [
+    {
+     "athlete_id": "2529122",
+     "name": "Chelsea Gray",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4065870",
+     "name": "Jackie Young",
+     "position": "G"
+    }
+   ]
+  },
+  "11": {
+   "KEY": [
+    {
+     "athlete_id": "2529140",
+     "name": "Alyssa Thomas",
+     "position": "F"
+    },
+    {
+     "athlete_id": "2998938",
+     "name": "Kahleah Copper",
+     "position": "G"
+    }
+   ]
+  },
+  "8": {
+   "KEY": [
+    {
+     "athlete_id": "2529205",
+     "name": "Kayla McBride",
+     "position": "G"
+    },
+    {
+     "athlete_id": "2987891",
+     "name": "Courtney Williams",
+     "position": "G"
+    }
+   ]
+  },
+  "20": {
+   "KEY": [
+    {
+     "athlete_id": "3058901",
+     "name": "Allisha Gray",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4398674",
+     "name": "Rhyne Howard",
+     "position": "G"
+    }
+   ]
+  },
+  "132052": {
+   "KEY": [
+    {
+     "athlete_id": "3906972",
+     "name": "Bridget Carleton",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4398729",
+     "name": "Emily Engstler",
+     "position": "F"
+    }
+   ]
+  },
+  "19": {
+   "KEY": [
+    {
+     "athlete_id": "2529137",
+     "name": "Natasha Cloud",
+     "position": "G"
+    },
+    {
+     "athlete_id": "4433405",
+     "name": "Kamilla Cardoso",
+     "position": "C"
+    }
+   ]
+  },
+  "6": {
+   "KEY": [
+    {
+     "athlete_id": "1068",
+     "name": "Nneka Ogwumike",
+     "position": "F"
+    },
+    {
+     "athlete_id": "4398764",
+     "name": "Rae Burrell",
+     "position": "G"
+    }
+   ]
+  }
+ }
+}

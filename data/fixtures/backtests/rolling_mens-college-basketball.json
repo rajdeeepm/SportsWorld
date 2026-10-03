@@ -1,0 +1,53 @@
+{
+ "league": "mens-college-basketball",
+ "origins": [
+  {
+   "origin_season": 2024,
+   "test_games": 6292,
+   "test_rows": 12584,
+   "model": {
+    "brier": 0.29385,
+    "log_loss": 0.44517,
+    "ece": 0.00798,
+    "accuracy": 0.78274,
+    "interval_coverage": NaN,
+    "interval_width": 0.01848
+   },
+   "kalman_only": {
+    "brier": 0.29717,
+    "log_loss": 0.45332,
+    "ece": 0.0143,
+    "accuracy": 0.77853
+   },
+   "leakage_violations": 0
+  },
+  {
+   "origin_season": 2025,
+   "test_games": 6300,
+   "test_rows": 12600,
+   "model": {
+    "brier": 0.29327,
+    "log_loss": 0.4385,
+    "ece": 0.02008,
+    "accuracy": 0.77476,
+    "interval_coverage": NaN,
+    "interval_width": 0.01316
+   },
+   "kalman_only": {
+    "brier": 0.29333,
+    "log_loss": 0.44257,
+    "ece": 0.01801,
+    "accuracy": 0.77516
+   },
+   "leakage_violations": 0
+  }
+ ],
+ "model_log_loss_mean": 0.44183,
+ "model_log_loss_sd": 0.00472,
+ "kalman_only_log_loss_mean": 0.44795,
+ "kalman_only_log_loss_sd": 0.0076,
+ "model_minus_kalman_by_origin": [
+  -0.00815,
+  -0.00407
+ ]
+}

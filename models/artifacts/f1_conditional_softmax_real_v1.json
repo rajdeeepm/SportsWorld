@@ -1,0 +1,354 @@
+{
+  "model": {
+    "kind": "bootstrap_conditional_softmax",
+    "members": [
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          2.776738376169624,
+          1.4251676069570005,
+          3.5527688345164226,
+          3.280697121471157,
+          -0.09587668919269345,
+          0.7030025232681105,
+          2.2827506376585607,
+          1.4397063660674314
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          2.4291132897754304,
+          0.9939031135676778,
+          4.3290721459254655,
+          3.132351345243665,
+          -0.09088787755524906,
+          1.0291890903691419,
+          2.322775005434212,
+          1.306549743813094
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          2.396516963489582,
+          0.8708145632309279,
+          3.5500001580624154,
+          3.1021144891761154,
+          -0.036050532029914775,
+          0.6063639991573239,
+          2.653918182784911,
+          1.7732767544060337
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          2.9475944355262214,
+          0.8960656878679014,
+          3.707363328454622,
+          3.0974271450201054,
+          -0.08017202217131426,
+          1.1758473450662428,
+          1.9187714502240352,
+          1.445606260011287
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          2.9993408187663326,
+          0.8544164102208158,
+          4.396361195387141,
+          2.5669624864220704,
+          -0.05670156157708056,
+          0.9123378538407496,
+          2.384330132657573,
+          1.6064770671315889
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          2.796631250272706,
+          1.2481544746571545,
+          3.2068884249619427,
+          3.0499002243493476,
+          -0.003350470295089991,
+          0.901456272163073,
+          2.7342107585261317,
+          1.7641499958287015
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          3.1973597071225783,
+          1.1969843704255463,
+          3.186131922653048,
+          2.4036376087637117,
+          -0.047169944986754,
+          0.8551271513178322,
+          3.0722095090363197,
+          1.9943977681063458
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          3.3946546993684277,
+          1.083418575951327,
+          3.666885961641777,
+          3.3692770452622023,
+          -0.029500871296433508,
+          1.0206285887525124,
+          2.1365546373485493,
+          1.47283960513991
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          2.559326866569233,
+          1.0564277426604107,
+          3.49600317288539,
+          2.878235791608071,
+          -0.12132354441645903,
+          1.2288766042650194,
+          2.3528689128975016,
+          1.3879498168180313
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          3.0285295695125503,
+          0.9980087929822473,
+          3.5345030774803723,
+          3.3178618163985365,
+          -0.04810279392563095,
+          1.0267558927480462,
+          2.0356123487202393,
+          1.2613616404123118
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          4.083169305339643,
+          0.6607368590091972,
+          3.177275912727554,
+          3.3770812387839193,
+          -0.0632959646537344,
+          1.0909110114103682,
+          1.9341944046116866,
+          0.9075585594846283
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          3.5553714042366282,
+          0.9748543880557895,
+          2.941324165268984,
+          2.961633313412729,
+          -0.11168171211100367,
+          0.737611948178642,
+          1.8600054549651222,
+          1.46481291517369
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          3.6181005374872677,
+          1.162819595497555,
+          3.014375740901713,
+          2.9655765969420074,
+          -0.05955220872106401,
+          1.0398667692884085,
+          2.700715669009038,
+          1.9215397163436367
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          2.8980721358856254,
+          1.0580192543154787,
+          3.363120040284184,
+          3.553489761250259,
+          -0.0694609186123752,
+          0.9697349230383917,
+          2.132456525054202,
+          1.724349079216158
+        ]
+      },
+      {
+        "features": [
+          "position_advantage",
+          "progress_position",
+          "driver_rating",
+          "car_rating",
+          "rating_uncertainty",
+          "reliability_remaining",
+          "gap_advantage",
+          "progress_gap"
+        ],
+        "weights": [
+          2.7976627875836204,
+          1.1996194173395704,
+          4.0637091935580765,
+          3.451365903741931,
+          -0.1502706096415169,
+          1.3214641045492108,
+          1.541225596560797,
+          1.3072731288841097
+        ]
+      }
+    ]
+  },
+  "calibrator": {
+    "temperature": 0.7619284887613784,
+    "version": "f1_conditional_softmax_real_v1_temperature_v1"
+  },
+  "data_mode": "real_jolpica_openf1",
+  "rating_params": {
+    "obs_sd": 0.35,
+    "q_driver": 0.0,
+    "q_car": 0.0,
+    "rho_driver": 0.8,
+    "rho_car": 0.9,
+    "season_var_car": 0.02,
+    "season_var_driver": 0.02,
+    "init_var_driver": 0.12,
+    "init_var_car": 0.15,
+    "rel_decay": 0.9
+  }
+}

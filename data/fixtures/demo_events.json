@@ -1,0 +1,144 @@
+[
+  {
+    "event_id": "mich-osu-2026-demo",
+    "sport": "football",
+    "competition": "college_football",
+    "season": "2026",
+    "outcomes": [
+      "home",
+      "away"
+    ],
+    "start_time": "2026-11-28T17:00:00Z",
+    "participants": [
+      "Michigan",
+      "Ohio State"
+    ],
+    "venue": "Demo Stadium",
+    "initial_features": {
+      "home_strength": 0.34,
+      "away_strength": 0.29,
+      "home_field": 1.0,
+      "state_confidence": 0.98
+    },
+    "metadata": {
+      "display_outcomes": {
+        "home": "Michigan",
+        "away": "Ohio State"
+      },
+      "outcome_entity_ids": {
+        "home": "team:michigan",
+        "away": "team:ohio-state"
+      },
+      "replay_mode": true,
+      "data_mode": "synthetic_demo",
+      "context_mode": "synthetic_demo"
+    }
+  },
+  {
+    "event_id": "basketball-2026-demo",
+    "sport": "basketball",
+    "competition": "nba_style_demo",
+    "season": "2026",
+    "outcomes": [
+      "home",
+      "away"
+    ],
+    "start_time": "2026-10-15T23:00:00Z",
+    "participants": [
+      "Home Five",
+      "Away Five"
+    ],
+    "venue": "Demo Arena",
+    "initial_features": {
+      "home_strength": 0.22,
+      "away_strength": 0.18,
+      "home_lineup_rating": 3.0,
+      "away_lineup_rating": 2.1,
+      "state_confidence": 0.98
+    },
+    "metadata": {
+      "display_outcomes": {
+        "home": "Home Five",
+        "away": "Away Five"
+      },
+      "outcome_entity_ids": {
+        "home": "team:home-five",
+        "away": "team:away-five"
+      },
+      "replay_mode": true,
+      "data_mode": "synthetic_demo",
+      "context_mode": "synthetic_demo"
+    }
+  },
+  {
+    "event_id": "demo-gp-2026",
+    "sport": "f1",
+    "competition": "formula_1_demo",
+    "season": "2026",
+    "outcomes": [
+      "Norris",
+      "Verstappen",
+      "Leclerc",
+      "Other"
+    ],
+    "start_time": "2026-10-04T12:00:00Z",
+    "participants": [
+      "Norris",
+      "Verstappen",
+      "Leclerc",
+      "Other"
+    ],
+    "venue": "Demo Circuit",
+    "initial_features": {
+      "lap": 0,
+      "total_laps": 57,
+      "rain_probability": 0.08,
+      "state_confidence": 0.98,
+      "drivers": {
+        "Norris": {
+          "position": 1,
+          "pace": -0.08,
+          "reliability": 0.985,
+          "wet_skill": 0.2,
+          "tyre_age": 0,
+          "compound": "MEDIUM"
+        },
+        "Verstappen": {
+          "position": 2,
+          "pace": -0.05,
+          "reliability": 0.988,
+          "wet_skill": 0.42,
+          "tyre_age": 0,
+          "compound": "MEDIUM"
+        },
+        "Leclerc": {
+          "position": 3,
+          "pace": 0.02,
+          "reliability": 0.975,
+          "wet_skill": 0.1,
+          "tyre_age": 0,
+          "compound": "MEDIUM"
+        },
+        "Other": {
+          "position": 4,
+          "pace": 0.12,
+          "reliability": 0.97,
+          "wet_skill": 0.05,
+          "tyre_age": 0,
+          "compound": "MEDIUM"
+        }
+      }
+    },
+    "metadata": {
+      "outcome_entity_ids": {
+        "Norris": "driver:norris",
+        "Verstappen": "driver:verstappen",
+        "Leclerc": "driver:leclerc",
+        "Other": "driver:other"
+      },
+      "replay_mode": true,
+      "data_mode": "synthetic_demo",
+      "context_mode": "synthetic_demo"
+    }
+  }
+]

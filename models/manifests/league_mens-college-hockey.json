@@ -1,0 +1,46 @@
+{
+  "model_version": "mens_college_hockey_kalman_analytic_real_v1",
+  "sport": "hockey",
+  "competition": "mens-college-hockey",
+  "algorithm": "kalman_analytic",
+  "feature_schema_version": "league_features_v2_real",
+  "features": [
+    "home_field",
+    "rating_diff",
+    "rating_uncertainty",
+    "prior_season_rating_diff",
+    "form_diff",
+    "rest_diff",
+    "score_margin_scaled",
+    "game_elapsed",
+    "margin_time_interaction",
+    "live_margin_z"
+  ],
+  "train_window": {
+    "start": "2023-10-07T20:00:00+00:00",
+    "end": "2025-02-16T01:00:00+00:00"
+  },
+  "calibration_window": {
+    "start": "2025-02-15T23:05:00+00:00",
+    "end": "2025-12-06T02:00:00+00:00"
+  },
+  "test_window": {
+    "start": "2025-12-06T00:05:00+00:00",
+    "end": "2026-10-03T05:07:00+00:00"
+  },
+  "artifact_uri": "mens_college_hockey_bootstrap_real_v1.json",
+  "calibration_version": "analytic",
+  "metrics": {
+    "brier": 0.33452960188467734,
+    "log_loss": 0.4944609272181665,
+    "ece": 0.02615995558021359,
+    "accuracy": 0.7369542066027689
+  },
+  "data_mode": "real_espn",
+  "notes": [
+    "Men's College Hockey: 3505 completed games, 9628 point-in-time rows (pregame + end of each regulation period).",
+    "Latent team strength is a Kalman-filtered rating whose dynamics were fit on the training window only.",
+    "Market odds are archived but excluded from features so SportsWorld can be compared against external consensus.",
+    "M4 selection on the calibration window: learned 0.4978 vs Kalman analytic 0.4972 -> serving kalman_analytic. Caveat: the learned model's 1-parameter temperature is fit on the same window, which slightly favours it; card metrics are the held-out test metrics of the SERVED model."
+  ]
+}
