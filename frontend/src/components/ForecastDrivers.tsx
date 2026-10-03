@@ -1,0 +1,2 @@
+import type{Driver}from'../types';
+export function ForecastDrivers({drivers}:{drivers:Driver[]}){return <div>{drivers.length===0?<p className="muted">No material revisions yet.</p>:drivers.map((d,i)=><div className="driver" key={`${d.observation_id}-${i}`} title={d.explanation}><div><strong>{d.label}</strong><small>{d.source_id??'model'} · {d.method}</small></div><span className={d.probability_delta>=0?'delta up':'delta down'}>{d.probability_delta>=0?'+':''}{(d.probability_delta*100).toFixed(1)} pp</span></div>)}</div>}

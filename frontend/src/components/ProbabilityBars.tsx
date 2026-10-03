@@ -1,0 +1,3 @@
+import type {Forecast,EventRecord} from '../types';
+const pct=(x:number)=>`${(100*x).toFixed(1)}%`;
+export function ProbabilityBars({forecast,event}:{forecast:Forecast;event:EventRecord}){const display=event.metadata?.display_outcomes??{};return <div className="prob-list">{Object.entries(forecast.probabilities).sort((a,b)=>b[1]-a[1]).map(([k,p])=>{const [lo,hi]=forecast.intervals_90[k]??[p,p];return <div className="prob-row" key={k}><div className="prob-label"><strong>{display[k]??k}</strong><span>{pct(p)}</span></div><div className="bar" aria-label={`${display[k]??k} probability ${pct(p)}`}><span style={{width:`${p*100}%`}}/></div><small>90% interval {pct(lo)}–{pct(hi)}</small></div>})}</div>}

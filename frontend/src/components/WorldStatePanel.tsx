@@ -1,0 +1,3 @@
+import type{WorldState}from'../types';
+function val(v:any){if(v===null||v===undefined)return 'unknown';if(typeof v==='object')return JSON.stringify(v);return String(v)}
+export function WorldStatePanel({state}:{state:WorldState}){const priority=['home_score','away_score','quarter','seconds_remaining','possession','down','distance','yard_line','lap','total_laps','rain_probability','safety_car','pace','home_lineup_rating','away_lineup_rating'];const entries=[...priority.filter(k=>k in state.features).map(k=>[k,state.features[k]] as const),...Object.entries(state.features).filter(([k,v])=>!priority.includes(k)&&typeof v!=='object').slice(0,7)];return <dl className="kv">{entries.map(([k,v])=><div key={k}><dt>{k.replaceAll('_',' ')}</dt><dd>{val(v)}</dd></div>)}</dl>}

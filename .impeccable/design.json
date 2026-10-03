@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-03T17:40:34+00:00",
+  "title": "Design System: SportsWorld",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Midnight Ground",
+        "canonical": "oklch(15.2% 0.030 265.4)",
+        "tonalRamp": [
+          "#060b18",
+          "#1d2433",
+          "#384050",
+          "#565e6f",
+          "#757d8f",
+          "#969fb1",
+          "#bbc4d8",
+          "#e7efff"
+        ],
+        "purpose": "Page background beneath two fixed radial blue glows."
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel Navy",
+        "canonical": "oklch(18.9% 0.042 262.1)",
+        "tonalRamp": [
+          "#030a1c",
+          "#192438",
+          "#344056",
+          "#515e76",
+          "#707e97",
+          "#919fb9",
+          "#b6c5e0",
+          "#e6efff"
+        ],
+        "purpose": "Translucent panel fill (92% alpha) letting the ground glow through.",
+        "note": "Frontmatter value is rgba(9, 19, 38, 0.92); swatch shows the opaque base."
+      },
+      "panel-solid": {
+        "role": "neutral",
+        "displayName": "Solid Panel Navy",
+        "canonical": "oklch(19.7% 0.042 260.7)",
+        "tonalRamp": [
+          "#030a1c",
+          "#182438",
+          "#334056",
+          "#505e76",
+          "#6f7e97",
+          "#909fb9",
+          "#b5c5e0",
+          "#e6efff"
+        ],
+        "purpose": "Opaque fill for sticky table headers, search results, tooltips."
+      },
+      "edge": {
+        "role": "neutral",
+        "displayName": "Cobalt Edge",
+        "canonical": "oklch(31.3% 0.082 259.6)",
+        "tonalRamp": [
+          "#00062d",
+          "#09224b",
+          "#243f6b",
+          "#415e8c",
+          "#607eae",
+          "#80a0d2",
+          "#a5c6fa",
+          "#e5efff"
+        ],
+        "purpose": "Panel borders, rail/topbar dividers, hairlines at reduced alpha."
+      },
+      "edge-strong": {
+        "role": "neutral",
+        "displayName": "Bright Cobalt Edge",
+        "canonical": "oklch(47.2% 0.136 258.4)",
+        "tonalRamp": [
+          "#00003a",
+          "#002056",
+          "#033b85",
+          "#275ba9",
+          "#477dcd",
+          "#689ff2",
+          "#a1c6fe",
+          "#e5efff"
+        ],
+        "purpose": "Borders on interactive controls, the team band and popovers."
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ice Ink",
+        "canonical": "oklch(95.4% 0.019 266.0)",
+        "tonalRamp": [
+          "#080b13",
+          "#20242d",
+          "#3b404a",
+          "#595e69",
+          "#787d89",
+          "#999eaa",
+          "#bec4d1",
+          "#e9effc"
+        ],
+        "purpose": "Primary text."
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Mist Ink",
+        "canonical": "oklch(78.7% 0.051 263.7)",
+        "tonalRamp": [
+          "#020920",
+          "#17233d",
+          "#323f5b",
+          "#4f5e7b",
+          "#6e7d9c",
+          "#8e9fbf",
+          "#b3c5e6",
+          "#e7effe"
+        ],
+        "purpose": "Secondary text, inactive tabs, units."
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Slate Ink",
+        "canonical": "oklch(61.9% 0.069 263.0)",
+        "tonalRamp": [
+          "#000727",
+          "#122245",
+          "#2c3f64",
+          "#495d85",
+          "#687da7",
+          "#889fca",
+          "#adc5f2",
+          "#e6efff"
+        ],
+        "purpose": "Labels, captions, table headers, muted cells."
+      },
+      "ink-4": {
+        "role": "neutral",
+        "displayName": "Dusk Ink",
+        "canonical": "oklch(48.6% 0.068 263.2)",
+        "tonalRamp": [
+          "#010727",
+          "#122244",
+          "#2d3f64",
+          "#495d84",
+          "#687da6",
+          "#889fc9",
+          "#adc5f1",
+          "#e7effe"
+        ],
+        "purpose": "Placeholders and provenance lines."
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Electric Blue",
+        "canonical": "oklch(64.7% 0.191 256.2)",
+        "tonalRamp": [
+          "#00082a",
+          "#00224e",
+          "#013d80",
+          "#055ab6",
+          "#177aeb",
+          "#5ca0f9",
+          "#9ec7fe",
+          "#e4f0ff"
+        ],
+        "purpose": "System accent: primary buttons, active tab, default bar fill, scenario bars, focus borders."
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Signal Blue Ink",
+        "canonical": "oklch(75.1% 0.131 252.9)",
+        "tonalRamp": [
+          "#000a24",
+          "#002449",
+          "#034078",
+          "#195ea5",
+          "#3d7fc9",
+          "#5fa2ee",
+          "#9cc8fb",
+          "#e4f0fe"
+        ],
+        "purpose": "Readable accent on navy: icons, links, strongest probability tier, focus outline."
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Blue Wash",
+        "canonical": "oklch(64.7% 0.191 256.2)",
+        "tonalRamp": [
+          "#00082a",
+          "#00224e",
+          "#013d80",
+          "#055ab6",
+          "#177aeb",
+          "#5ca0f9",
+          "#9ec7fe",
+          "#e4f0ff"
+        ],
+        "purpose": "14% accent tint behind info chips, active segmented option, hovered results.",
+        "note": "Frontmatter value is rgba(47, 140, 255, 0.14); ramp shows the base hue."
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Trophy Gold",
+        "canonical": "oklch(85.2% 0.145 89.4)",
+        "tonalRamp": [
+          "#130900",
+          "#2e2200",
+          "#4f3d02",
+          "#735a06",
+          "#987918",
+          "#bf9922",
+          "#e9bf42",
+          "#feedc3"
+        ],
+        "purpose": "Trophy KPI icons, favourite's title odds, Lab insight headings."
+      },
+      "good": {
+        "role": "tertiary",
+        "displayName": "Leverage Green",
+        "canonical": "oklch(76.0% 0.177 155.6)",
+        "tonalRamp": [
+          "#001004",
+          "#002d16",
+          "#004d2a",
+          "#027040",
+          "#189459",
+          "#22bb71",
+          "#46e591",
+          "#c6ffd9"
+        ],
+        "purpose": "Low leverage, positive deltas, finals in feed, model-health pass."
+      },
+      "warn": {
+        "role": "tertiary",
+        "displayName": "Leverage Amber",
+        "canonical": "oklch(81.8% 0.150 79.9)",
+        "tonalRamp": [
+          "#150800",
+          "#322000",
+          "#553a00",
+          "#7b5601",
+          "#a17412",
+          "#cb931c",
+          "#f7b83d",
+          "#feeccf"
+        ],
+        "purpose": "Medium leverage, news in feed, playoff cut line, model-health caution."
+      },
+      "bad": {
+        "role": "tertiary",
+        "displayName": "Leverage Red",
+        "canonical": "oklch(67.6% 0.213 18.8)",
+        "tonalRamp": [
+          "#220002",
+          "#4c000d",
+          "#790a20",
+          "#ac1633",
+          "#df2a48",
+          "#fa6771",
+          "#ffaaaa",
+          "#ffe8e8"
+        ],
+        "purpose": "High leverage, negative deltas, injuries in feed."
+      },
+      "live": {
+        "role": "tertiary",
+        "displayName": "Broadcast Red",
+        "canonical": "oklch(65.8% 0.229 21.3)",
+        "tonalRamp": [
+          "#210001",
+          "#4c000a",
+          "#7c0018",
+          "#b10028",
+          "#e6173b",
+          "#f9686c",
+          "#feaaa8",
+          "#ffe9e7"
+        ],
+        "purpose": "Live dot, live chip, LIVE label, score tick flash."
+      },
+      "away-fallback": {
+        "role": "tertiary",
+        "displayName": "Away Fallback Red",
+        "canonical": "oklch(63.2% 0.191 18.1)",
+        "tonalRamp": [
+          "#210002",
+          "#4b000f",
+          "#7c001f",
+          "#b00231",
+          "#d73b50",
+          "#ff6170",
+          "#fdaaac",
+          "#fee9e8"
+        ],
+        "purpose": "Away bar segment only when the team has no usable official colour."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page titles '<Team> — Season World'; trailing phrase in the team's light official colour or Signal Blue Ink. 34px on phones."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "KPI values (34px), team-band stats (40px), scores (34px), result cards (30px), favourite title odds."
+      },
+      "title": {
+        "displayName": "Panel Title",
+        "purpose": "Panel headings with an optional 12px Barlow ink-3 aside."
+      },
+      "tab": {
+        "displayName": "Tab",
+        "purpose": "League tabs; condensed 800 uppercase is used for team names in matchups and the team band."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default UI text; tabular numerals set on :root."
+      },
+      "table": {
+        "displayName": "Table",
+        "purpose": "Data tables and game rows; feeds use 13px."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase KPI labels, table headers (11px, 0.06em), 'Next game', rail league name."
+      }
+    },
+    "fonts": [
+      {
+        "family": "Barlow Condensed",
+        "weights": [
+          600,
+          700,
+          800
+        ],
+        "source": "@fontsource/barlow-condensed (self-hosted)"
+      },
+      {
+        "family": "Barlow",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "source": "@fontsource/barlow (self-hosted)"
+      }
+    ],
+    "shadows": [
+      {
+        "name": "panel-rest",
+        "value": "inset 0 1px 0 rgba(120, 170, 255, 0.07), 0 10px 30px -18px rgba(0, 0, 0, 0.9)",
+        "purpose": "Every panel and KPI strip."
+      },
+      {
+        "name": "panel-top-glow",
+        "value": "border-image-like overlay: linear-gradient(180deg, rgba(47, 140, 255, 0.35), transparent 38%) masked to the 1px border, opacity 0.55",
+        "purpose": "Signature gradient top-edge glow on every panel."
+      },
+      {
+        "name": "tab-active-glow",
+        "value": "0 0 0 1px rgba(47, 140, 255, 0.35), 0 6px 18px -6px rgba(47, 140, 255, 0.7)",
+        "purpose": "Active league tab only."
+      },
+      {
+        "name": "primary-button-glow",
+        "value": "0 6px 18px -8px rgba(47, 140, 255, 0.9)",
+        "purpose": "Primary buttons only."
+      },
+      {
+        "name": "team-glow",
+        "value": "0 16px 40px -22px var(--team-glow)",
+        "purpose": "Team band, tinted with the team's visible colour at ~53% alpha."
+      },
+      {
+        "name": "popover",
+        "value": "0 18px 40px -12px rgba(0, 0, 0, 0.8)",
+        "purpose": "Search results; tooltips use 0 10px 30px -10px #000."
+      },
+      {
+        "name": "logo-lift",
+        "value": "drop-shadow(0 4px 14px rgba(0, 0, 0, 0.55))",
+        "purpose": "Large logos in the team band and title block."
+      }
+    ],
+    "motion": [
+      {
+        "name": "bar-ease",
+        "value": "flex-basis 700ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Win-probability segments resize as odds move."
+      },
+      {
+        "name": "live-pulse",
+        "value": "pulse 1.8s infinite (box-shadow ring 0 to 8px, rgba(255, 59, 79, 0.65) to 0)",
+        "purpose": "Live dot."
+      },
+      {
+        "name": "score-tick",
+        "value": "tick 1.6s cubic-bezier(0.16, 1, 0.3, 1) (background rgba(255, 59, 79, 0.28) to transparent)",
+        "purpose": "Flash behind a live score when it changes."
+      },
+      {
+        "name": "hover-fade",
+        "value": "120ms to 160ms colour/background/border transitions",
+        "purpose": "Hover states; colour only, no movement."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: reduce): live pulse off, tick off, all transitions none",
+        "purpose": "Required opt-out."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1360px",
+        "purpose": "Narrow spans go half width, 7-9 spans full; KPIs 3 per row; team band 2 stats."
+      },
+      {
+        "name": "tablet",
+        "value": "1080px",
+        "purpose": "Rail becomes a horizontal scroller under the topbar; search 180px."
+      },
+      {
+        "name": "phone",
+        "value": "760px",
+        "purpose": "All panels full width; tabs wrap; search hidden; KPIs 2 per row; game tables replaced by game cards; team band collapses."
+      }
+    ],
+    "layout": {
+      "rail": "214px",
+      "topbar": "64px",
+      "grid": "12 columns, 12px gutter",
+      "mainPadding": "18px 20px 40px (12px 12px 32px on phones)"
+    },
+    "textures": [
+      {
+        "name": "team-band-pinstripe",
+        "value": "repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 14px), masked linear-gradient(90deg, #000, transparent 40%)",
+        "purpose": "Only texture in the system; team band."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Universal edge-lit container with icon, condensed title, body and provenance foot.",
+      "html": "<section class=\"ds-panel\"><header class=\"ds-panel-head\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 12h-4l-3 9L9 3l-3 9H2\"/></svg><h2>Team strength trend <small>pts vs avg</small></h2></header><div class=\"ds-panel-body\">Posterior mean with its 90% band.</div><footer class=\"ds-panel-foot\">Updated after every result.</footer></section>",
+      "css": ".ds-panel{position:relative;background:rgba(9,19,38,.92);border:1px solid #16305a;border-radius:12px;color:#eaf0fd;font-family:'Barlow',system-ui,sans-serif;font-size:14px;box-shadow:inset 0 1px 0 rgba(120,170,255,.07),0 10px 30px -18px rgba(0,0,0,.9);max-width:420px}.ds-panel::before{content:'';position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,rgba(47,140,255,.35),transparent 38%) border-box;-webkit-mask:linear-gradient(#000 0 0) padding-box exclude,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) padding-box exclude,linear-gradient(#000 0 0);border:1px solid transparent;opacity:.55}.ds-panel-head{display:flex;align-items:center;gap:10px;padding:11px 14px 9px;border-bottom:1px solid rgba(22,48,90,.7)}.ds-panel-head svg{color:#6fb2ff;flex:none}.ds-panel-head h2{margin:0;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;font-size:20px;line-height:1.1;letter-spacing:.01em}.ds-panel-head small{font-family:'Barlow',system-ui,sans-serif;font-weight:500;font-size:12px;color:#7086b0;margin-left:8px}.ds-panel-body{padding:12px 14px;color:#a9badb}.ds-panel-foot{padding:8px 14px 10px;border-top:1px solid rgba(22,48,90,.7);color:#7086b0;font-size:12px}"
+    },
+    {
+      "name": "KPI Strip",
+      "kind": "custom",
+      "refersTo": "kpi",
+      "description": "Equal cells split by hairlines: line icon, uppercase label, condensed numeral, sub-line.",
+      "html": "<section class=\"ds-kpis\"><div class=\"ds-kpi\"><svg class=\"gold\" width=\"30\" height=\"30\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z\"/></svg><div><div class=\"ds-kpi-label\">Expected wins</div><div class=\"ds-kpi-value\">7.1</div><div class=\"ds-kpi-sub\">90% range 5-9 of 12</div></div></div><div class=\"ds-kpi\"><svg width=\"30\" height=\"30\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><circle cx=\"12\" cy=\"12\" r=\"6\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/></svg><div><div class=\"ds-kpi-label\">Playoff probability</div><div class=\"ds-kpi-value\">3.7<small>%</small></div><div class=\"ds-kpi-sub\">±0.19% sim. error</div></div></div></section>",
+      "css": ".ds-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:rgba(9,19,38,.92);border:1px solid #16305a;border-radius:12px;color:#eaf0fd;font-family:'Barlow',system-ui,sans-serif;font-variant-numeric:tabular-nums;max-width:460px}.ds-kpi{display:flex;gap:12px;padding:14px 16px}.ds-kpi+.ds-kpi{border-left:1px solid rgba(22,48,90,.8)}.ds-kpi svg{color:#6fb2ff;flex:none;margin-top:10px}.ds-kpi svg.gold{color:#f4c94e}.ds-kpi-label{font-size:12px;font-weight:600;color:#a9badb;text-transform:uppercase;letter-spacing:.05em}.ds-kpi-value{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:800;font-size:34px;line-height:1;margin-top:3px}.ds-kpi-value small{font-size:17px;color:#a9badb;font-weight:600;margin-left:4px}.ds-kpi-sub{font-size:12px;color:#7086b0;margin-top:3px}"
+    },
+    {
+      "name": "Win-Probability Bar",
+      "kind": "custom",
+      "refersTo": "prob-split",
+      "description": "Two-segment bar in official team colours, away left, both ends labelled, ink chosen against the segment.",
+      "html": "<div class=\"ds-split\" role=\"img\" aria-label=\"MICH 75%, MINN 25%\"><div class=\"ds-seg\" style=\"flex-basis:75%;background:#ffcb05\"></div><div class=\"ds-seg\" style=\"flex-basis:25%;background:#7a0019;opacity:.62\"></div><span class=\"ds-lab l fav dark\">MICH 75%</span><span class=\"ds-lab r\">25% MINN</span></div>",
+      "css": ".ds-split{position:relative;display:flex;height:26px;border-radius:5px;overflow:hidden;min-width:260px;max-width:360px;background:rgba(112,134,176,.12);font-variant-numeric:tabular-nums}.ds-seg{height:100%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);transition:flex-basis 700ms cubic-bezier(.16,1,.3,1)}.ds-lab{position:absolute;top:0;bottom:0;display:flex;align-items:center;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;font-size:14px;color:rgba(255,255,255,.78);text-shadow:0 1px 2px rgba(0,0,0,.85),0 0 6px rgba(0,0,0,.5);white-space:nowrap}.ds-lab.l{left:7px}.ds-lab.r{right:7px}.ds-lab.fav{color:#fff;font-weight:800}.ds-lab.dark{color:#0b1a33;text-shadow:none}.ds-split:hover .ds-seg{filter:brightness(1.08)}@media (prefers-reduced-motion:reduce){.ds-seg{transition:none}}"
+    },
+    {
+      "name": "Team Band",
+      "kind": "custom",
+      "refersTo": "team-band",
+      "description": "Team header in the team's official colour sweep with pinstripes, logo, name and stat cells.",
+      "html": "<section class=\"ds-band\" style=\"--team-c:#00274c\"><div class=\"ds-band-logo\"><span class=\"ds-mono\">MICH</span></div><div class=\"ds-band-name\"><b>Michigan<br>Wolverines</b><span>11th in Big Ten</span></div><div class=\"ds-band-stat\"><b>3-1</b><span>Overall</span></div><div class=\"ds-band-stat\"><b>#30</b><span>Strength of 138</span></div></section>",
+      "css": ".ds-band{position:relative;display:flex;align-items:stretch;min-height:96px;border-radius:12px;border:1px solid #2559a6;overflow:hidden;color:#eaf0fd;font-family:'Barlow',system-ui,sans-serif;font-variant-numeric:tabular-nums;background:linear-gradient(100deg,var(--team-c) 0%,color-mix(in srgb,var(--team-c) 55%,#071021) 34%,rgba(7,16,33,.96) 62%);box-shadow:0 16px 40px -22px rgba(47,140,255,.6);max-width:620px}.ds-band::after{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(115deg,rgba(255,255,255,.035) 0 2px,transparent 2px 14px);mask:linear-gradient(90deg,#000,transparent 40%)}.ds-band-logo{display:flex;align-items:center;padding:8px 18px}.ds-mono{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#ffcb05;color:#00274c;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px}.ds-band-name{display:flex;flex-direction:column;justify-content:center;padding-right:22px}.ds-band-name b{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:800;font-size:30px;line-height:.95;text-transform:uppercase}.ds-band-name span{font-size:13px;color:rgba(255,255,255,.75);margin-top:4px}.ds-band-stat{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 22px;border-left:1px solid rgba(255,255,255,.14);position:relative;z-index:1}.ds-band-stat b{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:800;font-size:40px;line-height:1}.ds-band-stat span{font-size:13px;color:#a9badb;margin-top:2px}"
+    },
+    {
+      "name": "Button",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Default control: translucent cobalt with a bright cobalt edge.",
+      "html": "<button class=\"ds-btn\">Branch a result</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:6px;cursor:pointer;border:1px solid #2559a6;background:rgba(20,44,86,.6);color:#eaf0fd;font:600 13px 'Barlow',system-ui,sans-serif;transition:background 160ms,border-color 160ms}.ds-btn:hover{background:rgba(47,140,255,.26);border-color:#2f8cff}.ds-btn:focus-visible{outline:2px solid #6fb2ff;outline-offset:2px}.ds-btn:disabled{opacity:.45;cursor:not-allowed}"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Electric blue gradient with a blue glow; the one call to action per panel.",
+      "html": "<button class=\"ds-btn-primary\">Run scenario</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:6px;height:42px;padding:0 18px;border-radius:6px;cursor:pointer;border:1px solid #4fa0ff;background:linear-gradient(180deg,#3b95ff,#1e6fe0);color:#fff;font:600 15px 'Barlow',system-ui,sans-serif;box-shadow:0 6px 18px -8px rgba(47,140,255,.9);transition:background 160ms}.ds-btn-primary:hover{background:linear-gradient(180deg,#4ea1ff,#2a7cf0)}.ds-btn-primary:focus-visible{outline:2px solid #6fb2ff;outline-offset:2px}"
+    },
+    {
+      "name": "Leverage Chips",
+      "kind": "chip",
+      "refersTo": "chip-leverage-low",
+      "description": "Signal chips; the only sanctioned use of green/amber/red alongside live and deltas.",
+      "html": "<span class=\"ds-chip low\">Low <small>1.0</small></span> <span class=\"ds-chip med\">Medium <small>2.8</small></span> <span class=\"ds-chip high\">High <small>9.4</small></span> <span class=\"ds-chip vhigh\">Very high <small>21.0</small></span> <span class=\"ds-chip info\">Round 18</span> <span class=\"ds-chip live\">LIVE</span>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:5px;font:700 11.5px 'Barlow',system-ui,sans-serif;border:1px solid transparent;letter-spacing:.02em;font-variant-numeric:tabular-nums}.ds-chip small{font-weight:600;opacity:.8}.ds-chip.low{color:#7fe3a9;background:rgba(39,209,127,.14);border-color:rgba(39,209,127,.4)}.ds-chip.med{color:#ffd27e;background:rgba(246,183,60,.14);border-color:rgba(246,183,60,.45)}.ds-chip.high{color:#ff8c99;background:rgba(255,77,97,.14);border-color:rgba(255,77,97,.5)}.ds-chip.vhigh{color:#fff;background:rgba(255,77,97,.38);border-color:#ff4d61}.ds-chip.info{color:#6fb2ff;background:rgba(47,140,255,.14);border-color:rgba(47,140,255,.4)}.ds-chip.live{color:#fff;background:#ff3b4f}"
+    },
+    {
+      "name": "League Tabs",
+      "kind": "nav",
+      "refersTo": "league-tab",
+      "description": "Condensed league pills; active league fills electric blue and glows.",
+      "html": "<nav class=\"ds-tabs\"><a href=\"#\">F1</a><a href=\"#\">NFL</a><a href=\"#\" class=\"active\">CFB</a><a href=\"#\">NBA</a><a href=\"#\">College Hockey</a></nav>",
+      "css": ".ds-tabs{display:flex;gap:6px;flex-wrap:wrap}.ds-tabs a{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;font-size:16px;letter-spacing:.02em;padding:7px 16px;border-radius:5px;color:#a9badb;text-decoration:none;border:1px solid #16305a;background:linear-gradient(180deg,rgba(20,40,76,.55),rgba(10,22,44,.55));transition:border-color 160ms,color 160ms}.ds-tabs a:hover{color:#eaf0fd;border-color:#2559a6}.ds-tabs a:focus-visible{outline:2px solid #6fb2ff;outline-offset:2px}.ds-tabs a.active{color:#fff;border-color:#2f8cff;background:linear-gradient(180deg,rgba(47,140,255,.42),rgba(26,82,170,.36));box-shadow:0 0 0 1px rgba(47,140,255,.35),0 6px 18px -6px rgba(47,140,255,.7)}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "search",
+      "description": "Pill search with leading icon; border turns electric blue on focus.",
+      "html": "<label class=\"ds-search\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input placeholder=\"Search teams…\" aria-label=\"Search teams\"></label>",
+      "css": ".ds-search{position:relative;display:inline-block}.ds-search svg{position:absolute;left:11px;top:10px;color:#7086b0}.ds-search input{width:280px;height:36px;padding:0 12px 0 34px;border-radius:18px;border:1px solid #16305a;background:rgba(8,17,34,.9);color:#eaf0fd;caret-color:#6fb2ff;font:400 14px 'Barlow',system-ui,sans-serif;outline:none;transition:border-color 160ms}.ds-search input::placeholder{color:#4b5f86}.ds-search input:focus{border-color:#2f8cff}.ds-search input:hover{border-color:#2559a6}"
+    },
+    {
+      "name": "Data Table",
+      "kind": "custom",
+      "refersTo": "table-header",
+      "description": "Dense table with sticky uppercase headers, right-aligned tabular figures and one-hue probabilities.",
+      "html": "<table class=\"ds-tbl\"><thead><tr><th>Team</th><th class=\"num\">Playoff</th><th class=\"num\">Title</th></tr></thead><tbody><tr><td>Ohio State</td><td class=\"num p-strong\">88.4%</td><td class=\"num p-mid\">21.3%</td></tr><tr class=\"focus\"><td>Michigan</td><td class=\"num p-weak\">3.7%</td><td class=\"num p-faint\">0.1%</td></tr></tbody></table>",
+      "css": ".ds-tbl{border-collapse:collapse;font:400 13.5px 'Barlow',system-ui,sans-serif;color:#eaf0fd;font-variant-numeric:tabular-nums;background:#0a1528;min-width:320px}.ds-tbl th{text-align:left;font-size:11px;font-weight:600;color:#7086b0;text-transform:uppercase;letter-spacing:.06em;padding:7px 10px;border-bottom:1px solid rgba(22,48,90,.9)}.ds-tbl td{padding:6px 10px;border-bottom:1px solid rgba(22,48,90,.45)}.ds-tbl .num{text-align:right}.ds-tbl tbody tr{transition:background 120ms}.ds-tbl tbody tr:hover{background:rgba(47,140,255,.06)}.ds-tbl tr.focus{background:rgba(47,140,255,.12);box-shadow:inset 2px 0 0 #2f8cff}.p-strong{color:#6fb2ff;font-weight:800}.p-mid{color:#eaf0fd;font-weight:700}.p-weak{color:#a9badb;font-weight:600}.p-faint{color:#7086b0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Season Terminal",
+    "overview": "SportsWorld is a broadcast control room for a whole season: a deep navy ground holding dense, edge-lit panels that each read out one part of a single persistent Monte Carlo model. Condensed heavy numerals, cobalt hairlines, one electric blue accent, and the teams' own official colours wherever a team is the subject. Density is deliberate and every surface is dark; depth comes from luminous edges, not lifted cards. The only imagery is real ESPN team logos, and every number is real engine output.",
+    "keyCharacteristics": [
+      "Navy ground with fixed radial blue glows; cobalt-edged translucent panels with a gradient top-edge glow.",
+      "One accent, electric blue, as fill and as readable ink; gold only for trophies and title odds.",
+      "Barlow Condensed 700-800 for titles and headline figures, Barlow for UI, tabular numerals everywhere.",
+      "Team-colour header band and two-colour win-probability bars in official team colours.",
+      "Twelve-column grid stepping at 1360/1080/760px, with phone game cards.",
+      "Three motions only, all removed under reduced-motion."
+    ],
+    "rules": [
+      {
+        "name": "The One Hue Probability Rule",
+        "body": "Probabilities use one blue hue whose intensity rises with value (>=50% Signal Blue Ink bold, 10-50% ink bold, 0.5-10% ink-2, <0.5% ink-3). Never green, amber or red.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reserved Signal Rule",
+        "body": "Green, amber and red mean leverage, live state, signed change or model health only.",
+        "section": "colors"
+      },
+      {
+        "name": "The Official Colours Rule",
+        "body": "Teams appear only in official colours; near-black primaries fall back to the alternate; clashing bars switch the home side to its other official colour. Never invent a team colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Condensed Figure Rule",
+        "body": "A number that is the point of its container is set in Barlow Condensed 700 or heavier.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Everything Rule",
+        "body": "Numerals are tabular app-wide.",
+        "section": "typography"
+      },
+      {
+        "name": "The Cobalt Edge Rule",
+        "body": "Containers are defined by their cobalt edge and top glow, never by raised drop shadows or lighter fills.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do colour any probability with the one-hue intensity ramp.",
+      "Do put a team's official colour on its own band, bar segment and chart line, using the alternate when the primary is near-black.",
+      "Do label both ends of every win-probability bar and choose ink against the segment underneath.",
+      "Do build new containers as Panels: cobalt edge, top-edge glow, 12px corners, condensed 20px title with a line icon.",
+      "Do set headline figures in Barlow Condensed 700-800 with tabular numerals.",
+      "Do caption panels with where their numbers come from.",
+      "Do fall back to a monogram disc in the team's visible colour when a logo is missing."
+    ],
+    "donts": [
+      "Don't use green, amber or red for anything but leverage, live state, signed deltas and model health.",
+      "Don't invent a colour for a team.",
+      "Don't ship photographs, illustrations or decorative rasters; ESPN logos are the only imagery.",
+      "Don't show figures the engine does not produce, even as placeholders.",
+      "Don't lift panels with large drop shadows or lighter fills.",
+      "Don't add motion beyond the bar ease, live pulse and score tick, and never without a reduced-motion opt-out."
+    ]
+  }
+}
