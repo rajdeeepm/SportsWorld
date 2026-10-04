@@ -217,7 +217,9 @@ class AvailabilityService:
                 pos = key_of.get(k)
                 est = by_pos.get(pos or "", {})
                 a = priced.get(k)
-                if a:
+                if p_play(r.get("status")) >= 1.0:
+                    effect, why = 0.0, "available"
+                elif a:
                     effect, why = a["delta_points"], f"established {pos}: learned effect {est.get('points', 0):+.1f} ± {est.get('se', 0):.1f} pts, weighted by P(plays)"
                 elif pos and est.get("significant") is False:
                     effect, why = 0.0, f"established {pos}, but that role's effect is not statistically significant"
