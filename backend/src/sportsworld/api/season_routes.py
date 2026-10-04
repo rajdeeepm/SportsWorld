@@ -704,3 +704,39 @@ def game_of_the_day(cid: str):
         raise HTTPException(404, "no upcoming games")
     best = max(soon, key=score)
     return _clean(_stakes(cid, best, {t["team_id"]: t for t in st.fast_run["teams"]}))
+
+
+_REWIND: dict | None = None
+
+
+@router.get("/research/rewind")
+def research_rewind():
+    """What the model gave each eventual champion at each checkpoint, frozen at that date (point-in-time replays)."""
+    global _REWIND
+    if _REWIND is not None:
+        return _REWIND
+    from sportsworld.ingest.espn import drop_exhibitions, read_archive, season_start_year
+    root = _repo() / "data" / "fixtures" / "backtests"
+    out = []
+    for lg in ("nfl", "college-football", "nba", "nhl"):
+        p = root / f"season_{lg}_ext.json"
+        if not p.exists():
+            continue
+        rows = [r for r in json.loads(p.read_text())["rows"] if r["mode"] == "dynamic"]
+        spec = LEAGUES[lg]
+        games = [g for g in drop_exhibitions(read_archive(_repo() / "data" / "real", lg)) if g.completed and g.season_type == 3]
+        champ: dict[int, str] = {}
+        for g in sorted(games, key=lambda g: g.start_time):  # the last postseason game of a season is its final
+            champ[season_start_year(spec, g.start_time)] = g.home.name if g.home.score > g.away.score else g.away.name
+        for season in sorted({r["season"] for r in rows}):
+            cps = sorted((r for r in rows if r["season"] == season), key=lambda r: r["checkpoint"])
+            if not champ.get(season) or any(r.get("champion_prob") is None for r in cps):
+                continue  # disrupted calendars (2019-20 / 2020-21 bubble seasons) have no valid replay
+            out.append({"league": lg, "league_name": spec.display_name, "season": season, "champion": champ.get(season),
+                        "teams": cps[0]["teams"], "uniform": round(1 / cps[0]["teams"], 4),
+                        "checkpoints": [{"checkpoint": r["checkpoint"], "as_of": r["as_of"], "champion_prob": r.get("champion_prob")} for r in cps]})
+    _REWIND = _clean({"rows": out, "method": ("Each checkpoint is a full rebuild of the competition as it stood on that date: only results known "
+                                              "by then, rating hyper-parameters fit on earlier seasons only, the schedule as published. Results "
+                                              "enter the ratings only once they are final (backend/tests/test_real_ingest.py checks a game cannot "
+                                              "see a result that finishes after it starts).")})
+    return _REWIND

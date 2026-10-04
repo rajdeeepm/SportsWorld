@@ -553,6 +553,9 @@ input[type='range'] { accent-color: var(--accent); width: 100%; }
 .last-push.fresh { color: #ffd23f; }
 @media (prefers-reduced-motion: reduce) { .push-toast { animation: none; } }
 
+.rewind td .rw-date { display: block; color: var(--ink-3); font-size: 11px; font-weight: 400; }
+.rewind td b.rw-hi { color: var(--accent-ink); }
+
 /* ---------- responsive ---------- */
 @media (max-width: 1360px) {
   .c3 { grid-column: span 6; } .c4 { grid-column: span 6; } .c5 { grid-column: span 6; } .c7 { grid-column: span 12; } .c8 { grid-column: span 12; } .c9 { grid-column: span 12; }
