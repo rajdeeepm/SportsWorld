@@ -1,0 +1,1329 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+- navigation "College Football sections":
+  - link "Overview":
+    - /url: /college-football
+    - text: Overview
+  - link "Standings":
+    - /url: /college-football/standings
+    - text: Standings
+  - link "Live 12 live":
+    - /url: /college-football/games?live=1
+    - text: Live
+    - generic "12 live"
+  - link "Forecasts":
+    - /url: /college-football/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /college-football/lab
+    - text: Simulation Lab
+  - link "Research" [active]:
+    - /url: /research
+    - text: Research
+- main:
+  - 'heading "Quant research: what the model knew, and how well it calibrated" [level=1]':
+    - text: "Quant research:"
+    - emphasis: what the model knew, and how well it calibrated
+  - paragraph: Point-in-time season replays, walk-forward evaluation, in-game model bake-offs with game-clustered intervals, a market benchmark, and learned player-availability effects. Real data only.
+  - article:
+    - generic: Historical season replay · is the season simulator calibrated?
+    - generic: point-in-time rebuild at 0/25/50/75% of each season; rating hyper-parameters fit on earlier seasons only
+    - paragraph: Same world state, two simulators. FAST treats games as independent coin flips at the posterior mean. DYNAMIC samples each team's true strength once per simulated season (correlated futures). A calibrated 90% interval should cover ≈ 90% of final win totals.
+    - table:
+      - rowgroup:
+        - row "League Checkpoint Mode 90% win-interval coverage Playoff log loss (base rate) Wins MAE (pace baseline) Champion log loss (uniform)":
+          - columnheader "League"
+          - columnheader "Checkpoint"
+          - columnheader "Mode"
+          - columnheader "90% win-interval coverage"
+          - columnheader "Playoff log loss"
+          - columnheader "(base rate)"
+          - columnheader "Wins MAE"
+          - columnheader "(pace baseline)"
+          - columnheader "Champion log loss"
+          - columnheader "(uniform)"
+      - rowgroup:
+        - row "FBS 0% DYNAMIC 94% - - 1.80 2.14 2.8467 4.8804":
+          - cell "FBS"
+          - cell "0%"
+          - cell "DYNAMIC"
+          - cell "94%"
+          - cell "-"
+          - cell "-"
+          - cell "1.80"
+          - cell "2.14"
+          - cell "2.8467"
+          - cell "4.8804"
+        - row "0% FAST 77% - - 1.85 2.14 3.4885 4.8804":
+          - cell
+          - cell "0%"
+          - cell "FAST"
+          - cell "77%"
+          - cell "-"
+          - cell "-"
+          - cell "1.85"
+          - cell "2.14"
+          - cell "3.4885"
+          - cell "4.8804"
+        - row "25% DYNAMIC 94% - - 1.49 2.76 2.4911 4.8804":
+          - cell
+          - cell "25%"
+          - cell "DYNAMIC"
+          - cell "94%"
+          - cell "-"
+          - cell "-"
+          - cell "1.49"
+          - cell "2.76"
+          - cell "2.4911"
+          - cell "4.8804"
+        - row "25% FAST 83% - - 1.51 2.76 2.6293 4.8804":
+          - cell
+          - cell "25%"
+          - cell "FAST"
+          - cell "83%"
+          - cell "-"
+          - cell "-"
+          - cell "1.51"
+          - cell "2.76"
+          - cell "2.6293"
+          - cell "4.8804"
+        - row "50% DYNAMIC 94% - - 1.05 1.40 1.8648 4.8804":
+          - cell
+          - cell "50%"
+          - cell "DYNAMIC"
+          - cell "94%"
+          - cell "-"
+          - cell "-"
+          - cell "1.05"
+          - cell "1.40"
+          - cell "1.8648"
+          - cell "4.8804"
+        - row "50% FAST 90% - - 1.06 1.40 1.7984 4.8804":
+          - cell
+          - cell "50%"
+          - cell "FAST"
+          - cell "90%"
+          - cell "-"
+          - cell "-"
+          - cell "1.06"
+          - cell "1.40"
+          - cell "1.7984"
+          - cell "4.8804"
+        - row "75% DYNAMIC 98% - - 0.69 0.82 1.5849 4.8804":
+          - cell
+          - cell "75%"
+          - cell "DYNAMIC"
+          - cell "98%"
+          - cell "-"
+          - cell "-"
+          - cell "0.69"
+          - cell "0.82"
+          - cell "1.5849"
+          - cell "4.8804"
+        - row "75% FAST 97% - - 0.68 0.82 1.4148 4.8804":
+          - cell
+          - cell "75%"
+          - cell "FAST"
+          - cell "97%"
+          - cell "-"
+          - cell "-"
+          - cell "0.68"
+          - cell "0.82"
+          - cell "1.4148"
+          - cell "4.8804"
+        - row "NBA 0% DYNAMIC 91% 0.5880 0.6909 8.22 9.74 3.0698 3.4012":
+          - cell "NBA"
+          - cell "0%"
+          - cell "DYNAMIC"
+          - cell "91%"
+          - cell "0.5880"
+          - cell "0.6909"
+          - cell "8.22"
+          - cell "9.74"
+          - cell "3.0698"
+          - cell "3.4012"
+        - row "0% FAST 52% 0.6598 0.6909 8.13 9.74 3.2591 3.4012":
+          - cell
+          - cell "0%"
+          - cell "FAST"
+          - cell "52%"
+          - cell "0.6598"
+          - cell "0.6909"
+          - cell "8.13"
+          - cell "9.74"
+          - cell "3.2591"
+          - cell "3.4012"
+        - row "25% DYNAMIC 89% 0.4166 0.6909 5.18 6.07 2.1400 3.4012":
+          - cell
+          - cell "25%"
+          - cell "DYNAMIC"
+          - cell "89%"
+          - cell "0.4166"
+          - cell "0.6909"
+          - cell "5.18"
+          - cell "6.07"
+          - cell "2.1400"
+          - cell "3.4012"
+        - row "25% FAST 68% 0.4720 0.6909 5.18 6.07 2.1465 3.4012":
+          - cell
+          - cell "25%"
+          - cell "FAST"
+          - cell "68%"
+          - cell "0.4720"
+          - cell "0.6909"
+          - cell "5.18"
+          - cell "6.07"
+          - cell "2.1465"
+          - cell "3.4012"
+        - row "50% DYNAMIC 86% 0.3345 0.6909 3.77 3.96 1.9030 3.4012":
+          - cell
+          - cell "50%"
+          - cell "DYNAMIC"
+          - cell "86%"
+          - cell "0.3345"
+          - cell "0.6909"
+          - cell "3.77"
+          - cell "3.96"
+          - cell "1.9030"
+          - cell "3.4012"
+        - row "50% FAST 76% 0.3653 0.6909 3.75 3.96 1.8261 3.4012":
+          - cell
+          - cell "50%"
+          - cell "FAST"
+          - cell "76%"
+          - cell "0.3653"
+          - cell "0.6909"
+          - cell "3.75"
+          - cell "3.96"
+          - cell "1.8261"
+          - cell "3.4012"
+        - row "75% DYNAMIC 89% 0.2442 0.6909 2.07 2.27 1.6226 3.4012":
+          - cell
+          - cell "75%"
+          - cell "DYNAMIC"
+          - cell "89%"
+          - cell "0.2442"
+          - cell "0.6909"
+          - cell "2.07"
+          - cell "2.27"
+          - cell "1.6226"
+          - cell "3.4012"
+        - row "75% FAST 86% 0.2501 0.6909 2.07 2.27 1.5528 3.4012":
+          - cell
+          - cell "75%"
+          - cell "FAST"
+          - cell "86%"
+          - cell "0.2501"
+          - cell "0.6909"
+          - cell "2.07"
+          - cell "2.27"
+          - cell "1.5528"
+          - cell "3.4012"
+        - row "NFL 0% DYNAMIC 94% 0.6429 0.6819 2.42 2.66 3.2235 3.4657":
+          - cell "NFL"
+          - cell "0%"
+          - cell "DYNAMIC"
+          - cell "94%"
+          - cell "0.6429"
+          - cell "0.6819"
+          - cell "2.42"
+          - cell "2.66"
+          - cell "3.2235"
+          - cell "3.4657"
+        - row "0% FAST 77% 0.6769 0.6819 2.42 2.66 3.2186 3.4657":
+          - cell
+          - cell "0%"
+          - cell "FAST"
+          - cell "77%"
+          - cell "0.6769"
+          - cell "0.6819"
+          - cell "2.42"
+          - cell "2.66"
+          - cell "3.2186"
+          - cell "3.4657"
+        - row "25% DYNAMIC 93% 0.4754 0.6819 1.89 2.68 2.7459 3.4657":
+          - cell
+          - cell "25%"
+          - cell "DYNAMIC"
+          - cell "93%"
+          - cell "0.4754"
+          - cell "0.6819"
+          - cell "1.89"
+          - cell "2.68"
+          - cell "2.7459"
+          - cell "3.4657"
+        - row "25% FAST 85% 0.4798 0.6819 1.89 2.68 2.8375 3.4657":
+          - cell
+          - cell "25%"
+          - cell "FAST"
+          - cell "85%"
+          - cell "0.4798"
+          - cell "0.6819"
+          - cell "1.89"
+          - cell "2.68"
+          - cell "2.8375"
+          - cell "3.4657"
+        - row "50% DYNAMIC 91% 0.3944 0.6819 1.44 1.74 2.4962 3.4657":
+          - cell
+          - cell "50%"
+          - cell "DYNAMIC"
+          - cell "91%"
+          - cell "0.3944"
+          - cell "0.6819"
+          - cell "1.44"
+          - cell "1.74"
+          - cell "2.4962"
+          - cell "3.4657"
+        - row "50% FAST 87% 0.4072 0.6819 1.44 1.74 2.4927 3.4657":
+          - cell
+          - cell "50%"
+          - cell "FAST"
+          - cell "87%"
+          - cell "0.4072"
+          - cell "0.6819"
+          - cell "1.44"
+          - cell "1.74"
+          - cell "2.4927"
+          - cell "3.4657"
+        - row "75% DYNAMIC 95% 0.3007 0.6819 0.99 1.11 2.5177 3.4657":
+          - cell
+          - cell "75%"
+          - cell "DYNAMIC"
+          - cell "95%"
+          - cell "0.3007"
+          - cell "0.6819"
+          - cell "0.99"
+          - cell "1.11"
+          - cell "2.5177"
+          - cell "3.4657"
+        - row "75% FAST 93% 0.3042 0.6819 0.99 1.11 2.5248 3.4657":
+          - cell
+          - cell "75%"
+          - cell "FAST"
+          - cell "93%"
+          - cell "0.3042"
+          - cell "0.6819"
+          - cell "0.99"
+          - cell "1.11"
+          - cell "2.5248"
+          - cell "3.4657"
+        - row "NHL 0% DYNAMIC 95% 0.5743 0.6931 5.51 6.76 2.9557 3.4604":
+          - cell "NHL"
+          - cell "0%"
+          - cell "DYNAMIC"
+          - cell "95%"
+          - cell "0.5743"
+          - cell "0.6931"
+          - cell "5.51"
+          - cell "6.76"
+          - cell "2.9557"
+          - cell "3.4604"
+        - row "0% FAST 74% 0.6295 0.6931 5.50 6.76 2.7840 3.4604":
+          - cell
+          - cell "0%"
+          - cell "FAST"
+          - cell "74%"
+          - cell "0.6295"
+          - cell "0.6931"
+          - cell "5.50"
+          - cell "6.76"
+          - cell "2.7840"
+          - cell "3.4604"
+        - row "25% DYNAMIC 94% 0.4252 0.6931 4.22 5.62 2.6048 3.4604":
+          - cell
+          - cell "25%"
+          - cell "DYNAMIC"
+          - cell "94%"
+          - cell "0.4252"
+          - cell "0.6931"
+          - cell "4.22"
+          - cell "5.62"
+          - cell "2.6048"
+          - cell "3.4604"
+        - row "25% FAST 83% 0.4560 0.6931 4.24 5.62 2.5251 3.4604":
+          - cell
+          - cell "25%"
+          - cell "FAST"
+          - cell "83%"
+          - cell "0.4560"
+          - cell "0.6931"
+          - cell "4.24"
+          - cell "5.62"
+          - cell "2.5251"
+          - cell "3.4604"
+        - row "50% DYNAMIC 94% 0.2890 0.6931 2.62 3.02 2.6423 3.4604":
+          - cell
+          - cell "50%"
+          - cell "DYNAMIC"
+          - cell "94%"
+          - cell "0.2890"
+          - cell "0.6931"
+          - cell "2.62"
+          - cell "3.02"
+          - cell "2.6423"
+          - cell "3.4604"
+        - row "50% FAST 90% 0.2869 0.6931 2.62 3.02 2.5735 3.4604":
+          - cell
+          - cell "50%"
+          - cell "FAST"
+          - cell "90%"
+          - cell "0.2869"
+          - cell "0.6931"
+          - cell "2.62"
+          - cell "3.02"
+          - cell "2.5735"
+          - cell "3.4604"
+        - row "75% DYNAMIC 95% 0.2182 0.6931 1.89 2.05 2.3346 3.4604":
+          - cell
+          - cell "75%"
+          - cell "DYNAMIC"
+          - cell "95%"
+          - cell "0.2182"
+          - cell "0.6931"
+          - cell "1.89"
+          - cell "2.05"
+          - cell "2.3346"
+          - cell "3.4604"
+        - row "75% FAST 94% 0.2185 0.6931 1.89 2.05 2.3554 3.4604":
+          - cell
+          - cell "75%"
+          - cell "FAST"
+          - cell "94%"
+          - cell "0.2185"
+          - cell "0.6931"
+          - cell "1.89"
+          - cell "2.05"
+          - cell "2.3554"
+          - cell "3.4604"
+        - row "NCAAM 0% DYNAMIC 91% - - 3.87 4.49 5.3187 5.8985":
+          - cell "NCAAM"
+          - cell "0%"
+          - cell "DYNAMIC"
+          - cell "91%"
+          - cell "-"
+          - cell "-"
+          - cell "3.87"
+          - cell "4.49"
+          - cell "5.3187"
+          - cell "5.8985"
+        - row "0% FAST 61% - - 3.99 4.49 7.1309 5.8985":
+          - cell
+          - cell "0%"
+          - cell "FAST"
+          - cell "61%"
+          - cell "-"
+          - cell "-"
+          - cell "3.99"
+          - cell "4.49"
+          - cell "7.1309"
+          - cell "5.8985"
+        - row "25% DYNAMIC 91% - - 2.73 4.69 2.9062 5.8985":
+          - cell
+          - cell "25%"
+          - cell "DYNAMIC"
+          - cell "91%"
+          - cell "-"
+          - cell "-"
+          - cell "2.73"
+          - cell "4.69"
+          - cell "2.9062"
+          - cell "5.8985"
+        - row "25% FAST 76% - - 2.76 4.69 2.7769 5.8985":
+          - cell
+          - cell "25%"
+          - cell "FAST"
+          - cell "76%"
+          - cell "-"
+          - cell "-"
+          - cell "2.76"
+          - cell "4.69"
+          - cell "2.7769"
+          - cell "5.8985"
+        - row "50% DYNAMIC 90% - - 1.99 2.98 2.2595 5.8985":
+          - cell
+          - cell "50%"
+          - cell "DYNAMIC"
+          - cell "90%"
+          - cell "-"
+          - cell "-"
+          - cell "1.99"
+          - cell "2.98"
+          - cell "2.2595"
+          - cell "5.8985"
+        - row "50% FAST 83% - - 2.00 2.98 2.2157 5.8985":
+          - cell
+          - cell "50%"
+          - cell "FAST"
+          - cell "83%"
+          - cell "-"
+          - cell "-"
+          - cell "2.00"
+          - cell "2.98"
+          - cell "2.2157"
+          - cell "5.8985"
+        - row "75% DYNAMIC 95% - - 1.21 1.46 2.2482 5.8985":
+          - cell
+          - cell "75%"
+          - cell "DYNAMIC"
+          - cell "95%"
+          - cell "-"
+          - cell "-"
+          - cell "1.21"
+          - cell "1.46"
+          - cell "2.2482"
+          - cell "5.8985"
+        - row "75% FAST 93% - - 1.21 1.46 2.1960 5.8985":
+          - cell
+          - cell "75%"
+          - cell "FAST"
+          - cell "93%"
+          - cell "-"
+          - cell "-"
+          - cell "1.21"
+          - cell "1.46"
+          - cell "2.1960"
+          - cell "5.8985"
+        - row "WNBA 0% DYNAMIC 88% - - 6.26 6.73 - 2.5249":
+          - cell "WNBA"
+          - cell "0%"
+          - cell "DYNAMIC"
+          - cell "88%"
+          - cell "-"
+          - cell "-"
+          - cell "6.26"
+          - cell "6.73"
+          - cell "-"
+          - cell "2.5249"
+        - row "0% FAST 56% - - 6.30 6.73 - 2.5249":
+          - cell
+          - cell "0%"
+          - cell "FAST"
+          - cell "56%"
+          - cell "-"
+          - cell "-"
+          - cell "6.30"
+          - cell "6.73"
+          - cell "-"
+          - cell "2.5249"
+        - row "25% DYNAMIC 84% - - 3.37 4.61 - 2.5249":
+          - cell
+          - cell "25%"
+          - cell "DYNAMIC"
+          - cell "84%"
+          - cell "-"
+          - cell "-"
+          - cell "3.37"
+          - cell "4.61"
+          - cell "-"
+          - cell "2.5249"
+        - row "25% FAST 76% - - 3.43 4.61 - 2.5249":
+          - cell
+          - cell "25%"
+          - cell "FAST"
+          - cell "76%"
+          - cell "-"
+          - cell "-"
+          - cell "3.43"
+          - cell "4.61"
+          - cell "-"
+          - cell "2.5249"
+        - row "50% DYNAMIC 84% - - 2.63 3.07 - 2.5249":
+          - cell
+          - cell "50%"
+          - cell "DYNAMIC"
+          - cell "84%"
+          - cell "-"
+          - cell "-"
+          - cell "2.63"
+          - cell "3.07"
+          - cell "-"
+          - cell "2.5249"
+        - row "50% FAST 76% - - 2.63 3.07 - 2.5249":
+          - cell
+          - cell "50%"
+          - cell "FAST"
+          - cell "76%"
+          - cell "-"
+          - cell "-"
+          - cell "2.63"
+          - cell "3.07"
+          - cell "-"
+          - cell "2.5249"
+        - row "75% DYNAMIC 96% - - 1.52 1.60 - 2.5249":
+          - cell
+          - cell "75%"
+          - cell "DYNAMIC"
+          - cell "96%"
+          - cell "-"
+          - cell "-"
+          - cell "1.52"
+          - cell "1.60"
+          - cell "-"
+          - cell "2.5249"
+        - row "75% FAST 84% - - 1.53 1.60 - 2.5249":
+          - cell
+          - cell "75%"
+          - cell "FAST"
+          - cell "84%"
+          - cell "-"
+          - cell "-"
+          - cell "1.53"
+          - cell "1.60"
+          - cell "-"
+          - cell "2.5249"
+        - row "NCAAW 0% DYNAMIC 88% - - 4.00 5.34 2.4724 5.8930":
+          - cell "NCAAW"
+          - cell "0%"
+          - cell "DYNAMIC"
+          - cell "88%"
+          - cell "-"
+          - cell "-"
+          - cell "4.00"
+          - cell "5.34"
+          - cell "2.4724"
+          - cell "5.8930"
+        - row "0% FAST 56% - - 4.14 5.34 2.4624 5.8930":
+          - cell
+          - cell "0%"
+          - cell "FAST"
+          - cell "56%"
+          - cell "-"
+          - cell "-"
+          - cell "4.14"
+          - cell "5.34"
+          - cell "2.4624"
+          - cell "5.8930"
+        - row "25% DYNAMIC 92% - - 2.43 4.80 2.0021 5.8930":
+          - cell
+          - cell "25%"
+          - cell "DYNAMIC"
+          - cell "92%"
+          - cell "-"
+          - cell "-"
+          - cell "2.43"
+          - cell "4.80"
+          - cell "2.0021"
+          - cell "5.8930"
+        - row "25% FAST 76% - - 2.43 4.80 1.8662 5.8930":
+          - cell
+          - cell "25%"
+          - cell "FAST"
+          - cell "76%"
+          - cell "-"
+          - cell "-"
+          - cell "2.43"
+          - cell "4.80"
+          - cell "1.8662"
+          - cell "5.8930"
+        - row "50% DYNAMIC 92% - - 1.71 2.81 1.9074 5.8930":
+          - cell
+          - cell "50%"
+          - cell "DYNAMIC"
+          - cell "92%"
+          - cell "-"
+          - cell "-"
+          - cell "1.71"
+          - cell "2.81"
+          - cell "1.9074"
+          - cell "5.8930"
+        - row "50% FAST 84% - - 1.71 2.81 1.8434 5.8930":
+          - cell
+          - cell "50%"
+          - cell "FAST"
+          - cell "84%"
+          - cell "-"
+          - cell "-"
+          - cell "1.71"
+          - cell "2.81"
+          - cell "1.8434"
+          - cell "5.8930"
+        - row "75% DYNAMIC 94% - - 1.08 1.33 1.7273 5.8930":
+          - cell
+          - cell "75%"
+          - cell "DYNAMIC"
+          - cell "94%"
+          - cell "-"
+          - cell "-"
+          - cell "1.08"
+          - cell "1.33"
+          - cell "1.7273"
+          - cell "5.8930"
+        - row "75% FAST 92% - - 1.08 1.33 1.7180 5.8930":
+          - cell
+          - cell "75%"
+          - cell "FAST"
+          - cell "92%"
+          - cell "-"
+          - cell "-"
+          - cell "1.08"
+          - cell "1.33"
+          - cell "1.7180"
+          - cell "5.8930"
+  - article:
+    - generic: Rolling-origin evaluation · train ≤ O−2, calibrate O−1, test O
+    - generic: walk-forward across seasons; mean ± sd over origins
+    - table:
+      - rowgroup:
+        - row "League Origins Model LL (mean ± sd) Kalman-only LL Model − Kalman by origin":
+          - columnheader "League"
+          - columnheader "Origins"
+          - columnheader "Model LL (mean ± sd)"
+          - columnheader "Kalman-only LL"
+          - columnheader "Model − Kalman by origin"
+      - rowgroup:
+        - row "FBS 2022, 2023, 2024, 2025 0.3650 ± 0.0198 0.3767 ± 0.0219 -0.0108 · -0.0056 · -0.0172 · -0.0132":
+          - cell "FBS"
+          - cell "2022, 2023, 2024, 2025"
+          - cell "0.3650 ± 0.0198"
+          - cell "0.3767 ± 0.0219"
+          - cell "-0.0108 · -0.0056 · -0.0172 · -0.0132"
+        - row "NCAAM 2024, 2025 0.4418 ± 0.0047 0.4480 ± 0.0076 -0.0081 · -0.0041":
+          - cell "NCAAM"
+          - cell "2024, 2025"
+          - cell "0.4418 ± 0.0047"
+          - cell "0.4480 ± 0.0076"
+          - cell "-0.0081 · -0.0041"
+        - row "NBA 2022, 2023, 2024, 2025 0.5166 ± 0.0185 0.5327 ± 0.0186 -0.0160 · -0.0159 · -0.0176 · -0.0152":
+          - cell "NBA"
+          - cell "2022, 2023, 2024, 2025"
+          - cell "0.5166 ± 0.0185"
+          - cell "0.5327 ± 0.0186"
+          - cell "-0.0160 · -0.0159 · -0.0176 · -0.0152"
+        - row "NFL 2022, 2023, 2024, 2025 0.4900 ± 0.0375 0.5156 ± 0.0600 -0.0576 · -0.0070 · -0.0089 · -0.0289":
+          - cell "NFL"
+          - cell "2022, 2023, 2024, 2025"
+          - cell "0.4900 ± 0.0375"
+          - cell "0.5156 ± 0.0600"
+          - cell "-0.0576 · -0.0070 · -0.0089 · -0.0289"
+        - row "NHL 2022, 2023, 2024, 2025 0.5684 ± 0.0113 0.5677 ± 0.0100 +0.0038 · -0.0020 · -0.0015 · +0.0025":
+          - cell "NHL"
+          - cell "2022, 2023, 2024, 2025"
+          - cell "0.5684 ± 0.0113"
+          - cell "0.5677 ± 0.0100"
+          - cell "+0.0038 · -0.0020 · -0.0015 · +0.0025"
+        - row "WNBA 2025 0.5235 ± 0.0000 0.5295 ± 0.0000 -0.0059":
+          - cell "WNBA"
+          - cell "2025"
+          - cell "0.5235 ± 0.0000"
+          - cell "0.5295 ± 0.0000"
+          - cell "-0.0059"
+  - article:
+    - generic: In-game win-probability bake-off · real play-by-play
+    - generic: chronological 60/20/20 split · temperature-calibrated on the calibration window · untouched test window
+    - heading "FBS · every 3rd snap · 92,929 test rows · data e927f809f0da8a3d" [level=4]:
+      - text: FBS · every 3rd snap · 92,929 test rows
+      - generic: · data e927f809f0da8a3d
+    - table:
+      - rowgroup:
+        - row "Model Log loss Brier ECE Same plays as ESPN · LL":
+          - columnheader "Model"
+          - columnheader "Log loss"
+          - columnheader "Brier"
+          - columnheader "ECE"
+          - columnheader "Same plays as ESPN · LL"
+      - rowgroup:
+        - row "logistic bootstrap 0.3392 0.2184 0.0053 0.3365":
+          - cell "logistic bootstrap"
+          - cell "0.3392"
+          - cell "0.2184"
+          - cell "0.0053"
+          - cell "0.3365"
+        - row "lightgbm 0.3407 0.2190 0.0052 0.3382":
+          - cell "lightgbm"
+          - cell "0.3407"
+          - cell "0.2190"
+          - cell "0.0052"
+          - cell "0.3382"
+        - row "mlp 0.3384 0.2187 0.0049 0.3359":
+          - cell "mlp"
+          - cell "0.3384"
+          - cell "0.2187"
+          - cell "0.0049"
+          - cell "0.3359"
+        - row "gru sequence 0.3385 0.2185 0.0050 0.3358":
+          - cell "gru sequence"
+          - cell "0.3385"
+          - cell "0.2185"
+          - cell "0.0050"
+          - cell "0.3358"
+        - row "external espn published wp - - - 0.3258":
+          - cell "external espn published wp"
+          - cell "-"
+          - cell "-"
+          - cell "-"
+          - cell "0.3258"
+    - table:
+      - rowgroup:
+        - row "Paired comparison (resampling whole games) Δ log loss 95% CI Verdict":
+          - columnheader "Paired comparison (resampling whole games)"
+          - columnheader "Δ log loss"
+          - columnheader "95% CI"
+          - columnheader "Verdict"
+      - rowgroup:
+        - row "logistic bootstrap - external espn published wp 0.01059 [0.0039, 0.0180] A significantly worse":
+          - cell "logistic bootstrap - external espn published wp"
+          - cell "0.01059"
+          - cell "[0.0039, 0.0180]"
+          - cell "A significantly worse"
+        - row "lightgbm - external espn published wp 0.01231 [0.0041, 0.0203] A significantly worse":
+          - cell "lightgbm - external espn published wp"
+          - cell "0.01231"
+          - cell "[0.0041, 0.0203]"
+          - cell "A significantly worse"
+        - row "mlp - external espn published wp 0.00996 [0.0025, 0.0183] A significantly worse":
+          - cell "mlp - external espn published wp"
+          - cell "0.00996"
+          - cell "[0.0025, 0.0183]"
+          - cell "A significantly worse"
+        - row "gru sequence - external espn published wp 0.00990 [0.0035, 0.0167] A significantly worse":
+          - cell "gru sequence - external espn published wp"
+          - cell "0.00990"
+          - cell "[0.0035, 0.0167]"
+          - cell "A significantly worse"
+        - row "lightgbm - logistic bootstrap 0.00154 [-0.0047, 0.0080] no significant difference":
+          - cell "lightgbm - logistic bootstrap"
+          - cell "0.00154"
+          - cell "[-0.0047, 0.0080]"
+          - cell "no significant difference"
+        - row "mlp - logistic bootstrap -0.00075 [-0.0057, 0.0040] no significant difference":
+          - cell "mlp - logistic bootstrap"
+          - cell "-0.00075"
+          - cell "[-0.0057, 0.0040]"
+          - cell "no significant difference"
+        - row "gru sequence - logistic bootstrap -0.00071 [-0.0061, 0.0046] no significant difference":
+          - cell "gru sequence - logistic bootstrap"
+          - cell "-0.00071"
+          - cell "[-0.0061, 0.0046]"
+          - cell "no significant difference"
+    - heading "NFL · every 3rd snap · 28,154 test rows · data 96ac757b3f7c4dc3" [level=4]:
+      - text: NFL · every 3rd snap · 28,154 test rows
+      - generic: · data 96ac757b3f7c4dc3
+    - table:
+      - rowgroup:
+        - row "Model Log loss Brier ECE Same plays as ESPN · LL":
+          - columnheader "Model"
+          - columnheader "Log loss"
+          - columnheader "Brier"
+          - columnheader "ECE"
+          - columnheader "Same plays as ESPN · LL"
+      - rowgroup:
+        - row "logistic bootstrap 0.4670 0.3119 0.0040 0.4644":
+          - cell "logistic bootstrap"
+          - cell "0.4670"
+          - cell "0.3119"
+          - cell "0.0040"
+          - cell "0.4644"
+        - row "lightgbm 0.4834 0.3227 0.0241 0.4807":
+          - cell "lightgbm"
+          - cell "0.4834"
+          - cell "0.3227"
+          - cell "0.0241"
+          - cell "0.4807"
+        - row "mlp 0.4691 0.3117 0.0150 0.4665":
+          - cell "mlp"
+          - cell "0.4691"
+          - cell "0.3117"
+          - cell "0.0150"
+          - cell "0.4665"
+        - row "gru sequence 0.4653 0.3097 0.0138 0.4625":
+          - cell "gru sequence"
+          - cell "0.4653"
+          - cell "0.3097"
+          - cell "0.0138"
+          - cell "0.4625"
+        - row "external espn published wp - - - 0.4639":
+          - cell "external espn published wp"
+          - cell "-"
+          - cell "-"
+          - cell "-"
+          - cell "0.4639"
+    - table:
+      - rowgroup:
+        - row "Paired comparison (resampling whole games) Δ log loss 95% CI Verdict":
+          - columnheader "Paired comparison (resampling whole games)"
+          - columnheader "Δ log loss"
+          - columnheader "95% CI"
+          - columnheader "Verdict"
+      - rowgroup:
+        - row "logistic bootstrap - external espn published wp 0.00048 [-0.0109, 0.0113] no significant difference":
+          - cell "logistic bootstrap - external espn published wp"
+          - cell "0.00048"
+          - cell "[-0.0109, 0.0113]"
+          - cell "no significant difference"
+        - row "lightgbm - external espn published wp 0.01679 [0.0007, 0.0338] A significantly worse":
+          - cell "lightgbm - external espn published wp"
+          - cell "0.01679"
+          - cell "[0.0007, 0.0338]"
+          - cell "A significantly worse"
+        - row "mlp - external espn published wp 0.00256 [-0.0134, 0.0184] no significant difference":
+          - cell "mlp - external espn published wp"
+          - cell "0.00256"
+          - cell "[-0.0134, 0.0184]"
+          - cell "no significant difference"
+        - row "gru sequence - external espn published wp -0.00143 [-0.0134, 0.0107] no significant difference":
+          - cell "gru sequence - external espn published wp"
+          - cell "-0.00143"
+          - cell "[-0.0134, 0.0107]"
+          - cell "no significant difference"
+        - row "lightgbm - logistic bootstrap 0.01641 [0.0014, 0.0325] A significantly worse":
+          - cell "lightgbm - logistic bootstrap"
+          - cell "0.01641"
+          - cell "[0.0014, 0.0325]"
+          - cell "A significantly worse"
+        - row "mlp - logistic bootstrap 0.00209 [-0.0114, 0.0155] no significant difference":
+          - cell "mlp - logistic bootstrap"
+          - cell "0.00209"
+          - cell "[-0.0114, 0.0155]"
+          - cell "no significant difference"
+        - row "gru sequence - logistic bootstrap -0.00171 [-0.0118, 0.0084] no significant difference":
+          - cell "gru sequence - logistic bootstrap"
+          - cell "-0.00171"
+          - cell "[-0.0118, 0.0084]"
+          - cell "no significant difference"
+    - heading "NCAAM · play-by-play states · 281,707 test rows · data ee1094c932b191c3" [level=4]:
+      - text: NCAAM · play-by-play states · 281,707 test rows
+      - generic: · data ee1094c932b191c3
+    - table:
+      - rowgroup:
+        - row "Model Log loss Brier ECE In-game only LL":
+          - columnheader "Model"
+          - columnheader "Log loss"
+          - columnheader "Brier"
+          - columnheader "ECE"
+          - columnheader "In-game only LL"
+      - rowgroup:
+        - row "logistic bootstrap 0.4244 0.2817 0.0192 0.4229":
+          - cell "logistic bootstrap"
+          - cell "0.4244"
+          - cell "0.2817"
+          - cell "0.0192"
+          - cell "0.4229"
+        - row "mlp 0.4204 0.2798 0.0109 0.4190":
+          - cell "mlp"
+          - cell "0.4204"
+          - cell "0.2798"
+          - cell "0.0109"
+          - cell "0.4190"
+        - row "gru sequence 0.4246 0.2823 0.0074 0.4231":
+          - cell "gru sequence"
+          - cell "0.4246"
+          - cell "0.2823"
+          - cell "0.0074"
+          - cell "0.4231"
+    - table:
+      - rowgroup:
+        - row "Paired comparison (resampling whole games) Δ log loss 95% CI Verdict":
+          - columnheader "Paired comparison (resampling whole games)"
+          - columnheader "Δ log loss"
+          - columnheader "95% CI"
+          - columnheader "Verdict"
+      - rowgroup:
+        - row "mlp - logistic bootstrap -0.00393 [-0.0081, 0.0003] no significant difference":
+          - cell "mlp - logistic bootstrap"
+          - cell "-0.00393"
+          - cell "[-0.0081, 0.0003]"
+          - cell "no significant difference"
+        - row "gru sequence - logistic bootstrap 0.00025 [-0.0037, 0.0045] no significant difference":
+          - cell "gru sequence - logistic bootstrap"
+          - cell "0.00025"
+          - cell "[-0.0037, 0.0045]"
+          - cell "no significant difference"
+    - heading "NBA · play-by-play states · 244,640 test rows · data 64f11c7645a259d2" [level=4]:
+      - text: NBA · play-by-play states · 244,640 test rows
+      - generic: · data 64f11c7645a259d2
+    - table:
+      - rowgroup:
+        - row "Model Log loss Brier ECE In-game only LL":
+          - columnheader "Model"
+          - columnheader "Log loss"
+          - columnheader "Brier"
+          - columnheader "ECE"
+          - columnheader "In-game only LL"
+      - rowgroup:
+        - row "logistic bootstrap 0.4516 0.3012 0.0096 0.4503":
+          - cell "logistic bootstrap"
+          - cell "0.4516"
+          - cell "0.3012"
+          - cell "0.0096"
+          - cell "0.4503"
+        - row "mlp 0.4525 0.3008 0.0037 0.4511":
+          - cell "mlp"
+          - cell "0.4525"
+          - cell "0.3008"
+          - cell "0.0037"
+          - cell "0.4511"
+        - row "gru sequence 0.4463 0.2971 0.0028 0.4450":
+          - cell "gru sequence"
+          - cell "0.4463"
+          - cell "0.2971"
+          - cell "0.0028"
+          - cell "0.4450"
+    - table:
+      - rowgroup:
+        - row "Paired comparison (resampling whole games) Δ log loss 95% CI Verdict":
+          - columnheader "Paired comparison (resampling whole games)"
+          - columnheader "Δ log loss"
+          - columnheader "95% CI"
+          - columnheader "Verdict"
+      - rowgroup:
+        - row "mlp - logistic bootstrap 0.00083 [-0.0053, 0.0077] no significant difference":
+          - cell "mlp - logistic bootstrap"
+          - cell "0.00083"
+          - cell "[-0.0053, 0.0077]"
+          - cell "no significant difference"
+        - row "gru sequence - logistic bootstrap -0.00529 [-0.0084, -0.0020] A significantly better":
+          - cell "gru sequence - logistic bootstrap"
+          - cell "-0.00529"
+          - cell "[-0.0084, -0.0020]"
+          - cell "A significantly better"
+    - heading "NHL · play-by-play states · 67,281 test rows · data a5d3afd59eb6c6ff" [level=4]:
+      - text: NHL · play-by-play states · 67,281 test rows
+      - generic: · data a5d3afd59eb6c6ff
+    - table:
+      - rowgroup:
+        - row "Model Log loss Brier ECE In-game only LL":
+          - columnheader "Model"
+          - columnheader "Log loss"
+          - columnheader "Brier"
+          - columnheader "ECE"
+          - columnheader "In-game only LL"
+      - rowgroup:
+        - row "logistic bootstrap 0.5253 0.3582 0.0196 0.5233":
+          - cell "logistic bootstrap"
+          - cell "0.5253"
+          - cell "0.3582"
+          - cell "0.0196"
+          - cell "0.5233"
+        - row "mlp 0.5194 0.3562 0.0195 0.5173":
+          - cell "mlp"
+          - cell "0.5194"
+          - cell "0.3562"
+          - cell "0.0195"
+          - cell "0.5173"
+        - row "gru sequence 0.5203 0.3577 0.0241 0.5182":
+          - cell "gru sequence"
+          - cell "0.5203"
+          - cell "0.3577"
+          - cell "0.0241"
+          - cell "0.5182"
+    - table:
+      - rowgroup:
+        - row "Paired comparison (resampling whole games) Δ log loss 95% CI Verdict":
+          - columnheader "Paired comparison (resampling whole games)"
+          - columnheader "Δ log loss"
+          - columnheader "95% CI"
+          - columnheader "Verdict"
+      - rowgroup:
+        - row "mlp - logistic bootstrap -0.00591 [-0.0113, -0.0008] A significantly better":
+          - cell "mlp - logistic bootstrap"
+          - cell "-0.00591"
+          - cell "[-0.0113, -0.0008]"
+          - cell "A significantly better"
+        - row "gru sequence - logistic bootstrap -0.00501 [-0.0118, 0.0016] no significant difference":
+          - cell "gru sequence - logistic bootstrap"
+          - cell "-0.00501"
+          - cell "[-0.0118, 0.0016]"
+          - cell "no significant difference"
+    - heading "WNBA · play-by-play states · 24,099 test rows · data fd43938040165563" [level=4]:
+      - text: WNBA · play-by-play states · 24,099 test rows
+      - generic: · data fd43938040165563
+    - table:
+      - rowgroup:
+        - row "Model Log loss Brier ECE In-game only LL":
+          - columnheader "Model"
+          - columnheader "Log loss"
+          - columnheader "Brier"
+          - columnheader "ECE"
+          - columnheader "In-game only LL"
+      - rowgroup:
+        - row "logistic bootstrap 0.4372 0.2901 0.0132 0.4357":
+          - cell "logistic bootstrap"
+          - cell "0.4372"
+          - cell "0.2901"
+          - cell "0.0132"
+          - cell "0.4357"
+        - row "mlp 0.4407 0.2906 0.0266 0.4393":
+          - cell "mlp"
+          - cell "0.4407"
+          - cell "0.2906"
+          - cell "0.0266"
+          - cell "0.4393"
+        - row "gru sequence 0.4452 0.2947 0.0227 0.4435":
+          - cell "gru sequence"
+          - cell "0.4452"
+          - cell "0.2947"
+          - cell "0.0227"
+          - cell "0.4435"
+    - table:
+      - rowgroup:
+        - row "Paired comparison (resampling whole games) Δ log loss 95% CI Verdict":
+          - columnheader "Paired comparison (resampling whole games)"
+          - columnheader "Δ log loss"
+          - columnheader "95% CI"
+          - columnheader "Verdict"
+      - rowgroup:
+        - row "mlp - logistic bootstrap 0.00354 [-0.0098, 0.0164] no significant difference":
+          - cell "mlp - logistic bootstrap"
+          - cell "0.00354"
+          - cell "[-0.0098, 0.0164]"
+          - cell "no significant difference"
+        - row "gru sequence - logistic bootstrap 0.00801 [-0.0054, 0.0211] no significant difference":
+          - cell "gru sequence - logistic bootstrap"
+          - cell "0.00801"
+          - cell "[-0.0054, 0.0211]"
+          - cell "no significant difference"
+    - heading "NCAAW · play-by-play states · 272,202 test rows · data bd66cdde585e3a5d" [level=4]:
+      - text: NCAAW · play-by-play states · 272,202 test rows
+      - generic: · data bd66cdde585e3a5d
+    - table:
+      - rowgroup:
+        - row "Model Log loss Brier ECE In-game only LL":
+          - columnheader "Model"
+          - columnheader "Log loss"
+          - columnheader "Brier"
+          - columnheader "ECE"
+          - columnheader "In-game only LL"
+      - rowgroup:
+        - row "logistic bootstrap 0.3411 0.2224 0.0093 0.3398":
+          - cell "logistic bootstrap"
+          - cell "0.3411"
+          - cell "0.2224"
+          - cell "0.0093"
+          - cell "0.3398"
+        - row "mlp 0.3395 0.2215 0.0052 0.3381":
+          - cell "mlp"
+          - cell "0.3395"
+          - cell "0.2215"
+          - cell "0.0052"
+          - cell "0.3381"
+        - row "gru sequence 0.3396 0.2219 0.0042 0.3382":
+          - cell "gru sequence"
+          - cell "0.3396"
+          - cell "0.2219"
+          - cell "0.0042"
+          - cell "0.3382"
+    - table:
+      - rowgroup:
+        - row "Paired comparison (resampling whole games) Δ log loss 95% CI Verdict":
+          - columnheader "Paired comparison (resampling whole games)"
+          - columnheader "Δ log loss"
+          - columnheader "95% CI"
+          - columnheader "Verdict"
+      - rowgroup:
+        - row "mlp - logistic bootstrap -0.00164 [-0.0045, 0.0013] no significant difference":
+          - cell "mlp - logistic bootstrap"
+          - cell "-0.00164"
+          - cell "[-0.0045, 0.0013]"
+          - cell "no significant difference"
+        - row "gru sequence - logistic bootstrap -0.00155 [-0.0038, 0.0007] no significant difference":
+          - cell "gru sequence - logistic bootstrap"
+          - cell "-0.00155"
+          - cell "[-0.0038, 0.0007]"
+          - cell "no significant difference"
+  - article:
+    - generic: External consensus · betting market vs SportsWorld (pregame)
+    - generic: identical out-of-sample games · market de-vigged · benchmark only, never a feature
+    - table:
+      - rowgroup:
+        - row "League Games SportsWorld LL Market LL Δ (SW − market) 95% CI Corr. |Δp| mean A6 blend vs market (same later-half games)":
+          - columnheader "League"
+          - columnheader "Games"
+          - columnheader "SportsWorld LL"
+          - columnheader "Market LL"
+          - columnheader "Δ (SW − market) 95% CI"
+          - columnheader "Corr."
+          - columnheader "|Δp| mean"
+          - columnheader "A6 blend vs market (same later-half games)"
+      - rowgroup:
+        - row "FBS 1320 0.5257 0.4930 0.0327 [0.0205, 0.0447] 0.906 0.085 0.4650 vs 0.4638 w(SW) 0.29 · w(mkt) 0.83":
+          - cell "FBS"
+          - cell "1320"
+          - cell "0.5257"
+          - cell "0.4930"
+          - cell "0.0327 [0.0205, 0.0447]"
+          - cell "0.906"
+          - cell "0.085"
+          - cell "0.4650 vs 0.4638 w(SW) 0.29 · w(mkt) 0.83":
+            - text: 0.4650 vs 0.4638
+            - generic: w(SW) 0.29 · w(mkt) 0.83
+        - row "NBA 1500 0.6081 0.5741 0.0340 [0.0233, 0.0450] 0.875 0.089 0.5485 vs 0.5459 w(SW) -0.01 · w(mkt) 0.94":
+          - cell "NBA"
+          - cell "1500"
+          - cell "0.6081"
+          - cell "0.5741"
+          - cell "0.0340 [0.0233, 0.0450]"
+          - cell "0.875"
+          - cell "0.089"
+          - cell "0.5485 vs 0.5459 w(SW) -0.01 · w(mkt) 0.94":
+            - text: 0.5485 vs 0.5459
+            - generic: w(SW) -0.01 · w(mkt) 0.94
+        - row "NFL 453 0.6314 0.5968 0.0346 [0.0169, 0.0515] 0.859 0.080 0.6375 vs 0.6187 w(SW) -0.54 · w(mkt) 1.73":
+          - cell "NFL"
+          - cell "453"
+          - cell "0.6314"
+          - cell "0.5968"
+          - cell "0.0346 [0.0169, 0.0515]"
+          - cell "0.859"
+          - cell "0.080"
+          - cell "0.6375 vs 0.6187 w(SW) -0.54 · w(mkt) 1.73":
+            - text: 0.6375 vs 0.6187
+            - generic: w(SW) -0.54 · w(mkt) 1.73
+        - row "NHL 1500 0.6867 0.6769 0.0098 [0.0046, 0.0153] 0.806 0.043 0.6891 vs 0.6764 w(SW) -1.95 · w(mkt) 2.12":
+          - cell "NHL"
+          - cell "1500"
+          - cell "0.6867"
+          - cell "0.6769"
+          - cell "0.0098 [0.0046, 0.0153]"
+          - cell "0.806"
+          - cell "0.043"
+          - cell "0.6891 vs 0.6764 w(SW) -1.95 · w(mkt) 2.12":
+            - text: 0.6891 vs 0.6764
+            - generic: w(SW) -1.95 · w(mkt) 2.12
+    - paragraph: Markets aggregate injury news, lineups and money; SportsWorld is an independent, auditable world model. The gap measures what that extra information is worth, and where the two disagree is where the interesting research lives.
+  - article:
+    - generic: Learned player-availability impact
+    - generic: residual of actual margin vs point-in-time Kalman expectation, regressed on key-player absences (ex-post participation)
+    - table:
+      - rowgroup:
+        - row "League Absence Effect (points / goals) ±SE t Games with absence Games":
+          - columnheader "League"
+          - columnheader "Absence"
+          - columnheader "Effect (points / goals)"
+          - columnheader "±SE"
+          - columnheader "t"
+          - columnheader "Games with absence"
+          - columnheader "Games"
+      - rowgroup:
+        - row "FBS starting QB out -2.90 0.53 -5.44 787 2501":
+          - cell "FBS"
+          - cell "starting QB out"
+          - cell "-2.90"
+          - cell "0.53"
+          - cell "-5.44"
+          - cell "787"
+          - cell "2501"
+        - row "per top-2 minutes player out -0.11 0.89 -0.12 282 2501":
+          - cell
+          - cell "per top-2 minutes player out"
+          - cell "-0.11"
+          - cell "0.89"
+          - cell "-0.12"
+          - cell "282"
+          - cell "2501"
+        - row "per top-2 minutes player out 0.67 0.93 0.72 255 2501":
+          - cell
+          - cell "per top-2 minutes player out"
+          - cell "0.67"
+          - cell "0.93"
+          - cell "0.72"
+          - cell "255"
+          - cell "2501"
+        - row "per top-2 minutes player out 0.17 1.13 0.15 174 2501":
+          - cell
+          - cell "per top-2 minutes player out"
+          - cell "0.17"
+          - cell "1.13"
+          - cell "0.15"
+          - cell "174"
+          - cell "2501"
+        - row "NCAAM per top-2 minutes player out -0.89 0.31 -2.86 1074 10643":
+          - cell "NCAAM"
+          - cell "per top-2 minutes player out"
+          - cell "-0.89"
+          - cell "0.31"
+          - cell "-2.86"
+          - cell "1074"
+          - cell "10643"
+        - row "NBA per top-2 minutes player out -2.47 0.20 -12.4 3173 9456":
+          - cell "NBA"
+          - cell "per top-2 minutes player out"
+          - cell "-2.47"
+          - cell "0.20"
+          - cell "-12.4"
+          - cell "3173"
+          - cell "9456"
+        - row "NFL starting QB out -3.81 0.84 -4.55 248 776":
+          - cell "NFL"
+          - cell "starting QB out"
+          - cell "-3.81"
+          - cell "0.84"
+          - cell "-4.55"
+          - cell "248"
+          - cell "776"
+        - row "per top-2 minutes player out -0.85 1.16 -0.73 128 776":
+          - cell
+          - cell "per top-2 minutes player out"
+          - cell "-0.85"
+          - cell "1.16"
+          - cell "-0.73"
+          - cell "128"
+          - cell "776"
+        - row "per top-2 minutes player out -1.61 1.25 -1.28 111 776":
+          - cell
+          - cell "per top-2 minutes player out"
+          - cell "-1.61"
+          - cell "1.25"
+          - cell "-1.28"
+          - cell "111"
+          - cell "776"
+        - row "per top-2 minutes player out -1.17 1.27 -0.92 106 776":
+          - cell
+          - cell "per top-2 minutes player out"
+          - cell "-1.17"
+          - cell "1.27"
+          - cell "-0.92"
+          - cell "106"
+          - cell "776"
+        - row "NHL starting goalie out -0.16 0.06 -2.72 1762 4027":
+          - cell "NHL"
+          - cell "starting goalie out"
+          - cell "-0.16"
+          - cell "0.06"
+          - cell "-2.72"
+          - cell "1762"
+          - cell "4027"
+        - row "per top-2 minutes player out -0.14 0.10 -1.45 619 4027":
+          - cell
+          - cell "per top-2 minutes player out"
+          - cell "-0.14"
+          - cell "0.10"
+          - cell "-1.45"
+          - cell "619"
+          - cell "4027"
+        - row "WNBA per top-2 minutes player out -3.73 0.80 -4.68 199 1056":
+          - cell "WNBA"
+          - cell "per top-2 minutes player out"
+          - cell "-3.73"
+          - cell "0.80"
+          - cell "-4.68"
+          - cell "199"
+          - cell "1056"
+        - row "NCAAW per top-2 minutes player out -2.49 0.38 -6.62 834 10132":
+          - cell "NCAAW"
+          - cell "per top-2 minutes player out"
+          - cell "-2.49"
+          - cell "0.38"
+          - cell "-6.62"
+          - cell "834"
+          - cell "10132"
+    - paragraph: "Serving: live ESPN injury reports → P(plays) (status mapping is an uncalibrated, labelled prior) → team strength delta = effect × (1 − P(plays)) → every affected future game and the season run are recomputed."
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: 25%

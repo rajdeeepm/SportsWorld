@@ -1,0 +1,106 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+- navigation "Formula 1 sections":
+  - generic: Formula 1
+  - link "Overview":
+    - /url: /f1
+    - text: Overview
+  - link "Live track":
+    - /url: /f1/live
+    - text: Live track
+  - link "Simulation Lab" [active]:
+    - /url: /f1/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "F1: Season Simulation Lab" [level=1]':
+    - text: "F1:"
+    - emphasis: Season Simulation Lab
+  - paragraph: Branch the world. Simulate the rest of the season. Measure championship and constructor paths.
+  - generic: Active scenario
+  - generic: "Baseline: the canonical season."
+  - button "Restore baseline":
+    - text: Restore baseline
+  - button "Run 10,000 seasons" [disabled]:
+    - text: Run 10,000 seasons
+  - region "Scenario controls":
+    - heading "Scenario controls" [level=2]
+    - heading "Car or driver pace" [level=3]:
+      - text: Car or driver pace
+    - combobox "Target":
+      - option "Mercedes"
+      - option "Ferrari" [selected]
+      - option "McLaren"
+      - option "Red Bull"
+      - option "RB F1 Team"
+      - option "Alpine F1 Team"
+      - option "Audi"
+      - option "Haas F1 Team"
+      - option "Williams"
+      - option "Aston Martin"
+      - option "Cadillac F1 Team"
+      - option "Andrea Kimi Antonelli"
+      - option "George Russell"
+      - option "Lewis Hamilton"
+      - option "Lando Norris"
+      - option "Max Verstappen"
+      - option "Charles Leclerc"
+      - option "Oscar Piastri"
+      - option "Isack Hadjar"
+      - option "Liam Lawson"
+      - option "Arvid Lindblad"
+      - option "Pierre Gasly"
+      - option "Franco Colapinto"
+      - option "Oliver Bearman"
+      - option "Gabriel Bortoleto"
+      - option "Nico Hülkenberg"
+      - option "Esteban Ocon"
+      - option "Carlos Sainz"
+      - option "Alexander Albon"
+      - option "Fernando Alonso"
+      - option "Yuki Tsunoda"
+      - option "Lance Stroll"
+      - option "Sergio Pérez"
+      - option "Valtteri Bottas"
+    - text: "Pace change:"
+    - generic: "+0.10"
+    - text: rating units (field sd ≈ 0.10)
+    - 'slider "Pace change: +0.10 rating units (field sd ≈ 0.10)"': "0.1"
+    - button "Add to scenario":
+      - text: Add to scenario
+    - heading "Ask in plain English" [level=3]:
+      - text: Ask in plain English
+    - textbox "Scenario question":
+      - /placeholder: e.g. What if Ferrari's upgrade adds a tenth of pace?
+    - button "Ask and simulate" [disabled]
+  - region "Simulation results":
+    - heading "Simulation results" [level=2]
+    - generic: Build a scenario, then run it
+    - text: Shift a car’s or a driver’s pace and watch both championships respond. Both branches share random numbers.
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: "-35%"

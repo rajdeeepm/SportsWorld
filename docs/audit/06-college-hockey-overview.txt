@@ -1,0 +1,59 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey" [active]:
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "College Hockey sections":
+  - generic: College Hockey
+  - link "Overview":
+    - /url: /mens-college-hockey
+    - text: Overview
+  - link "Standings":
+    - /url: /mens-college-hockey/standings
+    - text: Standings
+  - link "Live":
+    - /url: /mens-college-hockey/games?live=1
+    - text: Live
+  - link "Forecasts":
+    - /url: /mens-college-hockey/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /mens-college-hockey/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "College Hockey: 2026–27 Season World" [level=1]':
+    - text: "College Hockey:"
+    - emphasis: 2026–27 Season World
+  - paragraph: Every game. Every team. Deeper intelligence.
+  - region "Season not started":
+    - heading "Season not started" [level=2]
+    - generic: The 2026–27 College Hockey season run starts with the first scheduled game.
+    - text: The tracker is watching ESPN for the schedule. As soon as games are listed, SportsWorld builds the season, simulates it 10,000 times, and this page fills in. Last season is available in Research → historical replay.
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: 8%

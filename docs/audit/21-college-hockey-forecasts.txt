@@ -1,0 +1,60 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "College Hockey sections":
+  - generic: College Hockey
+  - link "Overview":
+    - /url: /mens-college-hockey
+    - text: Overview
+  - link "Standings":
+    - /url: /mens-college-hockey/standings
+    - text: Standings
+  - link "Live":
+    - /url: /mens-college-hockey/games?live=1
+    - text: Live
+  - link "Forecasts" [active]:
+    - /url: /mens-college-hockey/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /mens-college-hockey/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "College Hockey: Every game, forecast" [level=1]':
+    - text: "College Hockey:"
+    - emphasis: Every game, forecast
+  - paragraph: All 0 remaining games with a calibrated forecast and the season leverage of each result.
+  - region "Forecast board":
+    - heading "Forecast board" [level=2]
+    - button "By date"
+    - button "By leverage"
+    - generic: No remaining games
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: 25%

@@ -1,0 +1,547 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1" [active]:
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+- navigation "Formula 1 sections":
+  - generic: Formula 1
+  - link "Overview":
+    - /url: /f1
+    - text: Overview
+  - link "Live track":
+    - /url: /f1/live
+    - text: Live track
+  - link "Simulation Lab":
+    - /url: /f1/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "F1: 2026 Season World" [level=1]':
+    - text: "F1:"
+    - emphasis: 2026 Season World
+  - paragraph: Every driver. Every race. A two-level driver + car model, simulated to the final flag 10,000 times.
+  - generic: Drivers’ title favourite
+  - text: Andrea Kimi Antonelli · 10,000 simulated seasons
+  - generic: 95%
+  - generic: Races completed
+  - text: "16"
+  - generic: of 23
+  - generic: 70% of the season
+  - generic: Races remaining
+  - generic: "7"
+  - generic: "Next: Singapore GP"
+  - generic: Teams tracked
+  - generic: "11"
+  - generic: all constructors
+  - generic: Drivers modelled
+  - generic: "22"
+  - generic: entry list from round 15
+  - generic: Sprints remaining
+  - generic: "1"
+  - generic: sprint points simulated
+  - generic: Championship lead
+  - generic: 66pts
+  - generic: ANT over RUS
+  - 'region "This weekend: Grand Prix hub"':
+    - 'heading "This weekend: Grand Prix hub" [level=2]'
+    - generic: Round 17 · Sprint
+    - link "Live track":
+      - /url: /f1/live
+    - generic: Singapore Grand Prix
+    - generic: Sun, Oct 11
+    - generic: Russell
+    - generic: 22%
+    - generic: Antonelli
+    - generic: 17%
+    - generic: Verstappen
+    - generic: 15%
+    - generic: Norris
+    - generic: 13%
+    - generic: Hamilton
+    - generic: 12%
+    - generic: Leclerc
+    - generic: 10%
+    - generic: Hadjar
+    - generic: 5%
+    - generic: Piastri
+    - generic: 4%
+    - generic: "Favourite: George Russell (Mercedes) · driver 0.71 ± 0.11, reliability 95%"
+    - generic: "Bars: probability of winning the Grand Prix, from 10,000 simulated races."
+  - region "Drivers’ championship outlook":
+    - heading "Drivers’ championship outlook" [level=2]
+    - table:
+      - rowgroup:
+        - row "# Driver Team Points Projected Wins Title":
+          - columnheader "#"
+          - columnheader "Driver"
+          - columnheader "Team"
+          - columnheader "Points"
+          - columnheader "Projected"
+          - columnheader "Wins"
+          - columnheader "Title"
+      - rowgroup:
+        - row "1 Andrea Kimi Antonelli ANT Mercedes 302 398 360–437 8 → 9.2 95%":
+          - cell "1"
+          - cell "Andrea Kimi Antonelli ANT"
+          - cell "Mercedes":
+            - generic: Mercedes
+          - cell "302"
+          - cell "398 360–437":
+            - text: "398"
+            - generic: 360–437
+          - cell "8 → 9.2":
+            - text: "8"
+            - generic: → 9.2
+          - cell "95%":
+            - generic: 95%
+        - row "2 George Russell RUS Mercedes 236 341 303–379 3 → 4.6 4.6%":
+          - cell "2"
+          - cell "George Russell RUS"
+          - cell "Mercedes":
+            - generic: Mercedes
+          - cell "236"
+          - cell "341 303–379":
+            - text: "341"
+            - generic: 303–379
+          - cell "3 → 4.6":
+            - text: "3"
+            - generic: → 4.6
+          - cell "4.6%":
+            - generic: 4.6%
+        - row "3 Lewis Hamilton HAM Ferrari 199 275 238–316 1 → 1.8 <0.1%":
+          - cell "3"
+          - cell "Lewis Hamilton HAM"
+          - cell "Ferrari":
+            - generic: Ferrari
+          - cell "199"
+          - cell "275 238–316":
+            - text: "275"
+            - generic: 238–316
+          - cell "1 → 1.8":
+            - text: "1"
+            - generic: → 1.8
+          - cell "<0.1%":
+            - generic: <0.1%
+        - row "4 Lando Norris NOR McLaren 186 262 223–304 2 → 2.9 0.0%":
+          - cell "4"
+          - cell "Lando Norris NOR"
+          - cell "McLaren":
+            - generic: McLaren
+          - cell "186"
+          - cell "262 223–304":
+            - text: "262"
+            - generic: 223–304
+          - cell "2 → 2.9":
+            - text: "2"
+            - generic: → 2.9
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "5 Charles Leclerc LEC Ferrari 179 251 214–291 1 → 1.7 0.0%":
+          - cell "5"
+          - cell "Charles Leclerc LEC"
+          - cell "Ferrari":
+            - generic: Ferrari
+          - cell "179"
+          - cell "251 214–291":
+            - text: "251"
+            - generic: 214–291
+          - cell "1 → 1.7":
+            - text: "1"
+            - generic: → 1.7
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "6 Max Verstappen VER Red Bull 163 251 212–291 0 → 1.0 0.0%":
+          - cell "6"
+          - cell "Max Verstappen VER"
+          - cell "Red Bull":
+            - generic: Red Bull
+          - cell "163"
+          - cell "251 212–291":
+            - text: "251"
+            - generic: 212–291
+          - cell "0 → 1.0":
+            - text: "0"
+            - generic: → 1.0
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "7 Oscar Piastri PIA McLaren 120 172 141–208 0 → 0.3 0.0%":
+          - cell "7"
+          - cell "Oscar Piastri PIA"
+          - cell "McLaren":
+            - generic: McLaren
+          - cell "120"
+          - cell "172 141–208":
+            - text: "172"
+            - generic: 141–208
+          - cell "0 → 0.3":
+            - text: "0"
+            - generic: → 0.3
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "8 Isack Hadjar HAD Red Bull 86 146 112–183 0 → 0.4 0.0%":
+          - cell "8"
+          - cell "Isack Hadjar HAD"
+          - cell "Red Bull":
+            - generic: Red Bull
+          - cell "86"
+          - cell "146 112–183":
+            - text: "146"
+            - generic: 112–183
+          - cell "0 → 0.4":
+            - text: "0"
+            - generic: → 0.4
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "9 Liam Lawson LAW RB 59 86 66–113 0 → 0.0 0.0%":
+          - cell "9"
+          - cell "Liam Lawson LAW"
+          - cell "RB":
+            - generic: RB
+          - cell "59"
+          - cell "86 66–113":
+            - text: "86"
+            - generic: 66–113
+          - cell "0 → 0.0":
+            - text: "0"
+            - generic: → 0.0
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "10 Pierre Gasly GAS Alpine 41 60 43–83 0 → 0.0 0.0%":
+          - cell "10"
+          - cell "Pierre Gasly GAS"
+          - cell "Alpine":
+            - generic: Alpine
+          - cell "41"
+          - cell "60 43–83":
+            - text: "60"
+            - generic: 43–83
+          - cell "0 → 0.0":
+            - text: "0"
+            - generic: → 0.0
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "11 Arvid Lindblad LIN RB 37 63 43–91 0 → 0.1 0.0%":
+          - cell "11"
+          - cell "Arvid Lindblad LIN"
+          - cell "RB":
+            - generic: RB
+          - cell "37"
+          - cell "63 43–91":
+            - text: "63"
+            - generic: 43–91
+          - cell "0 → 0.1":
+            - text: "0"
+            - generic: → 0.1
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "12 Franco Colapinto COL Alpine 27 37 27–53 0 → 0.0 0.0%":
+          - cell "12"
+          - cell "Franco Colapinto COL"
+          - cell "Alpine":
+            - generic: Alpine
+          - cell "27"
+          - cell "37 27–53":
+            - text: "37"
+            - generic: 27–53
+          - cell "0 → 0.0":
+            - text: "0"
+            - generic: → 0.0
+          - cell "0.0%":
+            - generic: 0.0%
+    - generic: Projected = expected final points with the 90% range across 10,000 simulated seasons.
+  - region "Drivers’ title odds":
+    - heading "Drivers’ title odds" [level=2]
+    - generic: "Whiskers: 95% Monte Carlo interval."
+  - region "Constructors’ championship outlook":
+    - heading "Constructors’ championship outlook" [level=2]
+    - table:
+      - rowgroup:
+        - row "# Team Points Projected Car pace Reliability Title":
+          - columnheader "#"
+          - columnheader "Team"
+          - columnheader "Points"
+          - columnheader "Projected"
+          - columnheader "Car pace"
+          - columnheader "Reliability"
+          - columnheader "Title"
+      - rowgroup:
+        - row "1 Mercedes 538 739 685–792 0.55 95% 100%":
+          - cell "1"
+          - cell "Mercedes":
+            - link "Mercedes":
+              - /url: /f1/team/mercedes
+              - generic: Mercedes
+          - cell "538"
+          - cell "739 685–792":
+            - text: "739"
+            - generic: 685–792
+          - cell "0.55"
+          - cell "95%"
+          - cell "100%":
+            - generic: 100%
+        - row "2 Ferrari 378 526 474–582 0.41 83% 0.0%":
+          - cell "2"
+          - cell "Ferrari":
+            - link "Ferrari":
+              - /url: /f1/team/ferrari
+              - generic: Ferrari
+          - cell "378"
+          - cell "526 474–582":
+            - text: "526"
+            - generic: 474–582
+          - cell "0.41"
+          - cell "83%"
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "3 McLaren 306 434 383.95000000000005–487 0.29 81% 0.0%":
+          - cell "3"
+          - cell "McLaren":
+            - link "McLaren":
+              - /url: /f1/team/mclaren
+              - generic: McLaren
+          - cell "306"
+          - cell "434 383.95000000000005–487":
+            - text: "434"
+            - generic: 383.95000000000005–487
+          - cell "0.29"
+          - cell "81%"
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "4 Red Bull 263 411 358–465 0.23 91% 0.0%":
+          - cell "4"
+          - cell "Red Bull":
+            - link "Red Bull":
+              - /url: /f1/team/red_bull
+              - generic: Red Bull
+          - cell "263"
+          - cell "411 358–465":
+            - text: "411"
+            - generic: 358–465
+          - cell "0.23"
+          - cell "91%"
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "5 RB 83 136 106–174 -0.03 98% 0.0%":
+          - cell "5"
+          - cell "RB":
+            - link "RB":
+              - /url: /f1/team/rb
+              - generic: RB
+          - cell "83"
+          - cell "136 106–174":
+            - text: "136"
+            - generic: 106–174
+          - cell "-0.03"
+          - cell "98%"
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "6 Alpine 68 96 76–125 -0.11 80% 0.0%":
+          - cell "6"
+          - cell "Alpine":
+            - link "Alpine":
+              - /url: /f1/team/alpine
+              - generic: Alpine
+          - cell "68"
+          - cell "96 76–125":
+            - text: "96"
+            - generic: 76–125
+          - cell "-0.11"
+          - cell "80%"
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "7 Haas 27 36 27–51 -0.24 87% 0.0%":
+          - cell "7"
+          - cell "Haas":
+            - link "Haas":
+              - /url: /f1/team/haas
+              - generic: Haas
+          - cell "27"
+          - cell "36 27–51":
+            - text: "36"
+            - generic: 27–51
+          - cell "-0.24"
+          - cell "87%"
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "8 Audi 17 38 21–63 -0.21 93% 0.0%":
+          - cell "8"
+          - cell "Audi":
+            - link "Audi":
+              - /url: /f1/team/audi
+              - generic: Audi
+          - cell "17"
+          - cell "38 21–63":
+            - text: "38"
+            - generic: 21–63
+          - cell "-0.21"
+          - cell "93%"
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "9 Williams 12 16 12–26 -0.48 73% 0.0%":
+          - cell "9"
+          - cell "Williams":
+            - link "Williams":
+              - /url: /f1/team/williams
+              - generic: Williams
+          - cell "12"
+          - cell "16 12–26":
+            - text: "16"
+            - generic: 12–26
+          - cell "-0.48"
+          - cell "73%"
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "10 Aston Martin 3 5 3–13 -0.39 50% 0.0%":
+          - cell "10"
+          - cell "Aston Martin":
+            - link "Aston Martin":
+              - /url: /f1/team/aston_martin
+              - generic: Aston Martin
+          - cell "3"
+          - cell "5 3–13":
+            - text: "5"
+            - generic: 3–13
+          - cell "-0.39"
+          - cell "50%"
+          - cell "0.0%":
+            - generic: 0.0%
+        - row "11 Cadillac 0 1 0–5 -0.56 65% 0.0%":
+          - cell "11"
+          - cell "Cadillac":
+            - link "Cadillac":
+              - /url: /f1/team/cadillac
+              - generic: Cadillac
+          - cell "0"
+          - cell "1 0–5":
+            - text: "1"
+            - generic: 0–5
+          - cell "-0.56"
+          - cell "65%"
+          - cell "0.0%":
+            - generic: 0.0%
+  - region "Remaining calendar":
+    - heading "Remaining calendar" [level=2]
+    - table:
+      - rowgroup:
+        - row "Rd Date Grand Prix Format Favourites":
+          - columnheader "Rd"
+          - columnheader "Date"
+          - columnheader "Grand Prix"
+          - columnheader "Format"
+          - columnheader "Favourites"
+      - rowgroup:
+        - row "17 Oct 11 Singapore Grand Prix Sprint RUS 22% ANT 17% VER 15%":
+          - cell "17"
+          - cell "Oct 11"
+          - cell "Singapore Grand Prix"
+          - cell "Sprint":
+            - generic: Sprint
+          - cell "RUS 22% ANT 17% VER 15%":
+            - generic: RUS 22%
+            - generic: ANT 17%
+            - generic: VER 15%
+        - row "18 Oct 25 United States Grand Prix Race RUS 22% ANT 17% VER 15%":
+          - cell "18"
+          - cell "Oct 25"
+          - cell "United States Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 17% VER 15%":
+            - generic: RUS 22%
+            - generic: ANT 17%
+            - generic: VER 15%
+        - row "19 Nov 1 Mexico City Grand Prix Race RUS 22% ANT 17% VER 15%":
+          - cell "19"
+          - cell "Nov 1"
+          - cell "Mexico City Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 17% VER 15%":
+            - generic: RUS 22%
+            - generic: ANT 17%
+            - generic: VER 15%
+        - row "20 Nov 8 Brazilian Grand Prix Race RUS 22% ANT 17% VER 15%":
+          - cell "20"
+          - cell "Nov 8"
+          - cell "Brazilian Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 17% VER 15%":
+            - generic: RUS 22%
+            - generic: ANT 17%
+            - generic: VER 15%
+        - row "21 Nov 21 Las Vegas Grand Prix Race RUS 22% ANT 17% VER 14%":
+          - cell "21"
+          - cell "Nov 21"
+          - cell "Las Vegas Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 17% VER 14%":
+            - generic: RUS 22%
+            - generic: ANT 17%
+            - generic: VER 14%
+        - row "22 Nov 29 Qatar Grand Prix Race RUS 22% ANT 18% VER 14%":
+          - cell "22"
+          - cell "Nov 29"
+          - cell "Qatar Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 18% VER 14%":
+            - generic: RUS 22%
+            - generic: ANT 18%
+            - generic: VER 14%
+        - row "23 Dec 6 Abu Dhabi Grand Prix Race RUS 22% ANT 18% VER 15%":
+          - cell "23"
+          - cell "Dec 6"
+          - cell "Abu Dhabi Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 18% VER 15%":
+            - generic: RUS 22%
+            - generic: ANT 18%
+            - generic: VER 15%
+    - generic: Race-win probability for the three most likely winners of each Grand Prix.
+  - region "Model health":
+    - heading "Model health" [level=2]
+    - generic: Driver champions per draw
+    - generic: "1"
+    - generic: Constructor champions per draw
+    - generic: "1"
+    - generic: Remaining races / sprints
+    - generic: 7 / 1
+    - generic: Engine runtime
+    - generic: 0.098s
+    - generic: Driver form persistence ρ
+    - generic: "0.8"
+    - generic: Car form persistence ρ
+    - generic: "0.9"
+    - generic: Tie-break
+    - generic: FIA count-back
+    - generic: Structural checks from this run. F1 ratings are fit by one-step predictive likelihood on past races.
+  - generic: Run f1-2026-gs0-r1-dynamic
+  - generic: Rules f1_rules_2026_v1
+  - generic: Sources Jolpica results · OpenF1 sessions
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: "-35%"

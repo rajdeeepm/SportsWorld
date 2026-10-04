@@ -1,0 +1,88 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "College Hockey sections":
+  - generic: College Hockey
+  - link "Overview":
+    - /url: /mens-college-hockey
+    - text: Overview
+  - link "Standings" [active]:
+    - /url: /mens-college-hockey/standings
+    - text: Standings
+  - link "Live":
+    - /url: /mens-college-hockey/games?live=1
+    - text: Live
+  - link "Forecasts":
+    - /url: /mens-college-hockey/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /mens-college-hockey/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "College Hockey: Standings & projections" [level=1]':
+    - text: "College Hockey:"
+    - emphasis: Standings & projections
+  - paragraph: Today’s records next to where the season simulation expects each team to finish.
+  - combobox "Conference":
+    - option "All conferences" [selected]
+    - option "Big Ten"
+  - region "Big Ten":
+    - heading "Big Ten" [level=2]
+    - table:
+      - rowgroup:
+        - row "Team W L OTL Pts Conf Diff Exp. W NCAA Title":
+          - columnheader "Team"
+          - columnheader "W"
+          - columnheader "L"
+          - columnheader "OTL"
+          - columnheader "Pts"
+          - columnheader "Conf"
+          - columnheader "Diff"
+          - columnheader "Exp. W"
+          - columnheader "NCAA"
+          - columnheader "Title"
+      - rowgroup:
+        - row "Ohio State 0 0 0 0 0-0 0 - - -":
+          - cell "Ohio State":
+            - link "Ohio State":
+              - /url: /mens-college-hockey/team/194
+              - generic: Ohio State
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0-0"
+          - cell "0"
+          - cell "-"
+          - cell "-"
+          - cell "-"
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: 25%

@@ -49,6 +49,7 @@ export function F1World() {
     <>
       <div className="hero">
         <div>
+          <p className="hero-kicker">Know what matters before you watch.</p>
           <h1>F1: <em>2026 Season World</em></h1>
           <p>Every driver. Every race. A two-level driver + car model, simulated to the final flag 10,000 times.</p>
         </div>
@@ -222,7 +223,7 @@ export function F1Constructor({ id }: { id: string }) {
   const leaderGap = d.ctors[0].constructor_id === id ? c.points_now - d.ctors[1].points_now : c.points_now - d.ctors[0].points_now
   return (
     <div style={{ ['--hero-accent' as string]: color }}>
-      <div className="hero"><div><h1>{c.name.replace(' F1 Team', '')}: <em>Season World</em></h1><p>Persistent team intelligence across the 2026 Formula 1 season.</p></div></div>
+      <div className="hero"><div><h1>{c.name.replace(' F1 Team', '')}: <em>Season World</em></h1><p>Every remaining race, and what it means for the 2026 championship.</p></div></div>
       <div className="stack">
         <section className="team-band" style={{ ['--team-c' as string]: color, ['--team-glow' as string]: `${color}88`, gridTemplateColumns: 'auto repeat(4, auto) 1fr' }}>
           <div className="tb-name" style={{ paddingLeft: 22 }}><b>{c.name.replace(' F1 Team', '')}</b><span>Formula 1 team</span></div>

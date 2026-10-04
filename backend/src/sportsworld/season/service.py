@@ -205,6 +205,7 @@ class SeasonService:
             row["p_home_season_sim"] = sg.get("p_home")
             row["leverage_home"], row["leverage_away"] = lg_.get("leverage_home"), lg_.get("leverage_away")
             row["leverage_milestone"] = lg_.get("leverage_milestone")
+            row["ripple"] = lg_.get("ripple") or []
         # Hierarchical-consistency diagnostic (spec §17.3): board-implied vs simulated expected wins.
         exp_board: dict[str, float] = {}
         for row in board.values():

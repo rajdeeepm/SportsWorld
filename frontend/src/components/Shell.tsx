@@ -55,7 +55,7 @@ export function Shell({ children }: { children: ReactNode }) {
         <NavLink to={`${base}/lab`}><FlaskConical size={19} aria-hidden /> Simulation Lab</NavLink>
         <NavLink to="/research"><Microscope size={19} aria-hidden /> Research</NavLink>
         <div className="rail-foot">
-          <b>Modelling a smarter sports world.</b>
+          <b>Know what matters before you watch.</b>
           Every number is point-in-time, versioned and backtested.
           <LiveChip />
         </div>

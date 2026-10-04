@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -632,3 +632,75 @@ def team_player_stats(cid: str, team_id: str):
     season = max(season_start_year(spec, g.start_time) for g in games)
     ids = [g.game_id for g in sorted(games, key=lambda g: g.start_time) if season_start_year(spec, g.start_time) == season]
     return season_stats(cid, team_id, ids, svc.data_root)
+
+
+MILESTONE_NAME = {"playoffs": "playoff", "tournament": "NCAA tournament", "qualify": "playoff", "make_playoffs": "playoff"}
+
+
+def _stakes(cid: str, row: dict, teams: dict[str, dict]) -> dict:
+    """Why one game matters: win probability, both teams' playoff swing, who else it moves, and a viewing call."""
+    p = row.get("live_p_home") if row.get("state") == "in" and row.get("live_p_home") is not None else row.get("p_home")
+    p = 0.5 if p is None else float(p)
+    lh, la = float(row.get("leverage_home") or 0), float(row.get("leverage_away") or 0)
+    ms = row.get("leverage_milestone") or "playoffs"
+    mname = MILESTONE_NAME.get(ms, ms.replace("_", " "))
+    poss = lambda n: n + ("'" if n.endswith("s") else "'s")  # noqa: E731
+    fav, dog, pf = (row["home"], row["away"], p) if p >= 0.5 else (row["away"], row["home"], 1 - p)
+    swing = max(abs(lh), abs(la))
+    who = row["home"] if abs(lh) >= abs(la) else row["away"]
+    if row.get("state") == "post":
+        action, tone = "Final. The result is already folded into every season forecast.", "final"
+    elif row.get("state") == "in" and 0.25 <= p <= 0.75 and swing >= 0.03:
+        action, tone = f"Tune in now: still in doubt, with up to {swing * 100:.0f} pts of {mname} odds riding on it.", "must"
+    elif swing >= 0.10 and pf < 0.7:
+        action, tone = f"Must-watch: a real contest that moves {poss(who)} {mname} odds by {swing * 100:.0f} pts.", "must"
+    elif swing >= 0.10:
+        action, tone = f"Watch for the upset: {fav} should win ({pf * 100:.0f}%), but a {dog} win would swing {poss(who)} {mname} odds by {swing * 100:.0f} pts. Check in if it is close late.", "upset"
+    elif swing >= 0.03:
+        action, tone = f"Worth a look: it moves {poss(who)} {mname} odds by {swing * 100:.0f} pts.", "look"
+    elif pf < 0.6:
+        action, tone = "Good game, low stakes: evenly matched, but little changes for the season either way.", "low"
+    else:
+        action, tone = "Skip it for the season picture: little is at stake either way.", "skip"
+    ripple = []
+    for r in row.get("ripple") or []:
+        t = teams.get(r["team_id"], {})
+        d = float(r["delta_if_home_wins"])
+        ripple.append({"team_id": r["team_id"], "name": t.get("name", r["team_id"]), "now": t.get(ms),
+                       "if_home_wins": d, "roots_for": row["home"] if d > 0 else row["away"]})
+    return {"event_id": row["event_id"], "state": row.get("state"), "home": row["home"], "away": row["away"],
+            "home_id": row["home_id"], "away_id": row["away_id"], "p_home": round(p, 4), "favourite": fav, "p_favourite": round(pf, 4),
+            "milestone": ms, "milestone_name": mname,
+            "home_now": teams.get(row["home_id"], {}).get(ms), "away_now": teams.get(row["away_id"], {}).get(ms),
+            "swing_home": round(lh, 4), "swing_away": round(la, 4), "affected": ripple, "action": action, "tone": tone,
+            "as_of": row.get("as_of"), "global_state_version": row.get("global_state_version")}
+
+
+@router.get("/games/{cid}/{event_id}/stakes")
+def game_stakes(cid: str, event_id: str):
+    _league(cid)
+    st = _svc().state(cid)
+    eid = event_id if event_id.startswith(f"{cid}-") else f"{cid}-{event_id}"
+    row = st.board.get(eid) or next((r for r in st.board.values() if r["event_id"] in (eid, event_id)), None)
+    if row is None or st.fast_run is None:
+        raise HTTPException(404, "game not on the season board (finished earlier, or no season run yet)")
+    row = _with_live(cid, [row])[0]
+    return _clean(_stakes(cid, row, {t["team_id"]: t for t in st.fast_run["teams"]}))
+
+
+@router.get("/competitions/{cid}/game-of-the-day")
+def game_of_the_day(cid: str):
+    """The upcoming or live game with the most season at stake, weighted toward games still in doubt."""
+    _league(cid)
+    st = _svc().state(cid)
+    if st.fast_run is None:
+        raise HTTPException(404, "no season run yet")
+    rows = [r for r in _with_live(cid, list(st.board.values())) if r.get("state") in ("pre", "in")]
+    soon = [r for r in rows if r.get("state") == "in" or r["start_time"] <= (datetime.now(timezone.utc) + timedelta(days=8)).isoformat()] or rows
+    def score(r):
+        p = r.get("live_p_home") if r.get("state") == "in" and r.get("live_p_home") is not None else (r.get("p_home") or 0.5)
+        return max(abs(r.get("leverage_home") or 0), abs(r.get("leverage_away") or 0)) * 4 * p * (1 - p)
+    if not soon:
+        raise HTTPException(404, "no upcoming games")
+    best = max(soon, key=score)
+    return _clean(_stakes(cid, best, {t["team_id"]: t for t in st.fast_run["teams"]}))

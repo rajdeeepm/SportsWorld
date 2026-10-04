@@ -7,6 +7,7 @@ import { getJSON } from '../lib/api'
 import { useLiveGames, useWinProbHistory } from '../lib/live'
 import { CommentaryToggle } from '../components/radio'
 import { BoxScore } from '../components/stats'
+import { WhyItMatters } from '../components/stakes'
 import { useBoard, useMeta, type TeamMeta } from '../lib/data'
 import type { LeagueConfig } from '../lib/leagues'
 import { luminance, pct, time } from '../lib/format'
@@ -87,6 +88,8 @@ export function LiveGame({ lg, eventId }: { lg: LeagueConfig; eventId: string })
           </div>
           <ScoreSide meta={hm} name={g.home.name} abbr={g.home.abbreviation} score={g.home.score} color={hc} lg={lg} id={g.home.team_id} right />
         </section>
+
+        {g.state !== 'post' && <WhyItMatters league={lg.id} eventId={g.event_id} />}
 
         <div className="grid">
           <div className="c8">

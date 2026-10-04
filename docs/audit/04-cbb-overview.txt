@@ -1,0 +1,561 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB" [active]:
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "College Basketball sections":
+  - generic: College Basketball
+  - link "Overview":
+    - /url: /mens-college-basketball
+    - text: Overview
+  - link "Standings":
+    - /url: /mens-college-basketball/standings
+    - text: Standings
+  - link "Live":
+    - /url: /mens-college-basketball/games?live=1
+    - text: Live
+  - link "Forecasts":
+    - /url: /mens-college-basketball/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /mens-college-basketball/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "College Basketball: 2026–27 Season World" [level=1]':
+    - text: "College Basketball:"
+    - emphasis: 2026–27 Season World
+  - paragraph: Every team. Every game. Every forecast. One persistent season model, updated as results land.
+  - button "Listen to the briefing":
+    - text: Listen to the briefing
+  - button "Radio":
+    - text: Radio
+  - link "National Title favourite Michigan · 10,000 seasons, updated 31m ago 16%":
+    - /url: /mens-college-basketball/team/130
+    - generic: National Title favourite
+    - text: Michigan · 10,000 seasons, updated 31m ago
+    - generic: 16%
+  - generic: Games played
+  - generic: "0"
+  - generic: 0% of regular season
+  - generic: Games remaining
+  - generic: 5,729
+  - generic: regular season
+  - generic: Teams tracked
+  - generic: "365"
+  - generic: all Division I teams
+  - generic: Live games
+  - generic: "0"
+  - generic: none right now
+  - generic: Forecast coverage
+  - generic: 100%
+  - generic: 2,000 games forecast
+  - generic: Simulated seasons
+  - generic: 10,000
+  - generic: state v0 · 9.191s
+  - region "Featured matchups":
+    - heading "Featured matchups" [level=2]
+    - link "Full schedule":
+      - /url: /mens-college-basketball/games
+    - tablist:
+      - tab "Sun Nov 1 · 2" [selected]:
+        - generic: Sun
+        - text: Nov 1 · 2
+      - tab "Mon Nov 2 · 166":
+        - generic: Mon
+        - text: Nov 2 · 166
+      - tab "Tue Nov 3 · 26":
+        - generic: Tue
+        - text: Nov 3 · 26
+      - tab "Wed Nov 4 · 21":
+        - generic: Wed
+        - text: Nov 4 · 21
+      - tab "Thu Nov 5 · 58":
+        - generic: Thu
+        - text: Nov 5 · 58
+      - tab "Fri Nov 6 · 66":
+        - generic: Fri
+        - text: Nov 6 · 66
+      - tab "Sat Nov 7 · 52":
+        - generic: Sat
+        - text: Nov 7 · 52
+    - table:
+      - rowgroup:
+        - row "Time Away Home Win probability Leverage Game view":
+          - columnheader "Time"
+          - columnheader "Away"
+          - columnheader
+          - columnheader "Home"
+          - columnheader "Win probability"
+          - columnheader "Leverage"
+          - columnheader "Game view":
+            - generic: Game view
+      - rowgroup:
+        - 'row "9:30 AM Notre Dame vs Villanova ND 19%, VILL 81% High 14.0 Open game view: Notre Dame Fighting Irish at Villanova Wildcats"':
+          - cell "9:30 AM"
+          - cell "Notre Dame":
+            - link "Notre Dame":
+              - /url: /mens-college-basketball/team/87
+              - generic: Notre Dame
+          - cell "vs"
+          - cell "Villanova":
+            - link "Villanova":
+              - /url: /mens-college-basketball/team/222
+              - generic: Villanova
+          - cell "ND 19%, VILL 81%":
+            - img "ND 19%, VILL 81%":
+              - generic: ND 19%
+              - generic: 81% VILL
+          - cell "High 14.0":
+            - 'generic "Make NCAA tournament probability: win vs loss differs by 14.0 points"':
+              - text: High
+              - generic: "14.0"
+          - 'cell "Open game view: Notre Dame Fighting Irish at Villanova Wildcats"':
+            - 'button "Open game view: Notre Dame Fighting Irish at Villanova Wildcats"':
+              - text: View
+        - 'row "11:59 PM High Point vs Liberty HPU 55%, LIB 45% Low 2.3 Open game view: High Point Panthers at Liberty Flames"':
+          - cell "11:59 PM"
+          - cell "High Point":
+            - link "High Point":
+              - /url: /mens-college-basketball/team/2272
+              - generic: High Point
+          - cell "vs"
+          - cell "Liberty":
+            - link "Liberty":
+              - /url: /mens-college-basketball/team/2335
+              - generic: Liberty
+          - cell "HPU 55%, LIB 45%":
+            - img "HPU 55%, LIB 45%":
+              - generic: HPU 55%
+              - generic: 45% LIB
+          - cell "Low 2.3":
+            - 'generic "Make NCAA tournament probability: win vs loss differs by 2.3 points"':
+              - text: Low
+              - generic: "2.3"
+          - 'cell "Open game view: High Point Panthers at Liberty Flames"':
+            - 'button "Open game view: High Point Panthers at Liberty Flames"':
+              - text: View
+    - text: "The day’s 10 biggest games by season leverage: how much each result moves the teams’ headline odds."
+    - link "All live games":
+      - /url: /mens-college-basketball/games?live=1
+  - region "National Title outlook":
+    - heading "National Title outlook" [level=2]
+    - link "All teams":
+      - /url: /mens-college-basketball/standings
+    - table:
+      - rowgroup:
+        - row "# Team Exp. W NCAA Final Four Title":
+          - columnheader "#"
+          - columnheader "Team"
+          - columnheader "Exp. W"
+          - columnheader "NCAA"
+          - columnheader "Final Four"
+          - columnheader "Title"
+      - rowgroup:
+        - row "1 Michigan 26.2 100% 42% 16%":
+          - cell "1"
+          - cell "Michigan":
+            - link "Michigan":
+              - /url: /mens-college-basketball/team/130
+              - generic: Michigan
+          - cell "26.2"
+          - cell "100%"
+          - cell "42%"
+          - cell "16%":
+            - generic: 16%
+        - row "2 Arizona 25.4 100% 38% 13%":
+          - cell "2"
+          - cell "Arizona":
+            - link "Arizona":
+              - /url: /mens-college-basketball/team/12
+              - generic: Arizona
+          - cell "25.4"
+          - cell "100%"
+          - cell "38%"
+          - cell "13%":
+            - generic: 13%
+        - row "3 Duke 28.3 100% 33% 11%":
+          - cell "3"
+          - cell "Duke":
+            - link "Duke":
+              - /url: /mens-college-basketball/team/150
+              - generic: Duke
+          - cell "28.3"
+          - cell "100%"
+          - cell "33%"
+          - cell "11%":
+            - generic: 11%
+        - row "4 Florida 25.2 98% 27% 7.8%":
+          - cell "4"
+          - cell "Florida":
+            - link "Florida":
+              - /url: /mens-college-basketball/team/57
+              - generic: Florida
+          - cell "25.2"
+          - cell "98%"
+          - cell "27%"
+          - cell "7.8%":
+            - generic: 7.8%
+        - row "5 Houston 25.0 98% 26% 7.6%":
+          - cell "5"
+          - cell "Houston":
+            - link "Houston":
+              - /url: /mens-college-basketball/team/248
+              - generic: Houston
+          - cell "25.0"
+          - cell "98%"
+          - cell "26%"
+          - cell "7.6%":
+            - generic: 7.6%
+        - row "6 Iowa State 25.8 98% 23% 6.4%":
+          - cell "6"
+          - cell "Iowa State":
+            - link "Iowa State":
+              - /url: /mens-college-basketball/team/66
+              - generic: Iowa State
+          - cell "25.8"
+          - cell "98%"
+          - cell "23%"
+          - cell "6.4%":
+            - generic: 6.4%
+        - row "7 Illinois 24.2 94% 17% 4.3%":
+          - cell "7"
+          - cell "Illinois":
+            - link "Illinois":
+              - /url: /mens-college-basketball/team/356
+              - generic: Illinois
+          - cell "24.2"
+          - cell "94%"
+          - cell "17%"
+          - cell "4.3%":
+            - generic: 4.3%
+        - row "8 Purdue 24.5 93% 16% 4.2%":
+          - cell "8"
+          - cell "Purdue":
+            - link "Purdue":
+              - /url: /mens-college-basketball/team/2509
+              - generic: Purdue
+          - cell "24.5"
+          - cell "93%"
+          - cell "16%"
+          - cell "4.2%":
+            - generic: 4.2%
+        - row "9 Alabama 21.7 87% 12% 2.7%":
+          - cell "9"
+          - cell "Alabama":
+            - link "Alabama":
+              - /url: /mens-college-basketball/team/333
+              - generic: Alabama
+          - cell "21.7"
+          - cell "87%"
+          - cell "12%"
+          - cell "2.7%":
+            - generic: 2.7%
+        - row "10 UConn 24.3 91% 13% 2.6%":
+          - cell "10"
+          - cell "UConn":
+            - link "UConn":
+              - /url: /mens-college-basketball/team/41
+              - generic: UConn
+          - cell "24.3"
+          - cell "91%"
+          - cell "13%"
+          - cell "2.6%":
+            - generic: 2.6%
+        - row "11 Michigan St 23.1 86% 11% 2.4%":
+          - cell "11"
+          - cell "Michigan St":
+            - link "Michigan St":
+              - /url: /mens-college-basketball/team/127
+              - generic: Michigan St
+          - cell "23.1"
+          - cell "86%"
+          - cell "11%"
+          - cell "2.4%":
+            - generic: 2.4%
+        - row "12 St John's 24.3 93% 12% 2.4%":
+          - cell "12"
+          - cell "St John's":
+            - link "St John's":
+              - /url: /mens-college-basketball/team/2599
+              - generic: St John's
+          - cell "24.3"
+          - cell "93%"
+          - cell "12%"
+          - cell "2.4%":
+            - generic: 2.4%
+  - region "Games that move the race":
+    - heading "Games that move the race" [level=2]
+    - generic: No games in the next 15 days
+    - generic: Next 15 days, ranked by the swing in NCAA odds between winning and losing.
+  - region "National Title odds":
+    - heading "National Title odds" [level=2]
+    - generic: "Bars: share of 10,000 simulated seasons. Whiskers: 95% Monte Carlo interval."
+  - region "Live world updates":
+    - heading "Live world updates" [level=2]
+    - generic: No updates yet this session
+    - text: Finals, injury-report changes and grounded news appear here as they arrive.
+  - region "Conference race outlook":
+    - heading "Conference race outlook" [level=2]
+    - table:
+      - rowgroup:
+        - row "Conference Favourite NCAA Contenders Best NCAA":
+          - columnheader "Conference"
+          - columnheader "Favourite"
+          - columnheader "NCAA"
+          - columnheader "Contenders"
+          - columnheader "Best NCAA"
+      - rowgroup:
+        - row "Big Ten Michigan 100% ILL 94% PUR 93% 100%":
+          - cell "Big Ten"
+          - cell "Michigan":
+            - link "Michigan":
+              - /url: /mens-college-basketball/team/130
+              - generic: Michigan
+          - cell "100%":
+            - generic: 100%
+          - cell "ILL 94% PUR 93%":
+            - link "ILL 94%":
+              - /url: /mens-college-basketball/team/356
+              - generic: ILL 94%
+            - link "PUR 93%":
+              - /url: /mens-college-basketball/team/2509
+              - generic: PUR 93%
+          - cell "100%"
+        - row "Big 12 Arizona 100% HOU 98% ISU 98% 100%":
+          - cell "Big 12"
+          - cell "Arizona":
+            - link "Arizona":
+              - /url: /mens-college-basketball/team/12
+              - generic: Arizona
+          - cell "100%":
+            - generic: 100%
+          - cell "HOU 98% ISU 98%":
+            - link "HOU 98%":
+              - /url: /mens-college-basketball/team/248
+              - generic: HOU 98%
+            - link "ISU 98%":
+              - /url: /mens-college-basketball/team/66
+              - generic: ISU 98%
+          - cell "100%"
+        - row "Atlantic Coast Duke 100% UVA 74% LOU 71% 100%":
+          - cell "Atlantic Coast"
+          - cell "Duke":
+            - link "Duke":
+              - /url: /mens-college-basketball/team/150
+              - generic: Duke
+          - cell "100%":
+            - generic: 100%
+          - cell "UVA 74% LOU 71%":
+            - link "UVA 74%":
+              - /url: /mens-college-basketball/team/258
+              - generic: UVA 74%
+            - link "LOU 71%":
+              - /url: /mens-college-basketball/team/97
+              - generic: LOU 71%
+          - cell "100%"
+        - row "Southeastern Florida 98% ALA 87% VAN 84% 98%":
+          - cell "Southeastern"
+          - cell "Florida":
+            - link "Florida":
+              - /url: /mens-college-basketball/team/57
+              - generic: Florida
+          - cell "98%":
+            - generic: 98%
+          - cell "ALA 87% VAN 84%":
+            - link "ALA 87%":
+              - /url: /mens-college-basketball/team/333
+              - generic: ALA 87%
+            - link "VAN 84%":
+              - /url: /mens-college-basketball/team/238
+              - generic: VAN 84%
+          - cell "98%"
+        - row "Big East St John's 93% CONN 91% VILL 39% 93%":
+          - cell "Big East"
+          - cell "St John's":
+            - link "St John's":
+              - /url: /mens-college-basketball/team/2599
+              - generic: St John's
+          - cell "93%":
+            - generic: 93%
+          - cell "CONN 91% VILL 39%":
+            - link "CONN 91%":
+              - /url: /mens-college-basketball/team/41
+              - generic: CONN 91%
+            - link "VILL 39%":
+              - /url: /mens-college-basketball/team/222
+              - generic: VILL 39%
+          - cell "93%"
+        - row "West Coast Gonzaga 93% SMC 86% SCU 69% 93%":
+          - cell "West Coast"
+          - cell "Gonzaga":
+            - link "Gonzaga":
+              - /url: /mens-college-basketball/team/2250
+              - generic: Gonzaga
+          - cell "93%":
+            - generic: 93%
+          - cell "SMC 86% SCU 69%":
+            - link "SMC 86%":
+              - /url: /mens-college-basketball/team/2608
+              - generic: SMC 86%
+            - link "SCU 69%":
+              - /url: /mens-college-basketball/team/2541
+              - generic: SCU 69%
+          - cell "93%"
+        - row "Big South High Point 74% WIN 16% LONG 4% 74%":
+          - cell "Big South"
+          - cell "High Point":
+            - link "High Point":
+              - /url: /mens-college-basketball/team/2272
+              - generic: High Point
+          - cell "74%":
+            - generic: 74%
+          - cell "WIN 16% LONG 4%":
+            - link "WIN 16%":
+              - /url: /mens-college-basketball/team/2737
+              - generic: WIN 16%
+            - link "LONG 4%":
+              - /url: /mens-college-basketball/team/2344
+              - generic: LONG 4%
+          - cell "74%"
+        - row "Mountain West Utah State 72% UNM 68% GCU 42% 72%":
+          - cell "Mountain West"
+          - cell "Utah State":
+            - link "Utah State":
+              - /url: /mens-college-basketball/team/328
+              - generic: Utah State
+          - cell "72%":
+            - generic: 72%
+          - cell "UNM 68% GCU 42%":
+            - link "UNM 68%":
+              - /url: /mens-college-basketball/team/167
+              - generic: UNM 68%
+            - link "GCU 42%":
+              - /url: /mens-college-basketball/team/2253
+              - generic: GCU 42%
+          - cell "72%"
+        - row "Mid-Eastern Athletic Howard 71% NORF 16% NCCU 4% 71%":
+          - cell "Mid-Eastern Athletic"
+          - cell "Howard":
+            - link "Howard":
+              - /url: /mens-college-basketball/team/47
+              - generic: Howard
+          - cell "71%":
+            - generic: 71%
+          - cell "NORF 16% NCCU 4%":
+            - link "NORF 16%":
+              - /url: /mens-college-basketball/team/2450
+              - generic: NORF 16%
+            - link "NCCU 4%":
+              - /url: /mens-college-basketball/team/2428
+              - generic: NCCU 4%
+          - cell "71%"
+        - row "Atlantic 10 Saint Louis 69% VCU 58% DAY 28% 69%":
+          - cell "Atlantic 10"
+          - cell "Saint Louis":
+            - link "Saint Louis":
+              - /url: /mens-college-basketball/team/139
+              - generic: Saint Louis
+          - cell "69%":
+            - generic: 69%
+          - cell "VCU 58% DAY 28%":
+            - link "VCU 58%":
+              - /url: /mens-college-basketball/team/2670
+              - generic: VCU 58%
+            - link "DAY 28%":
+              - /url: /mens-college-basketball/team/2168
+              - generic: DAY 28%
+          - cell "69%"
+        - row "Summit League Denver 68% STMN 25% NDSU 24% 68%":
+          - cell "Summit League"
+          - cell "Denver":
+            - link "Denver":
+              - /url: /mens-college-basketball/team/2172
+              - generic: Denver
+          - cell "68%":
+            - generic: 68%
+          - cell "STMN 25% NDSU 24%":
+            - link "STMN 25%":
+              - /url: /mens-college-basketball/team/2900
+              - generic: STMN 25%
+            - link "NDSU 24%":
+              - /url: /mens-college-basketball/team/2449
+              - generic: NDSU 24%
+          - cell "68%"
+        - row "Southland McNeese 65% SFA 26% RGV 11% 65%":
+          - cell "Southland"
+          - cell "McNeese":
+            - link "McNeese":
+              - /url: /mens-college-basketball/team/2377
+              - generic: McNeese
+          - cell "65%":
+            - generic: 65%
+          - cell "SFA 26% RGV 11%":
+            - link "SFA 26%":
+              - /url: /mens-college-basketball/team/2617
+              - generic: SFA 26%
+            - link "RGV 11%":
+              - /url: /mens-college-basketball/team/292
+              - generic: RGV 11%
+          - cell "65%"
+    - generic: Top three NCAA contenders per conference.
+  - region "Injury report → strength":
+    - heading "Injury report → strength" [level=2]
+    - generic: No key players listed out
+    - text: Starting rotation players are all available on the current report.
+    - generic: ESPN injury report, refreshed 20730d ago. Effect sizes are learned; status→availability is a labelled prior.
+  - 'region "Today''s scorecard: forecasts vs what happened"':
+    - 'heading "Today''s scorecard: forecasts vs what happened" [level=2]'
+    - generic: No completed games yet today
+    - text: The scorecard fills in as games finish.
+    - generic: SportsWorld = point-in-time reconstruction at kickoff (results known before each kickoff, served model); ESPN = first point of ESPN's win-probability chart; market = DraftKings moneyline via ESPN, de-vigged. Benchmarks are never model inputs. One day is a small sample; the 7-season replay above is the real evidence.
+  - region "Model health & calibration":
+    - heading "Model health & calibration" [level=2]
+    - link "Full research":
+      - /url: /research
+    - generic: 90% win-band coverage
+    - generic: 91%
+    - generic: target 90% · independent-game sim only 61%
+    - generic: Win-total error
+    - generic: "3.87"
+    - generic: mean abs. error, vs 4.49 for a pace baseline
+    - generic: Champion log loss
+    - generic: "5.32"
+    - generic: vs 5.90 for picking uniformly
+    - generic: Game model log loss
+    - generic: "0.442"
+    - generic: walk-forward mean ± 0.005; state-space only 0.448
+    - generic: Champions per draw
+    - generic: 1–1
+    - generic: "structural check: exactly one title winner in every simulated season"
+    - generic: Board ↔ season consistency
+    - generic: "0.12"
+    - generic: mean |Δ expected wins| between game forecasts and the season simulation
+    - generic: Point-in-time replays of 2024–2025 preseason; rolling-origin = train on earlier seasons, test on the next.
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: CONN

@@ -1,0 +1,906 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL" [active]:
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "NHL sections":
+  - generic: NHL
+  - link "Overview":
+    - /url: /nhl
+    - text: Overview
+  - link "Standings":
+    - /url: /nhl/standings
+    - text: Standings
+  - link "Live 5 live":
+    - /url: /nhl/games?live=1
+    - text: Live
+    - generic "5 live"
+  - link "Forecasts":
+    - /url: /nhl/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /nhl/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "NHL: 2026–27 Season World" [level=1]':
+    - text: "NHL:"
+    - emphasis: 2026–27 Season World
+  - paragraph: Every team. Every game. Every forecast. One persistent season model, updated as results land.
+  - button "Listen to the briefing":
+    - text: Listen to the briefing
+  - button "Radio":
+    - text: Radio
+  - link "Stanley Cup favourite Avalanche · 10,000 seasons, updated just now 14%":
+    - /url: /nhl/team/17
+    - generic: Stanley Cup favourite
+    - text: Avalanche · 10,000 seasons, updated just now
+    - generic: 14%
+  - generic: Games played
+  - generic: "21"
+  - generic: 2% of regular season
+  - generic: Games remaining
+  - generic: 1,315
+  - generic: regular season
+  - generic: Teams tracked
+  - generic: "32"
+  - generic: all NHL teams
+  - generic: Live games
+  - generic: "5"
+  - generic: feeding the season run
+  - generic: Forecast coverage
+  - generic: 100%
+  - generic: 1,315 games forecast
+  - generic: Simulated seasons
+  - generic: 10,000
+  - generic: state v245 · 1.048s
+  - region "Featured matchups":
+    - heading "Featured matchups" [level=2]
+    - link "Full schedule":
+      - /url: /nhl/games
+    - tablist:
+      - tab "Today Oct 3 · 5" [selected]:
+        - generic: Today
+        - text: Oct 3 · 5
+      - tab "Sun Oct 4 · 5":
+        - generic: Sun
+        - text: Oct 4 · 5
+      - tab "Mon Oct 5 · 4":
+        - generic: Mon
+        - text: Oct 5 · 4
+      - tab "Tue Oct 6 · 9":
+        - generic: Tue
+        - text: Oct 6 · 9
+      - tab "Wed Oct 7 · 3":
+        - generic: Wed
+        - text: Oct 7 · 3
+      - tab "Thu Oct 8 · 10":
+        - generic: Thu
+        - text: Oct 8 · 10
+      - tab "Fri Oct 9 · 4":
+        - generic: Fri
+        - text: Oct 9 · 4
+    - table:
+      - rowgroup:
+        - row "Time Away Home Win probability Leverage Game view":
+          - columnheader "Time"
+          - columnheader "Away"
+          - columnheader
+          - columnheader "Home"
+          - columnheader "Win probability"
+          - columnheader "Leverage"
+          - columnheader "Game view":
+            - generic: Game view
+      - rowgroup:
+        - 'row "P3 9:31 Stars 1–2 Predators DAL 26%, NSH 74% High 8.5 Open game view: Dallas Stars at Nashville Predators"':
+          - cell "P3 9:31":
+            - generic: P3 9:31
+          - cell "Stars":
+            - link "Stars":
+              - /url: /nhl/team/9
+              - generic: Stars
+          - cell "1–2":
+            - generic: 1–2
+          - cell "Predators":
+            - link "Predators":
+              - /url: /nhl/team/27
+              - generic: Predators
+          - cell "DAL 26%, NSH 74%":
+            - img "DAL 26%, NSH 74%":
+              - generic: DAL 26%
+              - generic: 74% NSH
+          - cell "High 8.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 8.5 points"':
+              - text: High
+              - generic: "8.5"
+          - 'cell "Open game view: Dallas Stars at Nashville Predators"':
+            - 'button "Open game view: Dallas Stars at Nashville Predators"':
+              - text: Watch
+        - 'row "P3 12:43 Bruins 1–3 Wild BOS 8%, MIN 92% Medium 6.9 Open game view: Boston Bruins at Minnesota Wild"':
+          - cell "P3 12:43":
+            - generic: P3 12:43
+          - cell "Bruins":
+            - link "Bruins":
+              - /url: /nhl/team/1
+              - generic: Bruins
+          - cell "1–3":
+            - generic: 1–3
+          - cell "Wild":
+            - link "Wild":
+              - /url: /nhl/team/30
+              - generic: Wild
+          - cell "BOS 8%, MIN 92%":
+            - img "BOS 8%, MIN 92%":
+              - generic: BOS 8%
+              - generic: 92% MIN
+          - cell "Medium 6.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 6.9 points"':
+              - text: Medium
+              - generic: "6.9"
+          - 'cell "Open game view: Boston Bruins at Minnesota Wild"':
+            - 'button "Open game view: Boston Bruins at Minnesota Wild"':
+              - text: Watch
+        - 'row "P2 12:32 Blues 0–3 Avalanche STL 4%, COL 96% Medium 6.7 Open game view: St. Louis Blues at Colorado Avalanche"':
+          - cell "P2 12:32":
+            - generic: P2 12:32
+          - cell "Blues":
+            - link "Blues":
+              - /url: /nhl/team/19
+              - generic: Blues
+          - cell "0–3":
+            - generic: 0–3
+          - cell "Avalanche":
+            - link "Avalanche":
+              - /url: /nhl/team/17
+              - generic: Avalanche
+          - cell "STL 4%, COL 96%":
+            - img "STL 4%, COL 96%":
+              - generic: STL 4%
+              - generic: 96% COL
+          - cell "Medium 6.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 6.7 points"':
+              - text: Medium
+              - generic: "6.7"
+          - 'cell "Open game view: St. Louis Blues at Colorado Avalanche"':
+            - 'button "Open game view: St. Louis Blues at Colorado Avalanche"':
+              - text: Watch
+        - 'row "P1 14:03 Kings 0–0 Sharks LA 51%, SJ 49% Medium 6.5 Open game view: Los Angeles Kings at San Jose Sharks"':
+          - cell "P1 14:03":
+            - generic: P1 14:03
+          - cell "Kings":
+            - link "Kings":
+              - /url: /nhl/team/8
+              - generic: Kings
+          - cell "0–0":
+            - generic: 0–0
+          - cell "Sharks":
+            - link "Sharks":
+              - /url: /nhl/team/18
+              - generic: Sharks
+          - cell "LA 51%, SJ 49%":
+            - img "LA 51%, SJ 49%":
+              - generic: LA 51%
+              - generic: 49% SJ
+          - cell "Medium 6.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 6.5 points"':
+              - text: Medium
+              - generic: "6.5"
+          - 'cell "Open game view: Los Angeles Kings at San Jose Sharks"':
+            - 'button "Open game view: Los Angeles Kings at San Jose Sharks"':
+              - text: Watch
+        - 'row "P1 16:30 Flames 0–0 Canucks CGY 49%, VAN 51% Medium 3.9 Open game view: Calgary Flames at Vancouver Canucks"':
+          - cell "P1 16:30":
+            - generic: P1 16:30
+          - cell "Flames":
+            - link "Flames":
+              - /url: /nhl/team/3
+              - generic: Flames
+          - cell "0–0":
+            - generic: 0–0
+          - cell "Canucks":
+            - link "Canucks":
+              - /url: /nhl/team/22
+              - generic: Canucks
+          - cell "CGY 49%, VAN 51%":
+            - img "CGY 49%, VAN 51%":
+              - generic: CGY 49%
+              - generic: 51% VAN
+          - cell "Medium 3.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 3.9 points"':
+              - text: Medium
+              - generic: "3.9"
+          - 'cell "Open game view: Calgary Flames at Vancouver Canucks"':
+            - 'button "Open game view: Calgary Flames at Vancouver Canucks"':
+              - text: Watch
+    - text: "The day’s 10 biggest games by season leverage: how much each result moves the teams’ headline odds."
+    - link "All live games":
+      - /url: /nhl/games?live=1
+  - region "Stanley Cup outlook":
+    - heading "Stanley Cup outlook" [level=2]
+    - link "All teams":
+      - /url: /nhl/standings
+    - table:
+      - rowgroup:
+        - row "# Team Exp. W Playoffs Conf. Cup":
+          - columnheader "#"
+          - columnheader "Team"
+          - columnheader "Exp. W"
+          - columnheader "Playoffs"
+          - columnheader "Conf."
+          - columnheader "Cup"
+      - rowgroup:
+        - row "1 Avalanche 50.6 89% 23% 14%":
+          - cell "1"
+          - cell "Avalanche":
+            - link "Avalanche":
+              - /url: /nhl/team/17
+              - generic: Avalanche
+          - cell "50.6"
+          - cell "89%"
+          - cell "23%"
+          - cell "14%":
+            - generic: 14%
+        - row "2 Hurricanes 46.7 72% 12% 6.6%":
+          - cell "2"
+          - cell "Hurricanes":
+            - link "Hurricanes":
+              - /url: /nhl/team/7
+              - generic: Hurricanes
+          - cell "46.7"
+          - cell "72%"
+          - cell "12%"
+          - cell "6.6%":
+            - generic: 6.6%
+        - row "3 Lightning 46.7 68% 11% 6.1%":
+          - cell "3"
+          - cell "Lightning":
+            - link "Lightning":
+              - /url: /nhl/team/20
+              - generic: Lightning
+          - cell "46.7"
+          - cell "68%"
+          - cell "11%"
+          - cell "6.1%":
+            - generic: 6.1%
+        - row "4 Wild 47.6 77% 12% 5.9%":
+          - cell "4"
+          - cell "Wild":
+            - link "Wild":
+              - /url: /nhl/team/30
+              - generic: Wild
+          - cell "47.6"
+          - cell "77%"
+          - cell "12%"
+          - cell "5.9%":
+            - generic: 5.9%
+        - row "5 Mammoth 46.5 73% 9.7% 5.0%":
+          - cell "5"
+          - cell "Mammoth":
+            - link "Mammoth":
+              - /url: /nhl/team/129764
+              - generic: Mammoth
+          - cell "46.5"
+          - cell "73%"
+          - cell "9.7%"
+          - cell "5.0%":
+            - generic: 5.0%
+        - row "6 Capitals 45.3 61% 8.9% 4.5%":
+          - cell "6"
+          - cell "Capitals":
+            - link "Capitals":
+              - /url: /nhl/team/23
+              - generic: Capitals
+          - cell "45.3"
+          - cell "61%"
+          - cell "8.9%"
+          - cell "4.5%":
+            - generic: 4.5%
+        - row "7 Oilers 44.6 72% 9.2% 4.5%":
+          - cell "7"
+          - cell "Oilers":
+            - link "Oilers":
+              - /url: /nhl/team/6
+              - generic: Oilers
+          - cell "44.6"
+          - cell "72%"
+          - cell "9.2%"
+          - cell "4.5%":
+            - generic: 4.5%
+        - row "8 Senators 45.3 62% 8.3% 4.3%":
+          - cell "8"
+          - cell "Senators":
+            - link "Senators":
+              - /url: /nhl/team/14
+              - generic: Senators
+          - cell "45.3"
+          - cell "62%"
+          - cell "8.3%"
+          - cell "4.3%":
+            - generic: 4.3%
+        - row "9 Golden Knights 43.4 66% 9.0% 4.3%":
+          - cell "9"
+          - cell "Golden Knights":
+            - link "Golden Knights":
+              - /url: /nhl/team/37
+              - generic: Golden Knights
+          - cell "43.4"
+          - cell "66%"
+          - cell "9.0%"
+          - cell "4.3%":
+            - generic: 4.3%
+        - row "10 Rangers 44.7 62% 7.3% 4.0%":
+          - cell "10"
+          - cell "Rangers":
+            - link "Rangers":
+              - /url: /nhl/team/13
+              - generic: Rangers
+          - cell "44.7"
+          - cell "62%"
+          - cell "7.3%"
+          - cell "4.0%":
+            - generic: 4.0%
+        - row "11 Sabres 44.5 58% 7.7% 3.9%":
+          - cell "11"
+          - cell "Sabres":
+            - link "Sabres":
+              - /url: /nhl/team/2
+              - generic: Sabres
+          - cell "44.5"
+          - cell "58%"
+          - cell "7.7%"
+          - cell "3.9%":
+            - generic: 3.9%
+        - row "12 Stars 43.1 58% 7.6% 3.8%":
+          - cell "12"
+          - cell "Stars":
+            - link "Stars":
+              - /url: /nhl/team/9
+              - generic: Stars
+          - cell "43.1"
+          - cell "58%"
+          - cell "7.6%"
+          - cell "3.8%":
+            - generic: 3.8%
+  - region "Games that move the race":
+    - heading "Games that move the race" [level=2]
+    - table:
+      - rowgroup:
+        - row "Oct 17 BUF @ MTL MTL ±10.2 pts":
+          - cell "Oct 17"
+          - cell "BUF @ MTL":
+            - generic: BUF
+            - generic: "@"
+            - generic: MTL
+          - cell "MTL ±10.2 pts":
+            - generic: MTL
+            - generic: ±10.2
+            - text: pts
+        - row "Oct 9 SEA @ DET SEA ±9.9 pts":
+          - cell "Oct 9"
+          - cell "SEA @ DET":
+            - generic: SEA
+            - generic: "@"
+            - generic: DET
+          - cell "SEA ±9.9 pts":
+            - generic: SEA
+            - generic: ±9.9
+            - text: pts
+        - row "Oct 13 MIN @ WPG WPG ±9.7 pts":
+          - cell "Oct 13"
+          - cell "MIN @ WPG":
+            - generic: MIN
+            - generic: "@"
+            - generic: WPG
+          - cell "WPG ±9.7 pts":
+            - generic: WPG
+            - generic: ±9.7
+            - text: pts
+        - row "Oct 15 STL @ MIN STL ±9.5 pts":
+          - cell "Oct 15"
+          - cell "STL @ MIN":
+            - generic: STL
+            - generic: "@"
+            - generic: MIN
+          - cell "STL ±9.5 pts":
+            - generic: STL
+            - generic: ±9.5
+            - text: pts
+        - row "Oct 9 PIT @ CBJ PIT ±9.4 pts":
+          - cell "Oct 9"
+          - cell "PIT @ CBJ":
+            - generic: PIT
+            - generic: "@"
+            - generic: CBJ
+          - cell "PIT ±9.4 pts":
+            - generic: PIT
+            - generic: ±9.4
+            - text: pts
+        - row "Oct 13 EDM @ LA LA ±9.3 pts":
+          - cell "Oct 13"
+          - cell "EDM @ LA":
+            - generic: EDM
+            - generic: "@"
+            - generic: LA
+          - cell "LA ±9.3 pts":
+            - generic: LA
+            - generic: ±9.3
+            - text: pts
+        - row "Oct 11 SEA @ WSH SEA ±9.2 pts":
+          - cell "Oct 11"
+          - cell "SEA @ WSH":
+            - generic: SEA
+            - generic: "@"
+            - generic: WSH
+          - cell "SEA ±9.2 pts":
+            - generic: SEA
+            - generic: ±9.2
+            - text: pts
+    - generic: Next 15 days, ranked by the swing in Playoffs odds between winning and losing.
+  - region "Stanley Cup odds":
+    - heading "Stanley Cup odds" [level=2]
+    - generic: "Bars: share of 10,000 simulated seasons. Whiskers: 95% Monte Carlo interval."
+  - region "Live world updates":
+    - heading "Live world updates" [level=2]
+    - list:
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: NYR 2-0 DET"
+        - generic: state v203 · DET, NYR
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: WSH 5-2 CAR"
+        - generic: state v204 · CAR, WSH
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: BOS 4-3 WPG"
+        - generic: state v205 · WPG, BOS
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: STL 4-0 DAL"
+        - generic: state v206 · DAL, STL
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: ANA 4-3 VGK"
+        - generic: state v207 · VGK, ANA
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: BUF 4-3 CHI"
+        - generic: state v208 · BUF, CHI
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: TB 3-1 WSH"
+        - generic: state v210 · TB, WSH
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: CAR 3-2 PHI"
+        - generic: state v211 · PHI, CAR
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: UTA 4-1 CBJ"
+        - generic: state v212 · CBJ, UTAH
+  - region "West / East playoffs outlook":
+    - heading "West / East playoffs outlook" [level=2]
+    - table:
+      - rowgroup:
+        - row "# West Exp. W Playoffs Conf. Cup":
+          - columnheader "#"
+          - columnheader "West"
+          - columnheader "Exp. W"
+          - columnheader "Playoffs"
+          - columnheader "Conf."
+          - columnheader "Cup"
+      - rowgroup:
+        - row "1 Avalanche 50.6 89% 23% 14%":
+          - cell "1"
+          - cell "Avalanche":
+            - link "Avalanche":
+              - /url: /nhl/team/17
+              - generic: Avalanche
+          - cell "50.6"
+          - cell "89%"
+          - cell "23%"
+          - cell "14%"
+        - row "2 Wild 47.6 77% 12% 5.9%":
+          - cell "2"
+          - cell "Wild":
+            - link "Wild":
+              - /url: /nhl/team/30
+              - generic: Wild
+          - cell "47.6"
+          - cell "77%"
+          - cell "12%"
+          - cell "5.9%"
+        - row "3 Mammoth 46.5 73% 9.7% 5.0%":
+          - cell "3"
+          - cell "Mammoth":
+            - link "Mammoth":
+              - /url: /nhl/team/129764
+              - generic: Mammoth
+          - cell "46.5"
+          - cell "73%"
+          - cell "9.7%"
+          - cell "5.0%"
+        - row "4 Oilers 44.6 72% 9.2% 4.5%":
+          - cell "4"
+          - cell "Oilers":
+            - link "Oilers":
+              - /url: /nhl/team/6
+              - generic: Oilers
+          - cell "44.6"
+          - cell "72%"
+          - cell "9.2%"
+          - cell "4.5%"
+        - row "5 Golden Knights 43.4 66% 9.0% 4.3%":
+          - cell "5"
+          - cell "Golden Knights":
+            - link "Golden Knights":
+              - /url: /nhl/team/37
+              - generic: Golden Knights
+          - cell "43.4"
+          - cell "66%"
+          - cell "9.0%"
+          - cell "4.3%"
+        - row "6 Stars 43.1 58% 7.6% 3.8%":
+          - cell "6"
+          - cell "Stars":
+            - link "Stars":
+              - /url: /nhl/team/9
+              - generic: Stars
+          - cell "43.1"
+          - cell "58%"
+          - cell "7.6%"
+          - cell "3.8%"
+        - row "7 Blues 42.9 56% 5.9% 2.5%":
+          - cell "7"
+          - cell "Blues":
+            - link "Blues":
+              - /url: /nhl/team/19
+              - generic: Blues
+          - cell "42.9"
+          - cell "56%"
+          - cell "5.9%"
+          - cell "2.5%"
+        - row "8 Ducks 41.6 54% 5.0% 2.1%":
+          - cell "8"
+          - cell "Ducks":
+            - link "Ducks":
+              - /url: /nhl/team/25
+              - generic: Ducks
+          - cell "41.6"
+          - cell "54%"
+          - cell "5.0%"
+          - cell "2.1%"
+        - row "9 Kings 40.2 50% 4.4% 1.9%":
+          - cell "9"
+          - cell "Kings":
+            - link "Kings":
+              - /url: /nhl/team/8
+              - generic: Kings
+          - cell "40.2"
+          - cell "50%"
+          - cell "4.4%"
+          - cell "1.9%"
+        - row "10 Kraken 40.8 49% 4.1% 1.6%":
+          - cell "10"
+          - cell "Kraken":
+            - link "Kraken":
+              - /url: /nhl/team/124292
+              - generic: Kraken
+          - cell "40.8"
+          - cell "49%"
+          - cell "4.1%"
+          - cell "1.6%"
+        - row "11 Jets 39.4 41% 3.4% 1.5%":
+          - cell "11"
+          - cell "Jets":
+            - link "Jets":
+              - /url: /nhl/team/28
+              - generic: Jets
+          - cell "39.4"
+          - cell "41%"
+          - cell "3.4%"
+          - cell "1.5%"
+        - row "12 Sharks 37.4 32% 2.1% 0.7%":
+          - cell "12"
+          - cell "Sharks":
+            - link "Sharks":
+              - /url: /nhl/team/18
+              - generic: Sharks
+          - cell "37.4"
+          - cell "32%"
+          - cell "2.1%"
+          - cell "0.7%"
+    - table:
+      - rowgroup:
+        - row "# East Exp. W Playoffs Conf. Cup":
+          - columnheader "#"
+          - columnheader "East"
+          - columnheader "Exp. W"
+          - columnheader "Playoffs"
+          - columnheader "Conf."
+          - columnheader "Cup"
+      - rowgroup:
+        - row "1 Hurricanes 46.7 72% 12% 6.6%":
+          - cell "1"
+          - cell "Hurricanes":
+            - link "Hurricanes":
+              - /url: /nhl/team/7
+              - generic: Hurricanes
+          - cell "46.7"
+          - cell "72%"
+          - cell "12%"
+          - cell "6.6%"
+        - row "2 Lightning 46.7 68% 11% 6.1%":
+          - cell "2"
+          - cell "Lightning":
+            - link "Lightning":
+              - /url: /nhl/team/20
+              - generic: Lightning
+          - cell "46.7"
+          - cell "68%"
+          - cell "11%"
+          - cell "6.1%"
+        - row "3 Senators 45.3 62% 8.3% 4.3%":
+          - cell "3"
+          - cell "Senators":
+            - link "Senators":
+              - /url: /nhl/team/14
+              - generic: Senators
+          - cell "45.3"
+          - cell "62%"
+          - cell "8.3%"
+          - cell "4.3%"
+        - row "4 Rangers 44.7 62% 7.3% 4.0%":
+          - cell "4"
+          - cell "Rangers":
+            - link "Rangers":
+              - /url: /nhl/team/13
+              - generic: Rangers
+          - cell "44.7"
+          - cell "62%"
+          - cell "7.3%"
+          - cell "4.0%"
+        - row "5 Capitals 45.3 61% 8.9% 4.5%":
+          - cell "5"
+          - cell "Capitals":
+            - link "Capitals":
+              - /url: /nhl/team/23
+              - generic: Capitals
+          - cell "45.3"
+          - cell "61%"
+          - cell "8.9%"
+          - cell "4.5%"
+        - row "6 Sabres 44.5 58% 7.7% 3.9%":
+          - cell "6"
+          - cell "Sabres":
+            - link "Sabres":
+              - /url: /nhl/team/2
+              - generic: Sabres
+          - cell "44.5"
+          - cell "58%"
+          - cell "7.7%"
+          - cell "3.9%"
+        - row "7 Canadiens 43.1 57% 7.1% 3.8%":
+          - cell "7"
+          - cell "Canadiens":
+            - link "Canadiens":
+              - /url: /nhl/team/10
+              - generic: Canadiens
+          - cell "43.1"
+          - cell "57%"
+          - cell "7.1%"
+          - cell "3.8%"
+        - row "8 Islanders 43.6 56% 6.8% 3.4%":
+          - cell "8"
+          - cell "Islanders":
+            - link "Islanders":
+              - /url: /nhl/team/12
+              - generic: Islanders
+          - cell "43.6"
+          - cell "56%"
+          - cell "6.8%"
+          - cell "3.4%"
+        - row "9 Penguins 43.3 55% 6.4% 3.0%":
+          - cell "9"
+          - cell "Penguins":
+            - link "Penguins":
+              - /url: /nhl/team/16
+              - generic: Penguins
+          - cell "43.3"
+          - cell "55%"
+          - cell "6.4%"
+          - cell "3.0%"
+        - row "10 Bruins 42.8 53% 6.2% 2.9%":
+          - cell "10"
+          - cell "Bruins":
+            - link "Bruins":
+              - /url: /nhl/team/1
+              - generic: Bruins
+          - cell "42.8"
+          - cell "53%"
+          - cell "6.2%"
+          - cell "2.9%"
+        - row "11 Blue Jackets 41.7 42% 4.5% 2.0%":
+          - cell "11"
+          - cell "Blue Jackets":
+            - link "Blue Jackets":
+              - /url: /nhl/team/29
+              - generic: Blue Jackets
+          - cell "41.7"
+          - cell "42%"
+          - cell "4.5%"
+          - cell "2.0%"
+        - row "12 Panthers 39.7 40% 3.9% 1.8%":
+          - cell "12"
+          - cell "Panthers":
+            - link "Panthers":
+              - /url: /nhl/team/26
+              - generic: Panthers
+          - cell "39.7"
+          - cell "40%"
+          - cell "3.9%"
+          - cell "1.8%"
+    - generic: "Dashed line: expected number of playoffs qualifiers per conference (sum of probabilities)."
+  - region "Injury report → strength":
+    - heading "Injury report → strength" [level=2]
+    - generic: No key players listed out
+    - text: Starting goalies are all available on the current report.
+    - generic: ESPN injury report, refreshed 1m ago. Effect sizes are learned; status→availability is a labelled prior.
+  - 'region "Today''s scorecard: forecasts vs what happened"':
+    - 'heading "Today''s scorecard: forecasts vs what happened" [level=2]'
+    - text: SportsWorld · best today
+    - generic: 7/8
+    - text: log loss
+    - strong: "0.607"
+    - text: · Brier 0.207
+    - text: ESPN's model
+    - generic: "-"
+    - text: no data
+    - text: Betting market
+    - generic: "-"
+    - text: no data
+    - generic: Calibration (favourite won)
+    - generic: 50–60%
+    - generic: 6/7
+    - generic: 60–70%
+    - generic: 1/1
+    - table:
+      - rowgroup:
+        - row "Final SportsWorld ESPN Market Result":
+          - columnheader "Final"
+          - columnheader "SportsWorld"
+          - columnheader "ESPN"
+          - columnheader "Market"
+          - columnheader "Result"
+      - rowgroup:
+        - row "CHI 3 @ BUF 4 65% - 67% Called it":
+          - cell "CHI 3 @ BUF 4":
+            - generic: CHI 3
+            - generic: "@"
+            - generic: BUF 4
+          - cell "65%"
+          - cell "-"
+          - cell "67%"
+          - cell "Called it":
+            - generic: Called it
+        - row "SEA 1 @ EDM 3 57% - 64% Called it":
+          - cell "SEA 1 @ EDM 3":
+            - generic: SEA 1
+            - generic: "@"
+            - generic: EDM 3
+          - cell "57%"
+          - cell "-"
+          - cell "64%"
+          - cell "Called it":
+            - generic: Called it
+        - row "NJ 0 @ NYI 6 54% - 45% Called it":
+          - cell "NJ 0 @ NYI 6":
+            - generic: NJ 0
+            - generic: "@"
+            - generic: NYI 6
+          - cell "54%"
+          - cell "-"
+          - cell "45%"
+          - cell "Called it":
+            - generic: Called it
+        - row "WSH 1 @ TB 3 54% - 64% Called it":
+          - cell "WSH 1 @ TB 3":
+            - generic: WSH 1
+            - generic: "@"
+            - generic: TB 3
+          - cell "54%"
+          - cell "-"
+          - cell "64%"
+          - cell "Called it":
+            - generic: Called it
+        - row "OTT 3 @ TOR 2 53% - 49% Called it":
+          - cell "OTT 3 @ TOR 2":
+            - generic: OTT 3
+            - generic: "@"
+            - generic: TOR 2
+          - cell "53%"
+          - cell "-"
+          - cell "49%"
+          - cell "Called it":
+            - generic: Called it
+        - row "CAR 3 @ PHI 2 53% - 55% Called it":
+          - cell "CAR 3 @ PHI 2":
+            - generic: CAR 3
+            - generic: "@"
+            - generic: PHI 2
+          - cell "53%"
+          - cell "-"
+          - cell "55%"
+          - cell "Called it":
+            - generic: Called it
+        - row "MTL 5 @ PIT 6 51% - 49% Called it":
+          - cell "MTL 5 @ PIT 6":
+            - generic: MTL 5
+            - generic: "@"
+            - generic: PIT 6
+          - cell "51%"
+          - cell "-"
+          - cell "49%"
+          - cell "Called it":
+            - generic: Called it
+        - row "UTAH 4 @ CBJ 1 49% - 52% Missed":
+          - cell "UTAH 4 @ CBJ 1":
+            - generic: UTAH 4
+            - generic: "@"
+            - generic: CBJ 1
+          - cell "49%"
+          - cell "-"
+          - cell "52%"
+          - cell "Missed":
+            - generic: Missed
+    - generic: SportsWorld = point-in-time reconstruction at kickoff (results known before each kickoff, served model); ESPN = first point of ESPN's win-probability chart; market = DraftKings moneyline via ESPN, de-vigged. Benchmarks are never model inputs. One day is a small sample; the 7-season replay above is the real evidence.
+  - region "Model health & calibration":
+    - heading "Model health & calibration" [level=2]
+    - link "Full research":
+      - /url: /research
+    - generic: 90% win-band coverage
+    - generic: 95%
+    - generic: target 90% · independent-game sim only 74%
+    - generic: Win-total error
+    - generic: "5.51"
+    - generic: mean abs. error, vs 6.76 for a pace baseline
+    - generic: Champion log loss
+    - generic: "2.96"
+    - generic: vs 3.46 for picking uniformly
+    - generic: Game model log loss
+    - generic: "0.568"
+    - generic: walk-forward mean ± 0.011; state-space only 0.568
+    - generic: Champions per draw
+    - generic: 1–1
+    - generic: "structural check: exactly one title winner in every simulated season"
+    - generic: Board ↔ season consistency
+    - generic: "0.51"
+    - generic: mean |Δ expected wins| between game forecasts and the season simulation
+    - generic: Point-in-time replays of 2019–2025 preseason; rolling-origin = train on earlier seasons, test on the next.
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: 8%

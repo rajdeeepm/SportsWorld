@@ -1,0 +1,203 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+- navigation "Formula 1 sections":
+  - generic: Formula 1
+  - link "Overview":
+    - /url: /f1
+    - text: Overview
+  - link "Live track":
+    - /url: /f1/live
+    - text: Live track
+  - link "Simulation Lab":
+    - /url: /f1/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 3 viewers
+- main:
+  - 'heading "Mercedes: Season World" [level=1]':
+    - text: "Mercedes:"
+    - emphasis: Season World
+  - paragraph: Persistent team intelligence across the 2026 Formula 1 season.
+  - generic: Mercedes
+  - generic: Formula 1 team
+  - generic: 1st
+  - generic: Constructors
+  - generic: "538"
+  - generic: Points
+  - generic: "11"
+  - generic: Race wins
+  - generic: Next race
+  - generic: Singapore Grand Prix
+  - text: Sun, Oct 11
+  - generic: Expected points
+  - generic: "739"
+  - generic: 90% range 685–792
+  - generic: Constructors’ title
+  - generic: 100%
+  - generic: ±0.00% MC error
+  - generic: ANT drivers’ title
+  - generic: 95%
+  - generic: 302 pts → 398
+  - generic: RUS drivers’ title
+  - generic: 4.6%
+  - generic: 236 pts → 341
+  - generic: Car pace rating
+  - generic: "0.55"
+  - generic: "#1 in the field"
+  - generic: Reliability
+  - generic: 95%
+  - generic: per-race finish probability
+  - region "Andrea Kimi Antonelli":
+    - heading "Andrea Kimi Antonelli" [level=2]
+    - generic: ANT
+    - generic: "302"
+    - text: Points
+    - generic: "8"
+    - text: Wins
+    - generic: "3.3"
+    - text: Exp. podiums left
+    - generic: "0.64"
+    - generic: Driver ±0.10
+    - generic: 95%
+    - text: Title
+    - generic: Final championship position
+    - 'generic "P1: 95%"': P1
+    - 'generic "P2: 4.6%"': P2
+    - 'generic "P3: 0.0%"': P3
+    - 'generic "P4: 0.0%"': P4
+    - 'generic "P5: 0.0%"': P5
+    - 'generic "P6: 0.0%"': P6
+    - 'generic "P7: 0.0%"': P7
+    - 'generic "P8: 0.0%"': P8
+    - 'generic "P9: 0.0%"': P9
+    - 'generic "P10: 0.0%"': P10
+  - region "George Russell":
+    - heading "George Russell" [level=2]
+    - generic: RUS
+    - generic: "236"
+    - text: Points
+    - generic: "3"
+    - text: Wins
+    - generic: "3.8"
+    - text: Exp. podiums left
+    - generic: "0.71"
+    - generic: Driver ±0.11
+    - generic: 4.6%
+    - text: Title
+    - generic: Final championship position
+    - 'generic "P1: 4.6%"': P1
+    - 'generic "P2: 89%"': P2
+    - 'generic "P3: 5.3%"': P3
+    - 'generic "P4: 0.6%"': P4
+    - 'generic "P5: <0.1%"': P5
+    - 'generic "P6: <0.1%"': P6
+    - 'generic "P7: 0.0%"': P7
+    - 'generic "P8: 0.0%"': P8
+    - 'generic "P9: 0.0%"': P9
+    - 'generic "P10: 0.0%"': P10
+  - region "Remaining calendar":
+    - heading "Remaining calendar" [level=2]
+    - table:
+      - rowgroup:
+        - row "Rd Date Grand Prix Format Favourites":
+          - columnheader "Rd"
+          - columnheader "Date"
+          - columnheader "Grand Prix"
+          - columnheader "Format"
+          - columnheader "Favourites"
+      - rowgroup:
+        - row "17 Oct 11 Singapore Grand Prix Sprint RUS 22% ANT 17%":
+          - cell "17"
+          - cell "Oct 11"
+          - cell "Singapore Grand Prix"
+          - cell "Sprint":
+            - generic: Sprint
+          - cell "RUS 22% ANT 17%":
+            - generic: RUS 22%
+            - generic: ANT 17%
+        - row "18 Oct 25 United States Grand Prix Race RUS 22% ANT 17%":
+          - cell "18"
+          - cell "Oct 25"
+          - cell "United States Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 17%":
+            - generic: RUS 22%
+            - generic: ANT 17%
+        - row "19 Nov 1 Mexico City Grand Prix Race RUS 22% ANT 17%":
+          - cell "19"
+          - cell "Nov 1"
+          - cell "Mexico City Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 17%":
+            - generic: RUS 22%
+            - generic: ANT 17%
+        - row "20 Nov 8 Brazilian Grand Prix Race RUS 22% ANT 17%":
+          - cell "20"
+          - cell "Nov 8"
+          - cell "Brazilian Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 17%":
+            - generic: RUS 22%
+            - generic: ANT 17%
+        - row "21 Nov 21 Las Vegas Grand Prix Race RUS 22% ANT 17%":
+          - cell "21"
+          - cell "Nov 21"
+          - cell "Las Vegas Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 17%":
+            - generic: RUS 22%
+            - generic: ANT 17%
+        - row "22 Nov 29 Qatar Grand Prix Race RUS 22% ANT 18%":
+          - cell "22"
+          - cell "Nov 29"
+          - cell "Qatar Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 18%":
+            - generic: RUS 22%
+            - generic: ANT 18%
+        - row "23 Dec 6 Abu Dhabi Grand Prix Race RUS 22% ANT 18%":
+          - cell "23"
+          - cell "Dec 6"
+          - cell "Abu Dhabi Grand Prix"
+          - cell "Race":
+            - generic: Race
+          - cell "RUS 22% ANT 18%":
+            - generic: RUS 22%
+            - generic: ANT 18%
+    - generic: Race-win probability for the three most likely winners of each Grand Prix.
+  - generic: Run f1-2026-gs0-r1-dynamic
+  - generic: Updated fresh
+  - link "Branch this season in the Lab":
+    - /url: /f1/lab
+    - text: Branch this season in the Lab
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: 8:26 PM

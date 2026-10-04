@@ -1,0 +1,857 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+- navigation "College Football sections":
+  - link "Overview":
+    - /url: /college-football
+    - text: Overview
+  - link "Standings":
+    - /url: /college-football/standings
+    - text: Standings
+  - link "Live 11 live":
+    - /url: /college-football/games?live=1
+    - text: Live
+    - generic "11 live"
+  - link "Forecasts":
+    - /url: /college-football/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /college-football/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+- main:
+  - 'heading "College Football: 2026 Season World" [level=1]':
+    - text: "College Football:"
+    - emphasis: 2026 Season World
+  - paragraph: Every team. Every game. Every forecast. One persistent season model, updated as results land.
+  - button "Listen to the briefing":
+    - text: Listen to the briefing
+  - button "Radio":
+    - text: Radio
+  - generic: Games played
+  - generic: "375"
+  - generic: 42% of regular season
+  - generic: Games remaining
+  - generic: "513"
+  - generic: +47 postseason
+  - generic: Teams tracked
+  - generic: "138"
+  - generic: all FBS teams
+  - generic: Live games
+  - generic: "11"
+  - generic: feeding the season run
+  - generic: Forecast coverage
+  - generic: 100%
+  - generic: 513 games forecast
+  - generic: Simulated seasons
+  - generic: 10,000
+  - generic: state v585 · 1.111s
+  - region "Featured matchups":
+    - heading "Featured matchups" [level=2]
+    - link "Full schedule":
+      - /url: /college-football/games
+    - tablist:
+      - tab "Today Oct 3 · 15" [selected]:
+        - generic: Today
+        - text: Oct 3 · 15
+      - tab "Tue Oct 6 · 1":
+        - generic: Tue
+        - text: Oct 6 · 1
+      - tab "Wed Oct 7 · 2":
+        - generic: Wed
+        - text: Oct 7 · 2
+      - tab "Thu Oct 8 · 4":
+        - generic: Thu
+        - text: Oct 8 · 4
+      - tab "Fri Oct 9 · 5":
+        - generic: Fri
+        - text: Oct 9 · 5
+      - tab "Sat Oct 10 · 46":
+        - generic: Sat
+        - text: Oct 10 · 46
+      - tab "Tue Oct 13 · 2":
+        - generic: Tue
+        - text: Oct 13 · 2
+    - list:
+      - generic: Q3 1:22
+      - 'generic "Milestone probability: win vs loss differs by 45.3 points"':
+        - text: Very high
+        - generic: "45.3"
+      - 'button "Open game view: McNeese Cowboys at LSU Tigers"':
+        - text: Watch
+      - link "McNeese":
+        - /url: /college-football/team/2377
+        - generic: McNeese
+      - generic: 14–49
+      - link "#11LSU":
+        - /url: /college-football/team/99
+        - generic: "#11"
+        - text: LSU
+      - img "MCN <0.1%, LSU >99.9%":
+        - generic: MCN <0.1%
+        - generic: ">99.9% LSU"
+      - generic: Q4 10:10
+      - 'generic "Milestone probability: win vs loss differs by 32.5 points"':
+        - text: Very high
+        - generic: "32.5"
+      - 'button "Open game view: Texas Tech Red Raiders at Colorado Buffaloes"':
+        - text: Watch
+      - link "#12Texas Tech":
+        - /url: /college-football/team/2641
+        - generic: "#12"
+        - text: Texas Tech
+      - generic: 15–7
+      - link "Colorado":
+        - /url: /college-football/team/38
+        - generic: Colorado
+      - img "TTU 93%, COLO 7%":
+        - generic: TTU 93%
+        - generic: 7% COLO
+      - generic: Q3 0:00
+      - 'generic "Milestone probability: win vs loss differs by 18.0 points"':
+        - text: High
+        - generic: "18.0"
+      - 'button "Open game view: Miami Hurricanes at Clemson Tigers"':
+        - text: Watch
+      - link "#4Miami":
+        - /url: /college-football/team/2390
+        - generic: "#4"
+        - text: Miami
+      - generic: 24–6
+      - link "Clemson":
+        - /url: /college-football/team/228
+        - generic: Clemson
+      - img "MIA 99%, CLEM 1%":
+        - generic: MIA 99%
+        - generic: 1% CLEM
+      - generic: Q4 8:27
+      - 'generic "Milestone probability: win vs loss differs by 15.3 points"':
+        - text: High
+        - generic: "15.3"
+      - 'button "Open game view: Utah State Aggies at Boise State Broncos"':
+        - text: Watch
+      - link "Utah State":
+        - /url: /college-football/team/328
+        - generic: Utah State
+      - generic: 18–37
+      - link "#22Boise St":
+        - /url: /college-football/team/68
+        - generic: "#22"
+        - text: Boise St
+      - img "USU 0%, BOIS 100%":
+        - generic: USU 0%
+        - generic: 100% BOIS
+      - generic: Q4 3:08
+      - 'generic "Milestone probability: win vs loss differs by 5.7 points"':
+        - text: Medium
+        - generic: "5.7"
+      - 'button "Open game view: Temple Owls at South Florida Bulls"':
+        - text: Watch
+      - link "Temple":
+        - /url: /college-football/team/218
+        - generic: Temple
+      - generic: 17–13
+      - link "South Florida":
+        - /url: /college-football/team/58
+        - generic: South Florida
+      - img "TEM 51%, USF 49%":
+        - generic: TEM 51%
+        - generic: 49% USF
+      - generic: Oct 3 · 11:00 PM
+      - 'generic "Milestone probability: win vs loss differs by 1.2 points"':
+        - text: Low
+        - generic: "1.2"
+      - 'button "Open game view: Cincinnati Bearcats at Arizona Wildcats"':
+        - text: View
+      - link "Cincinnati":
+        - /url: /college-football/team/2132
+        - generic: Cincinnati
+      - generic: "@"
+      - link "Arizona":
+        - /url: /college-football/team/12
+        - generic: Arizona
+      - img "CIN 31%, ARIZ 69%":
+        - generic: CIN 31%
+        - generic: 69% ARIZ
+      - generic: Q3 3:40
+      - 'generic "Milestone probability: win vs loss differs by 0.8 points"':
+        - text: Low
+        - generic: "0.8"
+      - 'button "Open game view: Indiana Hoosiers at Rutgers Scarlet Knights"':
+        - text: Watch
+      - link "#6Indiana":
+        - /url: /college-football/team/84
+        - generic: "#6"
+        - text: Indiana
+      - generic: 37–7
+      - link "Rutgers":
+        - /url: /college-football/team/164
+        - generic: Rutgers
+      - img "IU 100%, RUTG 0%":
+        - generic: IU 100%
+        - generic: 0% RUTG
+      - generic: Q4 10:23
+      - 'generic "Milestone probability: win vs loss differs by 0.4 points"':
+        - text: Low
+        - generic: "0.4"
+      - 'button "Open game view: Washington Huskies at USC Trojans"':
+        - text: Watch
+      - link "Washington":
+        - /url: /college-football/team/264
+        - generic: Washington
+      - generic: 21–22
+      - link "#18USC":
+        - /url: /college-football/team/30
+        - generic: "#18"
+        - text: USC
+      - img "WASH 26%, USC 74%":
+        - generic: WASH 26%
+        - generic: 74% USC
+      - generic: Oct 3 · 10:30 PM
+      - 'generic "Milestone probability: win vs loss differs by 0.1 points"':
+        - text: Low
+        - generic: "0.1"
+      - 'button "Open game view: Baylor Bears at Arizona State Sun Devils"':
+        - text: View
+      - link "Baylor":
+        - /url: /college-football/team/239
+        - generic: Baylor
+      - generic: "@"
+      - link "Arizona St":
+        - /url: /college-football/team/9
+        - generic: Arizona St
+      - img "BAY 40%, ASU 60%":
+        - generic: BAY 40%
+        - generic: 60% ASU
+      - generic: Q4 11:48
+      - 'generic "Milestone probability: win vs loss differs by 0.1 points"':
+        - text: Low
+        - generic: "0.1"
+      - 'button "Open game view: Arkansas State Red Wolves at Louisiana Ragin'' Cajuns"':
+        - text: Watch
+      - link "Arkansas St":
+        - /url: /college-football/team/2032
+        - generic: Arkansas St
+      - generic: 20–17
+      - link "Louisiana":
+        - /url: /college-football/team/309
+        - generic: Louisiana
+      - img "ARST 57%, UL 43%":
+        - generic: ARST 57%
+        - generic: 43% UL
+    - text: "The day’s 10 biggest games by season leverage: how much each result moves the teams’ headline odds."
+    - link "All live games":
+      - /url: /college-football/games?live=1
+  - region "National Title outlook":
+    - heading "National Title outlook" [level=2]
+    - link "All teams":
+      - /url: /college-football/standings
+    - table:
+      - rowgroup:
+        - row "# Team Exp. W CFP Conf. champ Title":
+          - columnheader "#"
+          - columnheader "Team"
+          - columnheader "Exp. W"
+          - columnheader "CFP"
+          - columnheader "Conf. champ"
+          - columnheader "Title"
+      - rowgroup:
+        - row "1 Alabama 10.5 89% 38% 16%":
+          - cell "1"
+          - cell "Alabama":
+            - link "Alabama":
+              - /url: /college-football/team/333
+              - generic: Alabama
+          - cell "10.5"
+          - cell "89%"
+          - cell "38%"
+          - cell "16%":
+            - generic: 16%
+        - row "2 Utah 10.9 90% 58% 13%":
+          - cell "2"
+          - cell "Utah":
+            - link "Utah":
+              - /url: /college-football/team/254
+              - generic: Utah
+          - cell "10.9"
+          - cell "90%"
+          - cell "58%"
+          - cell "13%":
+            - generic: 13%
+        - row "3 Indiana 10.5 84% 41% 12%":
+          - cell "3"
+          - cell "Indiana":
+            - link "Indiana":
+              - /url: /college-football/team/84
+              - generic: Indiana
+          - cell "10.5"
+          - cell "84%"
+          - cell "41%"
+          - cell "12%":
+            - generic: 12%
+        - row "4 Notre Dame 11.1 92% - 11%":
+          - cell "4"
+          - cell "Notre Dame":
+            - link "Notre Dame":
+              - /url: /college-football/team/87
+              - generic: Notre Dame
+          - cell "11.1"
+          - cell "92%"
+          - cell "-"
+          - cell "11%":
+            - generic: 11%
+        - row "5 Georgia 10.3 83% 31% 11%":
+          - cell "5"
+          - cell "Georgia":
+            - link "Georgia":
+              - /url: /college-football/team/61
+              - generic: Georgia
+          - cell "10.3"
+          - cell "83%"
+          - cell "31%"
+          - cell "11%":
+            - generic: 11%
+        - row "6 Ohio State 9.3 72% 27% 10%":
+          - cell "6"
+          - cell "Ohio State":
+            - link "Ohio State":
+              - /url: /college-football/team/194
+              - generic: Ohio State
+          - cell "9.3"
+          - cell "72%"
+          - cell "27%"
+          - cell "10%":
+            - generic: 10%
+        - row "7 Miami 10.5 81% 60% 7.3%":
+          - cell "7"
+          - cell "Miami":
+            - link "Miami":
+              - /url: /college-football/team/2390
+              - generic: Miami
+          - cell "10.5"
+          - cell "81%"
+          - cell "60%"
+          - cell "7.3%":
+            - generic: 7.3%
+        - row "8 Texas 9.7 58% 16% 4.6%":
+          - cell "8"
+          - cell "Texas":
+            - link "Texas":
+              - /url: /college-football/team/251
+              - generic: Texas
+          - cell "9.7"
+          - cell "58%"
+          - cell "16%"
+          - cell "4.6%":
+            - generic: 4.6%
+        - row "9 LSU 8.5 37% 5.8% 3.3%":
+          - cell "9"
+          - cell "LSU":
+            - link "LSU":
+              - /url: /college-football/team/99
+              - generic: LSU
+          - cell "8.5"
+          - cell "37%"
+          - cell "5.8%"
+          - cell "3.3%":
+            - generic: 3.3%
+        - row "10 Texas Tech 10.1 44% 19% 1.3%":
+          - cell "10"
+          - cell "Texas Tech":
+            - link "Texas Tech":
+              - /url: /college-football/team/2641
+              - generic: Texas Tech
+          - cell "10.1"
+          - cell "44%"
+          - cell "19%"
+          - cell "1.3%":
+            - generic: 1.3%
+        - row "11 Tennessee 8.2 21% 3.7% 1.2%":
+          - cell "11"
+          - cell "Tennessee":
+            - link "Tennessee":
+              - /url: /college-football/team/2633
+              - generic: Tennessee
+          - cell "8.2"
+          - cell "21%"
+          - cell "3.7%"
+          - cell "1.2%":
+            - generic: 1.2%
+        - row "12 BYU 8.9 28% 11% 1.0%":
+          - cell "12"
+          - cell "BYU":
+            - link "BYU":
+              - /url: /college-football/team/252
+              - generic: BYU
+          - cell "8.9"
+          - cell "28%"
+          - cell "11%"
+          - cell "1.0%":
+            - generic: 1.0%
+  - region "Games that move the race":
+    - heading "Games that move the race" [level=2]
+    - table:
+      - rowgroup:
+        - row "Oct 3 MCN @ LSU LSU ±45.3 pts":
+          - cell "Oct 3"
+          - cell "MCN @ LSU":
+            - generic: MCN
+            - generic: "@"
+            - generic: LSU
+          - cell "LSU ±45.3 pts":
+            - generic: LSU
+            - generic: ±45.3
+            - text: pts
+        - row "Oct 17 NEV @ NDSU NDSU ±34.5 pts":
+          - cell "Oct 17"
+          - cell "NEV @ NDSU":
+            - generic: NEV
+            - generic: "@"
+            - generic: NDSU
+          - cell "NDSU ±34.5 pts":
+            - generic: NDSU
+            - generic: ±34.5
+            - text: pts
+        - row "Oct 10 NDSU @ UNLV NDSU ±32.6 pts":
+          - cell "Oct 10"
+          - cell "NDSU @ UNLV":
+            - generic: NDSU
+            - generic: "@"
+            - generic: UNLV
+          - cell "NDSU ±32.6 pts":
+            - generic: NDSU
+            - generic: ±32.6
+            - text: pts
+        - row "Oct 3 TTU @ COLO TTU ±32.5 pts":
+          - cell "Oct 3"
+          - cell "TTU @ COLO":
+            - generic: TTU
+            - generic: "@"
+            - generic: COLO
+          - cell "TTU ±32.5 pts":
+            - generic: TTU
+            - generic: ±32.5
+            - text: pts
+        - row "Oct 17 ASU @ TTU TTU ±31.1 pts":
+          - cell "Oct 17"
+          - cell "ASU @ TTU":
+            - generic: ASU
+            - generic: "@"
+            - generic: TTU
+          - cell "TTU ±31.1 pts":
+            - generic: TTU
+            - generic: ±31.1
+            - text: pts
+        - row "Oct 10 LSU @ UK LSU ±30.0 pts":
+          - cell "Oct 10"
+          - cell "LSU @ UK":
+            - generic: LSU
+            - generic: "@"
+            - generic: UK
+          - cell "LSU ±30.0 pts":
+            - generic: LSU
+            - generic: ±30.0
+            - text: pts
+        - row "Oct 17 MSST @ LSU LSU ±27.7 pts":
+          - cell "Oct 17"
+          - cell "MSST @ LSU":
+            - generic: MSST
+            - generic: "@"
+            - generic: LSU
+          - cell "LSU ±27.7 pts":
+            - generic: LSU
+            - generic: ±27.7
+            - text: pts
+    - generic: Next 15 days, ranked by the swing in CFP odds between winning and losing.
+  - region "National Title odds":
+    - heading "National Title odds" [level=2]
+    - generic: "Bars: share of 10,000 simulated seasons. Whiskers: 95% Monte Carlo interval."
+  - region "Live world updates":
+    - heading "Live world updates" [level=2]
+    - list:
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: PITT 35-33 VT"
+        - generic: state v504 · VT, PITT
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: LIB 30-14 DEL"
+        - generic: state v505 · DEL, LIB
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: NU 34-13 PSU"
+        - generic: state v506 · NU, PSU
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: MEM 59-8 CLT"
+        - generic: state v507 · CLT, MEM
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: ALA 56-23 MSST"
+        - generic: state v508 · MSST, ALA
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: KU 55-0 MTSU"
+        - generic: state v509 · KU, MTSU
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: HOU 27-17 UCF"
+        - generic: state v510 · HOU, UCF
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: ISU 45-42 WVU"
+        - generic: state v511 · ISU, WVU
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: SMU 25-16 BC"
+        - generic: state v512 · SMU, BC
+  - region "Conference race outlook":
+    - heading "Conference race outlook" [level=2]
+    - table:
+      - rowgroup:
+        - row "Conference Favourite Conf. title Contenders Best CFP":
+          - columnheader "Conference"
+          - columnheader "Favourite"
+          - columnheader "Conf. title"
+          - columnheader "Contenders"
+          - columnheader "Best CFP"
+      - rowgroup:
+        - row "Big 12 Utah 58% TTU 19% BYU 11% 90%":
+          - cell "Big 12"
+          - cell "Utah":
+            - link "Utah":
+              - /url: /college-football/team/254
+              - generic: Utah
+          - cell "58%":
+            - generic: 58%
+          - cell "TTU 19% BYU 11%":
+            - link "TTU 19%":
+              - /url: /college-football/team/2641
+              - generic: TTU 19%
+            - link "BYU 11%":
+              - /url: /college-football/team/252
+              - generic: BYU 11%
+          - cell "90%"
+        - row "Southeastern Alabama 38% UGA 31% TEX 16% 89%":
+          - cell "Southeastern"
+          - cell "Alabama":
+            - link "Alabama":
+              - /url: /college-football/team/333
+              - generic: Alabama
+          - cell "38%":
+            - generic: 38%
+          - cell "UGA 31% TEX 16%":
+            - link "UGA 31%":
+              - /url: /college-football/team/61
+              - generic: UGA 31%
+            - link "TEX 16%":
+              - /url: /college-football/team/251
+              - generic: TEX 16%
+          - cell "89%"
+        - row "Big Ten Indiana 41% OSU 27% NEB 7% 84%":
+          - cell "Big Ten"
+          - cell "Indiana":
+            - link "Indiana":
+              - /url: /college-football/team/84
+              - generic: Indiana
+          - cell "41%":
+            - generic: 41%
+          - cell "OSU 27% NEB 7%":
+            - link "OSU 27%":
+              - /url: /college-football/team/194
+              - generic: OSU 27%
+            - link "NEB 7%":
+              - /url: /college-football/team/158
+              - generic: NEB 7%
+          - cell "84%"
+        - row "Atlantic Coast Miami 60% PITT 11% DUKE 11% 81%":
+          - cell "Atlantic Coast"
+          - cell "Miami":
+            - link "Miami":
+              - /url: /college-football/team/2390
+              - generic: Miami
+          - cell "60%":
+            - generic: 60%
+          - cell "PITT 11% DUKE 11%":
+            - link "PITT 11%":
+              - /url: /college-football/team/221
+              - generic: PITT 11%
+            - link "DUKE 11%":
+              - /url: /college-football/team/150
+              - generic: DUKE 11%
+          - cell "81%"
+        - row "Sun Belt James Madison 74% GAST 7% UL 6% 66%":
+          - cell "Sun Belt"
+          - cell "James Madison":
+            - link "James Madison":
+              - /url: /college-football/team/256
+              - generic: James Madison
+          - cell "74%":
+            - generic: 74%
+          - cell "GAST 7% UL 6%":
+            - link "GAST 7%":
+              - /url: /college-football/team/2247
+              - generic: GAST 7%
+            - link "UL 6%":
+              - /url: /college-football/team/309
+              - generic: UL 6%
+          - cell "66%"
+        - row "Mountain West N Dakota St 56% UNM 31% UNLV 7% 47%":
+          - cell "Mountain West"
+          - cell "N Dakota St":
+            - link "N Dakota St":
+              - /url: /college-football/team/2449
+              - generic: N Dakota St
+          - cell "56%":
+            - generic: 56%
+          - cell "UNM 31% UNLV 7%":
+            - link "UNM 31%":
+              - /url: /college-football/team/167
+              - generic: UNM 31%
+            - link "UNLV 7%":
+              - /url: /college-football/team/2439
+              - generic: UNLV 7%
+          - cell "47%"
+        - row "Pac-12 Boise St 54% ORST 16% FRES 13% 26%":
+          - cell "Pac-12"
+          - cell "Boise St":
+            - link "Boise St":
+              - /url: /college-football/team/68
+              - generic: Boise St
+          - cell "54%":
+            - generic: 54%
+          - cell "ORST 16% FRES 13%":
+            - link "ORST 16%":
+              - /url: /college-football/team/204
+              - generic: ORST 16%
+            - link "FRES 13%":
+              - /url: /college-football/team/278
+              - generic: FRES 13%
+          - cell "26%"
+        - row "American North Texas 26% USF 22% MEM 19% 12%":
+          - cell "American"
+          - cell "North Texas":
+            - link "North Texas":
+              - /url: /college-football/team/249
+              - generic: North Texas
+          - cell "26%":
+            - generic: 26%
+          - cell "USF 22% MEM 19%":
+            - link "USF 22%":
+              - /url: /college-football/team/58
+              - generic: USF 22%
+            - link "MEM 19%":
+              - /url: /college-football/team/235
+              - generic: MEM 19%
+          - cell "12%"
+        - row "Mid-American Toledo 54% WMU 21% OHIO 11% 6.9%":
+          - cell "Mid-American"
+          - cell "Toledo":
+            - link "Toledo":
+              - /url: /college-football/team/2649
+              - generic: Toledo
+          - cell "54%":
+            - generic: 54%
+          - cell "WMU 21% OHIO 11%":
+            - link "WMU 21%":
+              - /url: /college-football/team/2711
+              - generic: WMU 21%
+            - link "OHIO 11%":
+              - /url: /college-football/team/195
+              - generic: OHIO 11%
+          - cell "6.9%"
+        - row "Conference USA Liberty 55% JXST 19% FIU 8% 4.6%":
+          - cell "Conference USA"
+          - cell "Liberty":
+            - link "Liberty":
+              - /url: /college-football/team/2335
+              - generic: Liberty
+          - cell "55%":
+            - generic: 55%
+          - cell "JXST 19% FIU 8%":
+            - link "JXST 19%":
+              - /url: /college-football/team/55
+              - generic: JXST 19%
+            - link "FIU 8%":
+              - /url: /college-football/team/2229
+              - generic: FIU 8%
+          - cell "4.6%"
+    - generic: Conference-title probability for the three leading contenders in each conference.
+  - region "Injury report → strength":
+    - heading "Injury report → strength" [level=2]
+    - generic: No key players listed out
+    - text: Starting quarterbacks are all available on the current report.
+    - generic: ESPN injury report, refreshed 9m ago. Effect sizes are learned; status→availability is a labelled prior.
+  - 'region "Today''s scorecard: forecasts vs what happened"':
+    - 'heading "Today''s scorecard: forecasts vs what happened" [level=2]'
+    - text: SportsWorld
+    - generic: 29/37
+    - text: log loss
+    - strong: "0.483"
+    - text: · Brier 0.156
+    - text: ESPN's model
+    - generic: 29/37
+    - text: log loss
+    - strong: "0.471"
+    - text: · Brier 0.155
+    - text: Betting market · best today
+    - generic: 29/37
+    - text: log loss
+    - strong: "0.449"
+    - text: · Brier 0.147
+    - generic: Calibration (favourite won)
+    - generic: 50–60%
+    - generic: 4/8
+    - generic: 60–70%
+    - generic: 8/10
+    - generic: 70–80%
+    - generic: 5/5
+    - generic: 80–90%
+    - generic: 11/13
+    - generic: 90–100%
+    - generic: 3/3
+    - table:
+      - rowgroup:
+        - row "Final SportsWorld ESPN Market Result":
+          - columnheader "Final"
+          - columnheader "SportsWorld"
+          - columnheader "ESPN"
+          - columnheader "Market"
+          - columnheader "Result"
+      - rowgroup:
+        - row "PUR 24 @ ILL 17 16% 19% 25% Upset":
+          - cell "PUR 24 @ ILL 17":
+            - generic: PUR 24
+            - generic: "@"
+            - generic: ILL 17
+          - cell "16%"
+          - cell "19%"
+          - cell "25%"
+          - cell "Upset":
+            - generic: Upset
+        - row "BGSU 24 @ M-OH 20 17% 13% 21% Upset":
+          - cell "BGSU 24 @ M-OH 20":
+            - generic: BGSU 24
+            - generic: "@"
+            - generic: M-OH 20
+          - cell "17%"
+          - cell "13%"
+          - cell "21%"
+          - cell "Upset":
+            - generic: Upset
+        - row "TXSO 10 @ FAU 66 95% 99% - Called it":
+          - cell "TXSO 10 @ FAU 66":
+            - generic: TXSO 10
+            - generic: "@"
+            - generic: FAU 66
+          - cell "95%"
+          - cell "99%"
+          - cell "-"
+          - cell "Called it":
+            - generic: Called it
+        - row "UTEP 7 @ UNM 61 92% 97% 94% Called it":
+          - cell "UTEP 7 @ UNM 61":
+            - generic: UTEP 7
+            - generic: "@"
+            - generic: UNM 61
+          - cell "92%"
+          - cell "97%"
+          - cell "94%"
+          - cell "Called it":
+            - generic: Called it
+        - row "MRSH 17 @ JMU 45 90% 94% 85% Called it":
+          - cell "MRSH 17 @ JMU 45":
+            - generic: MRSH 17
+            - generic: "@"
+            - generic: JMU 45
+          - cell "90%"
+          - cell "94%"
+          - cell "85%"
+          - cell "Called it":
+            - generic: Called it
+        - row "WYO 0 @ NDSU 28 90% 92% 87% Called it":
+          - cell "WYO 0 @ NDSU 28":
+            - generic: WYO 0
+            - generic: "@"
+            - generic: NDSU 28
+          - cell "90%"
+          - cell "92%"
+          - cell "87%"
+          - cell "Called it":
+            - generic: Called it
+        - row "MD 23 @ NEB 48 89% 93% 84% Called it":
+          - cell "MD 23 @ NEB 48":
+            - generic: MD 23
+            - generic: "@"
+            - generic: NEB 48
+          - cell "89%"
+          - cell "93%"
+          - cell "84%"
+          - cell "Called it":
+            - generic: Called it
+        - row "BC 16 @ SMU 25 88% 90% 91% Called it":
+          - cell "BC 16 @ SMU 25":
+            - generic: BC 16
+            - generic: "@"
+            - generic: SMU 25
+          - cell "88%"
+          - cell "90%"
+          - cell "91%"
+          - cell "Called it":
+            - generic: Called it
+    - button "Show all 39 games"
+    - generic: SportsWorld = point-in-time reconstruction at kickoff (results known before each kickoff, served model); ESPN = first point of ESPN's win-probability chart; market = DraftKings moneyline via ESPN, de-vigged. Benchmarks are never model inputs. One day is a small sample; the 7-season replay above is the real evidence.
+  - region "Model health & calibration":
+    - heading "Model health & calibration" [level=2]
+    - link "Full research":
+      - /url: /research
+    - generic: 90% win-band coverage
+    - generic: 94%
+    - generic: target 90% · independent-game sim only 77%
+    - generic: Win-total error
+    - generic: "1.80"
+    - generic: mean abs. error, vs 2.14 for a pace baseline
+    - generic: Champion log loss
+    - generic: "2.85"
+    - generic: vs 4.88 for picking uniformly
+    - generic: Game model log loss
+    - generic: "0.365"
+    - generic: walk-forward mean ± 0.020; state-space only 0.377
+    - generic: Champions per draw
+    - generic: 1–1
+    - generic: "structural check: exactly one title winner in every simulated season"
+    - generic: Board ↔ season consistency
+    - generic: "0.14"
+    - generic: mean |Δ expected wins| between game forecasts and the season simulation
+    - generic: Point-in-time replays of 2019–2025 preseason; rolling-origin = train on earlier seasons, test on the next.
+- button "Close" [expanded]:
+  - text: Close
+- complementary "Ask SportsWorld":
+  - generic: Ask SportsWorld
+  - generic: "Runs the live engine: odds, what-ifs, games to watch. Same agent as on ASI:One (Fetch.ai)."
+  - button "How are Michigan doing?"
+  - button "What if Michigan beats Ohio State?"
+  - button "Which games matter tonight?"
+  - button "Should I watch BYU or Texas Tech?"
+  - textbox "Ask a question" [active]:
+    - /placeholder: How are Michigan doing? What if…
+  - button "Send" [disabled]:
+- generic: 25%

@@ -227,6 +227,19 @@ def board(eng: Engine, lg: str) -> list[dict]:
     return eng.get(f"/competitions/{lg}/seasons/current/forecast-board")["events"]
 
 
+def competitiveness(p_home: float | None, home: str, away: str) -> str:
+    """Honest label for how one-sided a game is, from its win probability."""
+    p = 0.5 if p_home is None else float(p_home)
+    fav, pf = (home, p) if p >= 0.5 else (away, 1 - p)
+    if pf < 0.6:
+        return f"toss-up ({fav} {pct(pf)})"
+    if pf < 0.7:
+        return f"lean {fav} ({pct(pf)})"
+    if pf < 0.85:
+        return f"{fav} clear favourite ({pct(pf)})"
+    return f"one-sided: {fav} heavy favourite ({pct(pf)})"
+
+
 def lev(g: dict) -> float:
     return max(abs(g.get("leverage_home") or 0), abs(g.get("leverage_away") or 0))
 
@@ -244,13 +257,13 @@ def games_to_watch(eng: Engine, leagues: list[str], soon: bool = False) -> str:
     if not out:
         return "No live or upcoming games in the next 36 hours for those leagues."
     # season stakes x closeness: a big-leverage game that is still in doubt is the one to watch
-    score = lambda g: lev(g) * (1 - abs((g.get("p_home") or 0.5) - 0.5) * 1.4)  # noqa: E731
+    score = lambda g: lev(g) * 4 * (g.get("p_home") or 0.5) * (1 - (g.get("p_home") or 0.5))  # noqa: E731  (1 for a toss-up, 0.21 at 94%)
     top = sorted(out, key=lambda x: -score(x[1]))[:5]
-    lines = ["**Games that matter most right now** (season leverage × how close the game is):"]
+    lines = ["**Games that matter most right now** (ranked by season stakes, weighted toward games still in doubt):"]
     for i, (lg, g) in enumerate(top):
-        p = g.get("p_home")
         state = f"LIVE {g.get('away_score')}–{g.get('home_score')}" if g["state"] == "in" else g["start_time"][11:16] + " UTC"
-        lines.append(f"{i + 1}. **{g['away']} @ {g['home']}** ({LEAGUE_NAME[lg]}, {state}): home win {pct(p)}, swings playoff odds by up to **{lev(g) * 100:.0f} pts**")
+        lines.append(f"{i + 1}. **{g['away']} @ {g['home']}** ({LEAGUE_NAME[lg]}, {state}): {competitiveness(g.get('p_home'), g['home'], g['away'])}; "
+                     f"the result swings playoff odds by up to **{lev(g) * 100:.0f} pts**")
     lines.append(f"\nMy pick: **{top[0][1]['away']} @ {top[0][1]['home']}**. Watch it live: {SITE}/{top[0][0]}/game/{top[0][1]['event_id']}")
     return "\n".join(lines)
 
@@ -294,7 +307,7 @@ def matchup(eng: Engine, lg: str, a: dict, b: dict | None) -> str:
                    f"with ±{(h['rating_sd'] ** 2 + a_['rating_sd'] ** 2) ** 0.5:.0f} pts of strength uncertainty and much more game-to-game noise.")
     except Exception:
         pass
-    return (f"{head}\n{state} SportsWorld favours **{fav}** at **{pct(pf)}**"
+    return (f"{head}\n{state} SportsWorld favours **{fav}** at **{pct(pf)}**, {competitiveness(p, g['home'], g['away']).split(' (')[0]}"
             + (f" (pregame {pct(g.get('p_home_pregame'))} home)" if g["state"] == "in" else "")
             + f".{why}\nSeason stakes: the result moves playoff odds by up to **{lev(g) * 100:.0f} pts**.\n{SITE}/{lg}/game/{g['event_id']}")
 

@@ -1,0 +1,1670 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "NBA sections":
+  - generic: NBA
+  - link "Overview":
+    - /url: /nba
+    - text: Overview
+  - link "Standings":
+    - /url: /nba/standings
+    - text: Standings
+  - link "Live":
+    - /url: /nba/games?live=1
+    - text: Live
+  - link "Forecasts":
+    - /url: /nba/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /nba/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 3 viewers
+- main:
+  - 'heading "Boston Celtics: Season World" [level=1]':
+    - text: "Boston Celtics:"
+    - emphasis: Season World
+  - paragraph: Persistent team intelligence across the 2026–27 NBA season.
+  - 'button "Listen: Celtics briefing"':
+    - text: "Listen: Celtics briefing"
+  - region "Team summary":
+    - text: Boston
+    - text: Celtics
+    - generic: 1st in Atlantic Division
+    - generic: 0-0
+    - generic: Overall
+    - generic: 0-0
+    - generic: Eastern
+    - link "Next game":
+      - /url: /nba/games?team=2
+      - generic: Next game
+      - generic: "@ Pistons"
+      - text: Tue, Oct 20 · 3:00 PM
+  - generic: Expected wins
+  - generic: "46.3"
+  - generic: 90% range 29–62 of 80
+  - generic: Playoffs probability
+  - generic: 76%
+  - generic: ±0.43% sim. error
+  - generic: Win conference
+  - generic: 13%
+  - generic: rank 4
+  - generic: NBA Title
+  - generic: 7.1%
+  - generic: rank 4
+  - generic: Strength rating
+  - text: "+2.7"
+  - generic: ±3.7
+  - generic: "#4 of 30"
+  - region "Team strength trend":
+    - heading "Team strength trend" [level=2]
+    - generic: Posterior mean of latent strength with its 90% band (pts vs an average team). Updated after every result.
+  - region "Remaining schedule":
+    - heading "Remaining schedule" [level=2]
+    - link "Branch a result":
+      - /url: /nba/lab?team=2
+    - table:
+      - rowgroup:
+        - row "Date Opponent Site Win prob Leverage":
+          - columnheader "Date"
+          - columnheader "Opponent"
+          - columnheader "Site"
+          - columnheader "Win prob"
+          - columnheader "Leverage"
+      - rowgroup:
+        - row "Oct 20 @ Pistons Away 43% Low 2.2":
+          - cell "Oct 20"
+          - cell "@ Pistons":
+            - link "@ Pistons":
+              - /url: /nba/team/8
+              - generic: "@ Pistons"
+          - cell "Away"
+          - cell "43%":
+            - generic: 43%
+          - cell "Low 2.2":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.2 points"':
+              - text: Low
+              - generic: "2.2"
+        - row "Oct 23 vs Knicks Home 53% Low 1.9":
+          - cell "Oct 23"
+          - cell "vs Knicks":
+            - link "vs Knicks":
+              - /url: /nba/team/18
+              - generic: vs Knicks
+          - cell "Home"
+          - cell "53%":
+            - generic: 53%
+          - cell "Low 1.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.9 points"':
+              - text: Low
+              - generic: "1.9"
+        - row "Oct 26 vs Bulls Home 73% Low 1.7":
+          - cell "Oct 26"
+          - cell "vs Bulls":
+            - link "vs Bulls":
+              - /url: /nba/team/4
+              - generic: vs Bulls
+          - cell "Home"
+          - cell "73%":
+            - generic: 73%
+          - cell "Low 1.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.7 points"':
+              - text: Low
+              - generic: "1.7"
+        - row "Oct 27 vs Nets Home 77% Low 1.6":
+          - cell "Oct 27"
+          - cell "vs Nets":
+            - link "vs Nets":
+              - /url: /nba/team/17
+              - generic: vs Nets
+          - cell "Home"
+          - cell "77%":
+            - generic: 77%
+          - cell "Low 1.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.6 points"':
+              - text: Low
+              - generic: "1.6"
+        - row "Oct 30 vs Bulls Home 73% Low 1.7":
+          - cell "Oct 30"
+          - cell "vs Bulls":
+            - link "vs Bulls":
+              - /url: /nba/team/4
+              - generic: vs Bulls
+          - cell "Home"
+          - cell "73%":
+            - generic: 73%
+          - cell "Low 1.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.7 points"':
+              - text: Low
+              - generic: "1.7"
+        - row "Nov 1 @ Magic Away 50% Low 1.8":
+          - cell "Nov 1"
+          - cell "@ Magic":
+            - link "@ Magic":
+              - /url: /nba/team/19
+              - generic: "@ Magic"
+          - cell "Away"
+          - cell "50%":
+            - generic: 50%
+          - cell "Low 1.8":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.8 points"':
+              - text: Low
+              - generic: "1.8"
+        - row "Nov 2 @ Rockets Away 47% Low 1.5":
+          - cell "Nov 2"
+          - cell "@ Rockets":
+            - link "@ Rockets":
+              - /url: /nba/team/10
+              - generic: "@ Rockets"
+          - cell "Away"
+          - cell "47%":
+            - generic: 47%
+          - cell "Low 1.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.5 points"':
+              - text: Low
+              - generic: "1.5"
+        - row "Nov 4 vs Bucks Home 74% Medium 2.9":
+          - cell "Nov 4"
+          - cell "vs Bucks":
+            - link "vs Bucks":
+              - /url: /nba/team/15
+              - generic: vs Bucks
+          - cell "Home"
+          - cell "74%":
+            - generic: 74%
+          - cell "Medium 2.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.9 points"':
+              - text: Medium
+              - generic: "2.9"
+        - row "Nov 6 @ Hornets Away 46% Low 2.0":
+          - cell "Nov 6"
+          - cell "@ Hornets":
+            - link "@ Hornets":
+              - /url: /nba/team/30
+              - generic: "@ Hornets"
+          - cell "Away"
+          - cell "46%":
+            - generic: 46%
+          - cell "Low 2.0":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.0 points"':
+              - text: Low
+              - generic: "2.0"
+        - row "Nov 8 @ Bucks Away 61% Low 1.7":
+          - cell "Nov 8"
+          - cell "@ Bucks":
+            - link "@ Bucks":
+              - /url: /nba/team/15
+              - generic: "@ Bucks"
+          - cell "Away"
+          - cell "61%":
+            - generic: 61%
+          - cell "Low 1.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.7 points"':
+              - text: Low
+              - generic: "1.7"
+        - row "Nov 10 @ 76ers Away 52% Low 2.0":
+          - cell "Nov 10"
+          - cell "@ 76ers":
+            - link "@ 76ers":
+              - /url: /nba/team/20
+              - generic: "@ 76ers"
+          - cell "Away"
+          - cell "52%":
+            - generic: 52%
+          - cell "Low 2.0":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.0 points"':
+              - text: Low
+              - generic: "2.0"
+        - row "Nov 11 @ Raptors Away 49% Low 2.5":
+          - cell "Nov 11"
+          - cell "@ Raptors":
+            - link "@ Raptors":
+              - /url: /nba/team/28
+              - generic: "@ Raptors"
+          - cell "Away"
+          - cell "49%":
+            - generic: 49%
+          - cell "Low 2.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.5 points"':
+              - text: Low
+              - generic: "2.5"
+        - row "Nov 15 vs Mavericks Home 73% Low 2.5":
+          - cell "Nov 15"
+          - cell "vs Mavericks":
+            - link "vs Mavericks":
+              - /url: /nba/team/6
+              - generic: vs Mavericks
+          - cell "Home"
+          - cell "73%":
+            - generic: 73%
+          - cell "Low 2.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.5 points"':
+              - text: Low
+              - generic: "2.5"
+        - row "Nov 16 vs Magic Home 65% Low 1.7":
+          - cell "Nov 16"
+          - cell "vs Magic":
+            - link "vs Magic":
+              - /url: /nba/team/19
+              - generic: vs Magic
+          - cell "Home"
+          - cell "65%":
+            - generic: 65%
+          - cell "Low 1.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.7 points"':
+              - text: Low
+              - generic: "1.7"
+        - row "Nov 18 @ Nuggets Away 46% Low 0.5":
+          - cell "Nov 18"
+          - cell "@ Nuggets":
+            - link "@ Nuggets":
+              - /url: /nba/team/7
+              - generic: "@ Nuggets"
+          - cell "Away"
+          - cell "46%":
+            - generic: 46%
+          - cell "Low 0.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 0.5 points"':
+              - text: Low
+              - generic: "0.5"
+        - row "Nov 21 @ Kings Away 63% Low 1.1":
+          - cell "Nov 21"
+          - cell "@ Kings":
+            - link "@ Kings":
+              - /url: /nba/team/23
+              - generic: "@ Kings"
+          - cell "Away"
+          - cell "63%":
+            - generic: 63%
+          - cell "Low 1.1":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.1 points"':
+              - text: Low
+              - generic: "1.1"
+        - row "Nov 22 @ Warriors Away 54% Low 1.6":
+          - cell "Nov 22"
+          - cell "@ Warriors":
+            - link "@ Warriors":
+              - /url: /nba/team/9
+              - generic: "@ Warriors"
+          - cell "Away"
+          - cell "54%":
+            - generic: 54%
+          - cell "Low 1.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.6 points"':
+              - text: Low
+              - generic: "1.6"
+        - row "Nov 24 @ Wizards Away 68% Medium 2.8":
+          - cell "Nov 24"
+          - cell "@ Wizards":
+            - link "@ Wizards":
+              - /url: /nba/team/27
+              - generic: "@ Wizards"
+          - cell "Away"
+          - cell "68%":
+            - generic: 68%
+          - cell "Medium 2.8":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.8 points"':
+              - text: Medium
+              - generic: "2.8"
+        - row "Nov 27 vs Hawks Home 64% Low 2.5":
+          - cell "Nov 27"
+          - cell "vs Hawks":
+            - link "vs Hawks":
+              - /url: /nba/team/1
+              - generic: vs Hawks
+          - cell "Home"
+          - cell "64%":
+            - generic: 64%
+          - cell "Low 2.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.5 points"':
+              - text: Low
+              - generic: "2.5"
+        - row "Nov 29 @ Spurs Away 37% Low 1.8":
+          - cell "Nov 29"
+          - cell "@ Spurs":
+            - link "@ Spurs":
+              - /url: /nba/team/24
+              - generic: "@ Spurs"
+          - cell "Away"
+          - cell "37%":
+            - generic: 37%
+          - cell "Low 1.8":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.8 points"':
+              - text: Low
+              - generic: "1.8"
+        - row "Nov 30 @ Mavericks Away 60% Medium 2.5":
+          - cell "Nov 30"
+          - cell "@ Mavericks":
+            - link "@ Mavericks":
+              - /url: /nba/team/6
+              - generic: "@ Mavericks"
+          - cell "Away"
+          - cell "60%":
+            - generic: 60%
+          - cell "Medium 2.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.5 points"':
+              - text: Medium
+              - generic: "2.5"
+        - row "Dec 2 vs Hornets Home 60% Low 1.9":
+          - cell "Dec 2"
+          - cell "vs Hornets":
+            - link "vs Hornets":
+              - /url: /nba/team/30
+              - generic: vs Hornets
+          - cell "Home"
+          - cell "60%":
+            - generic: 60%
+          - cell "Low 1.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.9 points"':
+              - text: Low
+              - generic: "1.9"
+        - row "Dec 13 @ Nets Away 66% Medium 2.6":
+          - cell "Dec 13"
+          - cell "@ Nets":
+            - link "@ Nets":
+              - /url: /nba/team/17
+              - generic: "@ Nets"
+          - cell "Away"
+          - cell "66%":
+            - generic: 66%
+          - cell "Medium 2.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.6 points"':
+              - text: Medium
+              - generic: "2.6"
+        - row "Dec 14 vs Wizards Home 79% Medium 2.8":
+          - cell "Dec 14"
+          - cell "vs Wizards":
+            - link "vs Wizards":
+              - /url: /nba/team/27
+              - generic: vs Wizards
+          - cell "Home"
+          - cell "79%":
+            - generic: 79%
+          - cell "Medium 2.8":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.8 points"':
+              - text: Medium
+              - generic: "2.8"
+        - row "Dec 16 vs Wizards Home 79% Low 2.0":
+          - cell "Dec 16"
+          - cell "vs Wizards":
+            - link "vs Wizards":
+              - /url: /nba/team/27
+              - generic: vs Wizards
+          - cell "Home"
+          - cell "79%":
+            - generic: 79%
+          - cell "Low 2.0":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.0 points"':
+              - text: Low
+              - generic: "2.0"
+        - row "Dec 18 vs Jazz Home 75% Low 1.9":
+          - cell "Dec 18"
+          - cell "vs Jazz":
+            - link "vs Jazz":
+              - /url: /nba/team/26
+              - generic: vs Jazz
+          - cell "Home"
+          - cell "75%":
+            - generic: 75%
+          - cell "Low 1.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.9 points"':
+              - text: Low
+              - generic: "1.9"
+        - row "Dec 20 vs Pistons Home 58% Medium 2.8":
+          - cell "Dec 20"
+          - cell "vs Pistons":
+            - link "vs Pistons":
+              - /url: /nba/team/8
+              - generic: vs Pistons
+          - cell "Home"
+          - cell "58%":
+            - generic: 58%
+          - cell "Medium 2.8":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.8 points"':
+              - text: Medium
+              - generic: "2.8"
+        - row "Dec 23 vs Trail Blazers Home 65% Low 1.1":
+          - cell "Dec 23"
+          - cell "vs Trail Blazers":
+            - link "vs Trail Blazers":
+              - /url: /nba/team/22
+              - generic: vs Trail Blazers
+          - cell "Home"
+          - cell "65%":
+            - generic: 65%
+          - cell "Low 1.1":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.1 points"':
+              - text: Low
+              - generic: "1.1"
+        - row "Dec 25 vs Heat Home 64% Low 1.9":
+          - cell "Dec 25"
+          - cell "vs Heat":
+            - link "vs Heat":
+              - /url: /nba/team/14
+              - generic: vs Heat
+          - cell "Home"
+          - cell "64%":
+            - generic: 64%
+          - cell "Low 1.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.9 points"':
+              - text: Low
+              - generic: "1.9"
+        - row "Dec 28 vs Cavaliers Home 62% Low 1.9":
+          - cell "Dec 28"
+          - cell "vs Cavaliers":
+            - link "vs Cavaliers":
+              - /url: /nba/team/5
+              - generic: vs Cavaliers
+          - cell "Home"
+          - cell "62%":
+            - generic: 62%
+          - cell "Low 1.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.9 points"':
+              - text: Low
+              - generic: "1.9"
+        - row "Dec 30 @ Bulls Away 60% Low 1.6":
+          - cell "Dec 30"
+          - cell "@ Bulls":
+            - link "@ Bulls":
+              - /url: /nba/team/4
+              - generic: "@ Bulls"
+          - cell "Away"
+          - cell "60%":
+            - generic: 60%
+          - cell "Low 1.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.6 points"':
+              - text: Low
+              - generic: "1.6"
+        - row "Jan 1 @ Jazz Away 63% Low 2.1":
+          - cell "Jan 1"
+          - cell "@ Jazz":
+            - link "@ Jazz":
+              - /url: /nba/team/26
+              - generic: "@ Jazz"
+          - cell "Away"
+          - cell "63%":
+            - generic: 63%
+          - cell "Low 2.1":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.1 points"':
+              - text: Low
+              - generic: "2.1"
+        - row "Jan 2 @ Trail Blazers Away 51% Low 1.5":
+          - cell "Jan 2"
+          - cell "@ Trail Blazers":
+            - link "@ Trail Blazers":
+              - /url: /nba/team/22
+              - generic: "@ Trail Blazers"
+          - cell "Away"
+          - cell "51%":
+            - generic: 51%
+          - cell "Low 1.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.5 points"':
+              - text: Low
+              - generic: "1.5"
+        - row "Jan 4 @ Suns Away 50% Low 2.2":
+          - cell "Jan 4"
+          - cell "@ Suns":
+            - link "@ Suns":
+              - /url: /nba/team/21
+              - generic: "@ Suns"
+          - cell "Away"
+          - cell "50%":
+            - generic: 50%
+          - cell "Low 2.2":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.2 points"':
+              - text: Low
+              - generic: "2.2"
+        - row "Jan 7 @ Lakers Away 49% Low 1.9":
+          - cell "Jan 7"
+          - cell "@ Lakers":
+            - link "@ Lakers":
+              - /url: /nba/team/13
+              - generic: "@ Lakers"
+          - cell "Away"
+          - cell "49%":
+            - generic: 49%
+          - cell "Low 1.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.9 points"':
+              - text: Low
+              - generic: "1.9"
+        - row "Jan 9 @ Clippers Away 50% Low 1.9":
+          - cell "Jan 9"
+          - cell "@ Clippers":
+            - link "@ Clippers":
+              - /url: /nba/team/12
+              - generic: "@ Clippers"
+          - cell "Away"
+          - cell "50%":
+            - generic: 50%
+          - cell "Low 1.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.9 points"':
+              - text: Low
+              - generic: "1.9"
+        - row "Jan 11 vs Rockets Home 61% Low 1.9":
+          - cell "Jan 11"
+          - cell "vs Rockets":
+            - link "vs Rockets":
+              - /url: /nba/team/10
+              - generic: vs Rockets
+          - cell "Home"
+          - cell "61%":
+            - generic: 61%
+          - cell "Low 1.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.9 points"':
+              - text: Low
+              - generic: "1.9"
+        - row "Jan 13 vs Knicks Home 53% Low 2.2":
+          - cell "Jan 13"
+          - cell "vs Knicks":
+            - link "vs Knicks":
+              - /url: /nba/team/18
+              - generic: vs Knicks
+          - cell "Home"
+          - cell "53%":
+            - generic: 53%
+          - cell "Low 2.2":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.2 points"':
+              - text: Low
+              - generic: "2.2"
+        - row "Jan 16 vs Nets Home 77% Low 2.1":
+          - cell "Jan 16"
+          - cell "vs Nets":
+            - link "vs Nets":
+              - /url: /nba/team/17
+              - generic: vs Nets
+          - cell "Home"
+          - cell "77%":
+            - generic: 77%
+          - cell "Low 2.1":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.1 points"':
+              - text: Low
+              - generic: "2.1"
+        - row "Jan 18 @ Wizards Away 68% Low 2.1":
+          - cell "Jan 18"
+          - cell "@ Wizards":
+            - link "@ Wizards":
+              - /url: /nba/team/27
+              - generic: "@ Wizards"
+          - cell "Away"
+          - cell "68%":
+            - generic: 68%
+          - cell "Low 2.1":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.1 points"':
+              - text: Low
+              - generic: "2.1"
+        - row "Jan 20 vs Pacers Home 74% Low 1.7":
+          - cell "Jan 20"
+          - cell "vs Pacers":
+            - link "vs Pacers":
+              - /url: /nba/team/11
+              - generic: vs Pacers
+          - cell "Home"
+          - cell "74%":
+            - generic: 74%
+          - cell "Low 1.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.7 points"':
+              - text: Low
+              - generic: "1.7"
+        - row "Jan 21 vs 76ers Home 66% Medium 2.6":
+          - cell "Jan 21"
+          - cell "vs 76ers":
+            - link "vs 76ers":
+              - /url: /nba/team/20
+              - generic: vs 76ers
+          - cell "Home"
+          - cell "66%":
+            - generic: 66%
+          - cell "Medium 2.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.6 points"':
+              - text: Medium
+              - generic: "2.6"
+        - row "Jan 23 vs Hornets Home 60% Low 2.5":
+          - cell "Jan 23"
+          - cell "vs Hornets":
+            - link "vs Hornets":
+              - /url: /nba/team/30
+              - generic: vs Hornets
+          - cell "Home"
+          - cell "60%":
+            - generic: 60%
+          - cell "Low 2.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.5 points"':
+              - text: Low
+              - generic: "2.5"
+        - row "Jan 25 vs Raptors Home 63% Low 2.5":
+          - cell "Jan 25"
+          - cell "vs Raptors":
+            - link "vs Raptors":
+              - /url: /nba/team/28
+              - generic: vs Raptors
+          - cell "Home"
+          - cell "63%":
+            - generic: 63%
+          - cell "Low 2.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.5 points"':
+              - text: Low
+              - generic: "2.5"
+        - row "Jan 27 vs Clippers Home 64% Low 1.5":
+          - cell "Jan 27"
+          - cell "vs Clippers":
+            - link "vs Clippers":
+              - /url: /nba/team/12
+              - generic: vs Clippers
+          - cell "Home"
+          - cell "64%":
+            - generic: 64%
+          - cell "Low 1.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.5 points"':
+              - text: Low
+              - generic: "1.5"
+        - row "Jan 29 vs Suns Home 65% Low 2.3":
+          - cell "Jan 29"
+          - cell "vs Suns":
+            - link "vs Suns":
+              - /url: /nba/team/21
+              - generic: vs Suns
+          - cell "Home"
+          - cell "65%":
+            - generic: 65%
+          - cell "Low 2.3":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.3 points"':
+              - text: Low
+              - generic: "2.3"
+        - row "Jan 31 @ Raptors Away 49% Medium 2.5":
+          - cell "Jan 31"
+          - cell "@ Raptors":
+            - link "@ Raptors":
+              - /url: /nba/team/28
+              - generic: "@ Raptors"
+          - cell "Away"
+          - cell "49%":
+            - generic: 49%
+          - cell "Medium 2.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.5 points"':
+              - text: Medium
+              - generic: "2.5"
+        - row "Feb 2 vs Lakers Home 63% Low 1.6":
+          - cell "Feb 2"
+          - cell "vs Lakers":
+            - link "vs Lakers":
+              - /url: /nba/team/13
+              - generic: vs Lakers
+          - cell "Home"
+          - cell "63%":
+            - generic: 63%
+          - cell "Low 1.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.6 points"':
+              - text: Low
+              - generic: "1.6"
+        - row "Feb 4 @ Hornets Away 45% Low 1.5":
+          - cell "Feb 4"
+          - cell "@ Hornets":
+            - link "@ Hornets":
+              - /url: /nba/team/30
+              - generic: "@ Hornets"
+          - cell "Away"
+          - cell "45%":
+            - generic: 45%
+          - cell "Low 1.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.5 points"':
+              - text: Low
+              - generic: "1.5"
+        - row "Feb 5 @ Hawks Away 50% Low 2.2":
+          - cell "Feb 5"
+          - cell "@ Hawks":
+            - link "@ Hawks":
+              - /url: /nba/team/1
+              - generic: "@ Hawks"
+          - cell "Away"
+          - cell "50%":
+            - generic: 50%
+          - cell "Low 2.2":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.2 points"':
+              - text: Low
+              - generic: "2.2"
+        - row "Feb 7 @ 76ers Away 52% Low 2.0":
+          - cell "Feb 7"
+          - cell "@ 76ers":
+            - link "@ 76ers":
+              - /url: /nba/team/20
+              - generic: "@ 76ers"
+          - cell "Away"
+          - cell "52%":
+            - generic: 52%
+          - cell "Low 2.0":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.0 points"':
+              - text: Low
+              - generic: "2.0"
+        - row "Feb 9 vs Nuggets Home 61% Low 1.9":
+          - cell "Feb 9"
+          - cell "vs Nuggets":
+            - link "vs Nuggets":
+              - /url: /nba/team/7
+              - generic: vs Nuggets
+          - cell "Home"
+          - cell "61%":
+            - generic: 61%
+          - cell "Low 1.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.9 points"':
+              - text: Low
+              - generic: "1.9"
+        - row "Feb 10 vs Warriors Home 68% Low 2.0":
+          - cell "Feb 10"
+          - cell "vs Warriors":
+            - link "vs Warriors":
+              - /url: /nba/team/9
+              - generic: vs Warriors
+          - cell "Home"
+          - cell "68%":
+            - generic: 68%
+          - cell "Low 2.0":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.0 points"':
+              - text: Low
+              - generic: "2.0"
+        - row "Feb 12 vs Timberwolves Home 63% Low 1.4":
+          - cell "Feb 12"
+          - cell "vs Timberwolves":
+            - link "vs Timberwolves":
+              - /url: /nba/team/16
+              - generic: vs Timberwolves
+          - cell "Home"
+          - cell "63%":
+            - generic: 63%
+          - cell "Low 1.4":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.4 points"':
+              - text: Low
+              - generic: "1.4"
+        - row "Feb 14 vs Raptors Home 63% Low 1.7":
+          - cell "Feb 14"
+          - cell "vs Raptors":
+            - link "vs Raptors":
+              - /url: /nba/team/28
+              - generic: vs Raptors
+          - cell "Home"
+          - cell "63%":
+            - generic: 63%
+          - cell "Low 1.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.7 points"':
+              - text: Low
+              - generic: "1.7"
+        - row "Feb 17 @ Thunder Away 38% Low 1.1":
+          - cell "Feb 17"
+          - cell "@ Thunder":
+            - link "@ Thunder":
+              - /url: /nba/team/25
+              - generic: "@ Thunder"
+          - cell "Away"
+          - cell "38%":
+            - generic: 38%
+          - cell "Low 1.1":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.1 points"':
+              - text: Low
+              - generic: "1.1"
+        - row "Feb 18 @ Grizzlies Away 62% Low 2.3":
+          - cell "Feb 18"
+          - cell "@ Grizzlies":
+            - link "@ Grizzlies":
+              - /url: /nba/team/29
+              - generic: "@ Grizzlies"
+          - cell "Away"
+          - cell "62%":
+            - generic: 62%
+          - cell "Low 2.3":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.3 points"':
+              - text: Low
+              - generic: "2.3"
+        - row "Feb 26 vs Cavaliers Home 62% Low 2.4":
+          - cell "Feb 26"
+          - cell "vs Cavaliers":
+            - link "vs Cavaliers":
+              - /url: /nba/team/5
+              - generic: vs Cavaliers
+          - cell "Home"
+          - cell "62%":
+            - generic: 62%
+          - cell "Low 2.4":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.4 points"':
+              - text: Low
+              - generic: "2.4"
+        - row "Feb 28 @ Timberwolves Away 49% Low 1.5":
+          - cell "Feb 28"
+          - cell "@ Timberwolves":
+            - link "@ Timberwolves":
+              - /url: /nba/team/16
+              - generic: "@ Timberwolves"
+          - cell "Away"
+          - cell "49%":
+            - generic: 49%
+          - cell "Low 1.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.5 points"':
+              - text: Low
+              - generic: "1.5"
+        - row "Mar 2 @ Pacers Away 61% Medium 2.7":
+          - cell "Mar 2"
+          - cell "@ Pacers":
+            - link "@ Pacers":
+              - /url: /nba/team/11
+              - generic: "@ Pacers"
+          - cell "Away"
+          - cell "61%":
+            - generic: 61%
+          - cell "Medium 2.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.7 points"':
+              - text: Medium
+              - generic: "2.7"
+        - row "Mar 5 @ Pistons Away 43% Low 2.0":
+          - cell "Mar 5"
+          - cell "@ Pistons":
+            - link "@ Pistons":
+              - /url: /nba/team/8
+              - generic: "@ Pistons"
+          - cell "Away"
+          - cell "43%":
+            - generic: 43%
+          - cell "Low 2.0":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.0 points"':
+              - text: Low
+              - generic: "2.0"
+        - row "Mar 7 vs 76ers Home 66% Medium 2.7":
+          - cell "Mar 7"
+          - cell "vs 76ers":
+            - link "vs 76ers":
+              - /url: /nba/team/20
+              - generic: vs 76ers
+          - cell "Home"
+          - cell "66%":
+            - generic: 66%
+          - cell "Medium 2.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.7 points"':
+              - text: Medium
+              - generic: "2.7"
+        - row "Mar 9 @ Bulls Away 60% Low 1.6":
+          - cell "Mar 9"
+          - cell "@ Bulls":
+            - link "@ Bulls":
+              - /url: /nba/team/4
+              - generic: "@ Bulls"
+          - cell "Away"
+          - cell "60%":
+            - generic: 60%
+          - cell "Low 1.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.6 points"':
+              - text: Low
+              - generic: "1.6"
+        - row "Mar 11 vs Grizzlies Home 75% Low 2.4":
+          - cell "Mar 11"
+          - cell "vs Grizzlies":
+            - link "vs Grizzlies":
+              - /url: /nba/team/29
+              - generic: vs Grizzlies
+          - cell "Home"
+          - cell "75%":
+            - generic: 75%
+          - cell "Low 2.4":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.4 points"':
+              - text: Low
+              - generic: "2.4"
+        - row "Mar 12 vs Thunder Home 53% Low 2.0":
+          - cell "Mar 12"
+          - cell "vs Thunder":
+            - link "vs Thunder":
+              - /url: /nba/team/25
+              - generic: vs Thunder
+          - cell "Home"
+          - cell "53%":
+            - generic: 53%
+          - cell "Low 2.0":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.0 points"':
+              - text: Low
+              - generic: "2.0"
+        - row "Mar 14 @ Knicks Away 38% Low 2.3":
+          - cell "Mar 14"
+          - cell "@ Knicks":
+            - link "@ Knicks":
+              - /url: /nba/team/18
+              - generic: "@ Knicks"
+          - cell "Away"
+          - cell "38%":
+            - generic: 38%
+          - cell "Low 2.3":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.3 points"':
+              - text: Low
+              - generic: "2.3"
+        - row "Mar 16 vs Kings Home 76% Low 0.6":
+          - cell "Mar 16"
+          - cell "vs Kings":
+            - link "vs Kings":
+              - /url: /nba/team/23
+              - generic: vs Kings
+          - cell "Home"
+          - cell "76%":
+            - generic: 76%
+          - cell "Low 0.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 0.6 points"':
+              - text: Low
+              - generic: "0.6"
+        - row "Mar 18 vs Magic Home 65% Low 2.4":
+          - cell "Mar 18"
+          - cell "vs Magic":
+            - link "vs Magic":
+              - /url: /nba/team/19
+              - generic: vs Magic
+          - cell "Home"
+          - cell "65%":
+            - generic: 65%
+          - cell "Low 2.4":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.4 points"':
+              - text: Low
+              - generic: "2.4"
+        - row "Mar 21 vs Pelicans Home 70% Low 1.7":
+          - cell "Mar 21"
+          - cell "vs Pelicans":
+            - link "vs Pelicans":
+              - /url: /nba/team/3
+              - generic: vs Pelicans
+          - cell "Home"
+          - cell "70%":
+            - generic: 70%
+          - cell "Low 1.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.7 points"':
+              - text: Low
+              - generic: "1.7"
+        - row "Mar 23 @ Nets Away 65% Low 1.1":
+          - cell "Mar 23"
+          - cell "@ Nets":
+            - link "@ Nets":
+              - /url: /nba/team/17
+              - generic: "@ Nets"
+          - cell "Away"
+          - cell "65%":
+            - generic: 65%
+          - cell "Low 1.1":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.1 points"':
+              - text: Low
+              - generic: "1.1"
+        - row "Mar 24 vs Spurs Home 52% Medium 2.6":
+          - cell "Mar 24"
+          - cell "vs Spurs":
+            - link "vs Spurs":
+              - /url: /nba/team/24
+              - generic: vs Spurs
+          - cell "Home"
+          - cell "52%":
+            - generic: 52%
+          - cell "Medium 2.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.6 points"':
+              - text: Medium
+              - generic: "2.6"
+        - row "Mar 27 @ Heat Away 50% Low 2.3":
+          - cell "Mar 27"
+          - cell "@ Heat":
+            - link "@ Heat":
+              - /url: /nba/team/14
+              - generic: "@ Heat"
+          - cell "Away"
+          - cell "50%":
+            - generic: 50%
+          - cell "Low 2.3":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.3 points"':
+              - text: Low
+              - generic: "2.3"
+        - row "Mar 28 @ Pelicans Away 57% Low 1.6":
+          - cell "Mar 28"
+          - cell "@ Pelicans":
+            - link "@ Pelicans":
+              - /url: /nba/team/3
+              - generic: "@ Pelicans"
+          - cell "Away"
+          - cell "57%":
+            - generic: 57%
+          - cell "Low 1.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.6 points"':
+              - text: Low
+              - generic: "1.6"
+        - row "Mar 30 @ Pacers Away 61% Low 1.5":
+          - cell "Mar 30"
+          - cell "@ Pacers":
+            - link "@ Pacers":
+              - /url: /nba/team/11
+              - generic: "@ Pacers"
+          - cell "Away"
+          - cell "61%":
+            - generic: 61%
+          - cell "Low 1.5":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.5 points"':
+              - text: Low
+              - generic: "1.5"
+        - row "Apr 1 @ Cavaliers Away 47% Low 1.2":
+          - cell "Apr 1"
+          - cell "@ Cavaliers":
+            - link "@ Cavaliers":
+              - /url: /nba/team/5
+              - generic: "@ Cavaliers"
+          - cell "Away"
+          - cell "47%":
+            - generic: 47%
+          - cell "Low 1.2":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.2 points"':
+              - text: Low
+              - generic: "1.2"
+        - row "Apr 2 vs Heat Home 64% Medium 3.4":
+          - cell "Apr 2"
+          - cell "vs Heat":
+            - link "vs Heat":
+              - /url: /nba/team/14
+              - generic: vs Heat
+          - cell "Home"
+          - cell "64%":
+            - generic: 64%
+          - cell "Medium 3.4":
+            - 'generic "Make playoffs probability: win vs loss differs by 3.4 points"':
+              - text: Medium
+              - generic: "3.4"
+        - row "Apr 4 @ Knicks Away 38% Low 1.4":
+          - cell "Apr 4"
+          - cell "@ Knicks":
+            - link "@ Knicks":
+              - /url: /nba/team/18
+              - generic: "@ Knicks"
+          - cell "Away"
+          - cell "38%":
+            - generic: 38%
+          - cell "Low 1.4":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.4 points"':
+              - text: Low
+              - generic: "1.4"
+        - row "Apr 7 @ Magic Away 50% Medium 2.6":
+          - cell "Apr 7"
+          - cell "@ Magic":
+            - link "@ Magic":
+              - /url: /nba/team/19
+              - generic: "@ Magic"
+          - cell "Away"
+          - cell "50%":
+            - generic: 50%
+          - cell "Medium 2.6":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.6 points"':
+              - text: Medium
+              - generic: "2.6"
+        - row "Apr 9 @ Hawks Away 50% Low 1.2":
+          - cell "Apr 9"
+          - cell "@ Hawks":
+            - link "@ Hawks":
+              - /url: /nba/team/1
+              - generic: "@ Hawks"
+          - cell "Away"
+          - cell "50%":
+            - generic: 50%
+          - cell "Low 1.2":
+            - 'generic "Make playoffs probability: win vs loss differs by 1.2 points"':
+              - text: Low
+              - generic: "1.2"
+        - row "Apr 11 vs Bucks Home 74% Low 2.2":
+          - cell "Apr 11"
+          - cell "vs Bucks":
+            - link "vs Bucks":
+              - /url: /nba/team/15
+              - generic: vs Bucks
+          - cell "Home"
+          - cell "74%":
+            - generic: 74%
+          - cell "Low 2.2":
+            - 'generic "Make playoffs probability: win vs loss differs by 2.2 points"':
+              - text: Low
+              - generic: "2.2"
+    - generic: Leverage = Playoffs odds if this game is won minus if it is lost, from the same simulated seasons.
+  - region "Next game outlook":
+    - heading "Next game outlook" [level=2]
+    - generic: BOS
+    - text: +2.7 strength
+    - generic: at
+    - generic: DET
+    - text: +2.6 strength
+    - img "BOS 43%, DET 57%":
+      - generic: BOS 43%
+      - generic: 57% DET
+    - generic: 43%
+    - generic: BOS win prob
+    - generic: −2.0
+    - text: Exp. margin
+    - generic: 43%
+    - text: Pregame
+    - generic: BOS strength edge (posterior means)
+    - generic: "+0.1"
+    - generic: Home field (learned, against)
+    - generic: −2.1
+    - generic: Uncertainty in the gap (sd)
+    - generic: ±5.2
+    - generic: Playoffs swing (win vs loss)
+    - generic: 2.2%
+    - generic: BOS pregame win prob, 90% interval
+    - generic: 43%–44%
+  - region "Final record distribution":
+    - heading "Final record distribution" [level=2]
+    - generic: 10,000 simulated seasons; faded bars are already out of reach.
+  - region "Season path simulator":
+    - heading "Season path simulator" [level=2]
+    - link "Open in Lab":
+      - /url: /nba/lab?team=2
+      - text: Open in Lab
+    - generic: Final record
+    - generic: How often
+    - generic: Playoffs
+    - generic: Title
+    - generic: 67–13
+    - generic: 1%
+    - generic: 100%
+    - generic: 48%
+    - generic: 66–14
+    - generic: 1%
+    - generic: 100%
+    - generic: 43%
+    - generic: 65–15
+    - generic: 1%
+    - generic: 100%
+    - generic: 37%
+    - generic: 64–16
+    - generic: 1%
+    - generic: 100%
+    - generic: 46%
+    - generic: 63–17
+    - generic: 1%
+    - generic: 100%
+    - generic: 34%
+    - generic: 62–18
+    - generic: 1%
+    - generic: 100%
+    - generic: 27%
+    - generic: 61–19
+    - generic: 2%
+    - generic: 100%
+    - generic: 31%
+    - generic: 60–20
+    - generic: 2%
+    - generic: 100%
+    - generic: 23%
+    - generic: 59–21
+    - generic: 2%
+    - generic: 100%
+    - generic: 16%
+    - generic: 58–22
+    - generic: 2%
+    - generic: 100%
+    - generic: 21%
+    - generic: 57–23
+    - generic: 2%
+    - generic: 100%
+    - generic: 17%
+    - generic: 56–24
+    - generic: 3%
+    - generic: 100%
+    - generic: 14%
+    - generic: 55–25
+    - generic: 3%
+    - generic: 100%
+    - generic: 9.6%
+    - generic: 54–26
+    - generic: 4%
+    - generic: 100%
+    - generic: 11%
+    - generic: 53–27
+    - generic: 3%
+    - generic: 100%
+    - generic: 8.3%
+    - generic: 52–28
+    - generic: 3%
+    - generic: 100%
+    - generic: 7.4%
+    - generic: 51–29
+    - generic: 4%
+    - generic: 100%
+    - generic: 4.5%
+    - generic: 50–30
+    - generic: 4%
+    - generic: 100%
+    - generic: 4.5%
+    - generic: 49–31
+    - generic: 4%
+    - generic: 100%
+    - generic: 5.4%
+    - generic: 48–32
+    - generic: 4%
+    - generic: 99%
+    - generic: 3.9%
+    - generic: 47–33
+    - generic: 4%
+    - generic: 100%
+    - generic: 2.2%
+    - generic: 46–34
+    - generic: 4%
+    - generic: 98%
+    - generic: 1.3%
+    - generic: 45–35
+    - generic: 3%
+    - generic: 97%
+    - generic: 3.2%
+    - generic: 44–36
+    - generic: 4%
+    - generic: 93%
+    - generic: 1.1%
+    - generic: 43–37
+    - generic: 4%
+    - generic: 89%
+    - generic: 1.1%
+    - generic: 42–38
+    - generic: 3%
+    - generic: 80%
+    - generic: 0.6%
+    - generic: 41–39
+    - generic: 3%
+    - generic: 74%
+    - generic: 0.3%
+    - generic: 40–40
+    - generic: 3%
+    - generic: 64%
+    - generic: 0.3%
+    - generic: 39–41
+    - generic: 3%
+    - generic: 52%
+    - generic: 0.3%
+    - generic: 38–42
+    - generic: 3%
+    - generic: 41%
+    - generic: 0.0%
+    - generic: 37–43
+    - generic: 2%
+    - generic: 28%
+    - generic: 0.0%
+    - generic: 36–44
+    - generic: 2%
+    - generic: 24%
+    - generic: 0.0%
+    - generic: 35–45
+    - generic: 2%
+    - generic: 12%
+    - generic: 0.0%
+    - generic: 34–46
+    - generic: 2%
+    - generic: 11%
+    - generic: 0.0%
+    - generic: 33–47
+    - generic: 2%
+    - generic: 10%
+    - generic: 0.0%
+    - generic: 32–48
+    - generic: 1%
+    - generic: 7%
+    - generic: 0.0%
+    - generic: 31–49
+    - generic: 1%
+    - generic: 1%
+    - generic: 0.0%
+    - generic: 30–50
+    - generic: 1%
+    - generic: 2%
+    - generic: 0.0%
+    - generic: 29–51
+    - generic: 1%
+    - generic: 0%
+    - generic: 0.0%
+    - generic: 28–52
+    - generic: 1%
+    - generic: 0%
+    - generic: 0.0%
+    - generic: 27–53
+    - generic: 1%
+    - generic: 0%
+    - generic: 0.0%
+    - generic: 26–54
+    - generic: 1%
+    - generic: 0%
+    - generic: 0.0%
+    - generic: 25–55
+    - generic: 1%
+    - generic: 0%
+    - generic: 0.0%
+    - generic: Every final record that happens in at least 0.5% of simulated seasons, with Playoffs and title odds given that record.
+  - region "Availability":
+    - heading "Availability" [level=2]
+    - generic: No key absences
+    - text: The current injury report lists none of this team’s established key players.
+    - generic: ESPN injury report · learned effect per absence (KEY -2.5±0.2)
+  - region "Odds over the season":
+    - heading "Odds over the season" [level=2]
+    - generic: Playoffs
+    - generic: Title
+    - generic: Expected wins (right axis)
+    - text: "Before the marker: point-in-time replays rebuilt from data available each day. After it: runs archived live. Stored in Neon Postgres."
+  - region "Live world updates":
+    - heading "Live world updates" [level=2]
+    - generic: No updates yet this session
+    - text: Finals, injury-report changes and grounded news appear here as they arrive.
+  - region "Player stats this season":
+    - heading "Player stats this season" [level=2]
+    - tablist:
+      - tab "Players" [selected]
+    - table:
+      - rowgroup:
+        - row "Player GP MIN PTS FG 3PT FT REB AST TO STL BLK OREB DREB PF +/-":
+          - columnheader "Player"
+          - columnheader "GP"
+          - columnheader "MIN"
+          - columnheader "PTS"
+          - columnheader "FG"
+          - columnheader "3PT"
+          - columnheader "FT"
+          - columnheader "REB"
+          - columnheader "AST"
+          - columnheader "TO"
+          - columnheader "STL"
+          - columnheader "BLK"
+          - columnheader "OREB"
+          - columnheader "DREB"
+          - columnheader "PF"
+          - columnheader "+/-"
+      - rowgroup:
+        - row "Jaylen Brown 78 2691 2218 801-1686 157-446 459-582 532 387 284 78 35 92 440 212 298":
+          - cell "Jaylen Brown"
+          - cell "78"
+          - cell "2691"
+          - cell "2218"
+          - cell "801-1686"
+          - cell "157-446"
+          - cell "459-582"
+          - cell "532"
+          - cell "387"
+          - cell "284"
+          - cell "78"
+          - cell "35"
+          - cell "92"
+          - cell "440"
+          - cell "212"
+          - cell "298"
+        - row "Payton Pritchard 86 2791 1447 545-1183 229-617 128-144 338 444 114 61 10 78 260 123 470":
+          - cell "Payton Pritchard"
+          - cell "86"
+          - cell "2791"
+          - cell "1447"
+          - cell "545-1183"
+          - cell "229-617"
+          - cell "128-144"
+          - cell "338"
+          - cell "444"
+          - cell "114"
+          - cell "61"
+          - cell "10"
+          - cell "78"
+          - cell "260"
+          - cell "123"
+          - cell "470"
+        - row "Derrick White 84 2875 1345 463-1189 224-695 195-217 362 436 145 94 108 96 266 131 574":
+          - cell "Derrick White"
+          - cell "84"
+          - cell "2875"
+          - cell "1345"
+          - cell "463-1189"
+          - cell "224-695"
+          - cell "195-217"
+          - cell "362"
+          - cell "436"
+          - cell "145"
+          - cell "94"
+          - cell "108"
+          - cell "96"
+          - cell "266"
+          - cell "131"
+          - cell "574"
+        - row "Neemias Queta 83 2079 841 351-533 1-8 138-194 696 130 81 61 106 242 454 245 483":
+          - cell "Neemias Queta"
+          - cell "83"
+          - cell "2079"
+          - cell "841"
+          - cell "351-533"
+          - cell "1-8"
+          - cell "138-194"
+          - cell "696"
+          - cell "130"
+          - cell "81"
+          - cell "61"
+          - cell "106"
+          - cell "242"
+          - cell "454"
+          - cell "245"
+          - cell "483"
+        - row "Sam Hauser 85 2097 773 271-647 214-542 17-20 330 120 37 39 24 65 265 123 352":
+          - cell "Sam Hauser"
+          - cell "85"
+          - cell "2097"
+          - cell "773"
+          - cell "271-647"
+          - cell "214-542"
+          - cell "17-20"
+          - cell "330"
+          - cell "120"
+          - cell "37"
+          - cell "39"
+          - cell "24"
+          - cell "65"
+          - cell "265"
+          - cell "123"
+          - cell "352"
+        - row "Anfernee Simons 49 1201 694 250-568 130-329 64-72 118 116 55 27 6 26 92 82 164":
+          - cell "Anfernee Simons"
+          - cell "49"
+          - cell "1201"
+          - cell "694"
+          - cell "250-568"
+          - cell "130-329"
+          - cell "64-72"
+          - cell "118"
+          - cell "116"
+          - cell "55"
+          - cell "27"
+          - cell "6"
+          - cell "26"
+          - cell "92"
+          - cell "82"
+          - cell "164"
+        - row "Luka Garza 76 1173 588 216-377 59-140 97-125 293 72 47 27 29 163 130 175 137":
+          - cell "Luka Garza"
+          - cell "76"
+          - cell "1173"
+          - cell "588"
+          - cell "216-377"
+          - cell "59-140"
+          - cell "97-125"
+          - cell "293"
+          - cell "72"
+          - cell "47"
+          - cell "27"
+          - cell "29"
+          - cell "163"
+          - cell "130"
+          - cell "175"
+          - cell "137"
+        - row "Jayson Tatum 22 740 488 166-388 66-195 90-111 224 126 56 29 3 14 210 37 146":
+          - cell "Jayson Tatum"
+          - cell "22"
+          - cell "740"
+          - cell "488"
+          - cell "166-388"
+          - cell "66-195"
+          - cell "90-111"
+          - cell "224"
+          - cell "126"
+          - cell "56"
+          - cell "29"
+          - cell "3"
+          - cell "14"
+          - cell "210"
+          - cell "37"
+          - cell "146"
+        - row "Baylor Scheierman 84 1532 457 162-359 105-264 28-31 289 120 48 48 7 64 225 116 196":
+          - cell "Baylor Scheierman"
+          - cell "84"
+          - cell "1532"
+          - cell "457"
+          - cell "162-359"
+          - cell "105-264"
+          - cell "28-31"
+          - cell "289"
+          - cell "120"
+          - cell "48"
+          - cell "48"
+          - cell "7"
+          - cell "64"
+          - cell "225"
+          - cell "116"
+          - cell "196"
+        - row "Jordan Walsh 75 1303 376 140-286 50-137 46-63 290 61 35 53 33 91 199 142 134":
+          - cell "Jordan Walsh"
+          - cell "75"
+          - cell "1303"
+          - cell "376"
+          - cell "140-286"
+          - cell "50-137"
+          - cell "46-63"
+          - cell "290"
+          - cell "61"
+          - cell "35"
+          - cell "53"
+          - cell "33"
+          - cell "91"
+          - cell "199"
+          - cell "142"
+          - cell "134"
+        - row "Hugo Gonzalez 78 1102 289 117-249 42-119 13-28 250 42 39 42 22 63 187 128 255":
+          - cell "Hugo Gonzalez"
+          - cell "78"
+          - cell "1102"
+          - cell "289"
+          - cell "117-249"
+          - cell "42-119"
+          - cell "13-28"
+          - cell "250"
+          - cell "42"
+          - cell "39"
+          - cell "42"
+          - cell "22"
+          - cell "63"
+          - cell "187"
+          - cell "128"
+          - cell "255"
+        - row "Josh Minott 33 524 192 69-136 34-77 20-26 118 33 20 24 12 40 78 51 35":
+          - cell "Josh Minott"
+          - cell "33"
+          - cell "524"
+          - cell "192"
+          - cell "69-136"
+          - cell "34-77"
+          - cell "20-26"
+          - cell "118"
+          - cell "33"
+          - cell "20"
+          - cell "24"
+          - cell "12"
+          - cell "40"
+          - cell "78"
+          - cell "51"
+          - cell "35"
+    - generic: Summed from the box score of all 89 completed games this season (ESPN). Averages recomputed from the totals.
+  - region "Recent results":
+    - heading "Recent results" [level=2]
+    - table:
+      - rowgroup:
+        - row "Date Game Score Result":
+          - columnheader "Date"
+          - columnheader "Game"
+          - columnheader "Score"
+          - columnheader "Result"
+      - rowgroup:
+        - row "May 2, 26 vs Philadelphia 76ers 100–109 L":
+          - cell "May 2, 26"
+          - cell "vs Philadelphia 76ers"
+          - cell "100–109":
+            - generic: 100–109
+          - cell "L":
+            - generic: L
+        - row "Apr 30, 26 @ Philadelphia 76ers 93–106 L":
+          - cell "Apr 30, 26"
+          - cell "@ Philadelphia 76ers"
+          - cell "93–106":
+            - generic: 93–106
+          - cell "L":
+            - generic: L
+        - row "Apr 28, 26 vs Philadelphia 76ers 97–113 L":
+          - cell "Apr 28, 26"
+          - cell "vs Philadelphia 76ers"
+          - cell "97–113":
+            - generic: 97–113
+          - cell "L":
+            - generic: L
+        - row "Apr 26, 26 @ Philadelphia 76ers 128–96 W":
+          - cell "Apr 26, 26"
+          - cell "@ Philadelphia 76ers"
+          - cell "128–96":
+            - generic: 128–96
+          - cell "W":
+            - generic: W
+        - row "Apr 24, 26 @ Philadelphia 76ers 108–100 W":
+          - cell "Apr 24, 26"
+          - cell "@ Philadelphia 76ers"
+          - cell "108–100":
+            - generic: 108–100
+          - cell "W":
+            - generic: W
+        - row "Apr 21, 26 vs Philadelphia 76ers 97–111 L":
+          - cell "Apr 21, 26"
+          - cell "vs Philadelphia 76ers"
+          - cell "97–111":
+            - generic: 97–111
+          - cell "L":
+            - generic: L
+        - row "Apr 19, 26 vs Philadelphia 76ers 123–91 W":
+          - cell "Apr 19, 26"
+          - cell "vs Philadelphia 76ers"
+          - cell "123–91":
+            - generic: 123–91
+          - cell "W":
+            - generic: W
+        - row "Apr 12, 26 vs Orlando Magic 113–108 W":
+          - cell "Apr 12, 26"
+          - cell "vs Orlando Magic"
+          - cell "113–108":
+            - generic: 113–108
+          - cell "W":
+            - generic: W
+    - generic: Most recent completed games (including last season when this season is young).
+  - generic: Season run nba-2026-gs111-r1-dynamic
+  - generic: State v111
+  - generic: As of 10/3/2026, 9:48:00 PM
+  - generic: Game model nba_bootstrap_real_v1
+  - generic: Identity ESPN team API
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: "15"

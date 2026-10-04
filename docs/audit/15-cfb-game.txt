@@ -1,0 +1,204 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "College Football sections":
+  - generic: College Football
+  - link "Overview":
+    - /url: /college-football
+    - text: Overview
+  - link "Standings":
+    - /url: /college-football/standings
+    - text: Standings
+  - link "Live 12 live":
+    - /url: /college-football/games?live=1
+    - text: Live
+    - generic "12 live"
+  - link "Forecasts":
+    - /url: /college-football/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /college-football/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "Indiana at Rutgers: Live view" [level=1]':
+    - text: "Indiana at Rutgers:"
+    - emphasis: Live view
+  - paragraph: Real ball position, drives and plays from the ESPN play-by-play, next to SportsWorld’s own live win probability.
+  - link "Indiana IU 37":
+    - /url: /college-football/team/84
+    - generic: Indiana
+    - text: IU
+    - strong: "37"
+  - text: LIVE
+  - generic: 3:52 - 3rd Quarter
+  - img "IU 100%, RUTG 0%":
+    - generic: IU 100%
+    - generic: 0% RUTG
+  - generic: SportsWorld win probability · model college_football_bootstrap_real_v1
+  - button "Live commentary":
+    - text: Live commentary
+  - link "Rutgers RUTG 7":
+    - /url: /college-football/team/164
+    - generic: Rutgers
+    - text: RUTG
+    - strong: "7"
+  - region "On the field":
+    - heading "On the field" [level=2]
+    - img "Ball at 12 yards, -1th and 10":
+      - generic: IU
+      - generic: RUTG
+      - generic: "10"
+      - generic: "10"
+      - generic: "20"
+      - generic: "20"
+      - generic: "30"
+      - generic: "30"
+      - generic: "40"
+      - generic: "40"
+      - generic: "50"
+      - generic: "50"
+      - generic: "40"
+      - generic: "40"
+      - generic: "30"
+      - generic: "30"
+      - generic: "20"
+      - generic: "20"
+      - generic: "10"
+      - generic: "10"
+    - generic: Possession
+    - generic: RUTG → left
+    - generic: Down & distance
+    - text: Between plays
+    - generic: Ball on
+    - text: IU 12
+    - generic: Red zone
+    - text: "Yes"
+    - generic: Last play
+    - text: "(03:52) No Huddle #10 A.Surace pass complete deep right to #2 B.Black III caught at IU12, for 53 yards to the IU00 TOUCHDOWN, clock 03:52, 1ST DOWN #29 D.Pizzaro kick attempt good (H: #21 R.McCann, LS: #58 M.O’Connor)"
+    - generic: Line of scrimmage
+    - generic: First-down line
+    - generic: Current drive, play by play
+    - generic: "Ball, shot and event locations only: per-player tracking for this sport is proprietary and not shown. Source: ESPN play-by-play."
+  - region "Win probability":
+    - heading "Win probability" [level=2]
+    - generic: SportsWorld’s calibrated in-game model, every update this session. Not ESPN’s or a market’s.
+  - region "Current drive":
+    - heading "Current drive" [level=2]
+    - list:
+      - time: Q3 3:52
+      - paragraph:
+        - text: "(03:52) No Huddle #10 A.Surace pass complete deep right to #2 B.Black III caught at IU12, for 53 yards to the IU00 TOUCHDOWN, clock 03:52, 1ST DOWN #29 D.Pizzaro kick attempt good (H: #21 R.McCann, LS: #58 M.O’Connor)"
+        - generic: 2nd & 14 · +53 yds
+      - time: Q3 4:01
+      - paragraph:
+        - text: "(04:07) No Huddle #9 C.Thevenin rush middle for 1 yard gain to the RU47 (#9 S.Daley)"
+        - generic: 1st & 15 · +1 yds
+      - time: Q3 4:11
+      - paragraph:
+        - text: PENALTY RU False Start (#2 B.Black III) 5 yards from IU49 to RU46. NO PLAY
+        - generic: 1st & 10 · +5 yds
+      - time: Q3 5:04
+      - paragraph:
+        - text: PENALTY RU False Start (#2 B.Black III) 5 yards from RU49 to RU44. NO PLAY
+        - generic: 1st & 10 · +5 yds
+      - time: Q3 5:28
+      - paragraph:
+        - text: "(05:28) No Huddle #9 C.Thevenin rush right for 26 yards gain to the IU49 (#5 R.Hardy), out of bounds, 1ST DOWN"
+        - generic: 1st & 10 · +26 yds
+      - time: Q3 5:36
+      - paragraph:
+        - text: "(05:36) #35 P.McAteer kickoff 65 yards to the RU00, Touchback"
+        - generic: 1st & 10 · 0 yds
+  - region "Drive chart":
+    - heading "Drive chart" [level=2]
+    - generic: IU goal
+    - generic: "50"
+    - generic: RUTG goal
+    - generic "8 plays, 69 yards, 4:10 · Field Goal":
+      - generic: Field Goal
+    - generic "3 plays, 8 yards, 0:57 · Punt":
+      - generic: Punt
+    - generic "5 plays, 19 yards, 1:24 · Punt":
+      - generic: Punt
+    - generic "6 plays, 50 yards, 2:17 · Downs":
+      - generic: Downs
+    - generic "5 plays, 65 yards, 2:22 · Touchdown":
+      - generic: Touchdown
+    - generic "4 plays, 9 yards, 2:00 · Downs":
+      - generic: Downs
+    - generic "3 plays, 34 yards, 1:09 · Touchdown":
+      - generic: Touchdown
+    - generic "3 plays, -1 yard, 1:37 · Punt":
+      - generic: Punt
+    - generic "8 plays, 77 yards, 3:33 · Missed FG":
+      - generic: Missed FG
+    - generic "5 plays, 13 yards, 1:11 · End Of Half":
+      - generic: End Of Half
+    - generic "6 plays, 75 yards, 2:38 · Touchdown":
+      - generic: Touchdown
+    - generic "3 plays, -7 yards, 1:43 · Punt":
+      - generic: Punt
+    - generic "10 plays, 67 yards, 5:03 · Touchdown":
+      - generic: Touchdown
+    - generic "3 plays, 75 yards, 1:44 · Touchdown":
+      - generic: Touchdown
+    - generic: Each bar runs from where a drive started to where it ended; IU attacks right, RUTG attacks left.
+  - region "Box score":
+    - heading "Box score" [level=2]
+    - button "IU"
+    - button "RUTG"
+    - tablist:
+      - tab "Passing" [selected]
+      - tab "Rushing"
+      - tab "Receiving"
+      - tab "Defense"
+      - tab "Kicking"
+      - tab "Punting"
+    - table:
+      - rowgroup:
+        - row "Player C/ATT YDS AVG TD INT":
+          - columnheader "Player"
+          - columnheader "C/ATT"
+          - columnheader "YDS"
+          - columnheader "AVG"
+          - columnheader "TD"
+          - columnheader "INT"
+      - rowgroup:
+        - row "Josh Hoover 19/24 246 10.3 4 0":
+          - cell "Josh Hoover"
+          - cell "19/24"
+          - cell "246"
+          - cell "10.3"
+          - cell "4"
+          - cell "0"
+    - generic: Updates every 30 seconds from ESPN’s box score.
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: 25%

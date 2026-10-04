@@ -1,0 +1,215 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+- navigation "Formula 1 sections":
+  - generic: Formula 1
+  - link "Overview":
+    - /url: /f1
+    - text: Overview
+  - link "Live track" [active]:
+    - /url: /f1/live
+    - text: Live track
+  - link "Simulation Lab":
+    - /url: /f1/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "F1: Track replay" [level=1]':
+    - text: "F1:"
+    - emphasis: Track replay
+  - paragraph: 2026 Bahrain · Kuala Lumpur · Qualifying. Every car at its real position from OpenF1 location data, replaying 30 seconds from 4:51 AM.
+  - region "Kuala Lumpur · Qualifying":
+    - heading "Kuala Lumpur · Qualifying" [level=2]
+    - button "Pause":
+      - text: Pause
+    - img "Circuit map with live car positions":
+      - generic: PER
+      - generic: BOT
+      - generic: ALB
+      - generic: OCO
+      - generic: BEA
+      - generic: HUL
+      - generic: LIN
+      - generic: COL
+      - generic: STR
+      - generic: SAI
+      - generic: ALO
+      - generic: LAW
+      - generic: ANT
+      - generic: BOR
+      - generic: GAS
+      - generic: NOR
+      - generic: HAM
+      - generic: PIA
+      - generic: VER
+      - generic: RUS
+      - generic: LEC
+      - generic: HAD
+    - generic: "Source: OpenF1 car location (x, y on circuit), positions. Positions are sampled about 4 times a second and interpolated between samples. Outside a live session this is a replay of recorded data."
+  - region "Running order":
+    - heading "Running order" [level=2]
+    - table:
+      - rowgroup:
+        - row "1 HAD Isack HADJAR Red Bull Racing":
+          - cell "1"
+          - cell "HAD":
+            - generic: HAD
+          - cell "Isack HADJAR"
+          - cell "Red Bull Racing"
+        - row "2 LEC Charles LECLERC Ferrari":
+          - cell "2"
+          - cell "LEC":
+            - generic: LEC
+          - cell "Charles LECLERC"
+          - cell "Ferrari"
+        - row "3 RUS George RUSSELL Mercedes":
+          - cell "3"
+          - cell "RUS":
+            - generic: RUS
+          - cell "George RUSSELL"
+          - cell "Mercedes"
+        - row "4 VER Max VERSTAPPEN Red Bull Racing":
+          - cell "4"
+          - cell "VER":
+            - generic: VER
+          - cell "Max VERSTAPPEN"
+          - cell "Red Bull Racing"
+        - row "5 PIA Oscar PIASTRI McLaren":
+          - cell "5"
+          - cell "PIA":
+            - generic: PIA
+          - cell "Oscar PIASTRI"
+          - cell "McLaren"
+        - row "6 HAM Lewis HAMILTON Ferrari":
+          - cell "6"
+          - cell "HAM":
+            - generic: HAM
+          - cell "Lewis HAMILTON"
+          - cell "Ferrari"
+        - row "7 NOR Lando NORRIS McLaren":
+          - cell "7"
+          - cell "NOR":
+            - generic: NOR
+          - cell "Lando NORRIS"
+          - cell "McLaren"
+        - row "8 GAS Pierre GASLY Alpine":
+          - cell "8"
+          - cell "GAS":
+            - generic: GAS
+          - cell "Pierre GASLY"
+          - cell "Alpine"
+        - row "9 BOR Gabriel BORTOLETO Audi":
+          - cell "9"
+          - cell "BOR":
+            - generic: BOR
+          - cell "Gabriel BORTOLETO"
+          - cell "Audi"
+        - row "10 ANT Kimi ANTONELLI Mercedes":
+          - cell "10"
+          - cell "ANT":
+            - generic: ANT
+          - cell "Kimi ANTONELLI"
+          - cell "Mercedes"
+        - row "11 LAW Liam LAWSON Racing Bulls":
+          - cell "11"
+          - cell "LAW":
+            - generic: LAW
+          - cell "Liam LAWSON"
+          - cell "Racing Bulls"
+        - row "12 ALO Fernando ALONSO Aston Martin":
+          - cell "12"
+          - cell "ALO":
+            - generic: ALO
+          - cell "Fernando ALONSO"
+          - cell "Aston Martin"
+        - row "13 SAI Carlos SAINZ Williams":
+          - cell "13"
+          - cell "SAI":
+            - generic: SAI
+          - cell "Carlos SAINZ"
+          - cell "Williams"
+        - row "14 STR Lance STROLL Aston Martin":
+          - cell "14"
+          - cell "STR":
+            - generic: STR
+          - cell "Lance STROLL"
+          - cell "Aston Martin"
+        - row "15 COL Franco COLAPINTO Alpine":
+          - cell "15"
+          - cell "COL":
+            - generic: COL
+          - cell "Franco COLAPINTO"
+          - cell "Alpine"
+        - row "16 LIN Arvid LINDBLAD Racing Bulls":
+          - cell "16"
+          - cell "LIN":
+            - generic: LIN
+          - cell "Arvid LINDBLAD"
+          - cell "Racing Bulls"
+        - row "17 HUL Nico HULKENBERG Audi":
+          - cell "17"
+          - cell "HUL":
+            - generic: HUL
+          - cell "Nico HULKENBERG"
+          - cell "Audi"
+        - row "18 BEA Oliver BEARMAN Haas F1 Team":
+          - cell "18"
+          - cell "BEA":
+            - generic: BEA
+          - cell "Oliver BEARMAN"
+          - cell "Haas F1 Team"
+        - row "19 OCO Esteban OCON Haas F1 Team":
+          - cell "19"
+          - cell "OCO":
+            - generic: OCO
+          - cell "Esteban OCON"
+          - cell "Haas F1 Team"
+        - row "20 ALB Alexander ALBON Williams":
+          - cell "20"
+          - cell "ALB":
+            - generic: ALB
+          - cell "Alexander ALBON"
+          - cell "Williams"
+        - row "21 BOT Valtteri BOTTAS Cadillac":
+          - cell "21"
+          - cell "BOT":
+            - generic: BOT
+          - cell "Valtteri BOTTAS"
+          - cell "Cadillac"
+        - row "22 PER Sergio PEREZ Cadillac":
+          - cell "22"
+          - cell "PER":
+            - generic: PER
+          - cell "Sergio PEREZ"
+          - cell "Cadillac"
+    - generic: Click a driver to highlight their car.
+  - generic: Session 11730
+  - generic: Window 4:51 AM–4:52 AM
+  - link "Season World":
+    - /url: /f1
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: "-35%"

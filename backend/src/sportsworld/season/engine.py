@@ -504,6 +504,20 @@ def summarize(setup: SeasonSetup, reg: RegularSeasonDraws, post: dict[str, np.nd
         teams.append(row)
     order_key = "champion" if any("champion" in t for t in teams) else "expected_wins"
     teams.sort(key=lambda t: (t.get(order_key, 0), t["expected_wins"]), reverse=True)
+    # Ripple: for every game, how its result moves every team's milestone odds, P(m | home win) - P(m | home loss).
+    # One matrix product over the simulated seasons covers all games and teams at once.
+    ripple = None
+    if path_key is not None and len(setup.r_event_ids):
+        M = post[path_key].astype(np.float32)                      # D x T
+        HW = reg.home_win.astype(np.float32)                       # D x G
+        nw = HW.sum(axis=0)                                        # G
+        S = HW.T @ M                                               # G x T: milestone count in seasons the home side won
+        tot = M.sum(axis=0)                                        # T
+        with np.errstate(divide="ignore", invalid="ignore"):
+            p1, p0 = S / nw[:, None], (tot[None, :] - S) / (D - nw)[:, None]
+            ripple = p1 - p0
+            # Monte Carlo standard error of that difference; only effects beyond 3 SE are reported
+            ripple_se = np.sqrt(p1 * (1 - p1) / nw[:, None] + p0 * (1 - p0) / (D - nw)[:, None])
     games = []
     for g, e in enumerate(setup.r_event_ids):
         hw = reg.home_win[:, g].astype(bool)
@@ -514,6 +528,15 @@ def summarize(setup: SeasonSetup, reg: RegularSeasonDraws, post: dict[str, np.nd
             row_g["leverage_home"] = round(float(m[hw, h].mean() - m[~hw, h].mean()), 4)
             row_g["leverage_away"] = round(float(m[~hw, a].mean() - m[hw, a].mean()), 4)
             row_g["leverage_milestone"] = path_key
+            if ripple is not None:
+                d = ripple[g].copy()
+                d[[h, a]] = 0
+                d[~np.isfinite(d)] = 0
+                se_g = np.nan_to_num(ripple_se[g], nan=1.0)
+                real = (np.abs(d) >= 0.01) & (np.abs(d) >= 3 * se_g)
+                top = [j for j in np.argsort(-np.abs(d * real))[:3] if real[j]]
+                # delta = change in that team's milestone odds when the HOME side wins (vs loses)
+                row_g["ripple"] = [{"team_id": setup.team_ids[j], "delta_if_home_wins": round(float(d[j]), 4)} for j in top]
         games.append(row_g)
     diagnostics: dict[str, Any] = {"runtime_s": round(elapsed, 3), "remaining_games": len(setup.r_event_ids), "played_games": int(len(setup.p_home)),
                                    "contingent_postseason_events": setup.contingent_events, "postseason_started": setup.postseason_started,

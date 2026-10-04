@@ -1,0 +1,400 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "College Football sections":
+  - generic: College Football
+  - link "Overview":
+    - /url: /college-football
+    - text: Overview
+  - link "Standings":
+    - /url: /college-football/standings
+    - text: Standings
+  - link "Live 12 live":
+    - /url: /college-football/games?live=1
+    - text: Live
+    - generic "12 live"
+  - link "Forecasts":
+    - /url: /college-football/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /college-football/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "Michigan Wolverines: Season World" [level=1]':
+    - text: "Michigan Wolverines:"
+    - emphasis: Season World
+  - paragraph: Persistent team intelligence across the 2026 college football season.
+  - 'button "Listen: Michigan briefing"':
+    - text: "Listen: Michigan briefing"
+  - region "Team summary":
+    - text: Michigan
+    - text: Wolverines
+    - generic: 14th in Big Ten
+    - generic: 3-2
+    - generic: Overall
+    - generic: 0-2
+    - generic: Big Ten
+    - link "Next game":
+      - /url: /college-football/games?team=130
+      - generic: Next game
+      - generic: vs Penn State
+      - text: Sat, Oct 17 · time TBD
+  - generic: Expected wins
+  - generic: "6.2"
+  - generic: 90% range 4–8 of 12
+  - generic: CFP probability
+  - generic: 0.6%
+  - generic: ±<0.1% sim. error
+  - generic: Conference title
+  - generic: 0.1%
+  - generic: rank 108
+  - generic: CFP semifinal
+  - generic: <0.1%
+  - generic: rank 50
+  - generic: National Title
+  - generic: <0.1%
+  - generic: rank 47
+  - generic: Strength rating
+  - text: "+13.4"
+  - generic: ±4.8
+  - generic: "#34 of 138"
+  - region "Team strength trend":
+    - heading "Team strength trend" [level=2]
+    - generic: Posterior mean of latent strength with its 90% band (pts vs an average team). Updated after every result.
+  - region "Remaining schedule":
+    - heading "Remaining schedule" [level=2]
+    - link "Branch a result":
+      - /url: /college-football/lab?team=130
+    - table:
+      - rowgroup:
+        - row "Date Opponent Site Win prob Leverage":
+          - columnheader "Date"
+          - columnheader "Opponent"
+          - columnheader "Site"
+          - columnheader "Win prob"
+          - columnheader "Leverage"
+      - rowgroup:
+        - row "Oct 17 vs Penn State Home 56% Low 0.0":
+          - cell "Oct 17"
+          - cell "vs Penn State":
+            - link "vs Penn State":
+              - /url: /college-football/team/213
+              - generic: vs Penn State
+          - cell "Home"
+          - cell "56%":
+            - generic: 56%
+          - cell "Low 0.0":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 0.0 points"':
+              - text: Low
+              - generic: "0.0"
+        - row "Oct 24 vs Indiana Home 30% Low 0.1":
+          - cell "Oct 24"
+          - cell "vs Indiana":
+            - link "vs Indiana":
+              - /url: /college-football/team/84
+              - generic: vs Indiana
+          - cell "Home"
+          - cell "30%":
+            - generic: 30%
+          - cell "Low 0.1":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 0.1 points"':
+              - text: Low
+              - generic: "0.1"
+        - row "Oct 31 @ Rutgers Away 65% Low 0.0":
+          - cell "Oct 31"
+          - cell "@ Rutgers":
+            - link "@ Rutgers":
+              - /url: /college-football/team/164
+              - generic: "@ Rutgers"
+          - cell "Away"
+          - cell "65%":
+            - generic: 65%
+          - cell "Low 0.0":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 0.0 points"':
+              - text: Low
+              - generic: "0.0"
+        - row "Nov 7 vs Michigan St Home 80% Low 0.0":
+          - cell "Nov 7"
+          - cell "vs Michigan St":
+            - link "vs Michigan St":
+              - /url: /college-football/team/127
+              - generic: vs Michigan St
+          - cell "Home"
+          - cell "80%":
+            - generic: 80%
+          - cell "Low 0.0":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 0.0 points"':
+              - text: Low
+              - generic: "0.0"
+        - row "Nov 14 @ Oregon Away 27% Low 0.1":
+          - cell "Nov 14"
+          - cell "@ Oregon":
+            - link "@ Oregon":
+              - /url: /college-football/team/2483
+              - generic: "@ Oregon"
+          - cell "Away"
+          - cell "27%":
+            - generic: 27%
+          - cell "Low 0.1":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 0.1 points"':
+              - text: Low
+              - generic: "0.1"
+        - row "Nov 21 vs UCLA Home 58% Low 0.0":
+          - cell "Nov 21"
+          - cell "vs UCLA":
+            - link "vs UCLA":
+              - /url: /college-football/team/26
+              - generic: vs UCLA
+          - cell "Home"
+          - cell "58%":
+            - generic: 58%
+          - cell "Low 0.0":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 0.0 points"':
+              - text: Low
+              - generic: "0.0"
+        - row "Nov 28 @ Ohio State Away 14% Low 0.1":
+          - cell "Nov 28"
+          - cell "@ Ohio State":
+            - link "@ Ohio State":
+              - /url: /college-football/team/194
+              - generic: "@ Ohio State"
+          - cell "Away"
+          - cell "14%":
+            - generic: 14%
+          - cell "Low 0.1":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 0.1 points"':
+              - text: Low
+              - generic: "0.1"
+    - generic: Leverage = CFP odds if this game is won minus if it is lost, from the same simulated seasons.
+  - region "Next game outlook":
+    - heading "Next game outlook" [level=2]
+    - generic: PSU
+    - text: +16.3 strength
+    - generic: at
+    - generic: MICH
+    - text: +13.4 strength
+    - img "PSU 44%, MICH 56%":
+      - generic: PSU 44%
+      - generic: 56% MICH
+    - generic: 56%
+    - generic: MICH win prob
+    - generic: −0.2
+    - text: Exp. margin
+    - generic: 56%
+    - text: Pregame
+    - generic: MICH strength edge (posterior means)
+    - generic: −2.9
+    - generic: Home field (learned, in our favour)
+    - generic: "+2.7"
+    - generic: Uncertainty in the gap (sd)
+    - generic: ±6.8
+    - generic: CFP swing (win vs loss)
+    - generic: <0.1%
+    - generic: MICH pregame win prob, 90% interval
+    - generic: 55%–56%
+  - region "Final record distribution":
+    - heading "Final record distribution" [level=2]
+    - generic: 10,000 simulated seasons; faded bars are already out of reach.
+  - region "Season path simulator":
+    - heading "Season path simulator" [level=2]
+    - link "Open in Lab":
+      - /url: /college-football/lab?team=130
+      - text: Open in Lab
+    - generic: Final record
+    - generic: How often
+    - generic: CFP
+    - generic: Title
+    - generic: 10–2
+    - generic: 1%
+    - generic: 47%
+    - generic: 0.0%
+    - generic: 9–3
+    - generic: 4%
+    - generic: 8%
+    - generic: 0.3%
+    - generic: 8–4
+    - generic: 13%
+    - generic: 0%
+    - generic: <0.1%
+    - generic: 7–5
+    - generic: 25%
+    - generic: 0%
+    - generic: 0.0%
+    - generic: 6–6
+    - generic: 29%
+    - generic: 0%
+    - generic: 0.0%
+    - generic: 5–7
+    - generic: 20%
+    - generic: 0%
+    - generic: 0.0%
+    - generic: 4–8
+    - generic: 8%
+    - generic: 0%
+    - generic: 0.0%
+    - generic: 3–9
+    - generic: 2%
+    - generic: 0%
+    - generic: 0.0%
+    - generic: Every final record that happens in at least 0.5% of simulated seasons, with CFP and title odds given that record.
+  - region "Availability":
+    - heading "Availability" [level=2]
+    - generic: No key absences
+    - text: The current injury report lists none of this team’s established key players.
+    - generic: ESPN injury report · learned effect per absence (QB -2.9±0.5, RB1 -0.1±0.9, WR1 0.7±0.9, DEF1 0.2±1.1)
+  - region "Odds over the season":
+    - heading "Odds over the season" [level=2]
+    - generic: CFP
+    - generic: Title
+    - generic: Expected wins (right axis)
+    - text: "Before the marker: point-in-time replays rebuilt from data available each day. After it: runs archived live. Stored in Neon Postgres."
+  - region "Live world updates":
+    - heading "Live world updates" [level=2]
+    - list:
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Final: MINN 20-14 MICH"
+        - generic: state v516 · MINN, MICH
+  - region "Player stats this season":
+    - heading "Player stats this season" [level=2]
+    - tablist:
+      - tab "Passing" [selected]
+      - tab "Rushing"
+      - tab "Receiving"
+      - tab "Defense"
+      - tab "Fumbles"
+      - tab "Interceptions"
+      - tab "Kick returns"
+      - tab "Punt returns"
+      - tab "Kicking"
+      - tab "Punting"
+    - table:
+      - rowgroup:
+        - row "Player GP C/ATT YDS TD INT Y/A":
+          - columnheader "Player"
+          - columnheader "GP"
+          - columnheader "C/ATT"
+          - columnheader "YDS"
+          - columnheader "TD"
+          - columnheader "INT"
+          - columnheader "Y/A"
+      - rowgroup:
+        - row "Bryce Underwood 5 67/113 881 5 4 7.8":
+          - cell "Bryce Underwood"
+          - cell "5"
+          - cell "67/113"
+          - cell "881"
+          - cell "5"
+          - cell "4"
+          - cell "7.8"
+        - row "Tommy Carr 1 2/2 23 1 0 11.5":
+          - cell "Tommy Carr"
+          - cell "1"
+          - cell "2/2"
+          - cell "23"
+          - cell "1"
+          - cell "0"
+          - cell "11.5"
+    - generic: Summed from the box score of all 5 completed games this season (ESPN). Averages recomputed from the totals.
+  - region "Recent results":
+    - heading "Recent results" [level=2]
+    - table:
+      - rowgroup:
+        - row "Date Game Score Result":
+          - columnheader "Date"
+          - columnheader "Game"
+          - columnheader "Score"
+          - columnheader "Result"
+      - rowgroup:
+        - row "Oct 3, 26 @ Minnesota Golden Gophers 14–20 L":
+          - cell "Oct 3, 26"
+          - cell "@ Minnesota Golden Gophers"
+          - cell "14–20":
+            - generic: 14–20
+          - cell "L":
+            - generic: L
+        - row "Sep 26, 26 vs Iowa Hawkeyes 19–20 L":
+          - cell "Sep 26, 26"
+          - cell "vs Iowa Hawkeyes"
+          - cell "19–20":
+            - generic: 19–20
+          - cell "L":
+            - generic: L
+        - row "Sep 19, 26 vs UTEP Miners 52–17 W":
+          - cell "Sep 19, 26"
+          - cell "vs UTEP Miners"
+          - cell "52–17":
+            - generic: 52–17
+          - cell "W":
+            - generic: W
+        - row "Sep 12, 26 vs Oklahoma Sooners 17–10 W":
+          - cell "Sep 12, 26"
+          - cell "vs Oklahoma Sooners"
+          - cell "17–10":
+            - generic: 17–10
+          - cell "W":
+            - generic: W
+        - row "Sep 5, 26 vs Western Michigan Broncos 13–12 W":
+          - cell "Sep 5, 26"
+          - cell "vs Western Michigan Broncos"
+          - cell "13–12":
+            - generic: 13–12
+          - cell "W":
+            - generic: W
+        - row "Dec 31, 25 @ Texas Longhorns 27–41 L":
+          - cell "Dec 31, 25"
+          - cell "@ Texas Longhorns"
+          - cell "27–41":
+            - generic: 27–41
+          - cell "L":
+            - generic: L
+        - row "Nov 29, 25 vs Ohio State Buckeyes 9–27 L":
+          - cell "Nov 29, 25"
+          - cell "vs Ohio State Buckeyes"
+          - cell "9–27":
+            - generic: 9–27
+          - cell "L":
+            - generic: L
+        - row "Nov 22, 25 @ Maryland Terrapins 45–20 W":
+          - cell "Nov 22, 25"
+          - cell "@ Maryland Terrapins"
+          - cell "45–20":
+            - generic: 45–20
+          - cell "W":
+            - generic: W
+    - generic: Most recent completed games (including last season when this season is young).
+  - generic: Season run college-football-2026-gs581-r40-dynamic
+  - generic: State v582
+  - generic: As of 10/3/2026, 10:24:32 PM
+  - generic: Game model college_football_bootstrap_real_v1
+  - generic: Identity ESPN team API
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: "0"

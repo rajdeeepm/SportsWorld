@@ -1,0 +1,524 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "NHL sections":
+  - generic: NHL
+  - link "Overview":
+    - /url: /nhl
+    - text: Overview
+  - link "Standings":
+    - /url: /nhl/standings
+    - text: Standings
+  - link "Live 5 live":
+    - /url: /nhl/games?live=1
+    - text: Live
+    - generic "5 live"
+  - link "Forecasts":
+    - /url: /nhl/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /nhl/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 4 viewers
+- main:
+  - 'heading "Bruins at Wild: Live view" [level=1]':
+    - text: "Bruins at Wild:"
+    - emphasis: Live view
+  - paragraph: Real shot, goal and hit locations from the ESPN play-by-play, next to SportsWorld’s own live win probability.
+  - link "Bruins BOS 1":
+    - /url: /nhl/team/1
+    - generic: Bruins
+    - text: BOS
+    - strong: "1"
+  - text: LIVE
+  - generic: 9:30 - 3rd Period
+  - img "BOS 7%, MIN 93%":
+    - generic: BOS 7%
+    - generic: 93% MIN
+  - generic: SportsWorld win probability · model nhl_bootstrap_real_v1
+  - button "Live commentary":
+    - text: Live commentary
+  - link "Wild MIN 3":
+    - /url: /nhl/team/30
+    - generic: Wild
+    - text: MIN
+    - strong: "3"
+  - region "On the ice":
+    - heading "On the ice" [level=2]
+    - button "Shot attempts"
+    - button "All events"
+    - generic: Shots on goal BOS 19 · MIN 27
+    - img "83 rink events plotted":
+      - generic "David Pastrnak shot blocked by Jared Spurgeon"
+      - generic "Kirill Kaprizov Snap Shot Wide Left"
+      - generic "Sean Kuraly Wrist Shot saved by Jesper Wallstedt"
+      - 'generic "Tanner Jeannot Goal (1) Wrist Shot, assists: Mark Kastelic (2), Connor Clifton (1)"'
+      - generic "David Pastrnak Wrist Shot saved by Jesper Wallstedt"
+      - generic "Fraser Minten Wrist Shot saved by Jesper Wallstedt"
+      - generic "Mason Lohrei shot blocked by Bobby Brink"
+      - generic "Jonathan Aspirot Snap Shot saved by Jesper Wallstedt"
+      - generic "Nikita Zadorov Wrist Shot saved by Jesper Wallstedt"
+      - generic "Pavel Zacha Backhand Wide Left"
+      - generic "Tanner Jeannot Backhand Wide Right"
+      - generic "Nick Foligno Tip-In saved by Michael DiPietro"
+      - generic "Quinn Hughes shot blocked by Nick Foligno"
+      - generic "Nikita Zadorov Wrist Shot saved by Jesper Wallstedt"
+      - generic "Matt Boldy Tip-In Wide Right"
+      - generic "JJ Peterka Backhand Wide Left"
+      - generic "Michael McCarron Wrap-around saved by Michael DiPietro"
+      - generic "Michael McCarron Poke saved by Michael DiPietro"
+      - generic "Morgan Geekie shot blocked by Quinn Hughes"
+      - generic "Nikita Zadorov Wrist Shot Wide Left"
+      - generic "Nikita Zadorov Wrist Shot Wide Right"
+      - generic "Joel Eriksson Ek Wrist Shot saved by Michael DiPietro"
+      - generic "Quinn Hughes Snap Shot saved by Michael DiPietro"
+      - generic "Casey Mittelstadt Wrist Shot saved by Jesper Wallstedt"
+      - generic "Yakov Trenin Wrist Shot saved by Michael DiPietro"
+      - generic "Yakov Trenin shot blocked by William Borgen"
+      - generic "Kirill Kaprizov Snap Shot Wide Right"
+      - generic "Michael McCarron shot blocked by Nikita Zadorov"
+      - generic "Yakov Trenin Wrist Shot saved by Michael DiPietro"
+      - generic "Matt Boldy Snap Shot saved by Michael DiPietro"
+      - generic "Blake Coleman Tip-In Wide Right"
+      - generic "Quinn Hughes Wrist Shot saved by Michael DiPietro"
+      - generic "JJ Peterka Wrist Shot saved by Jesper Wallstedt"
+      - generic "James Hagens Slap Shot saved by Jesper Wallstedt"
+      - generic "James Hagens Wrist Shot Wide Right"
+      - generic "James Hagens Wrist Shot saved by Jesper Wallstedt"
+      - generic "Matt Boldy Snap Shot saved by Michael DiPietro"
+      - 'generic "Kirill Kaprizov Goal (2) Snap Shot, assists: Maxim Shabanov (1), Joel Eriksson Ek (1)"'
+      - generic "Bobby Brink Wrist Shot saved by Michael DiPietro"
+      - generic "James Hagens Wrist Shot saved by Jesper Wallstedt"
+      - generic "Olli Maatta Wrist Shot saved by Michael DiPietro"
+      - generic "Jonathan Aspirot Wrist Shot Wide Left"
+      - generic "Matt Boldy shot blocked by Jonathan Aspirot"
+      - generic "David Pastrnak Tip-In saved by Jesper Wallstedt"
+      - generic "Sean Kuraly Wrist Shot saved by Jesper Wallstedt"
+      - generic "Hampus Lindholm shot blocked by Maxim Shabanov"
+      - generic "Zach Bogosian shot blocked by Mark Kastelic"
+      - generic "Daemon Hunt Wrist Shot saved by Michael DiPietro"
+      - generic "Quinn Hughes shot blocked by William Borgen"
+      - generic "Matt Boldy Slap Shot saved by Michael DiPietro"
+      - generic "Quinn Hughes shot blocked by Joel Eriksson Ek"
+      - generic "Matt Boldy shot blocked by Hampus Lindholm"
+      - generic "Quinn Hughes Wrist Shot saved by Michael DiPietro"
+      - generic "Kirill Kaprizov Wrist Shot saved by Michael DiPietro"
+      - 'generic "Quinn Hughes Goal (1) Wrist Shot, assists: Bobby Brink (2), Ryan Hartman (1)"'
+      - generic "Marcus Foligno shot blocked by Connor Clifton"
+      - generic "Morgan Geekie Tip-In Wide Right"
+      - generic "Blake Coleman Tip-In saved by Michael DiPietro"
+      - generic "Maxim Shabanov Slap Shot Hit Right Post"
+      - generic "Blake Coleman Tip-In saved by Michael DiPietro"
+      - generic "Olli Maatta Wrist Shot Wide Right"
+      - generic "Bobby Brink shot blocked by Nikita Zadorov"
+      - generic "Yakov Trenin shot blocked by Jonathan Aspirot"
+      - generic "Ryan Hartman shot blocked by Sean Kuraly"
+      - generic "Michael McCarron Wrap-around saved by Michael DiPietro"
+      - generic "Yakov Trenin Tip-In saved by Michael DiPietro"
+      - generic "Marat Khusnutdinov shot blocked by Ryan Hartman"
+      - 'generic "Jared Spurgeon Goal (1) Wrist Shot, assists: Michael McCarron (2), Quinn Hughes (2)"'
+      - generic "Michael McCarron Backhand saved by Michael DiPietro"
+      - generic "Marcus Foligno shot blocked by William Borgen"
+      - generic "Nikita Zadorov shot blocked by Danila Yurov"
+      - generic "David Pastrnak Snap Shot Wide Right"
+      - generic "Mark Kastelic Wrist Shot saved by Jesper Wallstedt"
+      - generic "Yakov Trenin Wrist Shot saved by Michael DiPietro"
+      - generic "Mason Lohrei shot blocked by Ryan Hartman"
+      - generic "JJ Peterka Wrist Shot saved by Jesper Wallstedt"
+      - generic "David Pastrnak Snap Shot saved by Jesper Wallstedt"
+      - generic "Joel Eriksson Ek Snap Shot saved by Michael DiPietro"
+      - generic "David Pastrnak Wrist Shot saved by Jesper Wallstedt"
+      - generic "Matt Boldy Wrist Shot saved by Michael DiPietro"
+      - generic "Blake Coleman shot blocked by Casey Mittelstadt"
+      - generic "Hampus Lindholm shot blocked by Jared Spurgeon"
+      - generic "Fraser Minten saved by Jesper Wallstedt"
+    - generic: Bruins
+    - generic: Wild
+    - generic: large ring = goal · filled = on goal · hollow = missed/blocked · diamond = hit
+    - generic: "Ball, shot and event locations only: per-player tracking for this sport is proprietary and not shown. Source: ESPN play-by-play."
+  - region "Win probability":
+    - heading "Win probability" [level=2]
+    - generic: SportsWorld’s calibrated in-game model, every update this session. Not ESPN’s or a market’s.
+  - region "Latest plays":
+    - heading "Latest plays" [level=2]
+    - list:
+      - time: P3 10:26
+      - paragraph:
+        - text: Fraser Minten saved by Jesper Wallstedt
+        - generic: Shot
+      - time: P3 10:15
+      - paragraph:
+        - text: Hampus Lindholm shot blocked by Jared Spurgeon
+        - generic: Blocked
+      - time: P3 9:19
+      - paragraph:
+        - text: Blake Coleman shot blocked by Casey Mittelstadt
+        - generic: Blocked
+      - time: P3 9:18
+      - paragraph:
+        - text: Michael McCarron faceoff won against Fraser Minten
+        - generic: Face Off
+      - time: P3 9:16
+      - paragraph:
+        - text: Matt Boldy Wrist Shot saved by Michael DiPietro
+        - generic: Shot
+      - time: P3 9:11
+      - paragraph:
+        - text: Takeaway by Matt Boldy
+        - generic: Takeaway
+      - time: P3 8:57
+      - paragraph:
+        - text: Giveaway by David Pastrnak
+        - generic: Giveaway
+      - time: P3 8:49
+      - paragraph:
+        - text: Elias Lindholm faceoff won against Matt Boldy
+        - generic: Face Off
+      - time: P3 8:47
+      - paragraph:
+        - text: David Pastrnak Wrist Shot saved by Jesper Wallstedt
+        - generic: Shot
+      - time: P3 8:38
+      - paragraph:
+        - text: Joel Eriksson Ek Snap Shot saved by Michael DiPietro
+        - generic: Shot
+  - region "Box score":
+    - heading "Box score" [level=2]
+    - button "BOS"
+    - button "MIN"
+    - tablist:
+      - tab "Forwards" [selected]
+      - tab "Defense"
+      - tab "Goalies"
+    - table:
+      - rowgroup:
+        - row "Player BS HT TK +/- TOI PPTOI SHTOI ESTOI SHFT G YTDG A S SM SOG FW FL FO% GV PN PIM":
+          - columnheader "Player"
+          - columnheader "BS"
+          - columnheader "HT"
+          - columnheader "TK"
+          - columnheader "+/-"
+          - columnheader "TOI"
+          - columnheader "PPTOI"
+          - columnheader "SHTOI"
+          - columnheader "ESTOI"
+          - columnheader "SHFT"
+          - columnheader "G"
+          - columnheader "YTDG"
+          - columnheader "A"
+          - columnheader "S"
+          - columnheader "SM"
+          - columnheader "SOG"
+          - columnheader "FW"
+          - columnheader "FL"
+          - columnheader "FO%"
+          - columnheader "GV"
+          - columnheader "PN"
+          - columnheader "PIM"
+      - rowgroup:
+        - row "Morgan Geekie 0 3 0 0 14:14 1:53 0:00 12:21 15 0 0 0 0 1 0 0 1 0.0 2 0 0":
+          - cell "Morgan Geekie"
+          - cell "0"
+          - cell "3"
+          - cell "0"
+          - cell "0"
+          - cell "14:14"
+          - cell "1:53"
+          - cell "0:00"
+          - cell "12:21"
+          - cell "15"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "1"
+          - cell "0.0"
+          - cell "2"
+          - cell "0"
+          - cell "0"
+        - row "James Hagens 0 1 0 0 11:50 1:32 0:00 10:18 14 0 1 0 3 1 0 0 0 0.0 0 0 0":
+          - cell "James Hagens"
+          - cell "0"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "11:50"
+          - cell "1:32"
+          - cell "0:00"
+          - cell "10:18"
+          - cell "14"
+          - cell "0"
+          - cell "1"
+          - cell "0"
+          - cell "3"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0.0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+        - row "Tanner Jeannot 0 1 0 0 6:12 0:00 0:06 6:06 11 1 1 0 1 1 0 0 0 0.0 2 0 0":
+          - cell "Tanner Jeannot"
+          - cell "0"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "6:12"
+          - cell "0:00"
+          - cell "0:06"
+          - cell "6:06"
+          - cell "11"
+          - cell "1"
+          - cell "1"
+          - cell "0"
+          - cell "1"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0.0"
+          - cell "2"
+          - cell "0"
+          - cell "0"
+        - row "Mark Kastelic 1 0 0 0 8:20 0:00 0:13 8:07 11 0 1 1 1 0 0 1 3 25.0 1 0 0":
+          - cell "Mark Kastelic"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "8:20"
+          - cell "0:00"
+          - cell "0:13"
+          - cell "8:07"
+          - cell "11"
+          - cell "0"
+          - cell "1"
+          - cell "1"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "1"
+          - cell "3"
+          - cell "25.0"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+        - row "Marat Khusnutdinov 0 0 0 0 10:42 0:00 0:49 9:53 15 0 0 0 0 0 0 0 0 0.0 1 0 0":
+          - cell "Marat Khusnutdinov"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "10:42"
+          - cell "0:00"
+          - cell "0:49"
+          - cell "9:53"
+          - cell "15"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0.0"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+        - row "Sean Kuraly 1 0 0 0 9:35 0:00 0:21 9:14 12 0 0 0 2 0 0 5 2 71.4 1 0 0":
+          - cell "Sean Kuraly"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "9:35"
+          - cell "0:00"
+          - cell "0:21"
+          - cell "9:14"
+          - cell "12"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "2"
+          - cell "0"
+          - cell "0"
+          - cell "5"
+          - cell "2"
+          - cell "71.4"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+        - row "Elias Lindholm 0 0 0 0 13:53 0:56 1:39 11:18 19 0 1 0 0 0 0 12 5 70.6 0 0 0":
+          - cell "Elias Lindholm"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "13:53"
+          - cell "0:56"
+          - cell "1:39"
+          - cell "11:18"
+          - cell "19"
+          - cell "0"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "12"
+          - cell "5"
+          - cell "70.6"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+        - row "Fraser Minten 0 0 0 0 10:35 0:00 0:00 10:35 14 0 1 0 1 0 0 3 8 27.3 1 0 0":
+          - cell "Fraser Minten"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "10:35"
+          - cell "0:00"
+          - cell "0:00"
+          - cell "10:35"
+          - cell "14"
+          - cell "0"
+          - cell "1"
+          - cell "0"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "3"
+          - cell "8"
+          - cell "27.3"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+        - row "Casey Mittelstadt 1 0 1 0 13:38 0:35 0:00 13:03 14 0 0 0 1 0 0 0 0 0.0 1 1 2":
+          - cell "Casey Mittelstadt"
+          - cell "1"
+          - cell "0"
+          - cell "1"
+          - cell "0"
+          - cell "13:38"
+          - cell "0:35"
+          - cell "0:00"
+          - cell "13:03"
+          - cell "14"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0.0"
+          - cell "1"
+          - cell "1"
+          - cell "2"
+        - row "David Pastrnak 0 2 0 0 15:38 2:17 0:00 13:21 17 0 0 0 4 1 0 0 0 0.0 2 0 0":
+          - cell "David Pastrnak"
+          - cell "0"
+          - cell "2"
+          - cell "0"
+          - cell "0"
+          - cell "15:38"
+          - cell "2:17"
+          - cell "0:00"
+          - cell "13:21"
+          - cell "17"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "4"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0.0"
+          - cell "2"
+          - cell "0"
+          - cell "0"
+        - row "JJ Peterka 0 0 0 0 15:51 1:33 0:00 14:18 17 0 2 0 2 1 0 0 0 0.0 2 0 0":
+          - cell "JJ Peterka"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "15:51"
+          - cell "1:33"
+          - cell "0:00"
+          - cell "14:18"
+          - cell "17"
+          - cell "0"
+          - cell "2"
+          - cell "0"
+          - cell "2"
+          - cell "1"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0.0"
+          - cell "2"
+          - cell "0"
+          - cell "0"
+        - row "Pavel Zacha 0 0 0 0 15:02 1:26 1:03 12:33 17 0 0 0 0 1 0 6 6 50.0 0 0 0":
+          - cell "Pavel Zacha"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "15:02"
+          - cell "1:26"
+          - cell "1:03"
+          - cell "12:33"
+          - cell "17"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+          - cell "1"
+          - cell "0"
+          - cell "6"
+          - cell "6"
+          - cell "50.0"
+          - cell "0"
+          - cell "0"
+          - cell "0"
+    - generic: Updates every 30 seconds from ESPN’s box score.
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: 8:26 PM

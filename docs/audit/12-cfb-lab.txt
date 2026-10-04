@@ -1,0 +1,275 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "College Football sections":
+  - generic: College Football
+  - link "Overview":
+    - /url: /college-football
+    - text: Overview
+  - link "Standings":
+    - /url: /college-football/standings
+    - text: Standings
+  - link "Live 12 live":
+    - /url: /college-football/games?live=1
+    - text: Live
+    - generic "12 live"
+  - link "Forecasts":
+    - /url: /college-football/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /college-football/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "College Football: Season Simulation Lab" [level=1]':
+    - text: "College Football:"
+    - emphasis: Season Simulation Lab
+  - paragraph: Branch the world. Simulate the rest of the season. Measure CFP and title paths. Canonical state is never touched.
+  - generic: Active scenario
+  - generic: "Baseline: the canonical season, including the live injury report."
+  - button "Restore baseline":
+    - text: Restore baseline
+  - button "Run 10,000 seasons" [disabled]:
+    - text: Run 10,000 seasons
+  - region "Scenario controls":
+    - heading "Scenario controls" [level=2]
+    - button "Reset all"
+    - heading "Team" [level=3]:
+      - text: Team
+    - combobox "Team":
+      - option "Air Force Falcons"
+      - option "Akron Zips"
+      - option "Alabama Crimson Tide"
+      - option "App State Mountaineers"
+      - option "Arizona State Sun Devils"
+      - option "Arizona Wildcats"
+      - option "Arkansas Razorbacks"
+      - option "Arkansas State Red Wolves"
+      - option "Army Black Knights"
+      - option "Auburn Tigers"
+      - option "Ball State Cardinals"
+      - option "Baylor Bears"
+      - option "Boise State Broncos"
+      - option "Boston College Eagles"
+      - option "Bowling Green Falcons"
+      - option "Buffalo Bulls"
+      - option "BYU Cougars"
+      - option "California Golden Bears"
+      - option "Central Michigan Chippewas"
+      - option "Charlotte 49ers"
+      - option "Cincinnati Bearcats"
+      - option "Clemson Tigers"
+      - option "Coastal Carolina Chanticleers"
+      - option "Colorado Buffaloes"
+      - option "Colorado State Rams"
+      - option "Delaware Blue Hens"
+      - option "Duke Blue Devils"
+      - option "East Carolina Pirates"
+      - option "Eastern Michigan Eagles"
+      - option "Florida Atlantic Owls"
+      - option "Florida Gators"
+      - option "Florida International Panthers"
+      - option "Florida State Seminoles"
+      - option "Fresno State Bulldogs"
+      - option "Georgia Bulldogs"
+      - option "Georgia Southern Eagles"
+      - option "Georgia State Panthers"
+      - option "Georgia Tech Yellow Jackets"
+      - option "Hawai'i Rainbow Warriors"
+      - option "Houston Cougars"
+      - option "Illinois Fighting Illini"
+      - option "Indiana Hoosiers"
+      - option "Iowa Hawkeyes"
+      - option "Iowa State Cyclones"
+      - option "Jacksonville State Gamecocks"
+      - option "James Madison Dukes"
+      - option "Kansas Jayhawks"
+      - option "Kansas State Wildcats"
+      - option "Kennesaw State Owls"
+      - option "Kent State Golden Flashes"
+      - option "Kentucky Wildcats"
+      - option "Liberty Flames"
+      - option "Louisiana Ragin' Cajuns"
+      - option "Louisiana Tech Bulldogs"
+      - option "Louisville Cardinals"
+      - option "LSU Tigers"
+      - option "Marshall Thundering Herd"
+      - option "Maryland Terrapins"
+      - option "Massachusetts Minutemen"
+      - option "Memphis Tigers"
+      - option "Miami (OH) RedHawks"
+      - option "Miami Hurricanes"
+      - option "Michigan State Spartans"
+      - option "Michigan Wolverines" [selected]
+      - option "Middle Tennessee Blue Raiders"
+      - option "Minnesota Golden Gophers"
+      - option "Mississippi State Bulldogs"
+      - option "Missouri State Bears"
+      - option "Missouri Tigers"
+      - option "Navy Midshipmen"
+      - option "NC State Wolfpack"
+      - option "Nebraska Cornhuskers"
+      - option "Nevada Wolf Pack"
+      - option "New Mexico Lobos"
+      - option "New Mexico State Aggies"
+      - option "North Carolina Tar Heels"
+      - option "North Dakota State Bison"
+      - option "North Texas Mean Green"
+      - option "Northern Illinois Huskies"
+      - option "Northwestern Wildcats"
+      - option "Notre Dame Fighting Irish"
+      - option "Ohio Bobcats"
+      - option "Ohio State Buckeyes"
+      - option "Oklahoma Sooners"
+      - option "Oklahoma State Cowboys"
+      - option "Old Dominion Monarchs"
+      - option "Ole Miss Rebels"
+      - option "Oregon Ducks"
+      - option "Oregon State Beavers"
+      - option "Penn State Nittany Lions"
+      - option "Pittsburgh Panthers"
+      - option "Purdue Boilermakers"
+      - option "Rice Owls"
+      - option "Rutgers Scarlet Knights"
+      - option "Sacramento State Hornets"
+      - option "Sam Houston Bearkats"
+      - option "San Diego State Aztecs"
+      - option "San José State Spartans"
+      - option "SMU Mustangs"
+      - option "South Alabama Jaguars"
+      - option "South Carolina Gamecocks"
+      - option "South Florida Bulls"
+      - option "Southern Miss Golden Eagles"
+      - option "Stanford Cardinal"
+      - option "Syracuse Orange"
+      - option "TCU Horned Frogs"
+      - option "Temple Owls"
+      - option "Tennessee Volunteers"
+      - option "Texas A&M Aggies"
+      - option "Texas Longhorns"
+      - option "Texas State Bobcats"
+      - option "Texas Tech Red Raiders"
+      - option "Toledo Rockets"
+      - option "Troy Trojans"
+      - option "Tulane Green Wave"
+      - option "Tulsa Golden Hurricane"
+      - option "UAB Blazers"
+      - option "UCF Knights"
+      - option "UCLA Bruins"
+      - option "UConn Huskies"
+      - option "UL Monroe Warhawks"
+      - option "UNLV Rebels"
+      - option "USC Trojans"
+      - option "Utah State Aggies"
+      - option "Utah Utes"
+      - option "UTEP Miners"
+      - option "UTSA Roadrunners"
+      - option "Vanderbilt Commodores"
+      - option "Virginia Cavaliers"
+      - option "Virginia Tech Hokies"
+      - option "Wake Forest Demon Deacons"
+      - option "Washington Huskies"
+      - option "Washington State Cougars"
+      - option "West Virginia Mountaineers"
+      - option "Western Kentucky Hilltoppers"
+      - option "Western Michigan Broncos"
+      - option "Wisconsin Badgers"
+      - option "Wyoming Cowboys"
+    - heading "Player availability" [level=3]:
+      - text: Player availability
+    - combobox "Role":
+      - option "Starting QB" [selected]
+      - option "Lead running back (-0.1 ± 0.9, not significant)" [disabled]
+      - option "Top receiver (0.7 ± 0.9, not significant)" [disabled]
+      - option "Top tackler (0.2 ± 1.1, not significant)" [disabled]
+    - generic: Out for the next 1 game
+    - slider "Out for the next 1 game": "1"
+    - generic: Learned effect -2.9 ± 0.5 pts per game (associational). Greyed roles were estimated too, but their effect isn’t statistically distinguishable from zero, so the Lab won’t apply them; use a strength override instead.
+    - button "Add to scenario":
+      - text: Add to scenario
+    - heading "Team-strength override" [level=3]:
+      - text: Team-strength override
+    - text: "Rest of season:"
+    - generic: +3 pts
+    - text: per game
+    - 'slider "Rest of season: +3 pts per game"': "3"
+    - button "Add to scenario":
+      - text: Add to scenario
+    - heading "Force a result" [level=3]:
+      - text: Force a result
+    - generic: Oct 17
+    - text: vs PSU
+    - button "Win"
+    - button "Loss"
+    - generic: Oct 24
+    - text: vs IU
+    - button "Win"
+    - button "Loss"
+    - generic: Oct 31
+    - text: "@ RUTG"
+    - button "Win"
+    - button "Loss"
+    - generic: Nov 7
+    - text: vs MSU
+    - button "Win"
+    - button "Loss"
+    - generic: Nov 14
+    - text: "@ ORE"
+    - button "Win"
+    - button "Loss"
+    - generic: Nov 21
+    - text: vs UCLA
+    - button "Win"
+    - button "Loss"
+    - generic: Nov 28
+    - text: "@ OSU"
+    - button "Win"
+    - button "Loss"
+    - heading "Ask in plain English" [level=3]:
+      - text: Ask in plain English
+    - textbox "Scenario question":
+      - /placeholder: e.g. What if Michigan Wolverines's starting quarterback misses the next three games?
+    - button "Ask and simulate" [disabled]:
+      - text: Ask and simulate
+    - generic: Llama 3.3 70B only turns the question into typed operations; effect sizes come from the learned player-impact model.
+    - heading "Simulation size" [level=3]:
+      - text: Simulation size
+    - button "5k"
+    - button "10k"
+    - button "25k"
+    - button "50k"
+  - region "Simulation results":
+    - heading "Simulation results" [level=2]
+    - generic: Build a scenario, then run it
+    - text: Add an absence, a strength change or a forced result on the left (or ask in plain English). Both branches use the same random numbers, so every difference is the scenario’s effect, not noise.
+    - link "Back to Michigan Wolverines Season World":
+      - /url: /college-football/team/130
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: "0"

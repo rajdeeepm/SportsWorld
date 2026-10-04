@@ -1,0 +1,911 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL" [active]:
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "NFL sections":
+  - generic: NFL
+  - link "Overview":
+    - /url: /nfl
+    - text: Overview
+  - link "Standings":
+    - /url: /nfl/standings
+    - text: Standings
+  - link "Live":
+    - /url: /nfl/games?live=1
+    - text: Live
+  - link "Forecasts":
+    - /url: /nfl/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /nfl/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "NFL: 2026 Season World" [level=1]':
+    - text: "NFL:"
+    - emphasis: 2026 Season World
+  - paragraph: Every team. Every game. Every forecast. One persistent season model, updated as results land.
+  - button "Listen to the briefing":
+    - text: Listen to the briefing
+  - button "Radio":
+    - text: Radio
+  - link "Super Bowl favourite Seahawks · 10,000 seasons, updated 30m ago 12%":
+    - /url: /nfl/team/26
+    - generic: Super Bowl favourite
+    - text: Seahawks · 10,000 seasons, updated 30m ago
+    - generic: 12%
+  - generic: Games played
+  - generic: "49"
+  - generic: 18% of regular season
+  - generic: Games remaining
+  - generic: "223"
+  - generic: +13 postseason
+  - generic: Teams tracked
+  - generic: "32"
+  - generic: all NFL teams
+  - generic: Live games
+  - generic: "0"
+  - generic: none right now
+  - generic: Forecast coverage
+  - generic: 100%
+  - generic: 223 games forecast
+  - generic: Simulated seasons
+  - generic: 10,000
+  - generic: state v45 · 0.227s
+  - region "Featured matchups":
+    - heading "Featured matchups" [level=2]
+    - link "Full schedule":
+      - /url: /nfl/games
+    - tablist:
+      - tab "Sun Oct 4 · 14" [selected]:
+        - generic: Sun
+        - text: Oct 4 · 14
+      - tab "Mon Oct 5 · 1":
+        - generic: Mon
+        - text: Oct 5 · 1
+      - tab "Thu Oct 8 · 1":
+        - generic: Thu
+        - text: Oct 8 · 1
+      - tab "Sun Oct 11 · 13":
+        - generic: Sun
+        - text: Oct 11 · 13
+      - tab "Mon Oct 12 · 1":
+        - generic: Mon
+        - text: Oct 12 · 1
+      - tab "Thu Oct 15 · 1":
+        - generic: Thu
+        - text: Oct 15 · 1
+      - tab "Sun Oct 18 · 12":
+        - generic: Sun
+        - text: Oct 18 · 12
+    - table:
+      - rowgroup:
+        - row "Time Away Home Win probability Leverage Game view":
+          - columnheader "Time"
+          - columnheader "Away"
+          - columnheader
+          - columnheader "Home"
+          - columnheader "Win probability"
+          - columnheader "Leverage"
+          - columnheader "Game view":
+            - generic: Game view
+      - rowgroup:
+        - 'row "1:00 PM Patriots @ Bills NE 37%, BUF 63% Very high 24.9 Open game view: New England Patriots at Buffalo Bills"':
+          - cell "1:00 PM"
+          - cell "Patriots":
+            - link "Patriots":
+              - /url: /nfl/team/17
+              - generic: Patriots
+          - cell "@"
+          - cell "Bills":
+            - link "Bills":
+              - /url: /nfl/team/2
+              - generic: Bills
+          - cell "NE 37%, BUF 63%":
+            - img "NE 37%, BUF 63%":
+              - generic: NE 37%
+              - generic: 63% BUF
+          - cell "Very high 24.9":
+            - 'generic "Make playoffs probability: win vs loss differs by 24.9 points"':
+              - text: Very high
+              - generic: "24.9"
+          - 'cell "Open game view: New England Patriots at Buffalo Bills"':
+            - 'button "Open game view: New England Patriots at Buffalo Bills"':
+              - text: View
+        - 'row "4:25 PM Chiefs @ Raiders KC 59%, LV 41% Very high 24.1 Open game view: Kansas City Chiefs at Las Vegas Raiders"':
+          - cell "4:25 PM"
+          - cell "Chiefs":
+            - link "Chiefs":
+              - /url: /nfl/team/12
+              - generic: Chiefs
+          - cell "@"
+          - cell "Raiders":
+            - link "Raiders":
+              - /url: /nfl/team/13
+              - generic: Raiders
+          - cell "KC 59%, LV 41%":
+            - img "KC 59%, LV 41%":
+              - generic: KC 59%
+              - generic: 41% LV
+          - cell "Very high 24.1":
+            - 'generic "Make playoffs probability: win vs loss differs by 24.1 points"':
+              - text: Very high
+              - generic: "24.1"
+          - 'cell "Open game view: Kansas City Chiefs at Las Vegas Raiders"':
+            - 'button "Open game view: Kansas City Chiefs at Las Vegas Raiders"':
+              - text: View
+        - 'row "1:00 PM Rams @ Eagles LAR 57%, PHI 43% High 19.7 Open game view: Los Angeles Rams at Philadelphia Eagles"':
+          - cell "1:00 PM"
+          - cell "Rams":
+            - link "Rams":
+              - /url: /nfl/team/14
+              - generic: Rams
+          - cell "@"
+          - cell "Eagles":
+            - link "Eagles":
+              - /url: /nfl/team/21
+              - generic: Eagles
+          - cell "LAR 57%, PHI 43%":
+            - img "LAR 57%, PHI 43%":
+              - generic: LAR 57%
+              - generic: 43% PHI
+          - cell "High 19.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 19.7 points"':
+              - text: High
+              - generic: "19.7"
+          - 'cell "Open game view: Los Angeles Rams at Philadelphia Eagles"':
+            - 'button "Open game view: Los Angeles Rams at Philadelphia Eagles"':
+              - text: View
+        - 'row "1:00 PM Jaguars @ Bengals JAX 63%, CIN 37% High 17.3 Open game view: Jacksonville Jaguars at Cincinnati Bengals"':
+          - cell "1:00 PM"
+          - cell "Jaguars":
+            - link "Jaguars":
+              - /url: /nfl/team/30
+              - generic: Jaguars
+          - cell "@"
+          - cell "Bengals":
+            - link "Bengals":
+              - /url: /nfl/team/4
+              - generic: Bengals
+          - cell "JAX 63%, CIN 37%":
+            - img "JAX 63%, CIN 37%":
+              - generic: JAX 63%
+              - generic: 37% CIN
+          - cell "High 17.3":
+            - 'generic "Make playoffs probability: win vs loss differs by 17.3 points"':
+              - text: High
+              - generic: "17.3"
+          - 'cell "Open game view: Jacksonville Jaguars at Cincinnati Bengals"':
+            - 'button "Open game view: Jacksonville Jaguars at Cincinnati Bengals"':
+              - text: View
+        - 'row "1:00 PM Titans @ Ravens TEN 26%, BAL 74% High 16.2 Open game view: Tennessee Titans at Baltimore Ravens"':
+          - cell "1:00 PM"
+          - cell "Titans":
+            - link "Titans":
+              - /url: /nfl/team/10
+              - generic: Titans
+          - cell "@"
+          - cell "Ravens":
+            - link "Ravens":
+              - /url: /nfl/team/33
+              - generic: Ravens
+          - cell "TEN 26%, BAL 74%":
+            - img "TEN 26%, BAL 74%":
+              - generic: TEN 26%
+              - generic: 74% BAL
+          - cell "High 16.2":
+            - 'generic "Make playoffs probability: win vs loss differs by 16.2 points"':
+              - text: High
+              - generic: "16.2"
+          - 'cell "Open game view: Tennessee Titans at Baltimore Ravens"':
+            - 'button "Open game view: Tennessee Titans at Baltimore Ravens"':
+              - text: View
+        - 'row "4:25 PM Broncos @ 49ers DEN 40%, SF 60% High 16.2 Open game view: Denver Broncos at San Francisco 49ers"':
+          - cell "4:25 PM"
+          - cell "Broncos":
+            - link "Broncos":
+              - /url: /nfl/team/7
+              - generic: Broncos
+          - cell "@"
+          - cell "49ers":
+            - link "49ers":
+              - /url: /nfl/team/25
+              - generic: 49ers
+          - cell "DEN 40%, SF 60%":
+            - img "DEN 40%, SF 60%":
+              - generic: DEN 40%
+              - generic: 60% SF
+          - cell "High 16.2":
+            - 'generic "Make playoffs probability: win vs loss differs by 16.2 points"':
+              - text: High
+              - generic: "16.2"
+          - 'cell "Open game view: Denver Broncos at San Francisco 49ers"':
+            - 'button "Open game view: Denver Broncos at San Francisco 49ers"':
+              - text: View
+        - 'row "9:30 AM Colts vs Commanders IND 61%, WSH 39% High 15.8 Open game view: Indianapolis Colts at Washington Commanders"':
+          - cell "9:30 AM"
+          - cell "Colts":
+            - link "Colts":
+              - /url: /nfl/team/11
+              - generic: Colts
+          - cell "vs"
+          - cell "Commanders":
+            - link "Commanders":
+              - /url: /nfl/team/28
+              - generic: Commanders
+          - cell "IND 61%, WSH 39%":
+            - img "IND 61%, WSH 39%":
+              - generic: IND 61%
+              - generic: 39% WSH
+          - cell "High 15.8":
+            - 'generic "Make playoffs probability: win vs loss differs by 15.8 points"':
+              - text: High
+              - generic: "15.8"
+          - 'cell "Open game view: Indianapolis Colts at Washington Commanders"':
+            - 'button "Open game view: Indianapolis Colts at Washington Commanders"':
+              - text: View
+        - 'row "8:20 PM Lions @ Panthers DET 55%, CAR 45% High 15.8 Open game view: Detroit Lions at Carolina Panthers"':
+          - cell "8:20 PM"
+          - cell "Lions":
+            - link "Lions":
+              - /url: /nfl/team/8
+              - generic: Lions
+          - cell "@"
+          - cell "Panthers":
+            - link "Panthers":
+              - /url: /nfl/team/29
+              - generic: Panthers
+          - cell "DET 55%, CAR 45%":
+            - img "DET 55%, CAR 45%":
+              - generic: DET 55%
+              - generic: 45% CAR
+          - cell "High 15.8":
+            - 'generic "Make playoffs probability: win vs loss differs by 15.8 points"':
+              - text: High
+              - generic: "15.8"
+          - 'cell "Open game view: Detroit Lions at Carolina Panthers"':
+            - 'button "Open game view: Detroit Lions at Carolina Panthers"':
+              - text: View
+        - 'row "1:00 PM Cowboys @ Texans DAL 45%, HOU 55% High 14.8 Open game view: Dallas Cowboys at Houston Texans"':
+          - cell "1:00 PM"
+          - cell "Cowboys":
+            - link "Cowboys":
+              - /url: /nfl/team/6
+              - generic: Cowboys
+          - cell "@"
+          - cell "Texans":
+            - link "Texans":
+              - /url: /nfl/team/34
+              - generic: Texans
+          - cell "DAL 45%, HOU 55%":
+            - img "DAL 45%, HOU 55%":
+              - generic: DAL 45%
+              - generic: 55% HOU
+          - cell "High 14.8":
+            - 'generic "Make playoffs probability: win vs loss differs by 14.8 points"':
+              - text: High
+              - generic: "14.8"
+          - 'cell "Open game view: Dallas Cowboys at Houston Texans"':
+            - 'button "Open game view: Dallas Cowboys at Houston Texans"':
+              - text: View
+        - 'row "1:00 PM Cardinals @ Giants ARI 46%, NYG 54% High 13.7 Open game view: Arizona Cardinals at New York Giants"':
+          - cell "1:00 PM"
+          - cell "Cardinals":
+            - link "Cardinals":
+              - /url: /nfl/team/22
+              - generic: Cardinals
+          - cell "@"
+          - cell "Giants":
+            - link "Giants":
+              - /url: /nfl/team/19
+              - generic: Giants
+          - cell "ARI 46%, NYG 54%":
+            - img "ARI 46%, NYG 54%":
+              - generic: ARI 46%
+              - generic: 54% NYG
+          - cell "High 13.7":
+            - 'generic "Make playoffs probability: win vs loss differs by 13.7 points"':
+              - text: High
+              - generic: "13.7"
+          - 'cell "Open game view: Arizona Cardinals at New York Giants"':
+            - 'button "Open game view: Arizona Cardinals at New York Giants"':
+              - text: View
+    - text: "The day’s 10 biggest games by season leverage: how much each result moves the teams’ headline odds."
+    - link "All live games":
+      - /url: /nfl/games?live=1
+  - region "Super Bowl outlook":
+    - heading "Super Bowl outlook" [level=2]
+    - link "All teams":
+      - /url: /nfl/standings
+    - table:
+      - rowgroup:
+        - row "# Team Exp. W Playoffs Conf. Super Bowl":
+          - columnheader "#"
+          - columnheader "Team"
+          - columnheader "Exp. W"
+          - columnheader "Playoffs"
+          - columnheader "Conf."
+          - columnheader "Super Bowl"
+      - rowgroup:
+        - row "1 Seahawks 11.1 81% 21% 12%":
+          - cell "1"
+          - cell "Seahawks":
+            - link "Seahawks":
+              - /url: /nfl/team/26
+              - generic: Seahawks
+          - cell "11.1"
+          - cell "81%"
+          - cell "21%"
+          - cell "12%":
+            - generic: 12%
+        - row "2 Jaguars 11.3 85% 20% 11%":
+          - cell "2"
+          - cell "Jaguars":
+            - link "Jaguars":
+              - /url: /nfl/team/30
+              - generic: Jaguars
+          - cell "11.3"
+          - cell "85%"
+          - cell "20%"
+          - cell "11%":
+            - generic: 11%
+        - row "3 Bills 11.6 86% 19% 10%":
+          - cell "3"
+          - cell "Bills":
+            - link "Bills":
+              - /url: /nfl/team/2
+              - generic: Bills
+          - cell "11.6"
+          - cell "86%"
+          - cell "19%"
+          - cell "10%":
+            - generic: 10%
+        - row "4 49ers 11.3 82% 16% 8.3%":
+          - cell "4"
+          - cell "49ers":
+            - link "49ers":
+              - /url: /nfl/team/25
+              - generic: 49ers
+          - cell "11.3"
+          - cell "82%"
+          - cell "16%"
+          - cell "8.3%":
+            - generic: 8.3%
+        - row "5 Chiefs 11.2 82% 15% 7.7%":
+          - cell "5"
+          - cell "Chiefs":
+            - link "Chiefs":
+              - /url: /nfl/team/12
+              - generic: Chiefs
+          - cell "11.2"
+          - cell "82%"
+          - cell "15%"
+          - cell "7.7%":
+            - generic: 7.7%
+        - row "6 Vikings 11.5 84% 15% 7.3%":
+          - cell "6"
+          - cell "Vikings":
+            - link "Vikings":
+              - /url: /nfl/team/16
+              - generic: Vikings
+          - cell "11.5"
+          - cell "84%"
+          - cell "15%"
+          - cell "7.3%":
+            - generic: 7.3%
+        - row "7 Bears 10.1 64% 11% 5.9%":
+          - cell "7"
+          - cell "Bears":
+            - link "Bears":
+              - /url: /nfl/team/3
+              - generic: Bears
+          - cell "10.1"
+          - cell "64%"
+          - cell "11%"
+          - cell "5.9%":
+            - generic: 5.9%
+        - row "8 Ravens 10.1 67% 9.5% 4.3%":
+          - cell "8"
+          - cell "Ravens":
+            - link "Ravens":
+              - /url: /nfl/team/33
+              - generic: Ravens
+          - cell "10.1"
+          - cell "67%"
+          - cell "9.5%"
+          - cell "4.3%":
+            - generic: 4.3%
+        - row "9 Lions 9.9 60% 8.4% 4.0%":
+          - cell "9"
+          - cell "Lions":
+            - link "Lions":
+              - /url: /nfl/team/8
+              - generic: Lions
+          - cell "9.9"
+          - cell "60%"
+          - cell "8.4%"
+          - cell "4.0%":
+            - generic: 4.0%
+        - row "10 Broncos 9.6 55% 7.1% 3.4%":
+          - cell "10"
+          - cell "Broncos":
+            - link "Broncos":
+              - /url: /nfl/team/7
+              - generic: Broncos
+          - cell "9.6"
+          - cell "55%"
+          - cell "7.1%"
+          - cell "3.4%":
+            - generic: 3.4%
+        - row "11 Rams 8.9 43% 6.6% 3.3%":
+          - cell "11"
+          - cell "Rams":
+            - link "Rams":
+              - /url: /nfl/team/14
+              - generic: Rams
+          - cell "8.9"
+          - cell "43%"
+          - cell "6.6%"
+          - cell "3.3%":
+            - generic: 3.3%
+        - row "12 Patriots 8.8 49% 6.3% 3.1%":
+          - cell "12"
+          - cell "Patriots":
+            - link "Patriots":
+              - /url: /nfl/team/17
+              - generic: Patriots
+          - cell "8.8"
+          - cell "49%"
+          - cell "6.3%"
+          - cell "3.1%":
+            - generic: 3.1%
+  - region "Games that move the race":
+    - heading "Games that move the race" [level=2]
+    - table:
+      - rowgroup:
+        - row "Oct 4 NE @ BUF NE ±24.9 pts":
+          - cell "Oct 4"
+          - cell "NE @ BUF":
+            - generic: NE
+            - generic: "@"
+            - generic: BUF
+          - cell "NE ±24.9 pts":
+            - generic: NE
+            - generic: ±24.9
+            - text: pts
+        - row "Oct 18 BAL @ CLE CLE ±24.4 pts":
+          - cell "Oct 18"
+          - cell "BAL @ CLE":
+            - generic: BAL
+            - generic: "@"
+            - generic: CLE
+          - cell "CLE ±24.4 pts":
+            - generic: CLE
+            - generic: ±24.4
+            - text: pts
+        - row "Oct 5 ATL @ NO NO ±24.4 pts":
+          - cell "Oct 5"
+          - cell "ATL @ NO":
+            - generic: ATL
+            - generic: "@"
+            - generic: "NO"
+          - cell "NO ±24.4 pts":
+            - generic: "NO"
+            - generic: ±24.4
+            - text: pts
+        - row "Oct 4 KC @ LV LV ±24.1 pts":
+          - cell "Oct 4"
+          - cell "KC @ LV":
+            - generic: KC
+            - generic: "@"
+            - generic: LV
+          - cell "LV ±24.1 pts":
+            - generic: LV
+            - generic: ±24.1
+            - text: pts
+        - row "Oct 18 NYJ @ NE NE ±22.8 pts":
+          - cell "Oct 18"
+          - cell "NYJ @ NE":
+            - generic: NYJ
+            - generic: "@"
+            - generic: NE
+          - cell "NE ±22.8 pts":
+            - generic: NE
+            - generic: ±22.8
+            - text: pts
+        - row "Oct 18 ARI @ LAR LAR ±22.8 pts":
+          - cell "Oct 18"
+          - cell "ARI @ LAR":
+            - generic: ARI
+            - generic: "@"
+            - generic: LAR
+          - cell "LAR ±22.8 pts":
+            - generic: LAR
+            - generic: ±22.8
+            - text: pts
+        - row "Oct 11 DEN @ LAC DEN ±22.6 pts":
+          - cell "Oct 11"
+          - cell "DEN @ LAC":
+            - generic: DEN
+            - generic: "@"
+            - generic: LAC
+          - cell "DEN ±22.6 pts":
+            - generic: DEN
+            - generic: ±22.6
+            - text: pts
+    - generic: Next 15 days, ranked by the swing in Playoffs odds between winning and losing.
+  - region "Super Bowl odds":
+    - heading "Super Bowl odds" [level=2]
+    - generic: "Bars: share of 10,000 simulated seasons. Whiskers: 95% Monte Carlo interval."
+  - region "Live world updates":
+    - heading "Live world updates" [level=2]
+    - list:
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Availability: Caleb Williams (QB) Out -> -3.8 pts"
+        - generic: state v43 · CHI
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Availability: Baker Mayfield (QB) Out -> -3.8 pts"
+        - generic: state v44 · TB
+      - time: 9:47 PM
+      - paragraph:
+        - text: "Availability: Jayden Daniels (QB) Out -> -3.8 pts"
+        - generic: state v45 · WSH
+  - region "NFC / AFC playoffs outlook":
+    - heading "NFC / AFC playoffs outlook" [level=2]
+    - table:
+      - rowgroup:
+        - row "# NFC Exp. W Playoffs Conf. Super Bowl":
+          - columnheader "#"
+          - columnheader "NFC"
+          - columnheader "Exp. W"
+          - columnheader "Playoffs"
+          - columnheader "Conf."
+          - columnheader "Super Bowl"
+      - rowgroup:
+        - row "1 Vikings 11.5 84% 15% 7.3%":
+          - cell "1"
+          - cell "Vikings":
+            - link "Vikings":
+              - /url: /nfl/team/16
+              - generic: Vikings
+          - cell "11.5"
+          - cell "84%"
+          - cell "15%"
+          - cell "7.3%"
+        - row "2 49ers 11.3 82% 16% 8.3%":
+          - cell "2"
+          - cell "49ers":
+            - link "49ers":
+              - /url: /nfl/team/25
+              - generic: 49ers
+          - cell "11.3"
+          - cell "82%"
+          - cell "16%"
+          - cell "8.3%"
+        - row "3 Seahawks 11.1 81% 21% 12%":
+          - cell "3"
+          - cell "Seahawks":
+            - link "Seahawks":
+              - /url: /nfl/team/26
+              - generic: Seahawks
+          - cell "11.1"
+          - cell "81%"
+          - cell "21%"
+          - cell "12%"
+        - row "4 Bears 10.1 64% 11% 5.9%":
+          - cell "4"
+          - cell "Bears":
+            - link "Bears":
+              - /url: /nfl/team/3
+              - generic: Bears
+          - cell "10.1"
+          - cell "64%"
+          - cell "11%"
+          - cell "5.9%"
+        - row "5 Lions 9.9 60% 8.4% 4.0%":
+          - cell "5"
+          - cell "Lions":
+            - link "Lions":
+              - /url: /nfl/team/8
+              - generic: Lions
+          - cell "9.9"
+          - cell "60%"
+          - cell "8.4%"
+          - cell "4.0%"
+        - row "6 Eagles 8.9 52% 4.9% 2.0%":
+          - cell "6"
+          - cell "Eagles":
+            - link "Eagles":
+              - /url: /nfl/team/21
+              - generic: Eagles
+          - cell "8.9"
+          - cell "52%"
+          - cell "4.9%"
+          - cell "2.0%"
+        - row "7 Rams 8.9 43% 6.6% 3.3%":
+          - cell "7"
+          - cell "Rams":
+            - link "Rams":
+              - /url: /nfl/team/14
+              - generic: Rams
+          - cell "8.9"
+          - cell "43%"
+          - cell "6.6%"
+          - cell "3.3%"
+        - row "8 Saints 7.9 41% 2.8% 1.1%":
+          - cell "8"
+          - cell "Saints":
+            - link "Saints":
+              - /url: /nfl/team/18
+              - generic: Saints
+          - cell "7.9"
+          - cell "41%"
+          - cell "2.8%"
+          - cell "1.1%"
+        - row "9 Panthers 7.4 34% 2.4% 1.0%":
+          - cell "9"
+          - cell "Panthers":
+            - link "Panthers":
+              - /url: /nfl/team/29
+              - generic: Panthers
+          - cell "7.4"
+          - cell "34%"
+          - cell "2.4%"
+          - cell "1.0%"
+        - row "10 Giants 7.9 34% 2.3% 1.0%":
+          - cell "10"
+          - cell "Giants":
+            - link "Giants":
+              - /url: /nfl/team/19
+              - generic: Giants
+          - cell "7.9"
+          - cell "34%"
+          - cell "2.3%"
+          - cell "1.0%"
+        - row "11 Cowboys 7.8 33% 3.1% 1.3%":
+          - cell "11"
+          - cell "Cowboys":
+            - link "Cowboys":
+              - /url: /nfl/team/6
+              - generic: Cowboys
+          - cell "7.8"
+          - cell "33%"
+          - cell "3.1%"
+          - cell "1.3%"
+        - row "12 Falcons 6.8 23% 1.4% 0.5%":
+          - cell "12"
+          - cell "Falcons":
+            - link "Falcons":
+              - /url: /nfl/team/1
+              - generic: Falcons
+          - cell "6.8"
+          - cell "23%"
+          - cell "1.4%"
+          - cell "0.5%"
+    - table:
+      - rowgroup:
+        - row "# AFC Exp. W Playoffs Conf. Super Bowl":
+          - columnheader "#"
+          - columnheader "AFC"
+          - columnheader "Exp. W"
+          - columnheader "Playoffs"
+          - columnheader "Conf."
+          - columnheader "Super Bowl"
+      - rowgroup:
+        - row "1 Bills 11.6 86% 19% 10%":
+          - cell "1"
+          - cell "Bills":
+            - link "Bills":
+              - /url: /nfl/team/2
+              - generic: Bills
+          - cell "11.6"
+          - cell "86%"
+          - cell "19%"
+          - cell "10%"
+        - row "2 Jaguars 11.3 85% 20% 11%":
+          - cell "2"
+          - cell "Jaguars":
+            - link "Jaguars":
+              - /url: /nfl/team/30
+              - generic: Jaguars
+          - cell "11.3"
+          - cell "85%"
+          - cell "20%"
+          - cell "11%"
+        - row "3 Chiefs 11.2 82% 15% 7.7%":
+          - cell "3"
+          - cell "Chiefs":
+            - link "Chiefs":
+              - /url: /nfl/team/12
+              - generic: Chiefs
+          - cell "11.2"
+          - cell "82%"
+          - cell "15%"
+          - cell "7.7%"
+        - row "4 Ravens 10.1 67% 9.5% 4.3%":
+          - cell "4"
+          - cell "Ravens":
+            - link "Ravens":
+              - /url: /nfl/team/33
+              - generic: Ravens
+          - cell "10.1"
+          - cell "67%"
+          - cell "9.5%"
+          - cell "4.3%"
+        - row "5 Bengals 9.7 56% 6.1% 2.9%":
+          - cell "5"
+          - cell "Bengals":
+            - link "Bengals":
+              - /url: /nfl/team/4
+              - generic: Bengals
+          - cell "9.7"
+          - cell "56%"
+          - cell "6.1%"
+          - cell "2.9%"
+        - row "6 Broncos 9.6 55% 7.1% 3.4%":
+          - cell "6"
+          - cell "Broncos":
+            - link "Broncos":
+              - /url: /nfl/team/7
+              - generic: Broncos
+          - cell "9.6"
+          - cell "55%"
+          - cell "7.1%"
+          - cell "3.4%"
+        - row "7 Raiders 9.2 51% 3.9% 1.7%":
+          - cell "7"
+          - cell "Raiders":
+            - link "Raiders":
+              - /url: /nfl/team/13
+              - generic: Raiders
+          - cell "9.2"
+          - cell "51%"
+          - cell "3.9%"
+          - cell "1.7%"
+        - row "8 Patriots 8.8 49% 6.3% 3.1%":
+          - cell "8"
+          - cell "Patriots":
+            - link "Patriots":
+              - /url: /nfl/team/17
+              - generic: Patriots
+          - cell "8.8"
+          - cell "49%"
+          - cell "6.3%"
+          - cell "3.1%"
+        - row "9 Browns 8.6 38% 1.7% 0.7%":
+          - cell "9"
+          - cell "Browns":
+            - link "Browns":
+              - /url: /nfl/team/5
+              - generic: Browns
+          - cell "8.6"
+          - cell "38%"
+          - cell "1.7%"
+          - cell "0.7%"
+        - row "10 Colts 8.2 37% 3.3% 1.3%":
+          - cell "10"
+          - cell "Colts":
+            - link "Colts":
+              - /url: /nfl/team/11
+              - generic: Colts
+          - cell "8.2"
+          - cell "37%"
+          - cell "3.3%"
+          - cell "1.3%"
+        - row "11 Steelers 8.4 37% 3.1% 1.3%":
+          - cell "11"
+          - cell "Steelers":
+            - link "Steelers":
+              - /url: /nfl/team/23
+              - generic: Steelers
+          - cell "8.4"
+          - cell "37%"
+          - cell "3.1%"
+          - cell "1.3%"
+        - row "12 Texans 7.5 25% 2.8% 1.4%":
+          - cell "12"
+          - cell "Texans":
+            - link "Texans":
+              - /url: /nfl/team/34
+              - generic: Texans
+          - cell "7.5"
+          - cell "25%"
+          - cell "2.8%"
+          - cell "1.4%"
+    - generic: "Dashed line: expected number of playoffs qualifiers per conference (sum of probabilities)."
+  - region "Injury report → strength":
+    - heading "Injury report → strength" [level=2]
+    - table:
+      - rowgroup:
+        - row "Team Player Status Δ strength":
+          - columnheader "Team"
+          - columnheader "Player"
+          - columnheader "Status"
+          - columnheader "Δ strength"
+      - rowgroup:
+        - row "CHI Caleb Williams QB Out -3.8":
+          - cell "CHI":
+            - link "CHI":
+              - /url: /nfl/team/3
+              - generic: CHI
+          - cell "Caleb Williams QB"
+          - cell "Out":
+            - generic: Out
+          - cell "-3.8"
+        - row "TB Baker Mayfield QB Out -3.8":
+          - cell "TB":
+            - link "TB":
+              - /url: /nfl/team/27
+              - generic: TB
+          - cell "Baker Mayfield QB"
+          - cell "Out":
+            - generic: Out
+          - cell "-3.8"
+        - row "WSH Jayden Daniels QB Out -3.8":
+          - cell "WSH":
+            - link "WSH":
+              - /url: /nfl/team/28
+              - generic: WSH
+          - cell "Jayden Daniels QB"
+          - cell "Out":
+            - generic: Out
+          - cell "-3.8"
+    - generic: ESPN injury report, refreshed 1m ago. Effect sizes are learned; status→availability is a labelled prior.
+  - 'region "Today''s scorecard: forecasts vs what happened"':
+    - 'heading "Today''s scorecard: forecasts vs what happened" [level=2]'
+    - generic: No completed games yet today
+    - text: The scorecard fills in as games finish.
+    - generic: SportsWorld = point-in-time reconstruction at kickoff (results known before each kickoff, served model); ESPN = first point of ESPN's win-probability chart; market = DraftKings moneyline via ESPN, de-vigged. Benchmarks are never model inputs. One day is a small sample; the 7-season replay above is the real evidence.
+  - region "Model health & calibration":
+    - heading "Model health & calibration" [level=2]
+    - link "Full research":
+      - /url: /research
+    - generic: 90% win-band coverage
+    - generic: 94%
+    - generic: target 90% · independent-game sim only 77%
+    - generic: Win-total error
+    - generic: "2.42"
+    - generic: mean abs. error, vs 2.66 for a pace baseline
+    - generic: Champion log loss
+    - generic: "3.22"
+    - generic: vs 3.47 for picking uniformly
+    - generic: Game model log loss
+    - generic: "0.490"
+    - generic: walk-forward mean ± 0.038; state-space only 0.516
+    - generic: Champions per draw
+    - generic: 1–1
+    - generic: "structural check: exactly one title winner in every simulated season"
+    - generic: Board ↔ season consistency
+    - generic: "0.12"
+    - generic: mean |Δ expected wins| between game forecasts and the season simulation
+    - generic: Point-in-time replays of 2019–2025 preseason; rolling-origin = train on earlier seasons, test on the next.
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: 3%

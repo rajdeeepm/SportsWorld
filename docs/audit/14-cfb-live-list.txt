@@ -1,0 +1,346 @@
+- banner:
+  - link "SportsWorld home":
+    - /url: /college-football
+    - generic: SportsWorld
+    - generic: Season Intelligence Engine
+  - navigation "Leagues":
+    - link "F1":
+      - /url: /f1
+    - link "NFL":
+      - /url: /nfl
+    - link "CFB":
+      - /url: /college-football
+    - link "NBA":
+      - /url: /nba
+    - link "CBB":
+      - /url: /mens-college-basketball
+    - link "NHL":
+      - /url: /nhl
+    - link "College Hockey":
+      - /url: /mens-college-hockey
+  - combobox:
+    - textbox "Search teams":
+      - /placeholder: Search teams…
+- navigation "College Football sections":
+  - generic: College Football
+  - link "Overview":
+    - /url: /college-football
+    - text: Overview
+  - link "Standings":
+    - /url: /college-football/standings
+    - text: Standings
+  - link "Live 12 live" [active]:
+    - /url: /college-football/games?live=1
+    - text: Live
+    - generic "12 live"
+  - link "Forecasts":
+    - /url: /college-football/games
+    - text: Forecasts
+  - link "Simulation Lab":
+    - /url: /college-football/lab
+    - text: Simulation Lab
+  - link "Research":
+    - /url: /research
+    - text: Research
+  - generic: Modelling a smarter sports world.
+  - text: Every number is point-in-time, versioned and backtested.
+  - generic "Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.":
+    - text: SpacetimeDB live · 2 viewers
+- main:
+  - 'heading "College Football: Live games" [level=1]':
+    - text: "College Football:"
+    - emphasis: Live games
+  - paragraph: In-game win probabilities, updated every 20 seconds and fed straight into the season simulation.
+  - region "Live now":
+    - heading "Live now" [level=2]
+    - table:
+      - rowgroup:
+        - row "Date · time Away Home Win probability Leverage Game view":
+          - columnheader "Date · time"
+          - columnheader "Away"
+          - columnheader
+          - columnheader "Home"
+          - columnheader "Win probability"
+          - columnheader "Leverage"
+          - columnheader "Game view":
+            - generic: Game view
+      - rowgroup:
+        - 'row "Q4 0:57 GA Southern 31–23 Coastal GASO 99%, CCU 1% - Open game view: Georgia Southern Eagles at Coastal Carolina Chanticleers"':
+          - cell "Q4 0:57":
+            - generic: Q4 0:57
+          - cell "GA Southern":
+            - link "GA Southern":
+              - /url: /college-football/team/290
+              - generic: GA Southern
+          - cell "31–23":
+            - generic: 31–23
+          - cell "Coastal":
+            - link "Coastal":
+              - /url: /college-football/team/324
+              - generic: Coastal
+          - cell "GASO 99%, CCU 1%":
+            - img "GASO 99%, CCU 1%":
+              - generic: GASO 99%
+              - generic: 1% CCU
+          - cell "-"
+          - 'cell "Open game view: Georgia Southern Eagles at Coastal Carolina Chanticleers"':
+            - 'button "Open game view: Georgia Southern Eagles at Coastal Carolina Chanticleers"':
+              - text: Watch
+        - 'row "Q4 0:51 UL Monroe 35–52 South Alabama ULM 0%, USA 100% - Open game view: UL Monroe Warhawks at South Alabama Jaguars"':
+          - cell "Q4 0:51":
+            - generic: Q4 0:51
+          - cell "UL Monroe":
+            - link "UL Monroe":
+              - /url: /college-football/team/2433
+              - generic: UL Monroe
+          - cell "35–52":
+            - generic: 35–52
+          - cell "South Alabama":
+            - link "South Alabama":
+              - /url: /college-football/team/6
+              - generic: South Alabama
+          - cell "ULM 0%, USA 100%":
+            - img "ULM 0%, USA 100%":
+              - generic: ULM 0%
+              - generic: 100% USA
+          - cell "-"
+          - 'cell "Open game view: UL Monroe Warhawks at South Alabama Jaguars"':
+            - 'button "Open game view: UL Monroe Warhawks at South Alabama Jaguars"':
+              - text: Watch
+        - 'row "Q4 10:54 #12Texas Tech 15–7 Colorado TTU 93%, COLO 7% Very high 32.1 Open game view: Texas Tech Red Raiders at Colorado Buffaloes"':
+          - cell "Q4 10:54":
+            - generic: Q4 10:54
+          - cell "#12Texas Tech":
+            - link "#12Texas Tech":
+              - /url: /college-football/team/2641
+              - generic: "#12"
+              - text: Texas Tech
+          - cell "15–7":
+            - generic: 15–7
+          - cell "Colorado":
+            - link "Colorado":
+              - /url: /college-football/team/38
+              - generic: Colorado
+          - cell "TTU 93%, COLO 7%":
+            - img "TTU 93%, COLO 7%":
+              - generic: TTU 93%
+              - generic: 7% COLO
+          - cell "Very high 32.1":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 32.1 points"':
+              - text: Very high
+              - generic: "32.1"
+          - 'cell "Open game view: Texas Tech Red Raiders at Colorado Buffaloes"':
+            - 'button "Open game view: Texas Tech Red Raiders at Colorado Buffaloes"':
+              - text: Watch
+        - 'row "Q3 0:00 #4Miami 24–6 Clemson MIA 99%, CLEM 1% Medium 6.6 Open game view: Miami Hurricanes at Clemson Tigers"':
+          - cell "Q3 0:00":
+            - generic: Q3 0:00
+          - cell "#4Miami":
+            - link "#4Miami":
+              - /url: /college-football/team/2390
+              - generic: "#4"
+              - text: Miami
+          - cell "24–6":
+            - generic: 24–6
+          - cell "Clemson":
+            - link "Clemson":
+              - /url: /college-football/team/228
+              - generic: Clemson
+          - cell "MIA 99%, CLEM 1%":
+            - img "MIA 99%, CLEM 1%":
+              - generic: MIA 99%
+              - generic: 1% CLEM
+          - cell "Medium 6.6":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 6.6 points"':
+              - text: Medium
+              - generic: "6.6"
+          - 'cell "Open game view: Miami Hurricanes at Clemson Tigers"':
+            - 'button "Open game view: Miami Hurricanes at Clemson Tigers"':
+              - text: Watch
+        - 'row "Q4 11:12 Washington 21–22 #18USC WASH 29%, USC 71% Low 0.4 Open game view: Washington Huskies at USC Trojans"':
+          - cell "Q4 11:12":
+            - generic: Q4 11:12
+          - cell "Washington":
+            - link "Washington":
+              - /url: /college-football/team/264
+              - generic: Washington
+          - cell "21–22":
+            - generic: 21–22
+          - cell "#18USC":
+            - link "#18USC":
+              - /url: /college-football/team/30
+              - generic: "#18"
+              - text: USC
+          - cell "WASH 29%, USC 71%":
+            - img "WASH 29%, USC 71%":
+              - generic: WASH 29%
+              - generic: 71% USC
+          - cell "Low 0.4":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 0.4 points"':
+              - text: Low
+              - generic: "0.4"
+          - 'cell "Open game view: Washington Huskies at USC Trojans"':
+            - 'button "Open game view: Washington Huskies at USC Trojans"':
+              - text: Watch
+        - 'row "Q4 8:46 Utah State 18–31 #22Boise St USU 2%, BOIS 98% High 15.8 Open game view: Utah State Aggies at Boise State Broncos"':
+          - cell "Q4 8:46":
+            - generic: Q4 8:46
+          - cell "Utah State":
+            - link "Utah State":
+              - /url: /college-football/team/328
+              - generic: Utah State
+          - cell "18–31":
+            - generic: 18–31
+          - cell "#22Boise St":
+            - link "#22Boise St":
+              - /url: /college-football/team/68
+              - generic: "#22"
+              - text: Boise St
+          - cell "USU 2%, BOIS 98%":
+            - img "USU 2%, BOIS 98%":
+              - generic: USU 2%
+              - generic: 98% BOIS
+          - cell "High 15.8":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 15.8 points"':
+              - text: High
+              - generic: "15.8"
+          - 'cell "Open game view: Utah State Aggies at Boise State Broncos"':
+            - 'button "Open game view: Utah State Aggies at Boise State Broncos"':
+              - text: Watch
+        - 'row "Q4 3:08 Temple 17–13 South Florida TEM 65%, USF 35% Medium 5.9 Open game view: Temple Owls at South Florida Bulls"':
+          - cell "Q4 3:08":
+            - generic: Q4 3:08
+          - cell "Temple":
+            - link "Temple":
+              - /url: /college-football/team/218
+              - generic: Temple
+          - cell "17–13":
+            - generic: 17–13
+          - cell "South Florida":
+            - link "South Florida":
+              - /url: /college-football/team/58
+              - generic: South Florida
+          - cell "TEM 65%, USF 35%":
+            - img "TEM 65%, USF 35%":
+              - generic: TEM 65%
+              - generic: 35% USF
+          - cell "Medium 5.9":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 5.9 points"':
+              - text: Medium
+              - generic: "5.9"
+          - 'cell "Open game view: Temple Owls at South Florida Bulls"':
+            - 'button "Open game view: Temple Owls at South Florida Bulls"':
+              - text: Watch
+        - 'row "Q4 3:57 Army 22–31 Louisiana Tech ARMY 11%, LT 89% - Open game view: Army Black Knights at Louisiana Tech Bulldogs"':
+          - cell "Q4 3:57":
+            - generic: Q4 3:57
+          - cell "Army":
+            - link "Army":
+              - /url: /college-football/team/349
+              - generic: Army
+          - cell "22–31":
+            - generic: 22–31
+          - cell "Louisiana Tech":
+            - link "Louisiana Tech":
+              - /url: /college-football/team/2348
+              - generic: Louisiana Tech
+          - cell "ARMY 11%, LT 89%":
+            - img "ARMY 11%, LT 89%":
+              - generic: ARMY 11%
+              - generic: 89% LT
+          - cell "-"
+          - 'cell "Open game view: Army Black Knights at Louisiana Tech Bulldogs"':
+            - 'button "Open game view: Army Black Knights at Louisiana Tech Bulldogs"':
+              - text: Watch
+        - 'row "Q3 2:06 McNeese 14–49 #11LSU MCN <0.1%, LSU >99.9% - Open game view: McNeese Cowboys at LSU Tigers"':
+          - cell "Q3 2:06":
+            - generic: Q3 2:06
+          - cell "McNeese":
+            - link "McNeese":
+              - /url: /college-football/team/2377
+              - generic: McNeese
+          - cell "14–49":
+            - generic: 14–49
+          - cell "#11LSU":
+            - link "#11LSU":
+              - /url: /college-football/team/99
+              - generic: "#11"
+              - text: LSU
+          - cell "MCN <0.1%, LSU >99.9%":
+            - img "MCN <0.1%, LSU >99.9%":
+              - generic: MCN <0.1%
+              - generic: ">99.9% LSU"
+          - cell "-"
+          - 'cell "Open game view: McNeese Cowboys at LSU Tigers"':
+            - 'button "Open game view: McNeese Cowboys at LSU Tigers"':
+              - text: Watch
+        - 'row "Q3 3:52 #6Indiana 37–7 Rutgers IU 100%, RUTG 0% Medium 6.4 Open game view: Indiana Hoosiers at Rutgers Scarlet Knights"':
+          - cell "Q3 3:52":
+            - generic: Q3 3:52
+          - cell "#6Indiana":
+            - link "#6Indiana":
+              - /url: /college-football/team/84
+              - generic: "#6"
+              - text: Indiana
+          - cell "37–7":
+            - generic: 37–7
+          - cell "Rutgers":
+            - link "Rutgers":
+              - /url: /college-football/team/164
+              - generic: Rutgers
+          - cell "IU 100%, RUTG 0%":
+            - img "IU 100%, RUTG 0%":
+              - generic: IU 100%
+              - generic: 0% RUTG
+          - cell "Medium 6.4":
+            - 'generic "Make College Football Playoff probability: win vs loss differs by 6.4 points"':
+              - text: Medium
+              - generic: "6.4"
+          - 'cell "Open game view: Indiana Hoosiers at Rutgers Scarlet Knights"':
+            - 'button "Open game view: Indiana Hoosiers at Rutgers Scarlet Knights"':
+              - text: Watch
+        - 'row "Q4 11:48 Arkansas St 19–17 Louisiana ARST 25%, UL 75% - Open game view: Arkansas State Red Wolves at Louisiana Ragin'' Cajuns"':
+          - cell "Q4 11:48":
+            - generic: Q4 11:48
+          - cell "Arkansas St":
+            - link "Arkansas St":
+              - /url: /college-football/team/2032
+              - generic: Arkansas St
+          - cell "19–17":
+            - generic: 19–17
+          - cell "Louisiana":
+            - link "Louisiana":
+              - /url: /college-football/team/309
+              - generic: Louisiana
+          - cell "ARST 25%, UL 75%":
+            - img "ARST 25%, UL 75%":
+              - generic: ARST 25%
+              - generic: 75% UL
+          - cell "-"
+          - 'cell "Open game view: Arkansas State Red Wolves at Louisiana Ragin'' Cajuns"':
+            - 'button "Open game view: Arkansas State Red Wolves at Louisiana Ragin'' Cajuns"':
+              - text: Watch
+        - 'row "Q1 0:00 Fresno St 3–0 Washington St FRES 56%, WSU 44% - Open game view: Fresno State Bulldogs at Washington State Cougars"':
+          - cell "Q1 0:00":
+            - generic: Q1 0:00
+          - cell "Fresno St":
+            - link "Fresno St":
+              - /url: /college-football/team/278
+              - generic: Fresno St
+          - cell "3–0":
+            - generic: 3–0
+          - cell "Washington St":
+            - link "Washington St":
+              - /url: /college-football/team/265
+              - generic: Washington St
+          - cell "FRES 56%, WSU 44%":
+            - img "FRES 56%, WSU 44%":
+              - generic: FRES 56%
+              - generic: 44% WSU
+          - cell "-"
+          - 'cell "Open game view: Fresno State Bulldogs at Washington State Cougars"':
+            - 'button "Open game view: Fresno State Bulldogs at Washington State Cougars"':
+              - text: Watch
+- button "Ask SportsWorld":
+  - text: Ask SportsWorld
+- generic: "0"

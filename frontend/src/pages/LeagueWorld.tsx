@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getJSON } from '../lib/api'
+import { WhyItMatters } from '../components/stakes'
 import { Link } from 'react-router-dom'
 import {
   BadgeCheck, CalendarClock, CalendarDays, Gauge, HeartPulse, Layers3, ListChecks, Newspaper, Radio, Shuffle, Swords, Trophy, Users, Zap,
@@ -33,8 +34,9 @@ export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
     <>
       <div className="hero">
         <div>
+          <p className="hero-kicker">Know what matters before you watch.</p>
           <h1>{lg.name}: <em>{lg.seasonLabel} Season World</em></h1>
-          <p>Every team. Every game. Every forecast. One persistent season model, updated as results land.</p>
+          <p>SportsWorld plays out the rest of the season 10,000 times, so every game shows what it means for the playoff race, not just who is favoured. Updated as results land.</p>
           <div className="hero-actions"><ListenButton league={lg.id} label="Listen to the briefing" /><RadioToggle league={lg.id} /></div>
         </div>
         {teams[0] && (
@@ -58,6 +60,8 @@ export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
           { icon: Gauge, label: 'Forecast coverage', value: remaining ? pct(events.filter((e) => e.p_home != null).length / Math.max(events.length, 1), 0) : '-', sub: `${events.length.toLocaleString()} games forecast` },
           { icon: Shuffle, label: 'Simulated seasons', value: season.data ? season.data.draws.toLocaleString() : '-', sub: season.data ? `state v${season.data.global_state_version} · ${d.runtime_s ?? '-'}s` : '' },
         ]} />
+
+        <WhyItMatters league={lg.id} headline />
 
         <div className="grid">
           <div className="c7"><FeaturedMatchups lg={lg} events={events} meta={m} loading={board.isLoading} /></div>
@@ -90,7 +94,7 @@ export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
 function NoSeason({ lg }: { lg: LeagueConfig }) {
   return (
     <>
-      <div className="hero"><div><h1>{lg.name}: <em>{lg.seasonLabel} Season World</em></h1><p>Every game. Every team. Deeper intelligence.</p></div></div>
+      <div className="hero"><div><h1>{lg.name}: <em>{lg.seasonLabel} Season World</em></h1><p>Know what matters before you watch.</p></div></div>
       <Panel title="Season not started" icon={CalendarClock}>
         <Empty title={`The ${lg.seasonLabel} ${lg.name} season run starts with the first scheduled game.`}>
           The tracker is watching ESPN for the schedule. As soon as games are listed, SportsWorld builds the season, simulates it 10,000 times, and this page fills in. Last season is available in Research → historical replay.

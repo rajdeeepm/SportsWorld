@@ -48,7 +48,7 @@ export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) 
       <div className="hero">
         <div>
           <h1>{me.name ?? t.name}: <em>Season World</em></h1>
-          <p>Persistent team intelligence across the {lg.seasonLabel} {lg.name.toLowerCase().startsWith('n') ? lg.name : lg.name.toLowerCase()} season.</p>
+          <p>Every remaining game, and what it means for the {lg.seasonLabel} {lg.name.toLowerCase().startsWith('n') ? lg.name : lg.name.toLowerCase()} season.</p>
           <div className="hero-actions"><ListenButton league={lg.id} team={teamId} label={`Listen: ${me.short_name ?? t.name} briefing`} /></div>
         </div>
       </div>
