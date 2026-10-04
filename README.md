@@ -42,85 +42,92 @@ Research write-up: [`docs/research_report.md`](docs/research_report.md)
 
 ## Feature tour
 
+Every screenshot is the live site; numbered callouts mark the real elements.
+
 ### 1. League "Season World"
 ![League overview](docs/screenshots/01-league-overview.png)
 
-1. **Seven leagues, one engine**: the same world-state architecture for very different competitions.
-2. **The whole season, live**: games played and remaining, teams tracked, live games conditioning the season run, forecast coverage (100 %), simulated seasons.
-3. **Featured matchups**: live score and clock, SportsWorld's calibrated win probability in official team colours, and **season leverage**: how much each result moves the teams' playoff odds (win vs loss, from the simulation).
-4. **Title outlook**: title / playoff / conference odds from 10,000 seasons, with Monte Carlo error on hover.
-5. **Listen / Radio**: a spoken briefing written from the live numbers, and a radio mode that calls every final and big swing.
-6. **SpacetimeDB live**: every viewer subscribes to one shared world state; the count shows who is watching.
+1. **Know what matters before you watch**: the season played out 10,000 times, so every game shows what it means for the race. Listen / Radio speak the briefing and every big swing (ElevenLabs).
+2. **The whole season, live**: games played and remaining, teams tracked, live games conditioning the season run, forecast coverage, simulated seasons.
+3. **Game of the day: why it matters**: win probability with an honest label (toss-up, lean, clear favourite, one-sided), each side's playoff swing (odds if it wins minus if it loses), other teams whose odds move beyond 3 Monte Carlo standard errors and who they should root for, and a viewing call (must-watch, upset watch, skip). The same card sits on every game page.
+4. **SpacetimeDB live**: every viewer subscribes to one shared world state; score and probability changes slide in as "Pushed by SpacetimeDB · state vN" notices in every open browser at once (two clients measured 4 ms apart).
 
 ![League depth](docs/screenshots/02-league-depth.png)
 
-1. **Games that move the race**: the next 15 days ranked by playoff-odds swing.
-2. **Title odds** with 95 % Monte Carlo whiskers.
-3. **Live world updates**: every final, injury change and recompute, with the state version it produced.
-4. **Conference races**: favourite and contenders in every conference.
-5. **Injury report → strength**: ESPN's live injury report mapped to learned per-absence effects.
-6. **Model health on the product**: 90 % win-band coverage 94 % (independent-game simulation only 77 %), win-total error vs a pace baseline, champion log loss vs uniform, walk-forward game-model log loss, structural checks.
+1. **Featured matchups**: live score and clock, calibrated win probability in official team colours, and **season leverage**.
+2. **Title outlook**: title / playoff / conference odds from 10,000 seasons.
+3. **Games that move the race**: the next 15 days ranked by playoff-odds swing.
+4. **Title odds** with 95 % Monte Carlo whiskers.
+5. **Live world updates**: every final, injury change and recompute, with the state version it produced.
+6. **Injury report, every team**: the official ESPN report plus the conferences' mandated availability reports and injury news from other outlets (verbatim quote required), each player marked with whether it moves the forecast and why.
+7. **Conference races**: favourite and contenders in every conference.
 
-**Also on the league page** (added after the screenshots above):
-* **Game of the day: why it matters**: win probability with an honest label (toss-up, lean, clear favourite, one-sided), each side's playoff swing (odds if they win minus if they lose), other teams whose odds move beyond 3 Monte Carlo standard errors and who they should root for, and a viewing call (must-watch, upset watch, skip). The same card sits on every game page.
-* **Today's scorecard**: every finished game today, graded from SportsWorld's point-in-time kickoff forecast next to ESPN's model and the de-vigged market.
-* **Pushed by SpacetimeDB**: score and probability changes slide in as they are pushed, at the same moment in every open browser, with the time since the last push on the live chip.
-* **Player stats**: season totals per player on team pages and live box scores on game pages.
+![Scorecard and model health](docs/screenshots/03-scorecard-model-health.png)
+
+1. **Today's scorecard**: every finished game, graded from SportsWorld's point-in-time kickoff forecast next to ESPN's own model and the de-vigged market, with calibration buckets.
+2. **Model health on the product**: 90 % win-band coverage (independent-game simulation far lower), win-total error vs a pace baseline, champion log loss, walk-forward game-model log loss, structural checks.
 
 ### 2. Team "Season World"
-![Team page](docs/screenshots/03-team-season-world.png)
+![Team page](docs/screenshots/04-team-season-world.png)
 
-1. **Header band** in official colours: record from live standings, conference record, strength rank, and the next (or live) game.
+1. **Header band** in official colours: record, conference record, strength rank, and the next (or live) game.
 2. **Season outlook**: expected wins with a 90 % range, every milestone probability with its rank.
 3. **Team strength trend**: the latent-strength posterior and its 90 % band after every result.
 4. **Remaining schedule**: win probability and leverage for every game.
-5. **Next-game outlook**: the model's reasoning: strength gap, learned home field, uncertainty, playoff swing.
+5. **Next-game outlook**: strength gap, learned home field, uncertainty, playoff swing.
 
-![Team paths and history](docs/screenshots/04-team-paths-history.png)
+![Team paths, injuries and stats](docs/screenshots/05-team-paths-injuries-stats.png)
 
 1. **Season path simulator**: playoff and title odds *conditional on each final record*.
-2. **Final record distribution** from 10,000 simulated seasons.
-3. **Odds over the season**: what the model believed each day, from point-in-time replays and live-archived runs (Neon Postgres).
-4. **Availability**: the current injury report's effect on this team.
+2. **Availability**: the learned absence effects in use.
+3. **Injury report**: this team's listed players (here Michigan's Big Ten availability report: 8 out), each with its source and why it is or isn't priced.
+4. **Odds over the season**: what the model believed each day, from point-in-time replays and live-archived runs (Neon Postgres).
+5. **Player stats**: season leaders and full category tables summed from every box score; live box scores on game pages.
 
 ### 3. Season Simulation Lab
-![Simulation Lab](docs/screenshots/05-simulation-lab.png)
+![Simulation Lab](docs/screenshots/06-simulation-lab.png)
 
-1. **Active scenario**: typed operations on a private branch (here: starting QB out, and Michigan beats Ohio State).
-2. **Controls**: learned player-absence effects, strength overrides, forced results, or plain English.
-3. **Before → after** for the most affected teams; both branches share random numbers.
-4. **Projected playoff field** under the scenario.
-5. **Conference title odds** ripple effects.
+1. **Active scenario**: typed operations on a private branch (here: Michigan's starting QB out, and Michigan beats Ohio State).
+2. **Controls**: pick who is out *by name* (every regular with their learned effect: the QB, and backs, receivers and defenders by their share of the team's carries, catches and tackles), strength overrides, forced results, or plain English. Before a run, one-click scenarios built from the team's schedule and players.
+3. **Before → after**; both branches share random numbers, so every difference is the scenario.
+4. **Projected playoff field** under the scenario, plus conference-title ripple effects.
 
 ### 4. Live game views with real positions
-| Football | Hockey |
-|---|---|
-| ![Live football](docs/screenshots/06-live-football.png) | ![Live hockey](docs/screenshots/07-live-hockey.png) |
-| Real ball spot, line to gain and current drive from ESPN play-by-play; SportsWorld's in-game win probability line; play-by-play; **Live commentary** voices every play. | Shot attempts, goals and hits at their real rink coordinates; live event feed. |
+![Live game](docs/screenshots/07-live-game.png)
+
+1. Live score, SportsWorld's win probability and **live commentary** (ElevenLabs voices every play from the real play text).
+2. **Why this game matters**, live.
+3. Real ball spot, line to gain and current drive from ESPN play-by-play.
+4. SportsWorld's in-game win probability, every update.
 
 | Basketball | Formula 1 |
 |---|---|
 | ![Shot chart](docs/screenshots/08-shot-chart.png) | ![F1 track](docs/screenshots/09-f1-track.png) |
 | Every shot at its real court location, made / missed, by team. | Every car at its real OpenF1 position on the circuit, animated; click a driver to follow the car. |
 
-Per-player tracking is proprietary for football, basketball and hockey, so SportsWorld shows the real positions
-that are public (ball, shots, events, cars) and labels exactly what each view is.
+Hockey games show shot attempts, goals and hits at their real rink coordinates. Per-player tracking is proprietary
+for football, basketball and hockey, so SportsWorld shows the real positions that are public (ball, shots, events,
+cars) and labels exactly what each view is.
 
 ### 5. Ask SportsWorld
 ![Ask SportsWorld](docs/screenshots/10-ask-sportsworld.png)
 
 The same analyst that answers on ASI:One, inside the site. It turns a question into actions on the engine (here it
 ran 10,000-season simulations for *"What if Michigan beats Ohio State?"*). A self-hosted Llama rewrites the answer
-conversationally; every number in the rewrite is verified against the engine's answer, with the exact numbers one
-click away.
+conversationally; the rewrite is rejected if any number, any "close game" claim or any verdict (favourite, upset,
+competitive...) is not in the engine's answer. The exact numbers are one click away.
 
 ### 6. Research
 ![Research](docs/screenshots/11-research.png)
 
-**Rewind** opens the page: for every replayed season, the odds the model gave the eventual champion at
-preseason, a quarter, half and three quarters of the way through, each rebuilt from only what was known on that
-date, next to a random-pick baseline. Below it: historical season replay, rolling-origin evaluation, in-game model bake-offs, the market benchmark and learned
-player-availability effects, all reproducible from `scripts/`.
+1. **Rewind**: for every replayed season, the odds the model gave the eventual champion at preseason, a quarter, half and three quarters of the way through, each rebuilt from only what was known on that date, next to a random-pick baseline.
+2. Historical season replay, rolling-origin evaluation, in-game model bake-offs, the market benchmark and learned player-availability effects, all reproducible from `scripts/`.
+
+### 7. News and Team Profiles
+| News | Team Profiles |
+|---|---|
+| ![News](docs/screenshots/12-news.png) | ![Team Profiles](docs/screenshots/13-team-profiles.png) |
+| ESPN, Google News (60+ outlets), Yahoo Sports, CBS Sports, On3 team sites, Barstool Sports and r/CFB, filterable by outlet; availability notes the model read are quoted verbatim. Reddit is shown, never used as evidence. | Every team by conference: record, strength rank, playoff and title odds; search and conference filter. |
 
 ---
 

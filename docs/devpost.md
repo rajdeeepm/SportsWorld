@@ -109,8 +109,9 @@ via an Agentverse mailbox.
   play-by-play is backfilled to 2018; in football logistic ≈ MLP ≈ GRU ≈ ESPN's own win probability.
 - **Honest benchmark.** On holdout games the de-vigged betting market beats our pregame forecasts by ≈ 0.03 log
   loss. We say so on the product.
-- **Tonight.** On today's 33 completed FBS games, graded from point-in-time kickoff forecasts: SportsWorld log loss
-  0.500, ESPN's model 0.505, market 0.472. All three got 25/33 right.
+- **Saturday's slate.** On all 47 completed FBS games of Oct 3, graded from point-in-time kickoff forecasts:
+  SportsWorld log loss 0.497, ESPN's model 0.452, market 0.439. ESPN and the market were better that day; one day
+  is a small sample, and the seven-season replay is the real evidence. The scorecard publishes this every day, good or bad.
 - 58 tests including season acceptance (exactly one champion per simulated season, seed invariance,
   counterfactual isolation), zero leakage violations.
 

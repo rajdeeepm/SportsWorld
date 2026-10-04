@@ -186,6 +186,12 @@ def news_feed(cid: str, limit: int = 60):
     seen_urls = {a['url'] for a in hit[1]}
     merged = [{**a, 'source': 'ESPN'} for a in hit[1]] + [a for a in others if a['url'] not in seen_urls]
     merged.sort(key=lambda a: a.get('published') or '', reverse=True)
+    _seen_h = set(); _dedup = []
+    for a in merged:  # the same story arrives from several feeds (On3 league + team feeds, Google News copies)
+        k = ' '.join(''.join(ch for ch in a['headline'].lower() if ch.isalnum() or ch == ' ').split())
+        if k in _seen_h: continue
+        _seen_h.add(k); _dedup.append(a)
+    merged = _dedup
     out = []
     for a in merged[:limit]:
         espn_tagged = a['source'] == 'ESPN' and a['team_ids']

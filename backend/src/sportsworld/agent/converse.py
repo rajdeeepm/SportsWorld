@@ -30,11 +30,17 @@ def _numbers(text: str) -> set[str]:
 CLOSE = re.compile(r"\b(close|closely|tight|toss[- ]?up|coin[- ]?flip|nail[- ]?biter|evenly matched|even matchup|neck and neck|down to the wire|could go either way)\b", re.I)
 
 
+JUDGEMENT = re.compile(r"\b(favou?rites?|underdogs?|competitive|dominan\w*|upsets?|blowouts?|lopsided|must[- ]win|lock)\b", re.I)
+
+
 def faithful(prose: str, source: str) -> bool:
     """Every number must come from the engine's answer, and a game may only be called close if the engine says so."""
     allowed = _numbers(source) | {str(i) for i in range(0, 11)}  # small counts ("two games") are fine
     if CLOSE.search(prose) and not re.search(r"toss-up|coin flip", source, re.I):
         return False
+    for w in JUDGEMENT.findall(prose):  # no verdicts the engine did not give ("clear favourite", "upset", ...)
+        if not re.search(re.escape(w[:6]), source, re.I):
+            return False
     return _numbers(prose) <= allowed
 
 
@@ -43,7 +49,7 @@ def rewrite(question: str, structured: str) -> str | None:
     if not s.llm_base_url or s.llm_provider == "deterministic":
         return None
     data = re.sub(r"https?://\S+|`[^`]*`", "", structured).replace("**", "").replace("*", "")
-    body = {"model": s.llm_model, "temperature": 0.3, "max_tokens": 220,
+    body = {"model": s.llm_model, "temperature": 0, "max_tokens": 220,
             "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": f"QUESTION: {question}\n\nDATA:\n{data}"}]}
     try:
         r = httpx.post(f"{s.llm_base_url.rstrip('/')}/chat/completions", json=body,

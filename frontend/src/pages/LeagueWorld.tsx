@@ -408,7 +408,7 @@ function ModelHealth({ lg, diag }: { lg: LeagueConfig; diag: Record<string, any>
 
 interface ScoreMetrics { games: number; log_loss: number; brier: number; accuracy: number }
 interface ScoreRow { event_id: string; home: string; away: string; home_id: string; away_id: string; home_score: number; away_score: number; home_won: boolean; sportsworld: number; espn: number | null; market: number | null; sportsworld_correct: boolean; upset: boolean }
-interface Scorecard { date: string; games: number; sportsworld: ScoreMetrics | null; on_common_games: { games: number; sportsworld: ScoreMetrics | null; espn: ScoreMetrics | null; market: ScoreMetrics | null }; calibration: { range: string; games: number; expected: number; actual: number }[]; rows: ScoreRow[]; method: string }
+interface Scorecard { date: string; is_today?: boolean; games: number; sportsworld: ScoreMetrics | null; on_common_games: { games: number; sportsworld: ScoreMetrics | null; espn: ScoreMetrics | null; market: ScoreMetrics | null }; calibration: { range: string; games: number; expected: number; actual: number }[]; rows: ScoreRow[]; method: string }
 
 function Scorecard({ lg, meta }: { lg: LeagueConfig; meta: Record<string, TeamMeta> }) {
   const q = useQuery({ queryKey: ['scorecard', lg.id], queryFn: () => getJSON<Scorecard>(`/research/scorecard/${lg.id}`), refetchInterval: 300_000, retry: 0 })
@@ -426,7 +426,7 @@ function Scorecard({ lg, meta }: { lg: LeagueConfig; meta: Record<string, TeamMe
   const bestKey = c ? (['sportsworld', 'espn', 'market'] as const).reduce((a, k) => (ll(c[k]) < ll(c[a]) ? k : a), 'sportsworld' as 'sportsworld' | 'espn' | 'market') : null
   const rows = (d?.rows ?? []).slice().sort((a, b) => Number(b.upset) - Number(a.upset) || Math.abs(b.sportsworld - 0.5) - Math.abs(a.sportsworld - 0.5))
   return (
-    <Panel title="Today's scorecard: forecasts vs what happened" icon={BadgeCheck} flush
+    <Panel title={d && d.is_today === false ? `Scorecard for ${new Date(d.date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}: forecasts vs what happened` : "Today's scorecard: forecasts vs what happened"} icon={BadgeCheck} flush
       foot={d ? <>{d.method} One day is a small sample; the 7-season replay above is the real evidence.</> : undefined}>
       {q.isLoading ? <div style={{ padding: 14 }}><Loading rows={4} /></div> : !d || d.games === 0 ? <Empty title="No completed games yet today">The scorecard fills in as games finish.</Empty> : (
         <>

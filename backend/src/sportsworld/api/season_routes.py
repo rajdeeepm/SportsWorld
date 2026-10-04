@@ -605,8 +605,16 @@ def research_scorecard(cid: str, date: str | None = None):
     from zoneinfo import ZoneInfo
     from sportsworld.live.scorecard import scorecard
     svc = _svc()
-    day = date or datetime.now(ZoneInfo("America/New_York")).date().isoformat()
-    return _clean(scorecard(cid, day, svc._games(cid), svc.registry, _repo()))
+    if date:
+        return _clean(scorecard(cid, date, svc._games(cid), svc.registry, _repo()))
+    # today, or the most recent day with finished games (mornings, off days)
+    today = datetime.now(ZoneInfo("America/New_York")).date()
+    for back in range(0, 8):
+        day = (today - timedelta(days=back)).isoformat()
+        out = scorecard(cid, day, svc._games(cid), svc.registry, _repo())
+        if out["games"]:
+            return _clean({**out, "is_today": back == 0})
+    return _clean({**out, "is_today": True})
 
 
 @router.get("/games/{cid}/{game_id}/boxscore")
