@@ -742,3 +742,42 @@ def research_rewind():
                                               "enter the ratings only once they are final (backend/tests/test_real_ingest.py checks a game cannot "
                                               "see a result that finishes after it starts).")})
     return _REWIND
+
+
+@router.get("/entities/team/{cid}/{team_id}/regulars")
+def team_regulars(cid: str, team_id: str):
+    """This team's regulars and each one's learned absence effect (for the Lab's player menu)."""
+    _league(cid)
+    p = _repo() / "models" / "artifacts" / "player_impact" / f"{cid}.json"
+    if not p.exists():
+        return {"league": cid, "team_id": team_id, "players": []}
+    art = json.loads(p.read_text())
+    by_pos = art.get("by_position", {})
+    label = {"QB": "starting QB", "G": "starting goalie", "KEY": "top-minutes player", "RB1": "lead running back", "WR1": "top receiver", "DEF1": "top tackler"}
+    out, seen = [], set()
+    for pos, players in (art.get("current_key_players") or {}).get(team_id, {}).items():
+        est = by_pos.get(pos) or {}
+        if pos in ("RB1", "WR1", "DEF1") and art.get("share_effects"):
+            continue  # football skill players are valued by their share below
+        for pl in players:
+            if est.get("points") is None or pl["name"] in seen:
+                continue
+            seen.add(pl["name"])
+            out.append({"name": pl["name"], "role": pos, "label": label.get(pos, pos), "share": None,
+                        "points": round(est["points"], 3), "se": round(est.get("se", 0), 3), "significant": bool(est.get("significant", True))})
+    se_ = art.get("share_effects") or {}
+    words = {"RUSH": "carries", "REC": "catches", "DEF": "tackles"}
+    best: dict[str, dict] = {}
+    for role, players in (se_.get("current_shares") or {}).get(team_id, {}).items():
+        est = (se_.get("by_role") or {}).get(role) or {}
+        for pl in players:
+            if pl["name"] in seen:
+                continue
+            row = {"name": pl["name"], "role": role, "label": f"{pl['share'] * 100:.0f}% of team {words.get(role, role)}", "share": pl["share"],
+                   "points": round(est.get("points_per_full_share", 0) * pl["share"], 3), "se": round(est.get("se", 0) * pl["share"], 3),
+                   "significant": bool(est.get("significant"))}
+            if pl["name"] not in best or abs(row["points"]) > abs(best[pl["name"]]["points"]):
+                best[pl["name"]] = row
+    out += sorted(best.values(), key=lambda r: r["points"])
+    return {"league": cid, "team_id": team_id, "players": out,
+            "note": "Offensive linemen record no box-score stats, so their absences cannot be measured; use a strength override."}

@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import {
   Bot, Cpu, FlaskConical, Gauge, HeartPulse, Lightbulb, ListTree, Play, Plus, RotateCcw, Scale, Sparkles, Swords, Trophy, Users, X,
 } from 'lucide-react'
-import { postJSON } from '../lib/api'
+import { getJSON, postJSON } from '../lib/api'
 import { useMeta, usePlayerImpact, useSeason, useTeam, type SeasonRun, type SeasonTeam, type TeamMeta } from '../lib/data'
 import { qualify, title, type LeagueConfig } from '../lib/leagues'
 import { num, pct, pp, shortDate } from '../lib/format'
@@ -182,33 +182,42 @@ export function SimLab({ lg }: { lg: LeagueConfig }) {
   )
 }
 
+interface Regular { name: string; role: string; label: string; share: number | null; points: number; se: number; significant: boolean }
+
 function AbsenceControl({ lg, roles, teamId, abbr, remaining, onAdd }: { lg: LeagueConfig; roles: Record<string, { points: number; se: number; t?: number; significant?: boolean }>; teamId: string; abbr: string; remaining: string[]; onAdd: (o: Op) => void }) {
-  const all = Object.keys(roles)
-  const keys = all.filter((k) => roles[k].significant !== false)
-  const [role, setRole] = useState(keys[0] ?? 'QB')
+  const regs = useQuery({ queryKey: ['regulars', lg.id, teamId], queryFn: () => getJSON<{ players: Regular[]; note?: string }>(`/entities/team/${lg.id}/${teamId}/regulars`), enabled: !!teamId, staleTime: 600_000 })
+  const roleLabel = (r: string) => ({ QB: 'Starting QB', G: 'Starting goalie', KEY: 'Top-minutes player', RB1: 'Lead running back', WR1: 'Top receiver', DEF1: 'Top tackler' } as Record<string, string>)[r] ?? r
+  // a named player per regular when we have them; otherwise the role menu
+  const options = useMemo(() => {
+    const ps = regs.data?.players ?? []
+    if (ps.length) return ps.map((p) => ({ key: p.name, title: `${p.name} · ${p.label.replace(' of team ', ' of ')}`, points: p.points, se: p.se, significant: p.significant }))
+    return Object.entries(roles).map(([k, v]) => ({ key: k, title: roleLabel(k), points: v.points, se: v.se, significant: v.significant !== false }))
+  }, [regs.data, roles])
+  const [pick, setPick] = useState('')
   const [games, setGames] = useState(1)
-  useEffect(() => { if (keys.length && !keys.includes(role)) setRole(keys[0]) }, [keys.join()])
-  const label = (r: string) => ({ QB: 'Starting QB', G: 'Starting goalie', KEY: 'Top-minutes player', RB1: 'Lead running back', WR1: 'Top receiver', DEF1: 'Top tackler' } as Record<string, string>)[r] ?? r
-  if (!keys.length) return <div className="ctl"><h3><HeartPulse size={16} /> Player availability</h3><span className="hint">No learned player-impact model for {lg.name}.</span></div>
-  const beta = roles[role]?.points ?? 0
+  useEffect(() => { if (options.length && !options.some((o) => o.key === pick)) setPick((options.find((o) => o.significant) ?? options[0]).key) }, [options.map((o) => o.key).join()])
+  if (!options.length) return <div className="ctl"><h3><HeartPulse size={16} /> Player availability</h3><span className="hint">{regs.isLoading ? 'Loading this team’s regulars…' : `No learned player-impact model for ${lg.name}.`}</span></div>
+  const o = options.find((x) => x.key === pick) ?? options[0]
   const n = Math.min(games, Math.max(remaining.length, 1))
   const end = remaining[n - 1] ? new Date(new Date(remaining[n - 1]).getTime() + 6 * 3600_000).toISOString() : new Date().toISOString()
+  const sig = options.filter((x) => x.significant), est = options.filter((x) => !x.significant)
+  const fmt = (x: typeof o) => `${x.title} · ${x.points > 0 ? '+' : '−'}${Math.abs(x.points).toFixed(1)}`
   return (
     <div className="ctl">
       <h3><HeartPulse size={16} /> Player availability</h3>
       <div className="row">
-        <select className="field" value={role} onChange={(e) => setRole(e.target.value)} aria-label="Role">
-          {all.map((k) => {
-            const ok = roles[k].significant !== false
-            return <option key={k} value={k} disabled={!ok}>{label(k)}{ok ? '' : ` (${roles[k].points.toFixed(1)} ± ${roles[k].se.toFixed(1)}, not significant)`}</option>
-          })}
+        <select className="field" value={o.key} onChange={(e) => setPick(e.target.value)} aria-label="Who is out">
+          {sig.length > 0 && <optgroup label="Measured effect (applies in the live model)">{sig.map((x) => <option key={x.key} value={x.key}>{fmt(x)}</option>)}</optgroup>}
+          {est.length > 0 && <optgroup label="Estimate only (not statistically significant)">{est.map((x) => <option key={x.key} value={x.key}>{fmt(x)}</option>)}</optgroup>}
         </select>
       </div>
       <label className="hint" htmlFor="absence-games">Out for the next <b style={{ color: 'var(--ink)' }}>{n}</b> game{n > 1 ? 's' : ''}</label>
       <input id="absence-games" type="range" min={1} max={Math.max(remaining.length, 1)} value={n} onChange={(e) => setGames(Number(e.target.value))} />
-      <span className="hint">Learned effect {beta.toFixed(1)} ± {roles[role]?.se.toFixed(1)} {lg.unit} per game (associational).
-        {all.length > keys.length && <> Greyed roles were estimated too, but their effect isn’t statistically distinguishable from zero, so the Lab won’t apply them; use a strength override instead.</>}</span>
-      <button className="btn" onClick={() => onAdd({ kind: 'absence', id: `abs-${teamId}-${role}`, team: teamId, role, games: n, delta: beta, end, label: `${abbr} ${label(role)} out ${n} game${n > 1 ? 's' : ''}` })}><Plus size={14} /> Add to scenario</button>
+      <span className="hint">{o.significant
+        ? <>Learned effect {o.points.toFixed(1)} ± {o.se.toFixed(1)} {lg.unit} per game (associational), from 2018–2026 box scores.</>
+        : <>Estimate {o.points.toFixed(1)} ± {o.se.toFixed(1)} {lg.unit} per game. It isn’t statistically distinguishable from zero, so the live model doesn’t apply it; here it runs as a labelled what-if.</>}
+        {regs.data?.note ? <> {regs.data.note}</> : null}</span>
+      <button className="btn" onClick={() => onAdd({ kind: 'absence', id: `abs-${teamId}-${o.key}`, team: teamId, role: o.key, games: n, delta: o.points, end, label: `${abbr} ${o.key in roles ? roleLabel(o.key) : o.key} out ${n} game${n > 1 ? 's' : ''}${o.significant ? '' : ' (estimate)'}` })}><Plus size={14} /> Add to scenario</button>
     </div>
   )
 }
