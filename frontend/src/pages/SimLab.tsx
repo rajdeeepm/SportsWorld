@@ -51,14 +51,15 @@ export function SimLab({ lg }: { lg: LeagueConfig }) {
   const shortName = (id: string) => m[id]?.abbreviation ?? teams.find((t) => t.team_id === id)?.abbreviation ?? id
 
   const run = useMutation({
-    mutationFn: async () => {
+    mutationFn: async (override?: Op[]) => {
+      const list = override ?? ops
       const t0 = performance.now()
       const body = {
-        label: ops.map((o) => o.label).join(' + '),
+        label: list.map((o) => o.label).join(' + '),
         draws,
-        rating_shifts: ops.flatMap((o) =>
+        rating_shifts: list.flatMap((o) =>
           o.kind === 'absence' ? [{ target_id: o.team, delta: o.delta, end: o.end }] : o.kind === 'shift' ? [{ target_id: o.team, delta: o.delta }] : []),
-        forced_results: Object.fromEntries(ops.filter((o) => o.kind === 'force').map((o: any) => [o.event, o.winner])),
+        forced_results: Object.fromEntries(list.filter((o) => o.kind === 'force').map((o: any) => [o.event, o.winner])),
       }
       const r = await postJSON<Omit<SimResult, 'source' | 'ms'>>(`/competitions/${lg.id}/seasons/current/season-simulations`, body)
       return { ...r, source: 'controls' as const, ms: performance.now() - t0 }
@@ -103,7 +104,7 @@ export function SimLab({ lg }: { lg: LeagueConfig }) {
             ))}
             <span style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
               <button className="btn" onClick={() => { setOps([]); setResult(null) }}><RotateCcw size={14} /> Restore baseline</button>
-              <button className="btn primary" disabled={ops.length === 0 || run.isPending} onClick={() => run.mutate()}>
+              <button className="btn primary" disabled={ops.length === 0 || run.isPending} onClick={() => run.mutate(undefined)}>
                 <Play size={14} /> {run.isPending ? 'Simulating…' : `Run ${draws.toLocaleString()} seasons`}
               </button>
             </span>
@@ -168,12 +169,8 @@ export function SimLab({ lg }: { lg: LeagueConfig }) {
           <div className="c9">
             {run.error && <ErrorNote error={run.error} what="the simulation" />}
             {!result ? (
-              <Panel title="Simulation results" icon={Gauge}>
-                <Empty title="Build a scenario, then run it">
-                  Add an absence, a strength change or a forced result on the left (or ask in plain English). Both branches use the same random numbers, so every difference is the scenario’s effect, not noise.
-                  {me && <div style={{ marginTop: 12 }}><Link className="link" to={`/${lg.id}/team/${teamId}`}>Back to {me.name} Season World</Link></div>}
-                </Empty>
-              </Panel>
+              <LabStart lg={lg} me={me} teams={teams} teamId={teamId} remaining={remaining} meta={m} shortName={shortName} busy={run.isPending}
+                onRun={(list) => { setOps(list); run.mutate(list) }} />
             ) : <Results lg={lg} r={result} teamId={teamId} meta={m} />}
           </div>
         </div>
@@ -383,6 +380,77 @@ function Results({ lg, r, teamId, meta }: { lg: LeagueConfig; r: SimResult; team
           </Panel>
         </div>
       </div>
+    </div>
+  )
+}
+
+/** before a run: one-click scenarios built from this team's real schedule and players, plus the baseline they change */
+function LabStart({ lg, me, teams, teamId, remaining, meta, shortName, busy, onRun }: {
+  lg: LeagueConfig; me?: SeasonTeam; teams: SeasonTeam[]; teamId: string; remaining: { event_id: string; start_time: string; is_home: boolean; home_id: string; away_id: string; p_win: number | null; leverage_home?: number | null; leverage_away?: number | null }[]
+  meta: Record<string, TeamMeta>; shortName: (id: string) => string; busy: boolean; onRun: (ops: Op[]) => void
+}) {
+  const regs = useQuery({ queryKey: ['regulars', lg.id, teamId], queryFn: () => getJSON<{ players: Regular[] }>(`/entities/team/${lg.id}/${teamId}/regulars`), enabled: !!teamId, staleTime: 600_000 })
+  const q = qualify(lg)
+  const me2 = (me ?? {}) as unknown as Record<string, number>
+  const lev = (g: (typeof remaining)[number]) => Math.abs((g.is_home ? g.leverage_home : g.leverage_away) ?? 0)
+  const endAfter = (n: number) => { const g = remaining[Math.min(n, remaining.length) - 1]; return g ? new Date(new Date(g.start_time).getTime() + 6 * 3600_000).toISOString() : new Date().toISOString() }
+  const abbr = shortName(teamId)
+  const force = (g: (typeof remaining)[number], win: boolean): Op => {
+    const opp = g.is_home ? g.away_id : g.home_id
+    return { kind: 'force', id: `force-${g.event_id}`, event: g.event_id, winner: (g.is_home === win ? 'home' : 'away'), label: `${abbr} ${win ? 'beat' : 'lose to'} ${shortName(opp)}` }
+  }
+  const presets: { title: string; sub: string; ops: Op[] }[] = []
+  const qb = (regs.data?.players ?? []).find((p) => p.role === 'QB' || p.role === 'G' || p.role === 'KEY')
+  if (qb && remaining.length) presets.push({ title: `${qb.name} out ${Math.min(3, remaining.length)} games`, sub: `${qb.label}, learned ${qb.points.toFixed(1)} pts per game`,
+    ops: [{ kind: 'absence', id: `abs-${teamId}-${qb.name}`, team: teamId, role: qb.name, games: Math.min(3, remaining.length), delta: qb.points, end: endAfter(3), label: `${abbr} ${qb.name} out ${Math.min(3, remaining.length)} games` }] })
+  const rb = (regs.data?.players ?? []).find((p) => p.role === 'RUSH' && p.significant)
+  if (rb && remaining.length) presets.push({ title: `${rb.name} out for the season`, sub: `${rb.label}, ${rb.points.toFixed(1)} pts per game`,
+    ops: [{ kind: 'absence', id: `abs-${teamId}-${rb.name}`, team: teamId, role: rb.name, games: remaining.length, delta: rb.points, end: endAfter(remaining.length), label: `${abbr} ${rb.name} out for the season` }] })
+  const big = remaining.slice().sort((a, b) => lev(b) - lev(a))[0]
+  if (big) {
+    const opp = big.is_home ? big.away_id : big.home_id
+    presets.push({ title: `Beat ${shortName(opp)}`, sub: `their biggest remaining game: ±${(lev(big) * 100).toFixed(0)} pts of ${q.short} odds`, ops: [force(big, true)] })
+  }
+  if (remaining[0]) presets.push({ title: `Lose the next game`, sub: `${remaining[0].is_home ? 'vs' : '@'} ${shortName(remaining[0].is_home ? remaining[0].away_id : remaining[0].home_id)}, currently ${pct(remaining[0].p_win ?? 0, 0)} to win`, ops: [force(remaining[0], false)] })
+  if (remaining.length > 1) presets.push({ title: 'Win out', sub: `all ${remaining.length} remaining games`, ops: remaining.map((g) => force(g, true)) })
+  const field = teams.slice().sort((a, b) => Number((b as unknown as Record<string, number>)[q.key] ?? 0) - Number((a as unknown as Record<string, number>)[q.key] ?? 0)).slice(0, 16)
+  return (
+    <div className="stack" style={{ height: '100%' }}>
+      <Panel title="Try a scenario" icon={Gauge} foot="Each one sets the scenario and runs 10,000 seasons per branch with common random numbers. Or build your own on the left.">
+        <div className="lab-presets">
+          {presets.map((p) => (
+            <button key={p.title} className="lab-preset" disabled={busy} onClick={() => onRun(p.ops)}>
+              <b>{p.title}</b><span>{p.sub}</span>
+            </button>
+          ))}
+          {!presets.length && <span className="hint">Pick a team with games left to see suggested scenarios.</span>}
+        </div>
+      </Panel>
+      {me && (
+        <Panel title={`${meta[teamId]?.short_name ?? me.name}: baseline the scenario changes`} icon={Gauge}>
+          <div className="lab-base">
+            <div><span className="kpi-label">Expected wins</span><b>{num(me.expected_wins, 1)}</b><small>90% range {me2.wins_p05}–{me2.wins_p95}</small></div>
+            <div><span className="kpi-label">{q.label}</span><b><P p={Number(me2[q.key] ?? 0)} digits={1} /></b><small>baseline</small></div>
+            <div><span className="kpi-label">{title(lg).label}</span><b><P p={Number(me2.champion ?? 0)} digits={1} /></b><small>baseline</small></div>
+            <div><span className="kpi-label">Strength</span><b>{me.rating >= 0 ? '+' : ''}{me.rating.toFixed(1)}</b><small>± {me.rating_sd.toFixed(1)} pts</small></div>
+          </div>
+          <table className="tbl" style={{ marginTop: 10 }}>
+            <thead><tr><th>Remaining game</th><th className="num">Win prob</th><th className="num">{q.short} swing</th></tr></thead>
+            <tbody>{remaining.slice(0, 8).map((g) => {
+              const opp = g.is_home ? g.away_id : g.home_id
+              return <tr key={g.event_id}><td><span className="team-cell"><span className="muted" style={{ width: 48 }}>{shortDate(g.start_time)}</span><TeamLogo meta={meta[opp]} name={opp} size={18} />{g.is_home ? 'vs' : '@'} {shortName(opp)}</span></td>
+                <td className="num"><P p={g.p_win} digits={0} /></td><td className="num">±{(lev(g) * 100).toFixed(1)} pts</td></tr>
+            })}</tbody>
+          </table>
+        </Panel>
+      )}
+      <Panel title={`Projected ${q.short} field: baseline`} icon={Trophy} className="lab-fill">
+        <div className="lab-field">
+          {field.map((t, i) => (
+            <div key={t.team_id} className={`lab-field-row ${t.team_id === teamId ? 'me' : ''}`}><span className="muted">{i + 1}</span><TeamLogo meta={meta[t.team_id]} name={t.name} size={18} /><span>{meta[t.team_id]?.short_name ?? t.name}</span><b><P p={Number((t as unknown as Record<string, number>)[q.key] ?? 0)} digits={0} /></b></div>
+          ))}
+        </div>
+      </Panel>
     </div>
   )
 }
