@@ -80,6 +80,10 @@ async def lifespan(app:FastAPI):
             b=avail.books.get(lg); return b.report if b else None
         def _on_signal(lg,recs):
             st=season_service.state(lg)
+            b=avail.books.get(lg)
+            if b and any([b.add_news(r) for r in recs]):  # grounded statuses (e.g. conference availability reports) feed the report
+                changed=b.recompute()
+                if changed: season_service.on_availability(lg,changed)
             for r in recs:
                 flag=' · SOURCE DISAGREEMENT with official report' if r.get('disagreement') else ''
                 st.feed.appendleft({"at":r["known_to_model_time"],"global_state_version":st.global_state_version,
@@ -87,12 +91,16 @@ async def lifespan(app:FastAPI):
                                     "teams":[r["team_id"]] if r.get("team_id") else [],"news":r})
         news=NewsService(season_leagues,_real_data_root(),LLMClient(settings),_teams,_report,_on_signal)
         app.state.news=news
+        for lg,nb in news.books.items():  # statuses already extracted survive a restart
+            b=avail.books.get(lg)
+            if b and any([b.add_news(r) for r in nb.signals]):
+                b.recompute()
         async def _news_loop():
             await asyncio.sleep(30)
             while True:
                 try: await news.refresh()
                 except Exception as exc: print('news refresh failed:',exc)
-                await asyncio.sleep(900)
+                await asyncio.sleep(300)
         app.state.news_task=asyncio.create_task(_news_loop())
         season_service.start(season_leagues)
         if settings.spacetimedb_url and settings.spacetimedb_token:
@@ -147,7 +155,7 @@ def news_signals(league:str|None=None,limit:int=100):
 _FEED: dict = {}
 
 @app.get('/competitions/{cid}/news-feed')
-def news_feed(cid: str, limit: int = 40):
+def news_feed(cid: str, limit: int = 60):
     """ESPN's latest articles for a league with ESPN's own team tags, plus any model signal grounded in the article
     whose team ESPN itself tagged (signals are display-only state; they never move a forecast on their own)."""
     import time as _t
@@ -173,13 +181,33 @@ def news_feed(cid: str, limit: int = 40):
     if news and news.books.get(cid):
         for sg in news.books[cid].signals:
             sigs.setdefault(sg['article_id'], []).append(sg)
+    # other outlets (Yahoo Sports, CBS Sports, On3 league and team feeds), kept fresh by the news service
+    others = [{k: v for k, v in a.items() if k != 'body'} for a in (news.hub.latest(cid, 120) if news else [])]
+    seen_urls = {a['url'] for a in hit[1]}
+    merged = [{**a, 'source': 'ESPN'} for a in hit[1]] + [a for a in others if a['url'] not in seen_urls]
+    merged.sort(key=lambda a: a.get('published') or '', reverse=True)
     out = []
-    for a in hit[1][:limit]:
+    for a in merged[:limit]:
+        espn_tagged = a['source'] == 'ESPN' and a['team_ids']
         good = [{'category': sg['category'], 'team_id': sg['team_id'], 'team': sg['team'], 'player': sg.get('player'), 'status': sg.get('status'),
                  'evidence_span': sg['evidence_span'], 'disagreement': sg.get('disagreement'), 'known_to_model_time': sg.get('known_to_model_time')}
-                for sg in sigs.get(a['article_id'], []) if sg.get('category') != 'none' and sg.get('team_id') and sg['team_id'] in a['team_ids']]
+                for sg in sigs.get(a['article_id'], []) if sg.get('category') != 'none' and sg.get('team_id') and (not espn_tagged or sg['team_id'] in a['team_ids'])]
         out.append({**a, 'signals': good})
-    return {'league': cid, 'articles': out, 'source': 'ESPN news API', 'fetched_at': hit[0]}
+    from collections import Counter as _C
+    return {'league': cid, 'articles': out, 'sources': dict(_C(a['source'] for a in merged)), 'fetched_at': hit[0]}
+
+@app.get('/competitions/{cid}/injury-report')
+def injury_report(cid: str):
+    """Every listed player, every team: official injury report plus grounded reports from other outlets."""
+    if not season_service or not season_service.availability: raise HTTPException(503,'availability service not running')
+    av=season_service.availability
+    if cid not in av.books: raise HTTPException(404,'no availability model for league')
+    names={t['team_id']:t['name'] for t in ((season_service.state(cid).run or {}).get('teams') or [])}
+    b=av.books[cid]
+    teams=av.full_report(cid,names)
+    return {'league':cid,'teams':teams,'players':sum(len(t['players']) for t in teams),'fetched_at':b.fetched_at.isoformat() if b.fetched_at else None,
+            'impact':{k:{'points':v.get('points'),'se':v.get('se'),'significant':v.get('significant')} for k,v in b.impact.get('by_position',{}).items()},
+            'sources':'ESPN injury report; grounded availability from On3, Yahoo Sports and CBS Sports articles (verbatim quote required)'}
 
 @app.get('/llm/health')
 def llm_health():

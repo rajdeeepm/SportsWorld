@@ -14,6 +14,7 @@ Pipeline per article (ESPN news API, polled):
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -78,8 +79,9 @@ class LeagueNews:
 
     def extract(self, llm: LLMClient, article: dict, teams: list[dict], report: dict[str, list[dict]] | None) -> list[dict]:
         from sportsworld.llm.season_scenario import resolve_team
-        text = f"{article['headline']}. {article['description']}".strip()
-        raw = llm.json_call(SYSTEM, json.dumps({"league": self.league, "text": text}), SCHEMA, name="news_signals", max_tokens=600)
+        text = f"{article['headline']}. {article['description']} {article.get('body') or ''}".strip()[:5000]
+        raw = llm.json_call(SYSTEM, json.dumps({"league": self.league, "text": text}), SCHEMA, name="news_signals",
+                            max_tokens=1500 if article.get("body") else 600)
         now = datetime.now(timezone.utc).isoformat()
         out = []
         seen_keys: set[tuple] = set()
@@ -95,14 +97,15 @@ class LeagueNews:
             if player and _norm(player.split()[-1]) not in _norm(span):
                 continue  # the quoted evidence must itself name the player the claim is about
             team = resolve_team(sig.get("team") or "", teams)
-            if team and article.get("team_ids") and team["team_id"] not in article["team_ids"]:
+            if team and article.get("team_ids") and article.get("tagged_by") != "feed" and team["team_id"] not in article["team_ids"]:
                 team = None  # ESPN tagged the article with other teams (e.g. "Northwestern State" is not Northwestern)
             rec = {"article_id": article["article_id"], "league": self.league, "category": sig["category"],
                    "team_id": team["team_id"] if team else None, "team": team["name"] if team else sig.get("team"),
                    "player": sig.get("player"), "status": sig.get("status"), "games_affected": sig.get("games_affected"),
                    "evidence_span": span, "llm_confidence": max(0.0, min(1.0, float(sig.get("confidence", 0.5)))),
                    "headline": article["headline"], "source_url": article.get("url"), "published": article.get("published"),
-                   "known_to_model_time": now, "source_id": "espn-news", "parser_version": PARSER_VERSION, "model": llm.model,
+                   "known_to_model_time": now, "source_id": "espn-news" if not article.get("source") else f"rss:{article['source']}",
+                   "source": article.get("source") or "ESPN", "parser_version": PARSER_VERSION, "model": llm.model,
                    "effect": "state_only", "disagreement": None}
             if rec["category"] in ("availability", "return_from_injury", "suspension") and rec["player"] and report is not None and team:
                 official = next((r for r in report.get(team["team_id"], []) if _norm(r.get("name") or "") == _norm(rec["player"])), None)
@@ -140,6 +143,8 @@ class NewsService:
         self.on_signal = on_signal
         self.error: str | None = None
         self.processed = 0
+        from .feeds import FeedHub
+        self.hub = FeedHub()
 
     async def refresh(self) -> None:
         if not self.llm.enabled:
@@ -152,7 +157,15 @@ class NewsService:
                     arts = await book.fetch(client)
                 except Exception as exc:
                     self.error = f"{lg}: {exc}"
-                    continue
+                    arts = []
+                try:  # other outlets: only injury-related items are worth an extraction
+                    await self.hub.refresh(client, lg, self.teams_for(lg))
+                    todo = [a for a in self.hub.latest(lg, 1500) if self.hub.injury_related(a) and a["article_id"] not in book.seen]
+                    # official availability reports (full text from team feeds) first, then the newest
+                    todo.sort(key=lambda a: (not (a.get("body") and re.search(r"availability|injury report|ruled out", a["headline"], re.I)), -(datetime.fromisoformat(a["published"]).timestamp() if a.get("published") else 0)))
+                    arts += todo[:80]
+                except Exception as exc:
+                    self.error = f"{lg} feeds: {exc}"
                 for art in arts:
                     if art["article_id"] in book.seen:
                         continue

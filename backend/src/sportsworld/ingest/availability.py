@@ -14,6 +14,7 @@ ever used in training (that would leak); the learned beta comes from ex-post par
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Callable
@@ -38,6 +39,13 @@ def p_play(status: str) -> float:
     return 1.0
 
 
+def name_key(name: str) -> str:
+    """Comparable player name: lower case, no punctuation or generational suffix ('Alex Afari Jr.' == 'Alex Afari')."""
+    s = re.sub(r"[.,']", "", (name or "").lower())
+    s = re.sub(r"\s+(jr|sr|ii|iii|iv|v)$", "", " ".join(s.split()))
+    return s
+
+
 def _repo() -> Path:
     return Path(__file__).resolve().parents[4]
 
@@ -49,6 +57,8 @@ class LeagueAvailability:
         self.impact = json.loads(p.read_text()) if p.exists() else {}
         self.keys: dict[str, dict[str, list[dict]]] = self.impact.get("current_key_players", {})
         self.report: dict[str, list[dict]] = {}
+        # grounded availability from other outlets (conference availability reports via On3, etc.): {team_id: {player_norm: row}}
+        self.news_rows: dict[str, dict[str, dict]] = {}
         self.deltas: dict[str, dict[str, Any]] = {}
         self.fetched_at: datetime | None = None
         self.error: str | None = None
@@ -77,9 +87,46 @@ class LeagueAvailability:
                              "status": i.get("status"), "reported_at": i.get("date"), "detail": (i.get("details") or {}).get("type")})
             report[tid] = rows
         self.report, self.fetched_at, self.error = report, now, None
+        return self.recompute(now)
+
+    def rows_for(self, team_id: str) -> list[dict]:
+        """Official report rows first; a news-reported player is added only when the official report does not list them."""
+        rows = list(self.report.get(team_id, []))
+        have = {name_key(r.get("name") or "") for r in rows}
+        cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
+        for k, r in self.news_rows.get(team_id, {}).items():
+            if k not in have and (r.get("reported_at") or "") >= cutoff:
+                rows.append(r)
+        return rows
+
+    def add_news(self, sig: dict) -> bool:
+        """Record one grounded news signal about a player's status; True if it changed what we hold."""
+        if sig.get("category") not in ("availability", "return_from_injury", "suspension") or not sig.get("team_id") or not sig.get("player") or not sig.get("status"):
+            return False
+        status = {"available": "active", "returning": "active", "suspended": "suspension"}.get(sig["status"], sig["status"])
+        key = name_key(sig["player"])
+        team_rows = self.news_rows.setdefault(sig["team_id"], {})
+        if " " not in key:  # surname only ("Heintschel"): attach to the full name we already hold
+            key = next((k for k in team_rows if k.endswith(" " + key)), key)
+        else:
+            team_rows.pop(key.split()[-1], None)
+        when = sig.get("published") or sig.get("known_to_model_time")
+        old = team_rows.get(key)
+        if old and (old.get("reported_at") or "") > (when or ""):
+            return False
+        self.news_rows[sig["team_id"]][key] = {"athlete_id": "", "name": sig["player"], "position": None, "status": status.capitalize(),
+                                               "reported_at": when, "detail": None, "source_id": sig.get("source_id") or "news",
+                                               "source": sig.get("source") or ("ESPN news" if sig.get("source_id") == "espn-news" else "News"), "source_url": sig.get("source_url"),
+                                               "evidence_span": sig.get("evidence_span"), "headline": sig.get("headline")}
+        return True
+
+    def recompute(self, now: datetime | None = None) -> dict[str, dict]:
+        now = now or datetime.now(timezone.utc)
+        if self.fetched_at is None:
+            self.fetched_at = now  # news-only leagues (thin official report) still count as fresh
         changed = {}
         for tid, keys in self.keys.items():
-            rec = self.team_delta(tid, report.get(tid, []), now)
+            rec = self.team_delta(tid, self.rows_for(tid), now)
             old = self.deltas.get(tid)
             if (old or {}).get("delta_points", 0.0) != rec["delta_points"] or (old is None and rec["absences"]):
                 changed[tid] = rec
@@ -89,7 +136,7 @@ class LeagueAvailability:
     def team_delta(self, team_id: str, rows: list[dict], now: datetime) -> dict[str, Any]:
         by_pos = self.impact.get("by_position", {})
         by_id = {r["athlete_id"]: r for r in rows}
-        by_name = {(r["name"] or "").lower(): r for r in rows}
+        by_name = {name_key(r["name"] or ""): r for r in rows}
         absences, total, long_term = [], 0.0, False
         for pos, players in self.keys.get(team_id, {}).items():
             est = by_pos.get(pos, {})
@@ -97,7 +144,7 @@ class LeagueAvailability:
             if beta is None or est.get("significant") is False:  # unproven roles never move a forecast
                 continue
             for pl in players:
-                r = by_id.get(pl["athlete_id"]) or by_name.get((pl["name"] or "").lower())
+                r = by_id.get(pl["athlete_id"]) or by_name.get(name_key(pl["name"] or ""))
                 if not r:
                     continue
                 pp = p_play(r["status"])
@@ -108,7 +155,8 @@ class LeagueAvailability:
                 long_term |= (r["status"] or "").lower() in LONG_TERM
                 absences.append({"player": pl["name"], "athlete_id": pl["athlete_id"], "role": pos, "status": r["status"], "p_play": pp,
                                  "beta": beta, "delta_points": round(d, 3), "reported_at": r.get("reported_at"),
-                                 "source_id": "espn-injuries", "status_mapping": "uncalibrated_prior_v1"})
+                                 "source_id": r.get("source_id") or "espn-injuries", "source_url": r.get("source_url"),
+                                 "status_mapping": "uncalibrated_prior_v1"})
         reported = [a["reported_at"] for a in absences if a.get("reported_at")]
         return {"team_id": team_id, "delta_points": round(total, 3), "absences": absences, "known_to_model_time": now.isoformat(),
                 "window_days": 28 if long_term else None, "window_anchor": min(reported) if reported else now.isoformat(),
@@ -149,6 +197,41 @@ class AvailabilityService:
                     continue
                 if changed and self.on_change:
                     self.on_change(lg, changed)
+
+    def full_report(self, league: str, names: dict[str, str]) -> list[dict]:
+        """Every listed player for every team, each marked with whether (and why) it moves the forecast."""
+        b = self.books.get(league)
+        if not b:
+            return []
+        by_pos = b.impact.get("by_position", {})
+        out = []
+        for tid in sorted(set(b.report) | set(b.news_rows)):
+            key_of = {}
+            for pos, players in b.keys.get(tid, {}).items():
+                for pl in players:
+                    key_of[name_key(pl["name"] or "")] = pos
+            priced = {name_key(a["player"] or ""): a for a in b.deltas.get(tid, {}).get("absences", [])}
+            rows = []
+            for r in b.rows_for(tid):
+                k = name_key(r.get("name") or "")
+                pos = key_of.get(k)
+                est = by_pos.get(pos or "", {})
+                a = priced.get(k)
+                if a:
+                    effect, why = a["delta_points"], f"established {pos}: learned effect {est.get('points', 0):+.1f} ± {est.get('se', 0):.1f} pts, weighted by P(plays)"
+                elif pos and est.get("significant") is False:
+                    effect, why = 0.0, f"established {pos}, but that role's effect is not statistically significant"
+                elif pos and p_play(r.get("status")) >= 1.0:
+                    effect, why = 0.0, "available"
+                else:
+                    effect, why = 0.0, "not priced: role has no measured effect"
+                rows.append({**{k2: r.get(k2) for k2 in ("name", "position", "status", "reported_at", "detail", "source_url", "evidence_span", "headline")},
+                             "source": r.get("source") or "ESPN injury report", "role": pos, "effect_points": effect, "why": why})
+            if rows:
+                rows.sort(key=lambda x: (x["effect_points"] == 0, p_play(x["status"]), x["name"] or ""))
+                out.append({"team_id": tid, "team": names.get(tid, tid), "delta_points": b.deltas.get(tid, {}).get("delta_points", 0.0), "players": rows})
+        out.sort(key=lambda t: (t["delta_points"], -len(t["players"])))
+        return out
 
     def status(self) -> dict:
         return {lg: {"teams_with_absences": sum(1 for d in b.deltas.values() if d["absences"]), "fetched_at": b.fetched_at.isoformat() if b.fetched_at else None,

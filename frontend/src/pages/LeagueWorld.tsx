@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getJSON } from '../lib/api'
 import { WhyItMatters } from '../components/stakes'
+import { InjuryReport } from '../components/injuries'
 import { Link } from 'react-router-dom'
 import {
   BadgeCheck, CalendarClock, CalendarDays, Gauge, HeartPulse, Layers3, ListChecks, Newspaper, Radio, Shuffle, Swords, Trophy, Users, Zap,
@@ -80,8 +81,9 @@ export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
           </div>
           <div className="c4"><WorldUpdates lg={lg} meta={m} /></div>
 
-          <div className="c8"><ConferenceRace lg={lg} teams={teams} meta={m} /></div>
-          <div className="c4"><InjuryImpact lg={lg} meta={m} /></div>
+          <div className="c12"><InjuryReport lg={lg} /></div>
+
+          <div className="c12"><ConferenceRace lg={lg} teams={teams} meta={m} /></div>
 
           <div className="c12"><Scorecard lg={lg} meta={m} /></div>
           <div className="c12"><ModelHealth lg={lg} diag={d} /></div>
@@ -248,7 +250,7 @@ function WorldUpdates({ lg, meta, team }: { lg: LeagueConfig; meta: Record<strin
     </Panel>
   )
 }
-export { WorldUpdates, LearnedEffects }
+export { WorldUpdates, LearnedEffects, InjuryImpact }
 
 const SHORT_CONF: Record<string, string> = {
   'American Football Conference': 'AFC', 'National Football Conference': 'NFC', 'Eastern Conference': 'East', 'Western Conference': 'West',

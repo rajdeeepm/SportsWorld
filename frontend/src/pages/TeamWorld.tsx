@@ -13,6 +13,7 @@ import { getJSON } from '../lib/api'
 import { WorldUpdates, LearnedEffects } from './LeagueWorld'
 import { ListenButton } from '../components/radio'
 import { TeamPlayerStats } from '../components/stats'
+import { InjuryReport } from '../components/injuries'
 
 export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) {
   const team = useTeam(lg.id, teamId)
@@ -97,6 +98,7 @@ export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) 
           </div>
           <div className="c5"><SeasonPaths lg={lg} teamId={teamId} t={t} color={color} /></div>
           <div className="c3"><Availability lg={lg} teamId={teamId} /></div>
+          <div className="c12"><InjuryReport lg={lg} team={teamId} /></div>
 
           <div className="c7"><OddsOverTime lg={lg} teamId={teamId} color={color} /></div>
           <div className="c5"><WorldUpdates lg={lg} meta={m} team={teamId} /></div>

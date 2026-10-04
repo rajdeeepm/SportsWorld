@@ -9,26 +9,28 @@ import { ago } from '../lib/format'
 import { Empty, ErrorNote, Loading, Panel, TeamLogo } from '../components/ui'
 
 interface Signal { category: string; team_id: string; team: string; player?: string | null; status?: string | null; evidence_span: string; disagreement?: { official_status?: string } | null }
-interface Article { article_id: string; type?: string; headline: string; description: string; published?: string; url?: string; image?: string; team_ids: string[]; premium: boolean; signals: Signal[] }
+interface Article { article_id: string; source?: string; type?: string; headline: string; description: string; published?: string; url?: string; image?: string; team_ids: string[]; premium: boolean; signals: Signal[] }
 
 const KIND: Record<string, string> = { Recap: 'Recap', Media: 'Video', HeadlineNews: 'News', Story: 'Story', Preview: 'Preview' }
 
 export function News({ lg }: { lg: LeagueConfig }) {
-  const q = useQuery({ queryKey: ['news-feed', lg.id], queryFn: () => getJSON<{ articles: Article[] }>(`/competitions/${lg.id}/news-feed`), refetchInterval: 120_000 })
+  const q = useQuery({ queryKey: ['news-feed', lg.id], queryFn: () => getJSON<{ articles: Article[]; sources?: Record<string, number> }>(`/competitions/${lg.id}/news-feed`), refetchInterval: 120_000 })
+  const [src, setSrc] = useState('All')
   const meta = useMeta(lg.id).data ?? {}
   const [only, setOnly] = useState<'all' | 'model'>('all')
   const arts = useMemo(() => (q.data?.articles ?? []).map((a) => ({ ...a, signals: dedupe(a.signals.filter((s) => s.player && s.status && ['availability', 'return_from_injury', 'suspension'].includes(s.category))) })), [q.data])
-  const shown = only === 'model' ? arts.filter((a) => a.signals.length) : arts
+  const outlets = useMemo(() => ['All', ...[...new Set(arts.map((a) => (a.source ?? 'ESPN').replace(/ via Google News$/, '')))].sort()], [arts])
+  const shown = (only === 'model' ? arts.filter((a) => a.signals.length) : arts).filter((a) => src === 'All' || (a.source ?? 'ESPN').replace(/ via Google News$/, '') === src)
   return (
     <>
       <div className="hero"><div>
         <p className="hero-kicker">Know what matters before you watch.</p>
         <h1>{lg.name}: <em>News</em></h1>
-        <p>The latest from ESPN, tagged to the teams ESPN names. Where an article reports a player's availability, SportsWorld quotes the line it read; the official injury report, not a headline, is what moves a forecast.</p>
+        <p>The latest from ESPN, Google News (dozens of outlets), Yahoo Sports, CBS Sports, On3 team sites, Barstool Sports and r/CFB. Where an article reports a player's availability, SportsWorld quotes the line it read; the official injury report, not a headline, is what moves a forecast.</p>
       </div></div>
       <Panel title="Latest" icon={Newspaper} flush
-        action={<div className="seg"><button className={only === 'all' ? 'on' : ''} onClick={() => setOnly('all')}>All</button><button className={only === 'model' ? 'on' : ''} onClick={() => setOnly('model')}>Read by the model</button></div>}
-        foot="Source: ESPN news API, refreshed every 2 minutes. Player notes are extracted by self-hosted Llama and kept only when the quoted line appears verbatim in the article.">
+        action={<div className="inj-tools"><select className="field" value={src} onChange={(e) => setSrc(e.target.value)} aria-label="Outlet">{outlets.map((o) => <option key={o}>{o}</option>)}</select><div className="seg"><button className={only === 'all' ? 'on' : ''} onClick={() => setOnly('all')}>All</button><button className={only === 'model' ? 'on' : ''} onClick={() => setOnly('model')}>Read by the model</button></div></div>}
+        foot="Sources: ESPN news API, Google News, Yahoo Sports, CBS Sports, On3, Barstool Sports and Reddit (fan community, shown only). Refreshed every 5 minutes. Player notes are extracted by self-hosted Llama and kept only when the quoted line appears verbatim in the article.">
         {q.isLoading ? <div style={{ padding: 14 }}><Loading rows={6} /></div> : q.error ? <ErrorNote error={q.error} what="the news feed" /> : !shown.length ? <Empty title="Nothing here yet" /> : (
           <ul className="news-list">
             {shown.map((a) => (
@@ -36,7 +38,8 @@ export function News({ lg }: { lg: LeagueConfig }) {
                 {a.image && <img src={a.image} alt="" loading="lazy" />}
                 <div className="news-body">
                   <div className="news-meta">
-                    <span className="tag">{KIND[a.type ?? ''] ?? a.type ?? 'News'}</span>
+                    <span className="news-source">{a.source ?? 'ESPN'}</span>
+                    {a.type && <span className="tag">{KIND[a.type] ?? a.type}</span>}
                     {a.published && <span className="muted">{ago(a.published)}</span>}
                     {a.team_ids.filter((t) => meta[t]).slice(0, 3).map((t) => (
                       <Link key={t} to={`/${lg.id}/team/${t}`} className="news-team"><TeamLogo meta={meta[t]} size={16} />{meta[t].short_name}</Link>
