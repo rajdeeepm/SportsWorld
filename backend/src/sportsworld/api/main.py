@@ -144,6 +144,43 @@ def news_signals(league:str|None=None,limit:int=100):
     if not b: raise HTTPException(404,'no news for league')
     return [s for s in reversed(b.signals) if s.get('category')!='none'][:limit]
 
+_FEED: dict = {}
+
+@app.get('/competitions/{cid}/news-feed')
+def news_feed(cid: str, limit: int = 40):
+    """ESPN's latest articles for a league with ESPN's own team tags, plus any model signal grounded in the article
+    whose team ESPN itself tagged (signals are display-only state; they never move a forecast on their own)."""
+    import time as _t
+    import httpx as _h
+    from sportsworld.ingest.espn import BASE
+    from sportsworld.ingest.leagues import LEAGUES as _L
+    if cid not in _L or not _L[cid].espn_path: raise HTTPException(404, 'unknown league')
+    hit = _FEED.get(cid)
+    if not hit or _t.time() - hit[0] > 120:
+        r = _h.get(f"{BASE}/{_L[cid].espn_path}/news", params={'limit': 50}, timeout=20, headers={'User-Agent': 'SportsWorld/1.3'})
+        r.raise_for_status()
+        arts = []
+        for a in r.json().get('articles', []):
+            cats = a.get('categories', [])
+            tids = sorted({str(c.get('teamId') or (c.get('team') or {}).get('id')) for c in cats if c.get('type') == 'team'} - {'None'})
+            arts.append({'article_id': str(a.get('id') or a.get('dataSourceIdentifier') or a.get('headline')), 'type': a.get('type'),
+                         'headline': a.get('headline') or '', 'description': a.get('description') or '', 'published': a.get('published'),
+                         'url': ((a.get('links') or {}).get('web') or {}).get('href'), 'image': ((a.get('images') or [{}])[0] or {}).get('url'),
+                         'team_ids': tids, 'premium': bool(a.get('premium'))})
+        hit = _FEED[cid] = (_t.time(), arts)
+    news = getattr(app.state, 'news', None)
+    sigs = {}
+    if news and news.books.get(cid):
+        for sg in news.books[cid].signals:
+            sigs.setdefault(sg['article_id'], []).append(sg)
+    out = []
+    for a in hit[1][:limit]:
+        good = [{'category': sg['category'], 'team_id': sg['team_id'], 'team': sg['team'], 'player': sg.get('player'), 'status': sg.get('status'),
+                 'evidence_span': sg['evidence_span'], 'disagreement': sg.get('disagreement'), 'known_to_model_time': sg.get('known_to_model_time')}
+                for sg in sigs.get(a['article_id'], []) if sg.get('category') != 'none' and sg.get('team_id') and sg['team_id'] in a['team_ids']]
+        out.append({**a, 'signals': good})
+    return {'league': cid, 'articles': out, 'source': 'ESPN news API', 'fetched_at': hit[0]}
+
 @app.get('/llm/health')
 def llm_health():
     from sportsworld.llm.client import LLMClient

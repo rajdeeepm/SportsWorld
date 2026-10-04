@@ -70,8 +70,10 @@ class LeagueNews:
         for a in r.json().get("articles", []):
             aid = str(a.get("id") or a.get("dataSourceIdentifier") or a.get("headline"))
             teams = [c.get("description") for c in a.get("categories", []) if c.get("type") == "team"]
+            team_ids = sorted({str(c.get("teamId") or (c.get("team") or {}).get("id")) for c in a.get("categories", []) if c.get("type") == "team"} - {"None"})
             out.append({"article_id": aid, "headline": a.get("headline") or "", "description": a.get("description") or "",
-                        "published": a.get("published"), "url": ((a.get("links") or {}).get("web") or {}).get("href"), "teams": teams})
+                        "published": a.get("published"), "url": ((a.get("links") or {}).get("web") or {}).get("href"), "teams": teams,
+                        "team_ids": team_ids})
         return out
 
     def extract(self, llm: LLMClient, article: dict, teams: list[dict], report: dict[str, list[dict]] | None) -> list[dict]:
@@ -93,6 +95,8 @@ class LeagueNews:
             if player and _norm(player.split()[-1]) not in _norm(span):
                 continue  # the quoted evidence must itself name the player the claim is about
             team = resolve_team(sig.get("team") or "", teams)
+            if team and article.get("team_ids") and team["team_id"] not in article["team_ids"]:
+                team = None  # ESPN tagged the article with other teams (e.g. "Northwestern State" is not Northwestern)
             rec = {"article_id": article["article_id"], "league": self.league, "category": sig["category"],
                    "team_id": team["team_id"] if team else None, "team": team["name"] if team else sig.get("team"),
                    "player": sig.get("player"), "status": sig.get("status"), "games_affected": sig.get("games_affected"),

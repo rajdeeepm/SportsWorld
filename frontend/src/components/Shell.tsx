@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState, type ReactNode } from 'react'
 import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom'
-import { Activity, CalendarDays, FlaskConical, Home, ListOrdered, MapPinned, Microscope, Radio, Search } from 'lucide-react'
+import { Activity, CalendarDays, FlaskConical, Home, ListOrdered, MapPinned, Microscope, Radio, Search, Users, Newspaper } from 'lucide-react'
 import { BrandMark, TeamLogo } from './ui'
 import { LEAGUES, league as leagueOf } from '../lib/leagues'
 import { LastPush, PushToasts } from './pushes'
@@ -53,7 +53,9 @@ export function Shell({ children }: { children: ReactNode }) {
         )}
         {lg.id !== 'f1' && <NavLink to={`${base}/games`} className={({ isActive }) => (isActive && !liveView ? 'active' : '')}><CalendarDays size={19} aria-hidden /> Forecasts</NavLink>}
         {lg.id === 'f1' && <NavLink to="/f1/live"><MapPinned size={19} aria-hidden /> Live track</NavLink>}
+        {lg.id !== 'f1' && <NavLink to={`${base}/teams`}><Users size={19} aria-hidden /> Team Profiles</NavLink>}
         <NavLink to={`${base}/lab`}><FlaskConical size={19} aria-hidden /> Simulation Lab</NavLink>
+        {lg.id !== 'f1' && <NavLink to={`${base}/news`}><Newspaper size={19} aria-hidden /> News</NavLink>}
         <NavLink to="/research"><Microscope size={19} aria-hidden /> Research</NavLink>
         <div className="rail-foot">
           <b>Know what matters before you watch.</b>
