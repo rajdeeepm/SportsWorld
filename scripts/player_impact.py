@@ -55,10 +55,23 @@ def key_players(sport: str, history: list[list[list]]) -> dict[str, set[str]]:
             passers = [r for r in rows if r[6] == "passing"]
             if passers:
                 starts[max(passers, key=lambda r: r[5])[1]] += 1
-        if not starts:
-            return {}
-        qb, n = max(starts.items(), key=lambda kv: kv[1])
-        return {"QB": {qb}} if n >= 2 else {}
+        out: dict[str, set[str]] = {}
+        if starts:
+            qb, n = max(starts.items(), key=lambda kv: kv[1])
+            if n >= 2:
+                out["QB"] = {qb}
+        # leading ball carrier / receiver / tackler by average usage over earlier games (>= 3 appearances)
+        for pos, cat, floor in (("RB1", "rushing", 8.0), ("WR1", "receiving", 3.0), ("DEF1", "defensive", 4.0)):
+            use, apps = defaultdict(float), defaultdict(int)
+            for rows in history:
+                for r in rows:
+                    if r[6] == cat:
+                        use[r[1]] += r[5]
+                        apps[r[1]] += 1
+            cands = [a for a in use if apps[a] >= 3 and use[a] / len(history) >= floor]
+            if cands and len(history) >= 3:
+                out[pos] = {max(cands, key=lambda a: use[a])}
+        return out
     usage = defaultdict(list)
     goalie = defaultdict(int)
     for rows in history:
@@ -87,6 +100,9 @@ def absent(sport: str, keys: dict[str, set[str]], rows: list[list]) -> dict[str,
             passers = [r for r in rows if r[6] == "passing"]
             primary = max(passers, key=lambda r: r[5])[1] if passers else None
             out[pos] = float(primary is not None and primary not in ids)
+        elif pos in ("RB1", "WR1", "DEF1"):
+            appeared = {r[1] for r in rows}  # box scores list players who recorded a stat
+            out[pos] = float(bool(rows) and not (ids & appeared))
         elif pos == "G":
             goalies = [r for r in rows if (r[3] == "G" or r[6] == "goalies") and r[5] > 20]
             out[pos] = float(bool(goalies) and not (ids & {r[1] for r in goalies}))
@@ -106,7 +122,7 @@ def run(league: str) -> dict:
     book = RatingBook(spec, params)
     hist: dict[tuple[str, int], list] = defaultdict(list)
     X, y, meta = [], [], []
-    positions = ["QB"] if sport == "football" else (["G", "KEY"] if sport == "hockey" else ["KEY"])
+    positions = ["QB", "RB1", "WR1", "DEF1"] if sport == "football" else (["G", "KEY"] if sport == "hockey" else ["KEY"])
 
     def pre(g, state):
         rows = summ.get(g.game_id)
@@ -146,13 +162,17 @@ def run(league: str) -> dict:
     sigma2 = float(resid @ resid / max(1, len(y) - X.shape[1]))
     cov = sigma2 * np.linalg.pinv(X.T @ X)
     se = np.sqrt(np.diag(cov))
-    out = {"league": league, "model_version": f"player_impact_{league}_v1", "data_mode": "real_espn",
+    out = {"league": league, "model_version": f"player_impact_{league}_v2", "data_mode": "real_espn",
            "fit_window": {"start": min(meta).isoformat(), "end": max(meta).isoformat()} if meta else None,
            "n_games": int(len(y)), "residual_sd": round(float(np.sqrt(sigma2)), 3),
            "variance_explained": round(float(1 - resid.var() / max(y.var(), 1e-9)), 5),
            "by_position": {p: {"points": round(float(b), 3), "se": round(float(s), 3), "t": round(float(b / s), 2) if s > 0 else None,
-                               "games_with_absence": int((X[:, i] != 0).sum())} for i, (p, b, s) in enumerate(zip(positions, beta, se))},
-           "definition": {"football": "primary passer differs from the team's established starter (>=2 prior starts)",
+                               "games_with_absence": int((X[:, i] != 0).sum()),
+                               # served (Lab menu, live injury adjustments) only when the effect is statistically meaningful
+                               "significant": bool(s > 0 and abs(b / s) >= 2.0)} for i, (p, b, s) in enumerate(zip(positions, beta, se))},
+           "definition": {"football": ("QB: primary passer differs from the team's established starter (>=2 prior starts); RB1 / WR1 / DEF1: the "
+                                       "team's leading ball carrier / receiver / tackler over earlier games recorded no carry / catch / tackle "
+                                       "(box scores list only players with a stat, so this includes some off-games: a conservative estimate)"),
                           "basketball": "count of the team's top-2 minutes players (>=5 prior games) who did not play",
                           "hockey": "G: established starting goalie did not play; KEY: count of top-2 TOI skaters absent"}[sport],
            "created_at": datetime.now(timezone.utc).isoformat(), "current_season": latest, "current_key_players": current}

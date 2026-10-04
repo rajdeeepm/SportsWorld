@@ -92,8 +92,9 @@ class LeagueAvailability:
         by_name = {(r["name"] or "").lower(): r for r in rows}
         absences, total, long_term = [], 0.0, False
         for pos, players in self.keys.get(team_id, {}).items():
-            beta = by_pos.get(pos, {}).get("points")
-            if beta is None:
+            est = by_pos.get(pos, {})
+            beta = est.get("points")
+            if beta is None or est.get("significant") is False:  # unproven roles never move a forecast
                 continue
             for pl in players:
                 r = by_id.get(pl["athlete_id"]) or by_name.get((pl["name"] or "").lower())

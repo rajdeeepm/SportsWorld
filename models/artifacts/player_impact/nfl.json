@@ -1,24 +1,46 @@
 {
  "league": "nfl",
- "model_version": "player_impact_nfl_v1",
+ "model_version": "player_impact_nfl_v2",
  "data_mode": "real_espn",
  "fit_window": {
   "start": "2023-09-22T00:15:00+00:00",
   "end": "2026-10-02T00:15:00+00:00"
  },
  "n_games": 776,
- "residual_sd": 13.074,
- "variance_explained": 0.02915,
+ "residual_sd": 13.071,
+ "variance_explained": 0.03313,
  "by_position": {
   "QB": {
-   "points": -3.967,
-   "se": 0.83,
-   "t": -4.78,
-   "games_with_absence": 248
+   "points": -3.806,
+   "se": 0.837,
+   "t": -4.55,
+   "games_with_absence": 248,
+   "significant": true
+  },
+  "RB1": {
+   "points": -0.849,
+   "se": 1.159,
+   "t": -0.73,
+   "games_with_absence": 128,
+   "significant": false
+  },
+  "WR1": {
+   "points": -1.61,
+   "se": 1.253,
+   "t": -1.28,
+   "games_with_absence": 111,
+   "significant": false
+  },
+  "DEF1": {
+   "points": -1.168,
+   "se": 1.275,
+   "t": -0.92,
+   "games_with_absence": 106,
+   "significant": false
   }
  },
- "definition": "primary passer differs from the team's established starter (>=2 prior starts)",
- "created_at": "2026-10-03T07:34:41.771849+00:00",
+ "definition": "QB: primary passer differs from the team's established starter (>=2 prior starts); RB1 / WR1 / DEF1: the team's leading ball carrier / receiver / tackler over earlier games recorded no carry / catch / tackle (box scores list only players with a stat, so this includes some off-games: a conservative estimate)",
+ "created_at": "2026-10-04T01:00:22.064271+00:00",
  "current_season": 2026,
  "current_key_players": {
   "26": {
@@ -26,6 +48,20 @@
     {
      "athlete_id": "3924327",
      "name": "Drew Lock",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4887558",
+     "name": "Emanuel Wilson",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4362851",
+     "name": "Ernest Jones IV",
      "position": null
     }
    ]
@@ -37,6 +73,27 @@
      "name": "Drake Maye",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4569173",
+     "name": "Rhamondre Stevenson",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "2991662",
+     "name": "Mack Hollins",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3129446",
+     "name": "Robert Spillane",
+     "position": null
+    }
    ]
   },
   "14": {
@@ -44,6 +101,27 @@
     {
      "athlete_id": "12483",
      "name": "Matthew Stafford",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4430737",
+     "name": "Kyren Williams",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "16800",
+     "name": "Davante Adams",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4249128",
+     "name": "Quentin Lake",
      "position": null
     }
    ]
@@ -55,6 +133,27 @@
      "name": "Brock Purdy",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "3117251",
+     "name": "Christian McCaffrey",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "16737",
+     "name": "Mike Evans",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3138826",
+     "name": "Fred Warner",
+     "position": null
+    }
    ]
   },
   "23": {
@@ -62,6 +161,27 @@
     {
      "athlete_id": "8439",
      "name": "Aaron Rodgers",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4569987",
+     "name": "Jaylen Warren",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4047650",
+     "name": "DK Metcalf",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4361652",
+     "name": "Payton Wilson",
      "position": null
     }
    ]
@@ -73,6 +193,20 @@
      "name": "Cooper Rush",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4430807",
+     "name": "Bijan Robinson",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3919512",
+     "name": "Jessie Bates III",
+     "position": null
+    }
    ]
   },
   "11": {
@@ -80,6 +214,27 @@
     {
      "athlete_id": "3917792",
      "name": "Daniel Jones",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4242335",
+     "name": "Jonathan Taylor",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4688813",
+     "name": "Josh Downs",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3917142",
+     "name": "Akeem Davis-Gaither",
      "position": null
     }
    ]
@@ -91,6 +246,27 @@
      "name": "Lamar Jackson",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "3043078",
+     "name": "Derrick Henry",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "3116365",
+     "name": "Mark Andrews",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3915189",
+     "name": "Roquan Smith",
+     "position": null
+    }
    ]
   },
   "34": {
@@ -98,6 +274,27 @@
     {
      "athlete_id": "4432577",
      "name": "C.J. Stroud",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4035538",
+     "name": "David Montgomery",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "3117256",
+     "name": "Dalton Schultz",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3919117",
+     "name": "Azeez Al-Shaair",
      "position": null
     }
    ]
@@ -109,6 +306,27 @@
      "name": "Josh Allen",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4379399",
+     "name": "James Cook III",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4385690",
+     "name": "Dalton Kincaid",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4568624",
+     "name": "Dorian Williams",
+     "position": null
+    }
    ]
   },
   "29": {
@@ -116,6 +334,27 @@
     {
      "athlete_id": "4685720",
      "name": "Bryce Young",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4241416",
+     "name": "Chuba Hubbard",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4695883",
+     "name": "Jalen Coker",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3117253",
+     "name": "Bobby Okereke",
      "position": null
     }
    ]
@@ -127,6 +366,27 @@
      "name": "Caleb Williams",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4259545",
+     "name": "D'Andre Swift",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "2973405",
+     "name": "Kalif Raymond",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4954445",
+     "name": "Dillon Thieneman",
+     "position": null
+    }
    ]
   },
   "30": {
@@ -134,6 +394,27 @@
     {
      "athlete_id": "4360310",
      "name": "Trevor Lawrence",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4882093",
+     "name": "Bhayshul Tuten",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4432620",
+     "name": "Parker Washington",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4240610",
+     "name": "Ventrell Miller",
      "position": null
     }
    ]
@@ -145,6 +426,27 @@
      "name": "Deshaun Watson",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4685702",
+     "name": "Quinshon Judkins",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "5083076",
+     "name": "Harold Fannin Jr.",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4876017",
+     "name": "Carson Schwesinger",
+     "position": null
+    }
    ]
   },
   "8": {
@@ -152,6 +454,27 @@
     {
      "athlete_id": "3046779",
      "name": "Jared Goff",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4429795",
+     "name": "Jahmyr Gibbs",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4374302",
+     "name": "Amon-Ra St. Brown",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3139387",
+     "name": "D.J. Reed",
      "position": null
     }
    ]
@@ -163,6 +486,27 @@
      "name": "Tyler Shough",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4239996",
+     "name": "Travis Etienne Jr.",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4361370",
+     "name": "Chris Olave",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3124890",
+     "name": "Kaden Elliss",
+     "position": null
+    }
    ]
   },
   "10": {
@@ -170,6 +514,27 @@
     {
      "athlete_id": "4688380",
      "name": "Cam Ward",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "3916148",
+     "name": "Tony Pollard",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4871023",
+     "name": "Carnell Tate",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4870805",
+     "name": "Anthony Hill Jr.",
      "position": null
     }
    ]
@@ -181,6 +546,27 @@
      "name": "Geno Smith",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4427366",
+     "name": "Breece Hall",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4569618",
+     "name": "Garrett Wilson",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "14958",
+     "name": "Demario Davis",
+     "position": null
+    }
    ]
   },
   "4": {
@@ -188,6 +574,27 @@
     {
      "athlete_id": "3915511",
      "name": "Joe Burrow",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4362238",
+     "name": "Chase Brown",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4362628",
+     "name": "Ja'Marr Chase",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4567098",
+     "name": "Jordan Battle",
      "position": null
     }
    ]
@@ -199,6 +606,27 @@
      "name": "Baker Mayfield",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4596448",
+     "name": "Bucky Irving",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4243331",
+     "name": "Cade Otton",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3043107",
+     "name": "Alex Anzalone",
+     "position": null
+    }
    ]
   },
   "24": {
@@ -206,6 +634,27 @@
     {
      "athlete_id": "4038941",
      "name": "Justin Herbert",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4685382",
+     "name": "Omarion Hampton",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4612826",
+     "name": "Ladd McConkey",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3691739",
+     "name": "Derwin James Jr.",
      "position": null
     }
    ]
@@ -217,6 +666,27 @@
      "name": "Jacoby Brissett",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4870808",
+     "name": "Jeremiyah Love",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4361307",
+     "name": "Trey McBride",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4249739",
+     "name": "Jack Gibbens",
+     "position": null
+    }
    ]
   },
   "16": {
@@ -224,6 +694,27 @@
     {
      "athlete_id": "2573079",
      "name": "Carson Wentz",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "3042519",
+     "name": "Aaron Jones Sr.",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4262921",
+     "name": "Justin Jefferson",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3728281",
+     "name": "Blake Cashman",
      "position": null
     }
    ]
@@ -235,6 +726,20 @@
      "name": "Jordan Love",
      "position": null
     }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4248528",
+     "name": "Christian Watson",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4428863",
+     "name": "Evan Williams",
+     "position": null
+    }
    ]
   },
   "13": {
@@ -242,6 +747,27 @@
     {
      "athlete_id": "14880",
      "name": "Kirk Cousins",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4890973",
+     "name": "Ashton Jeanty",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4429086",
+     "name": "Michael Mayer",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4426340",
+     "name": "Nakobe Dean",
      "position": null
     }
    ]
@@ -253,6 +779,27 @@
      "name": "Malik Willis",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4429160",
+     "name": "De'Von Achane",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4367209",
+     "name": "Greg Dulcich",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4566094",
+     "name": "Jacob Rodriguez",
+     "position": null
+    }
    ]
   },
   "21": {
@@ -260,6 +807,27 @@
     {
      "athlete_id": "4040715",
      "name": "Jalen Hurts",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "3929630",
+     "name": "Saquon Barkley",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4241478",
+     "name": "DeVonta Smith",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4685287",
+     "name": "Jihaad Campbell",
      "position": null
     }
    ]
@@ -271,6 +839,27 @@
      "name": "Jayden Daniels",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4575131",
+     "name": "Jacory Croskey-Merritt",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "2976212",
+     "name": "Stefon Diggs",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "3125248",
+     "name": "Jeremy Reaves",
+     "position": null
+    }
    ]
   },
   "19": {
@@ -278,6 +867,27 @@
     {
      "athlete_id": "2969939",
      "name": "Jameis Winston",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4696981",
+     "name": "Cam Skattebo",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4361050",
+     "name": "Isaiah Likely",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4950400",
+     "name": "Arvell Reese",
      "position": null
     }
    ]
@@ -289,6 +899,27 @@
      "name": "Dak Prescott",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4361579",
+     "name": "Javonte Williams",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "4426354",
+     "name": "George Pickens",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4870706",
+     "name": "Caleb Downs",
+     "position": null
+    }
    ]
   },
   "12": {
@@ -298,6 +929,27 @@
      "name": "Patrick Mahomes",
      "position": null
     }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4567048",
+     "name": "Kenneth Walker III",
+     "position": null
+    }
+   ],
+   "WR1": [
+    {
+     "athlete_id": "15847",
+     "name": "Travis Kelce",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "4362759",
+     "name": "Nick Bolton",
+     "position": null
+    }
    ]
   },
   "7": {
@@ -305,6 +957,20 @@
     {
      "athlete_id": "4426338",
      "name": "Bo Nix",
+     "position": null
+    }
+   ],
+   "RB1": [
+    {
+     "athlete_id": "4241985",
+     "name": "J.K. Dobbins",
+     "position": null
+    }
+   ],
+   "DEF1": [
+    {
+     "athlete_id": "2612151",
+     "name": "Alex Singleton",
      "position": null
     }
    ]

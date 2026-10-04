@@ -234,7 +234,7 @@ published win probability (statistically tied with game-clustered CIs).
 loss (≈ 0.01 in hockey). The market sees lineups, injury nuance and money flow that SportsWorld deliberately does
 not consume; it is the yardstick for every new evidence source, never a feature.
 
-**5. Absences are large and measurable** (associational): NFL starting QB −4.0 ± 0.8 pts, FBS starting QB −2.9 ±
+**5. Absences are large and measurable** (associational): NFL starting QB −3.8 ± 0.8 pts, FBS starting QB −2.9 ±
 0.5, NBA top-minutes player −2.5 ± 0.2, NHL starting goalie −0.16 ± 0.06 goals.
 
 Hygiene: whole-game chronological splits, hyper-parameters fit only on earlier data, point-in-time replay, zero

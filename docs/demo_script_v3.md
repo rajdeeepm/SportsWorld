@@ -20,7 +20,7 @@ covered only 52–77 % of outcomes preseason; sampling latent strength once per 
 
 **2:00 — Propagation (World updates).** Show tonight's real feed: a final score → both teams' Kalman ratings →
 every future game for both teams reforecast → season re-simulated (new global-state version). Then the live
-availability panel: ESPN injury report → learned player-impact (e.g. starting QB out = -4.0 ± 0.8 pts, t = -4.78)
+availability panel: ESPN injury report → learned player-impact (e.g. starting QB out = -3.8 ± 0.8 pts, t = -4.55)
 → affected games + season odds.
 
 **2:45 — Ask a what-if (Scenario tab).** Type: "What if the Bills' starting quarterback misses the next three

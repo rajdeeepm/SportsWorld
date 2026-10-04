@@ -19,7 +19,7 @@ or a point-in-time historical replay. Generated Oct 3, 2026; reproducible with `
 4. **Markets know more pregame.** On true holdout games the de-vigged market beats SportsWorld by ≈ 0.03 log
    loss (≈ 0.01 in hockey); a blend puts ≈ 0 weight on SportsWorld. The edge is information SportsWorld does not
    consume (lineups, injury nuance, money flow) — the benchmark against which new evidence sources are measured.
-5. **Absence of key players is large and measurable** (associational): NFL starting QB −4.0 ± 0.8 pts,
+5. **Absence of key players is large and measurable** (associational): NFL starting QB −3.8 ± 0.8 pts,
    NBA top-minutes player −2.5 ± 0.2, NHL starting goalie −0.16 ± 0.06 goals.
 
 Methodological hygiene: whole-game chronological partitions, hyper-parameters fit only on earlier data,
@@ -161,7 +161,9 @@ absences from ex-post participation (summaries):
 
 | League | absence | effect | ±SE | t | games |
 |---|---|---:|---:|---:|---:|
-| NFL | starting QB | -3.97 pts | 0.83 | -4.78 | 776 |
+| NFL | starting QB | -3.81 pts | 0.84 | -4.55 | 776 |
+| NFL | lead RB / top WR / top tackler | -0.85 / -1.61 / -1.17 pts | 1.16 / 1.25 / 1.28 | not significant | 776 |
+| FBS | lead RB / top WR / top tackler | -0.11 / +0.67 / +0.17 pts | 0.89 / 0.93 / 1.13 | not significant | 2,501 |
 | FBS | starting QB | -2.89 pts | 0.53 | -5.44 | 2,501 |
 | NBA | per top-2-minutes player | -2.47 pts | 0.20 | -12.4 | 9,456 |
 | WNBA | per top-2-minutes player | -3.73 pts | 0.80 | -4.68 | 1,056 |

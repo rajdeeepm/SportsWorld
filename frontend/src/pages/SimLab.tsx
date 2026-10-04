@@ -182,12 +182,13 @@ export function SimLab({ lg }: { lg: LeagueConfig }) {
   )
 }
 
-function AbsenceControl({ lg, roles, teamId, abbr, remaining, onAdd }: { lg: LeagueConfig; roles: Record<string, { points: number; se: number }>; teamId: string; abbr: string; remaining: string[]; onAdd: (o: Op) => void }) {
-  const keys = Object.keys(roles)
+function AbsenceControl({ lg, roles, teamId, abbr, remaining, onAdd }: { lg: LeagueConfig; roles: Record<string, { points: number; se: number; t?: number; significant?: boolean }>; teamId: string; abbr: string; remaining: string[]; onAdd: (o: Op) => void }) {
+  const all = Object.keys(roles)
+  const keys = all.filter((k) => roles[k].significant !== false)
   const [role, setRole] = useState(keys[0] ?? 'QB')
   const [games, setGames] = useState(1)
   useEffect(() => { if (keys.length && !keys.includes(role)) setRole(keys[0]) }, [keys.join()])
-  const label = (r: string) => (r === 'QB' ? 'Starting QB' : r === 'G' ? 'Starting goalie' : 'Top-minutes player')
+  const label = (r: string) => ({ QB: 'Starting QB', G: 'Starting goalie', KEY: 'Top-minutes player', RB1: 'Lead running back', WR1: 'Top receiver', DEF1: 'Top tackler' } as Record<string, string>)[r] ?? r
   if (!keys.length) return <div className="ctl"><h3><HeartPulse size={16} /> Player availability</h3><span className="hint">No learned player-impact model for {lg.name}.</span></div>
   const beta = roles[role]?.points ?? 0
   const n = Math.min(games, Math.max(remaining.length, 1))
@@ -196,11 +197,17 @@ function AbsenceControl({ lg, roles, teamId, abbr, remaining, onAdd }: { lg: Lea
     <div className="ctl">
       <h3><HeartPulse size={16} /> Player availability</h3>
       <div className="row">
-        <select className="field" value={role} onChange={(e) => setRole(e.target.value)} aria-label="Role">{keys.map((k) => <option key={k} value={k}>{label(k)}</option>)}</select>
+        <select className="field" value={role} onChange={(e) => setRole(e.target.value)} aria-label="Role">
+          {all.map((k) => {
+            const ok = roles[k].significant !== false
+            return <option key={k} value={k} disabled={!ok}>{label(k)}{ok ? '' : ` — ${roles[k].points.toFixed(1)} ± ${roles[k].se.toFixed(1)}, not significant`}</option>
+          })}
+        </select>
       </div>
       <label className="hint" htmlFor="absence-games">Out for the next <b style={{ color: 'var(--ink)' }}>{n}</b> game{n > 1 ? 's' : ''}</label>
       <input id="absence-games" type="range" min={1} max={Math.max(remaining.length, 1)} value={n} onChange={(e) => setGames(Number(e.target.value))} />
-      <span className="hint">Learned effect {beta.toFixed(1)} ± {roles[role]?.se.toFixed(1)} {lg.unit} per game (associational).</span>
+      <span className="hint">Learned effect {beta.toFixed(1)} ± {roles[role]?.se.toFixed(1)} {lg.unit} per game (associational).
+        {all.length > keys.length && <> Greyed roles were estimated too, but their effect isn’t statistically distinguishable from zero, so the Lab won’t apply them; use a strength override instead.</>}</span>
       <button className="btn" onClick={() => onAdd({ kind: 'absence', id: `abs-${teamId}-${role}`, team: teamId, role, games: n, delta: beta, end, label: `${abbr} ${label(role)} out ${n} game${n > 1 ? 's' : ''}` })}><Plus size={14} /> Add to scenario</button>
     </div>
   )
