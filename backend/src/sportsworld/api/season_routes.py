@@ -650,6 +650,8 @@ def _stakes(cid: str, row: dict, teams: dict[str, dict]) -> dict:
     who = row["home"] if abs(lh) >= abs(la) else row["away"]
     if row.get("state") == "post":
         action, tone = "Final. The result is already folded into every season forecast.", "final"
+    elif row.get("state") == "in" and pf >= 0.97:
+        action, tone = f"Effectively decided: {fav} at {pf * 100:.0f}%. The {mname} swing of {swing * 100:.0f} pts is already priced into every forecast.", "low"
     elif row.get("state") == "in" and 0.25 <= p <= 0.75 and swing >= 0.03:
         action, tone = f"Tune in now: still in doubt, with up to {swing * 100:.0f} pts of {mname} odds riding on it.", "must"
     elif swing >= 0.10 and pf < 0.7:

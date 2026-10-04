@@ -15,6 +15,7 @@ export interface Stakes {
 }
 
 const TONE: Record<Stakes['tone'], string> = { must: 'Must-watch', upset: 'Upset watch', look: 'Worth a look', low: 'Low stakes', skip: 'Skip', final: 'Final' }
+const toneLabel = (s: Stakes) => (s.action.startsWith('Effectively decided') ? 'Effectively decided' : TONE[s.tone])
 
 function label(pf: number) {
   return pf < 0.6 ? 'Toss-up' : pf < 0.7 ? 'Lean' : pf < 0.85 ? 'Clear favourite' : 'Heavy favourite'
@@ -75,7 +76,7 @@ export function WhyItMatters({ league, eventId, headline }: { league: string; ev
           </div>
           <div className={`why-action tone-${s.tone}`}>
             <Eye size={16} aria-hidden />
-            <div><b>{TONE[s.tone]}</b><span>{s.action.replace(/^(Must-watch|Watch for the upset|Worth a look|Good game, low stakes|Skip it for the season picture|Tune in now|Final)[:.]\s*/, '').replace(/^./, (c) => c.toUpperCase())}</span></div>
+            <div><b>{toneLabel(s)}</b><span>{s.action.replace(/^(Must-watch|Watch for the upset|Worth a look|Good game, low stakes|Skip it for the season picture|Tune in now|Final|Effectively decided)[:.]\s*/, '').replace(/^./, (c) => c.toUpperCase())}</span></div>
           </div>
         </div>
       )}
