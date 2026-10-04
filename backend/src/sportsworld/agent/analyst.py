@@ -262,8 +262,10 @@ def games_to_watch(eng: Engine, leagues: list[str], soon: bool = False) -> str:
     lines = ["**Games that matter most right now** (ranked by season stakes, weighted toward games still in doubt):"]
     for i, (lg, g) in enumerate(top):
         state = f"LIVE {g.get('away_score')}–{g.get('home_score')}" if g["state"] == "in" else g["start_time"][11:16] + " UTC"
-        lines.append(f"{i + 1}. **{g['away']} @ {g['home']}** ({LEAGUE_NAME[lg]}, {state}): {competitiveness(g.get('p_home'), g['home'], g['away'])}; "
-                     f"the result swings playoff odds by up to **{lev(g) * 100:.0f} pts**")
+        p = g.get("p_home") if g.get("p_home") is not None else 0.5
+        stakes = (f"effectively decided, so its pregame playoff swing of {lev(g) * 100:.0f} pts has already happened"
+                  if g["state"] == "in" and max(p, 1 - p) >= 0.97 else f"the result swings playoff odds by up to **{lev(g) * 100:.0f} pts**")
+        lines.append(f"{i + 1}. **{g['away']} @ {g['home']}** ({LEAGUE_NAME[lg]}, {state}): {competitiveness(g.get('p_home'), g['home'], g['away'])}; {stakes}")
     lines.append(f"\nMy pick: **{top[0][1]['away']} @ {top[0][1]['home']}**. Watch it live: {SITE}/{top[0][0]}/game/{top[0][1]['event_id']}")
     return "\n".join(lines)
 
