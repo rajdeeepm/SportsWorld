@@ -1,11 +1,11 @@
-# SportsWorld — a live probabilistic world model of entire sporting seasons
+# SportsWorld: a live probabilistic world model of entire sporting seasons
 
 ![tag:innovationlab](https://img.shields.io/badge/innovationlab-3D8BD3)
 ![tag:hackathon](https://img.shields.io/badge/hackathon-5F43F1)
 
 **SportsWorld does not predict a game. It keeps one calibrated, continuously updating belief about a whole
-competition** — every team and every game of the NFL, college football, NBA, NHL, college basketball, college
-hockey and Formula 1 — and shows how each new piece of evidence (a final score, a live drive, an injury report)
+competition** (every team and every game of the NFL, college football, NBA, NHL, college basketball, college
+hockey and Formula 1) and shows how each new piece of evidence (a final score, a live drive, an injury report)
 moves the next game, the rest of the schedule, the playoff race and the title.
 
 Built at **MHacks 2026** · Season Intelligence Engine · real data only · **Live: [worldofsports.tech](https://worldofsports.tech)**
@@ -31,12 +31,12 @@ Research write-up: [`docs/research_report.md`](docs/research_report.md)
 |---|---|
 | **Persistent world state** | Every team carries a latent strength *with uncertainty* (Kalman filter), updated after every result; F1 keeps separate driver and car states. |
 | **Every game, forecast** | A calibrated model scores every remaining game (552 in college football right now) before and during play. |
-| **Whole seasons, simulated** | 10,000 full seasons per league through versioned rules — NFL 7-team bracket, NBA play-in, NHL wildcard, FBS conference title games + 12-team CFP, NCAA tournament, F1 sprint + race points with FIA count-back. |
+| **Whole seasons, simulated** | 10,000 full seasons per league through versioned rules: NFL 7-team bracket, NBA play-in, NHL wildcard, FBS conference title games + 12-team CFP, NCAA tournament, F1 sprint + race points with FIA count-back. |
 | **Propagation** | A final, a live score, or an injury report updates the team's state → every affected future game → the whole season → playoff and title odds, each step versioned and shown in a live feed. |
 | **Counterfactuals** | "What if Michigan's QB misses 3 games?" / "What if Michigan beats Ohio State?" run on a private branch with common random numbers, so every difference is the scenario's effect. Canonical state is never touched. |
 | **Live views** | Real ball position and drives (football), shot charts (basketball), shot / goal / hit maps (hockey), and every F1 car at its real track position. |
 | **Agent + chat + voice** | A Fetch.ai agent on ASI:One, the same analyst as an on-site chat, live play-by-play commentary and spoken briefings (ElevenLabs). |
-| **Research layer** | Seven replayed seasons, walk-forward evaluation, model bake-offs with game-clustered confidence intervals, a market benchmark — shown in the product, not hidden in a notebook. |
+| **Research layer** | Seven replayed seasons, walk-forward evaluation, model bake-offs with game-clustered confidence intervals, a market benchmark, shown in the product, not hidden in a notebook. |
 
 ---
 
@@ -45,48 +45,48 @@ Research write-up: [`docs/research_report.md`](docs/research_report.md)
 ### 1. League "Season World"
 ![League overview](docs/screenshots/01-league-overview.png)
 
-1. **Seven leagues, one engine** — the same world-state architecture for very different competitions.
-2. **The whole season, live** — games played and remaining, teams tracked, live games conditioning the season run, forecast coverage (100 %), simulated seasons.
-3. **Featured matchups** — live score and clock, SportsWorld's calibrated win probability in official team colours, and **season leverage**: how much each result moves the teams' playoff odds (win vs loss, from the simulation).
-4. **Title outlook** — title / playoff / conference odds from 10,000 seasons, with Monte Carlo error on hover.
-5. **Listen / Radio** — a spoken briefing written from the live numbers, and a radio mode that calls every final and big swing.
-6. **SpacetimeDB live** — every viewer subscribes to one shared world state; the count shows who is watching.
+1. **Seven leagues, one engine**: the same world-state architecture for very different competitions.
+2. **The whole season, live**: games played and remaining, teams tracked, live games conditioning the season run, forecast coverage (100 %), simulated seasons.
+3. **Featured matchups**: live score and clock, SportsWorld's calibrated win probability in official team colours, and **season leverage**: how much each result moves the teams' playoff odds (win vs loss, from the simulation).
+4. **Title outlook**: title / playoff / conference odds from 10,000 seasons, with Monte Carlo error on hover.
+5. **Listen / Radio**: a spoken briefing written from the live numbers, and a radio mode that calls every final and big swing.
+6. **SpacetimeDB live**: every viewer subscribes to one shared world state; the count shows who is watching.
 
 ![League depth](docs/screenshots/02-league-depth.png)
 
-1. **Games that move the race** — the next 15 days ranked by playoff-odds swing.
+1. **Games that move the race**: the next 15 days ranked by playoff-odds swing.
 2. **Title odds** with 95 % Monte Carlo whiskers.
-3. **Live world updates** — every final, injury change and recompute, with the state version it produced.
-4. **Conference races** — favourite and contenders in every conference.
-5. **Injury report → strength** — ESPN's live injury report mapped to learned per-absence effects.
-6. **Model health on the product** — 90 % win-band coverage 94 % (independent-game simulation only 77 %), win-total error vs a pace baseline, champion log loss vs uniform, walk-forward game-model log loss, structural checks.
+3. **Live world updates**: every final, injury change and recompute, with the state version it produced.
+4. **Conference races**: favourite and contenders in every conference.
+5. **Injury report → strength**: ESPN's live injury report mapped to learned per-absence effects.
+6. **Model health on the product**: 90 % win-band coverage 94 % (independent-game simulation only 77 %), win-total error vs a pace baseline, champion log loss vs uniform, walk-forward game-model log loss, structural checks.
 
 ### 2. Team "Season World"
 ![Team page](docs/screenshots/03-team-season-world.png)
 
 1. **Header band** in official colours: record from live standings, conference record, strength rank, and the next (or live) game.
-2. **Season outlook** — expected wins with a 90 % range, every milestone probability with its rank.
-3. **Team strength trend** — the latent-strength posterior and its 90 % band after every result.
-4. **Remaining schedule** — win probability and leverage for every game.
-5. **Next-game outlook** — the model's reasoning: strength gap, learned home field, uncertainty, playoff swing.
+2. **Season outlook**: expected wins with a 90 % range, every milestone probability with its rank.
+3. **Team strength trend**: the latent-strength posterior and its 90 % band after every result.
+4. **Remaining schedule**: win probability and leverage for every game.
+5. **Next-game outlook**: the model's reasoning: strength gap, learned home field, uncertainty, playoff swing.
 
 ![Team paths and history](docs/screenshots/04-team-paths-history.png)
 
-1. **Season path simulator** — playoff and title odds *conditional on each final record*.
+1. **Season path simulator**: playoff and title odds *conditional on each final record*.
 2. **Final record distribution** from 10,000 simulated seasons.
-3. **Odds over the season** — what the model believed each day, from point-in-time replays and live-archived runs (Neon Postgres).
-4. **Availability** — the current injury report's effect on this team.
+3. **Odds over the season**: what the model believed each day, from point-in-time replays and live-archived runs (Neon Postgres).
+4. **Availability**: the current injury report's effect on this team.
 
 ### 3. Season Simulation Lab
 ![Simulation Lab](docs/screenshots/05-simulation-lab.png)
 
-1. **Active scenario** — typed operations on a private branch (here: starting QB out, and Michigan beats Ohio State).
-2. **Controls** — learned player-absence effects, strength overrides, forced results, or plain English.
+1. **Active scenario**: typed operations on a private branch (here: starting QB out, and Michigan beats Ohio State).
+2. **Controls**: learned player-absence effects, strength overrides, forced results, or plain English.
 3. **Before → after** for the most affected teams; both branches share random numbers.
 4. **Projected playoff field** under the scenario.
 5. **Conference title odds** ripple effects.
 
-### 4. Live game views — real positions
+### 4. Live game views with real positions
 | Football | Hockey |
 |---|---|
 | ![Live football](docs/screenshots/06-live-football.png) | ![Live hockey](docs/screenshots/07-live-hockey.png) |
@@ -112,7 +112,7 @@ click away.
 ![Research](docs/screenshots/11-research.png)
 
 Historical season replay, rolling-origin evaluation, in-game model bake-offs, the market benchmark and learned
-player-availability effects — all reproducible from `scripts/`.
+player-availability effects, all reproducible from `scripts/`.
 
 ---
 
@@ -175,7 +175,7 @@ What actually feeds the engine today (all public sources; nothing synthetic):
 | ESPN news | articles → grounded availability signals (verbatim span required) | live | evidence feed (display only, not a model input) |
 | Jolpica | F1 results 2018 → today | all races | driver and car ratings, season state |
 | OpenF1 | sessions, positions, car location (x, y) | live / recorded sessions | F1 live track |
-| Market moneylines | de-vigged closing lines | 8,877 games | **benchmark only — never a feature** |
+| Market moneylines | de-vigged closing lines | 8,877 games | **benchmark only, never a feature** |
 | ESPN team API | official colours, logos, standing summary | every team | identity only |
 
 **Model features** (league features schema `league_features_v2_real`): home field, pregame latent-strength gap and
@@ -197,7 +197,7 @@ scheme, recruiting, lineups, weather, betting prices (see [Honest limits](#hones
 | **Season simulation** | DYNAMIC: latent strength sampled once per simulated season (correlated futures) + drift; FAST: independent games at posterior means | the live state | 7 replayed seasons (below) |
 | **Leverage** | P(milestone \| win) − P(milestone \| loss) from the FAST run | the live state | per-game swing in playoff odds |
 | **Model bake-offs** | logistic vs LightGBM vs MLP vs GRU over the play sequence, multi-seed, walk-forward, on GPUs | play-by-play | game-clustered paired bootstrap CIs |
-| **Language model** | self-hosted **Llama 3.3 70B** (vLLM) | — | only structures questions and news into schema-checked JSON and rewrites answers with every number verified; **never produces a probability** |
+| **Language model** | self-hosted **Llama 3.3 70B** (vLLM) | n/a | only structures questions and news into schema-checked JSON and rewrites answers with every number verified; **never produces a probability** |
 
 ---
 
@@ -217,12 +217,12 @@ seven replayed seasons:
 | FBS | **0.94** | 0.77 |
 
 Treating games as independent coin flips is badly overconfident; sampling the shared latent state once per
-simulated season restores near-nominal coverage — the season-scale analogue of ignoring parameter uncertainty in a
+simulated season restores near-nominal coverage. It is the season-scale analogue of ignoring parameter uncertainty in a
 portfolio simulation. Playoff-qualification log loss also improves at almost every checkpoint.
 
 **2. The learned layer adds signal, consistently, where it should.** Walk-forward (train ≤ O−2, calibrate O−1,
 test O) learned-model minus Kalman-only log loss by origin: NBA −0.016 · −0.016 · −0.018 · −0.015; FBS −0.011 ·
-−0.006 · −0.017 · −0.013; NFL −0.058 · −0.007 · −0.009 · −0.029; hockey indistinguishable — so the per-league
+−0.006 · −0.017 · −0.013; NFL −0.058 · −0.007 · −0.009 · −0.029; hockey indistinguishable, so the per-league
 model choice is made by data, not assumed.
 
 **3. Capacity helps only with long, information-rich state and enough data.** A GRU over the NBA possession
@@ -257,7 +257,7 @@ actions on the live engine:
 | *What if Michigan's starting QB misses 3 games?* | builds a typed scenario with the learned effect and exact window; **runs 10,000 seasons per branch** |
 | *What if Michigan beats Ohio State?* | finds the real remaining game, forces it, re-simulates the season |
 | *Which games matter tonight?* / *Should I watch BYU or Texas Tech?* | ranks games by season leverage × closeness and recommends one |
-| *Who wins Michigan vs Ohio State?* | win probability with the model's reasoning (strength gap, home field, expected margin) — or the final if it is over |
+| *Who wins Michigan vs Ohio State?* | win probability with the model's reasoning (strength gap, home field, expected margin), or the final if it is over |
 | *What's new?* | live briefing: title favourite, live games, the game that matters most, latest finals |
 
 Code: [`agents/sportsworld_analyst/`](agents/sportsworld_analyst/) (agent) and

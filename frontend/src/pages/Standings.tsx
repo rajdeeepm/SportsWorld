@@ -31,7 +31,7 @@ export function Standings({ lg }: { lg: LeagueConfig }) {
     <>
       <div className="hero">
         <div>
-          <h1>{lg.name} — <em>Standings & projections</em></h1>
+          <h1>{lg.name}: <em>Standings & projections</em></h1>
           <p>Today’s records next to where the season simulation expects each team to finish.</p>
         </div>
       </div>

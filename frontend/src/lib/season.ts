@@ -14,4 +14,4 @@ export const MILESTONES:Record<string,[string,string][]>={
  'mens-college-basketball':[['tournament','NCAA field'],['sweet_16','Sweet 16'],['final_four','Final Four'],['champion','Title']],
  'womens-college-basketball':[['tournament','NCAA field'],['sweet_16','Sweet 16'],['final_four','Final Four'],['champion','Title']],
  wnba:[]};
-export const pct=(p?:number|null,d=1)=>p==null?'—':`${(p*100).toFixed(d)}%`;
+export const pct=(p?:number|null,d=1)=>p==null?'-':`${(p*100).toFixed(d)}%`;

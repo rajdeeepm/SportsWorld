@@ -15,6 +15,8 @@ from typing import Any
 
 import httpx
 
+from sportsworld.text_style import no_em_dash
+
 log = logging.getLogger("sportsworld.spacetime")
 
 QUALIFY = {"mens-college-basketball": "tournament", "womens-college-basketball": "tournament", "mens-college-hockey": "tournament"}
@@ -54,7 +56,7 @@ class SpacetimePublisher:
         self.last_error: str | None = None
 
     async def _call(self, client: httpx.AsyncClient, reducer: str, args: dict) -> None:
-        r = await client.post(f"{self.base}/{reducer}", headers=self.headers, content=json.dumps(args))
+        r = await client.post(f"{self.base}/{reducer}", headers=self.headers, content=no_em_dash(json.dumps(args, ensure_ascii=False)).encode("utf-8"))
         self.calls += 1
         if r.status_code >= 300:
             raise RuntimeError(f"{reducer} -> {r.status_code}: {r.text[:200]}")

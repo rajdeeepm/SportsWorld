@@ -84,7 +84,7 @@ export function segColor(meta?: TeamMeta, fallback = '#2f8cff') {
 /** two-sided win probability bar in official team colours; away on the left as broadcasts list "away @ home".
  *  Both ends always carry the team code and its probability, so the bar never reads ambiguously. */
 export function ProbSplit({ pHome, home, away }: { pHome: number | null; home?: TeamMeta; away?: TeamMeta }) {
-  if (pHome == null) return <span className="p-faint">—</span>
+  if (pHome == null) return <span className="p-faint">-</span>
   const pa = 1 - pHome
   const ca = segColor(away, '#e64a5c')
   let ch = segColor(home, '#2f8cff')
@@ -125,7 +125,7 @@ export function P({ p, se, digits = 1 }: { p: number | null | undefined; se?: nu
 
 /** leverage = change in the headline milestone probability between winning and losing this game */
 export function Leverage({ value, milestone }: { value?: number | null; milestone?: string }) {
-  if (value == null) return <span className="p-faint">—</span>
+  if (value == null) return <span className="p-faint">-</span>
   const v = Math.abs(value)
   const cls = v >= 0.2 ? 'vhigh' : v >= 0.08 ? 'high' : v >= 0.025 ? 'med' : 'low'
   const label = v >= 0.2 ? 'Very high' : v >= 0.08 ? 'High' : v >= 0.025 ? 'Medium' : 'Low'
@@ -137,7 +137,7 @@ export function Leverage({ value, milestone }: { value?: number | null; mileston
 }
 
 export function Delta({ d, digits = 1, unit = 'pp' }: { d: number | null | undefined; digits?: number; unit?: 'pp' | 'raw' }) {
-  if (d == null) return <span className="flat">—</span>
+  if (d == null) return <span className="flat">-</span>
   const cls = Math.abs(d) < (unit === 'pp' ? 0.0005 : 0.05) ? 'flat' : d > 0 ? 'up' : 'down'
   const text = unit === 'pp' ? pp(d, digits) : `${d > 0 ? '+' : d < 0 ? '−' : ''}${Math.abs(d).toFixed(digits)}`
   const Icon = cls === 'up' ? ArrowUp : cls === 'down' ? ArrowDown : null

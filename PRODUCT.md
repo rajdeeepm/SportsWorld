@@ -45,8 +45,8 @@ only through an SSH tunnel and may be down; the deterministic parser is the fall
   transfers, rankings polls, curated storylines.
 
 ## Brand Commitments
-Name "SportsWorld", subtitle "Season Intelligence Engine". Page names "<Team> — Season World", "<League> — <Season>
-Season World", "<League> — Season Simulation Lab". Real ESPN team logos and league colours. The user's reference
+Name "SportsWorld", subtitle "Season Intelligence Engine". Page names "<Team>: Season World", "<League>: <Season>
+Season World", "<League>: Season Simulation Lab". Real ESPN team logos and league colours. The user's reference
 renderings (dark navy broadcast-terminal dashboards, top league tab bar, left sidebar, dense multi-panel layouts) are
 the binding visual reference.
 

@@ -71,7 +71,7 @@ export function LiveGame({ lg, eventId }: { lg: LeagueConfig; eventId: string })
     <>
       <div className="hero">
         <div>
-          <h1>{am?.short_name ?? g.away.name} at {hm?.short_name ?? g.home.name} — <em>{live ? 'Live' : g.state === 'post' ? 'Final' : 'Game'} view</em></h1>
+          <h1>{am?.short_name ?? g.away.name} at {hm?.short_name ?? g.home.name}: <em>{live ? 'Live' : g.state === 'post' ? 'Final' : 'Game'} view</em></h1>
           <p>Real {lg.sport === 'football' ? 'ball position, drives and plays' : lg.sport === 'basketball' ? 'shot locations' : 'shot, goal and hit locations'} from the {g.source}, next to SportsWorld’s own live win probability.</p>
         </div>
       </div>
@@ -131,7 +131,7 @@ function FootballPanel({ g, ac, hc }: { g: GameView; ac: string; hc: string }) {
         <div className="field-facts">
           <div><span>Possession</span><b>{s.offense_id === g.home.team_id ? g.home.abbreviation : g.away.abbreviation} →{s.direction === 'left' ? ' left' : ' right'}</b></div>
           <div><span>Down & distance</span><b>{s.down && s.down >= 1 && s.down <= 4 ? `${['', '1st', '2nd', '3rd', '4th'][s.down]} & ${s.distance === 0 ? 'goal' : s.distance}` : 'Between plays'}</b></div>
-          <div><span>Ball on</span><b>{s.ball_x == null ? '—' : s.ball_x <= 0 || s.ball_x >= 100 ? 'End zone' : s.ball_x === 50 ? 'Midfield' : s.ball_x < 50 ? `${g.away.abbreviation} ${Math.round(s.ball_x)}` : `${g.home.abbreviation} ${Math.round(100 - s.ball_x)}`}</b></div>
+          <div><span>Ball on</span><b>{s.ball_x == null ? '-' : s.ball_x <= 0 || s.ball_x >= 100 ? 'End zone' : s.ball_x === 50 ? 'Midfield' : s.ball_x < 50 ? `${g.away.abbreviation} ${Math.round(s.ball_x)}` : `${g.home.abbreviation} ${Math.round(100 - s.ball_x)}`}</b></div>
           <div><span>Red zone</span><b>{s.red_zone ? 'Yes' : 'No'}</b></div>
           <div style={{ gridColumn: '1 / -1' }}><span>Last play</span><b style={{ fontFamily: 'var(--ui)', fontSize: 13.5, fontWeight: 500 }}>{s.last_play}</b></div>
         </div>
@@ -155,7 +155,7 @@ function ShotPanel({ g, colors, am, hm }: { g: GameView; colors: Record<string, 
           <button className={team === g.away.team_id ? 'on' : ''} onClick={() => setTeam(g.away.team_id)}>{g.away.abbreviation}</button>
           <button className={team === g.home.team_id ? 'on' : ''} onClick={() => setTeam(g.home.team_id)}>{g.home.abbreviation}</button>
         </div>
-        <span className="muted">{made}/{ev.length} field goals · {ev.length ? pct(made / ev.length, 0) : '—'}</span>
+        <span className="muted">{made}/{ev.length} field goals · {ev.length ? pct(made / ev.length, 0) : '-'}</span>
       </div>
       {ev.length ? <div style={{ maxWidth: 560, margin: '0 auto' }}><Court shots={ev} colors={colors} /></div> : <Empty title="No shots yet" />}
       <div className="legend" style={{ marginTop: 8 }}>
@@ -252,7 +252,7 @@ function DriveChart({ drives, colors, away, home }: { drives: FootballDrive[]; c
                 <div className="drive-track">
                   <i style={{ left: `${lo}%`, width: `${Math.max(hi - lo, 0.8)}%`, background: colors[d.team_id] ?? '#2f8cff' }} />
                 </div>
-                <span className={`chip ${d.is_score ? 'low' : 'neutral'}`}>{d.result ?? '—'}</span>
+                <span className={`chip ${d.is_score ? 'low' : 'neutral'}`}>{d.result ?? '-'}</span>
               </div>
             )
           })}
@@ -286,13 +286,13 @@ export function F1Live() {
     <>
       <div className="hero">
         <div>
-          <h1>F1 — <em>{v.live ? 'Live track' : 'Track replay'}</em></h1>
+          <h1>F1: <em>{v.live ? 'Live track' : 'Track replay'}</em></h1>
           <p>{v.session.year} {v.session.country_name} · {v.session.circuit_short_name} · {v.session.session_name}. Every car at its real position from OpenF1 location data{v.live ? ', refreshed every 25 seconds' : `, replaying ${v.window.seconds} seconds from ${time(v.window.start)}`}.</p>
         </div>
       </div>
       <div className="grid">
         <div className="c8">
-          <Panel title={`${v.session.circuit_short_name} — ${v.session.session_name}`} icon={Flag}
+          <Panel title={`${v.session.circuit_short_name} · ${v.session.session_name}`} icon={Flag}
             action={<button className="btn" onClick={() => setPlaying((p) => !p)}>{playing ? <><Pause size={14} /> Pause</> : <><Play size={14} /> Play</>}</button>}
             foot={<>Source: {v.source}. Positions are sampled about 4 times a second and interpolated between samples. {v.live ? '' : 'Outside a live session this is a replay of recorded data.'}</>}>
             {v.outline.length ? <Track outline={v.outline} tracks={v.tracks} cars={v.drivers} seconds={v.window.seconds} playing={playing} focus={focus} /> : <Empty title="No location data for this session" />}
@@ -304,7 +304,7 @@ export function F1Live() {
               <tbody>
                 {order.map((d) => (
                   <tr key={d.number} className={focus === d.number ? 'focus' : ''} style={{ cursor: 'pointer' }} onClick={() => setFocus((f) => (f === d.number ? null : d.number))}>
-                    <td className="rank">{d.position ?? '—'}</td>
+                    <td className="rank">{d.position ?? '-'}</td>
                     <td><span className="team-cell" style={{ gap: 7 }}><span aria-hidden style={{ width: 5, height: 18, borderRadius: 2, background: d.colour ?? '#2f8cff' }} /><b>{d.code}</b></span></td>
                     <td className="muted">{d.name}</td>
                     <td className="muted">{d.team}</td>

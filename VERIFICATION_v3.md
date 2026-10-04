@@ -1,4 +1,4 @@
-# Verification — v3.0 (Oct 3, 2026, 04:42 EDT)
+# Verification: v3.0 (Oct 3, 2026, 04:42 EDT)
 
 | Check | Result |
 |---|---|

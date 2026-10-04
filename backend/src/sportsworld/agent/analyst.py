@@ -137,7 +137,7 @@ def _verdict(p: float | None) -> str:
             else "slight underdogs" if p >= 0.4 else "underdogs" if p >= 0.3 else "big underdogs")
 
 
-MILESTONE_Q = [  # (pattern in the question, run key, label) — first match wins, most specific first
+MILESTONE_Q = [  # (pattern in the question, run key, label): first match wins, most specific first
     (r"national (title|championship)|win (it all|the title|the championship)|\bchampionship\b|super bowl|stanley cup|nba (title|finals)|\btitle\b", "champion", None),
     (r"conference (title|championship)|win the (big ten|sec|acc|big 12|pac-12|conference)|\bconference\b", "conf", None),
     (r"playoffs?|\bcfp\b|make the (tournament|dance)|ncaa tournament|\bpostseason\b", "qualify", None),
@@ -191,7 +191,7 @@ def team_status(eng: Engine, lg: str, t: dict, question: str = "") -> str:
     pre = [g for g in page["remaining"] if g.get("state") == "pre"]
     if pre:
         n = pre[0]
-        lines.append(f"- Next: {'vs' if n['is_home'] else 'at'} {n['away'] if n['is_home'] else n['home']} on {n['start_time'][:10]} — **{pct(n.get('p_win'))}** to win")
+        lines.append(f"- Next: {'vs' if n['is_home'] else 'at'} {n['away'] if n['is_home'] else n['home']} on {n['start_time'][:10]}: **{pct(n.get('p_win'))}** to win")
         lev = lambda g: abs((g.get("leverage_home") if g["is_home"] else g.get("leverage_away")) or 0)  # noqa: E731
         # the game that matters most is a big swing that is still in doubt (4p(1-p) is 1 for a coin flip, ~0.15 at 96%)
         stake = lambda g: lev(g) * 4 * (g.get("p_win") or 0.5) * (1 - (g.get("p_win") or 0.5))  # noqa: E731
@@ -214,12 +214,12 @@ def outlook(eng: Engine, lg: str) -> str:
     if lg == "f1":
         run = eng.get("/competitions/f1/seasons/current/season-forecast")
         ds = sorted(run["drivers"], key=lambda d: -d["title"])[:5]
-        body = "\n".join(f"{i + 1}. **{d['name']}** — {pct(d['title'])} (now {d['points_now']:.0f} pts, projected {d['expected_points']:.0f})" for i, d in enumerate(ds))
+        body = "\n".join(f"{i + 1}. **{d['name']}**: {pct(d['title'])} (now {d['points_now']:.0f} pts, projected {d['expected_points']:.0f})" for i, d in enumerate(ds))
         return f"**F1 drivers' title** after round {run['standings_round']}:\n{body}\n\n{SITE}/f1"
     run = eng.get(f"/competitions/{lg}/seasons/current/season-forecast")
     ts = run["teams"][:6]
     qk, qname = QUALIFY.get(lg, ("playoffs", "playoffs"))
-    body = "\n".join(f"{i + 1}. **{t['name']}** — {pct(t.get('champion'))} ± {pct(1.96 * float(t.get('champion_se') or 0))} · {qname} {pct(t.get(qk))}" for i, t in enumerate(ts))
+    body = "\n".join(f"{i + 1}. **{t['name']}**: {pct(t.get('champion'))} ± {pct(1.96 * float(t.get('champion_se') or 0))} · {qname} {pct(t.get(qk))}" for i, t in enumerate(ts))
     return f"**{TITLE.get(lg, 'Title')} favourites** ({run['draws']:,} simulated seasons, state v{run['global_state_version']}):\n{body}\n\n{SITE}/{lg}"
 
 
@@ -250,7 +250,7 @@ def games_to_watch(eng: Engine, leagues: list[str], soon: bool = False) -> str:
     for i, (lg, g) in enumerate(top):
         p = g.get("p_home")
         state = f"LIVE {g.get('away_score')}–{g.get('home_score')}" if g["state"] == "in" else g["start_time"][11:16] + " UTC"
-        lines.append(f"{i + 1}. **{g['away']} @ {g['home']}** ({LEAGUE_NAME[lg]}, {state}) — home win {pct(p)}, swings playoff odds by up to **{lev(g) * 100:.0f} pts**")
+        lines.append(f"{i + 1}. **{g['away']} @ {g['home']}** ({LEAGUE_NAME[lg]}, {state}): home win {pct(p)}, swings playoff odds by up to **{lev(g) * 100:.0f} pts**")
     lines.append(f"\nMy pick: **{top[0][1]['away']} @ {top[0][1]['home']}**. Watch it live: {SITE}/{top[0][0]}/game/{top[0][1]['event_id']}")
     return "\n".join(lines)
 
@@ -358,7 +358,7 @@ def whats_new(eng: Engine, leagues: list[str]) -> str:
             continue
         b = eng.get("/voice/briefing", league=lg, speak="false")
         finals = [u for u in eng.get(f"/competitions/{lg}/seasons/current/updates") if str(u.get("reason", "")).startswith("Final")][-4:]
-        out.append(f"\n**{LEAGUE_NAME.get(lg, lg)}** — {b['text'].replace('This is SportsWorld on the ', '').split('. ', 1)[-1]}")
+        out.append(f"\n**{LEAGUE_NAME.get(lg, lg)}**: {b['text'].replace('This is SportsWorld on the ', '').split('. ', 1)[-1]}")
         if finals:
             out.append("Latest finals: " + "; ".join(u["reason"].replace("Final: ", "") for u in reversed(finals)) + ".")
     out.append(f"\nAsk me about any team, a what-if, or which games to watch. {SITE}")

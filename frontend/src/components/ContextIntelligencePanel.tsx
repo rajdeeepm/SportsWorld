@@ -1,7 +1,7 @@
 import type{ContextSnapshot,LatentEntityState}from'../types';
 
 const common=['skill','form','health','usage','experience','potential','chemistry'];
-function pct(v:number|undefined){if(v===undefined)return '—';return `${v>=0?'+':''}${(v*100).toFixed(0)}`}
+function pct(v:number|undefined){if(v===undefined)return '-';return `${v>=0?'+':''}${(v*100).toFixed(0)}`}
 function label(k:string){return k.replaceAll('_',' ')}
 function tone(v:number){return v>.12?'positive':v<-.12?'negative':'neutral'}
 function EntityCard({entity}:{entity:LatentEntityState}){const dims=common.filter(k=>k in entity.dimensions);return <article className="belief-card"><div className="belief-head"><div><strong>{entity.display_name}</strong><small>{entity.role??entity.entity_type} · {entity.evidence_count} evidence items · {entity.estimator_version}</small></div><span className="confidence">{(entity.confidence*100).toFixed(0)}% conf.</span></div><div className="dimension-grid">{dims.map(k=>{const sd=Math.sqrt(Math.max(0,entity.dimension_variance?.[k]??0));return <div key={k}><span>{label(k)}</span><b className={tone(entity.dimensions[k])}>{pct(entity.dimensions[k])}</b><small>posterior σ {(sd*100).toFixed(0)}</small></div>})}</div>{entity.recent_evidence.length>0&&<div className="evidence-list">{entity.recent_evidence.slice(0,3).map((e,i)=><div key={`${e.metric}-${i}`}><span>{label(e.metric)}</span><strong>{String(e.raw_value)}{e.unit?` ${e.unit}`:''}</strong><small>{e.source_id}</small></div>)}</div>}</article>}

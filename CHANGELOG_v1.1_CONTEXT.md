@@ -1,4 +1,4 @@
-# v1.1 — Historical / Contextual Belief-State Extension
+# v1.1: Historical / Contextual Belief-State Extension
 
 This revision implements the requested transition from a live-statistics predictor to a contextual world-state forecasting system.
 

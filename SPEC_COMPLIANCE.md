@@ -1,4 +1,4 @@
-# Master specification implementation map — v1.2 learned world-state build
+# Master specification implementation map: v1.2 learned world-state build
 
 This file maps the master specification plus the historical/contextual and world-model upgrades to concrete source files. It separates executable implementation from external data/deployment steps that require real providers or credentials.
 

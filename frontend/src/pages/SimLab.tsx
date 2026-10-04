@@ -84,7 +84,7 @@ export function SimLab({ lg }: { lg: LeagueConfig }) {
     <>
       <div className="hero">
         <div>
-          <h1>{lg.name} — <em>Season Simulation Lab</em></h1>
+          <h1>{lg.name}: <em>Season Simulation Lab</em></h1>
           <p>Branch the world. Simulate the rest of the season. Measure {qualify(lg).short === 'Playoffs' ? 'playoff' : qualify(lg).short} and title paths. Canonical state is never touched.</p>
         </div>
       </div>
@@ -200,7 +200,7 @@ function AbsenceControl({ lg, roles, teamId, abbr, remaining, onAdd }: { lg: Lea
         <select className="field" value={role} onChange={(e) => setRole(e.target.value)} aria-label="Role">
           {all.map((k) => {
             const ok = roles[k].significant !== false
-            return <option key={k} value={k} disabled={!ok}>{label(k)}{ok ? '' : ` — ${roles[k].points.toFixed(1)} ± ${roles[k].se.toFixed(1)}, not significant`}</option>
+            return <option key={k} value={k} disabled={!ok}>{label(k)}{ok ? '' : ` (${roles[k].points.toFixed(1)} ± ${roles[k].se.toFixed(1)}, not significant)`}</option>
           })}
         </select>
       </div>
@@ -323,7 +323,7 @@ function Results({ lg, r, teamId, meta }: { lg: LeagueConfig; r: SimResult; team
         </div>
 
         <div className="c7">
-          <Panel title="Before vs after — most affected teams" icon={Scale} flush>
+          <Panel title="Before vs after: most affected teams" icon={Scale} flush>
             <div className="tbl-wrap" style={{ maxHeight: 360 }}>
               <table className="tbl">
                 <thead><tr><th>Team</th><th className="num">Exp. W</th><th className="num">{q.short}</th>{conf && <th className="num">{conf.short}</th>}<th className="num">{tt.short}</th></tr></thead>
@@ -360,7 +360,7 @@ function Results({ lg, r, teamId, meta }: { lg: LeagueConfig; r: SimResult; team
               <div><span>Engine runtime</span><b>{num(r.base.diagnostics.runtime_s, 2)}s + {num(r.scenario.diagnostics.runtime_s, 2)}s</b></div>
               <div><span>Round trip</span><b>{(r.ms / 1000).toFixed(1)}s</b></div>
               <div><span>{q.short} std. error ({meta[focusId]?.abbreviation})</span><b>±{pct(Math.sqrt(Math.max(v(a, q.key) * (1 - v(a, q.key)), 0) / r.scenario.draws), 2)}</b></div>
-              <div><span>Champions per draw</span><b className="up">{(r.scenario.diagnostics.champions_per_draw_min_max ?? ['—']).join('–')}</b></div>
+              <div><span>Champions per draw</span><b className="up">{(r.scenario.diagnostics.champions_per_draw_min_max ?? ['-']).join('–')}</b></div>
               <div><span>Simulator</span><b>{r.scenario.simulator_version}</b></div>
             </div>
           </Panel>

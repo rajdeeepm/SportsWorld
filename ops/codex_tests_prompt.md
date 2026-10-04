@@ -11,5 +11,5 @@ Required tests:
 - Determinism: same seed => identical results; different seed => different.
 - DYNAMIC vs FAST: with large posterior variance, DYNAMIC wins_sd >= FAST wins_sd for a typical team.
 - Point-in-time: build_setup(as_of) excludes games whose result_known_time > as_of from played tables.
-- F1: run_f1_season on a tiny synthetic state (5 drivers, 3 constructors, 2 remaining races, one sprint) — exactly one driver champion and one constructor champion per draw; expected points >= current points.
+- F1: run_f1_season on a tiny synthetic state (5 drivers, 3 constructors, 2 remaining races, one sprint), exactly one driver champion and one constructor champion per draw; expected points >= current points.
 Use PYTHONPATH=src from backend/. Run `cd backend && PYTHONPATH=src ../../env/bin/python -m pytest tests/test_season_acceptance.py -q` and iterate until it passes. If a test reveals a genuine engine bug, do NOT fix the engine; mark that test xfail with a clear reason string describing the bug.

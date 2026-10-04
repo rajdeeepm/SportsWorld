@@ -45,7 +45,7 @@ export function StatTables({ categories, prefer }: { categories: StatCategory[];
 export function TeamPlayerStats({ league, teamId }: { league: string; teamId: string }) {
   const q = useQuery({ queryKey: ['player-stats', league, teamId], queryFn: () => getJSON<{ games: number; categories: StatCategory[] }>(`/entities/team/${league}/${teamId}/player-stats`), staleTime: 300_000, retry: 0 })
   return (
-    <Panel title="Player stats — this season" icon={Users} flush foot={q.data ? `Summed from the box score of all ${q.data.games} completed games this season (ESPN). Averages recomputed from the totals.` : undefined}>
+    <Panel title="Player stats this season" icon={Users} flush foot={q.data ? `Summed from the box score of all ${q.data.games} completed games this season (ESPN). Averages recomputed from the totals.` : undefined}>
       {q.isLoading ? <div style={{ padding: 14 }}><Loading rows={5} /></div> : !q.data?.categories.length ? <Empty title="No completed games this season yet" /> : <StatTables categories={q.data.categories} />}
     </Panel>
   )

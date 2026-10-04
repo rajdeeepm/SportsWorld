@@ -213,8 +213,8 @@ def build_setup(league: str, data_root: Path, as_of: datetime | None = None, *, 
 class SeasonScenario:
     """Typed season-level counterfactual.
 
-    rating_shifts: (team_id, delta_points, start, end) — e.g. a QB absence for a window.
-    forced: event_id -> "home" | "away" — hypothetical results.
+    rating_shifts: (team_id, delta_points, start, end): e.g. a QB absence for a window.
+    forced: event_id -> "home" | "away": hypothetical results.
     """
     rating_shifts: list[tuple[str, float, datetime | None, datetime | None]] = field(default_factory=list)
     forced: dict[str, str] = field(default_factory=dict)

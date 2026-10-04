@@ -1,4 +1,4 @@
-# SportsWorld live world state — SpacetimeDB module
+# SportsWorld live world state: SpacetimeDB module
 
 SpacetimeDB is SportsWorld's shared, real-time world state. The Python engine computes every number; this
 module holds the canonical *shared copy* that every browser (and agent) subscribes to, so all viewers see the

@@ -1,4 +1,4 @@
-# SportsWorld v1.2 — Learned State + Sequential Futures + Three Hero Models
+# SportsWorld v1.2: Learned State + Sequential Futures + Three Hero Models
 
 This build completes the three algorithmic upgrades identified after the contextual-belief layer.
 
@@ -21,13 +21,13 @@ The API returns the transition method, mean number of simulated steps, Monte Car
 ## 3. Learned models for all hero sports
 
 ### Football
-`football_bootstrap_world_demo_v3` — bootstrap binary logistic ensemble with 22 contextual/live features.
+`football_bootstrap_world_demo_v3`, bootstrap binary logistic ensemble with 22 contextual/live features.
 
 ### Basketball
-`basketball_bootstrap_world_demo_v1` — bootstrap binary logistic ensemble over latent team/player state, matchup/context, lineup, star availability, pace, possession, and live score state.
+`basketball_bootstrap_world_demo_v1`, bootstrap binary logistic ensemble over latent team/player state, matchup/context, lineup, star availability, pace, possession, and live score state.
 
 ### Formula 1
-`f1_conditional_softmax_world_demo_v1` — bootstrap conditional-softmax ensemble. The same learned scoring function is applied to every driver, so the model can handle a variable field while producing one race-level probability distribution.
+`f1_conditional_softmax_world_demo_v1`, bootstrap conditional-softmax ensemble. The same learned scoring function is applied to every driver, so the model can handle a variable field while producing one race-level probability distribution.
 
 All three use held-out chronological temperature scaling and bootstrap disagreement for epistemic uncertainty.
 

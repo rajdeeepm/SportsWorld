@@ -260,7 +260,8 @@ A cold, near-monochrome navy-and-cobalt field lit by a single electric blue, wit
 **Character:** A sports-broadcast pairing: the condensed face gives titles and scores a stadium-scoreboard punch while staying narrow enough for dense panels; the regular-width sibling keeps tables and captions calm. Tabular numerals are set on the root, so every figure aligns in columns and does not jitter as it updates.
 
 ### Hierarchy
-- **Display** (800, clamp(34px to 54px), line-height 0.95): page titles in the form "<Team> — Season World". The trailing phrase is set in an emphasis colour: the team's lighter official colour on team pages, Signal Blue Ink elsewhere. Fixed at 34px on phones.
+- **No em dashes** anywhere in product copy, docs or generated text (the API and the SpacetimeDB publisher also strip them from live ESPN, news and LLM text). Use a colon, comma, parentheses or a new sentence.
+- **Display** (800, clamp(34px to 54px), line-height 0.95): page titles in the form "<Team>: Season World". The trailing phrase is set in an emphasis colour: the team's lighter official colour on team pages, Signal Blue Ink elsewhere. Fixed at 34px on phones.
 - **Numeral** (800, 34px, line-height 1): KPI values, team-band stats (40px), matchup scores (34px), result-card figures (30px), favourite title odds. Units ride alongside at 17px in ink-2.
 - **Title** (700, 20px, line-height 1.1): panel headings, with an optional 12px Barlow ink-3 aside.
 - **Tab** (700, 16px, 0.02em tracking): league tabs; team names in matchups and the team band use the condensed face at 800 in uppercase.

@@ -2,9 +2,9 @@
 
 Sources
 -------
-* Jolpica (Ergast-compatible) — calendar, qualifying and classified results back
+* Jolpica (Ergast-compatible): calendar, qualifying and classified results back
   to 1950.  Rate limit ~4 req/s, 500 req/h, so results are paged per season.
-* OpenF1 — lap-level timing for 2023+.  Historical sessions are free; live
+* OpenF1: lap-level timing for 2023+.  Historical sessions are free; live
   sessions may require an OpenF1 account token (OPENF1_TOKEN).  When live timing
   is unavailable the tracker still forecasts pre-race and settles on results.
 

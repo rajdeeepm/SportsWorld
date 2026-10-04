@@ -38,7 +38,7 @@ export function Games({ lg }: { lg: LeagueConfig }) {
     <>
       <div className="hero">
         <div>
-          <h1>{lg.name} — <em>{liveOnly ? 'Live games' : 'Every game, forecast'}</em></h1>
+          <h1>{lg.name}: <em>{liveOnly ? 'Live games' : 'Every game, forecast'}</em></h1>
           <p>{liveOnly ? 'In-game win probabilities, updated every 20 seconds and fed straight into the season simulation.' : `All ${board.data?.count.toLocaleString() ?? ''} remaining games with a calibrated forecast and the season leverage of each result.`}</p>
         </div>
       </div>

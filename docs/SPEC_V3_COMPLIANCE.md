@@ -1,4 +1,4 @@
-# Spec v3.0 — Definition of Done status (Oct 3, 2026)
+# Spec v3.0: Definition of Done status (Oct 3, 2026)
 
 Legend: ✅ done and exercised on real data · 🟡 partial / documented approximation · ❌ not done
 
@@ -20,7 +20,7 @@ Legend: ✅ done and exercised on real data · 🟡 partial / documented approxi
 | F1 driver + constructor title distributions | ✅ | sprint + race points, current two-seat entry list, reliability DNFs, FIA count-back tiebreak |
 | Event + season counterfactuals without canonical mutation | ✅ | `/season-simulations` (typed) + `/scenario/ask` (Llama → typed → learned effect sizes); common random numbers; acceptance test G8 |
 | Event + season calibration evaluated chronologically | ✅ | event: per-league held-out tests; season: historical replay at 0/25/50/75 % (`/research/season-summary`) |
-| Historical season replay, zero leakage | 🟡 | results, ratings, hyper-parameters, OT rate point-in-time; live inputs (injury report, in-game probabilities) are excluded in replay mode; schedule and conference structure are retrospective snapshots (no historical schedule versions available) — disclosed |
+| Historical season replay, zero leakage | 🟡 | results, ratings, hyper-parameters, OT rate point-in-time; live inputs (injury report, in-game probabilities) are excluded in replay mode; schedule and conference structure are retrospective snapshots (no historical schedule versions available), disclosed |
 | A0–A5 ablations on real data | 🟡 | A0 venue → A1 latent state → A2 form/rest → A3 live → A4 possession (football); player-availability and verified-context stages are not yet in the ablation table |
 | Research UI (metrics, calibration, versions, leakage) | ✅ | Quant / Research page: season replay, bake-offs with game-clustered CIs, player impact, per-league backtests |
 | Competition UI (board, standings, outlook, updates) | ✅ | season terminal tabs |

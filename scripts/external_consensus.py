@@ -231,7 +231,7 @@ def paired_bootstrap(sw: np.ndarray, market: np.ndarray, y: np.ndarray) -> dict[
 def research_blend(sw: np.ndarray, market: np.ndarray, y: np.ndarray) -> dict[str, Any]:
     n = len(y)
     result: dict[str, Any] = {
-        "label": "A6 research-only blend ablation — NOT production",
+        "label": "A6 research-only blend ablation: NOT production",
         "split": "earlier 50% of games for fitting; later 50% for evaluation",
         "train_games": n // 2,
         "test_games": n - n // 2,

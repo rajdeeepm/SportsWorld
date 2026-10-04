@@ -83,7 +83,7 @@ async def lifespan(app:FastAPI):
             for r in recs:
                 flag=' · SOURCE DISAGREEMENT with official report' if r.get('disagreement') else ''
                 st.feed.appendleft({"at":r["known_to_model_time"],"global_state_version":st.global_state_version,
-                                    "reason":f"News ({r['category'].replace('_',' ')}): {r.get('player') or r.get('team')} — \"{r['evidence_span'][:120]}\"{flag} [state-only evidence]",
+                                    "reason":f"News ({r['category'].replace('_',' ')}): {r.get('player') or r.get('team')}: \"{r['evidence_span'][:120]}\"{flag} [state-only evidence]",
                                     "teams":[r["team_id"]] if r.get("team_id") else [],"news":r})
         news=NewsService(season_leagues,_real_data_root(),LLMClient(settings),_teams,_report,_on_signal)
         app.state.news=news
@@ -111,6 +111,20 @@ async def lifespan(app:FastAPI):
     if tracker: await tracker.stop()
 
 app=FastAPI(title='SportsWorld API',version=__version__,description='Point-in-time-valid cross-sport probabilistic forecasting engine',lifespan=lifespan)
+
+
+@app.middleware("http")
+async def _house_style(request, call_next):
+    """Every JSON response leaves without em dashes (live ESPN / news / LLM text included)."""
+    from starlette.responses import Response
+    from sportsworld.text_style import no_em_dash_bytes
+    resp = await call_next(request)
+    if "application/json" not in resp.headers.get("content-type", ""):
+        return resp
+    body = b"".join([chunk async for chunk in resp.body_iterator])
+    headers = {k: v for k, v in resp.headers.items() if k.lower() != "content-length"}
+    return Response(no_em_dash_bytes(body), status_code=resp.status_code, headers=headers, media_type="application/json")
+
 app.include_router(season_routes.router)
 app.add_middleware(CORSMiddleware,allow_origins=[settings.frontend_origin,'http://127.0.0.1:5173'],allow_credentials=True,allow_methods=['*'],allow_headers=['*'])
 

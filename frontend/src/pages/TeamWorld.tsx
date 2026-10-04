@@ -34,7 +34,7 @@ export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) 
   const tt = title(lg)
   const st = standings.data?.rows.find((r) => r.team_id === teamId)
   // our standings update the moment a final lands; ESPN's team page is a cached fallback
-  const record = st ? `${st.wins}-${st.losses}${st.ties ? `-${st.ties}` : ''}` : me.record_summary ?? '—'
+  const record = st ? `${st.wins}-${st.losses}${st.ties ? `-${st.ties}` : ''}` : me.record_summary ?? '-'
   const remaining = team.data.remaining
   const next = remaining.find((r) => r.state !== 'post')
   const color = visibleColor(me.color, me.alt_color)
@@ -47,7 +47,7 @@ export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) 
     <div style={{ ['--hero-accent' as string]: heroAccent }}>
       <div className="hero">
         <div>
-          <h1>{me.name ?? t.name} — <em>Season World</em></h1>
+          <h1>{me.name ?? t.name}: <em>Season World</em></h1>
           <p>Persistent team intelligence across the {lg.seasonLabel} {lg.name.toLowerCase().startsWith('n') ? lg.name : lg.name.toLowerCase()} season.</p>
           <div className="hero-actions"><ListenButton league={lg.id} team={teamId} label={`Listen: ${me.short_name ?? t.name} briefing`} /></div>
         </div>
@@ -60,8 +60,8 @@ export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) 
             <b>{me.location ?? t.name}<br />{me.nickname ?? ''}</b>
             <span>{me.standing_summary ?? confShort}{me.rank ? ` · AP #${me.rank}` : ''}</span>
           </div>
-          <div className="tb-stat keep"><b>{record}</b><span>Overall</span><span className="m-only">{st?.conf_record ?? '—'} {confShort}</span><span className="m-only">#{strengthRank} strength</span></div>
-          <div className="tb-stat"><b>{st?.conf_record ?? '—'}</b><span>{confShort || 'Conference'}</span></div>
+          <div className="tb-stat keep"><b>{record}</b><span>Overall</span><span className="m-only">{st?.conf_record ?? '-'} {confShort}</span><span className="m-only">#{strengthRank} strength</span></div>
+          <div className="tb-stat"><b>{st?.conf_record ?? '-'}</b><span>{confShort || 'Conference'}</span></div>
           <div className="tb-stat"><b>#{strengthRank}</b><span>Strength of {teams.length}</span></div>
           <div className="tb-stat"><b>{signed(t.rating, 1)}</b><span>{lg.unit} vs average</span></div>
           {next ? <NextGameCard lg={lg} g={next} meta={m} teamId={teamId} /> : <div className="tb-next"><div><div className="k">Next game</div><b>Season complete</b></div></div>}
@@ -197,12 +197,12 @@ function MatchupOutlook({ lg, g, meta, teamId, teams, hfa }: { lg: LeagueConfig;
       <ProbSplit pHome={g.p_home} home={meta[g.home_id]} away={meta[g.away_id]} />
       <div className="mu-figs" style={{ marginTop: 10 }}>
         <div><b>{pct(g.p_win, 0)}</b><span>{meta[teamId]?.abbreviation} win prob</span></div>
-        <div><b>{margin != null ? signed(myHome ? margin : -margin, 1) : '—'}</b><span>Exp. margin</span></div>
+        <div><b>{margin != null ? signed(myHome ? margin : -margin, 1) : '-'}</b><span>Exp. margin</span></div>
         <div><b>{pct(myHome ? g.p_home_pregame : 1 - (g.p_home_pregame ?? 0.5), 0)}</b><span>Pregame</span></div>
       </div>
-      <div className="factor"><Sigma size={15} /><span>{meta[teamId]?.abbreviation} strength edge (posterior means)</span><span className="v">{home && away ? signed(myHome ? home.rating - away.rating : away.rating - home.rating, 1) : '—'}</span></div>
+      <div className="factor"><Sigma size={15} /><span>{meta[teamId]?.abbreviation} strength edge (posterior means)</span><span className="v">{home && away ? signed(myHome ? home.rating - away.rating : away.rating - home.rating, 1) : '-'}</span></div>
       <div className="factor"><Home size={15} /><span>Home field ({g.neutral_site ? 'neutral site' : myHome ? 'learned, in our favour' : 'learned, against'})</span><span className="v">{g.neutral_site ? '0.0' : signed(myHome ? hfa ?? 0 : -(hfa ?? 0), 1)}</span></div>
-      <div className="factor"><Sigma size={15} /><span>Uncertainty in the gap (sd)</span><span className="v">±{sd != null ? num(sd, 1) : '—'}</span></div>
+      <div className="factor"><Sigma size={15} /><span>Uncertainty in the gap (sd)</span><span className="v">±{sd != null ? num(sd, 1) : '-'}</span></div>
       <div className="factor"><Route size={15} /><span>{qualify(lg).short} swing (win vs loss)</span><span className="v">{pct(Math.abs((myHome ? g.leverage_home : g.leverage_away) ?? 0), 1)}</span></div>
       {g.interval_90 && <div className="factor"><Activity size={15} /><span>{meta[teamId]?.abbreviation} pregame win prob, 90% interval</span><span className="v">{myHome ? `${pct(g.interval_90[0], 0)}–${pct(g.interval_90[1], 0)}` : `${pct(1 - g.interval_90[1], 0)}–${pct(1 - g.interval_90[0], 0)}`}</span></div>}
     </Panel>

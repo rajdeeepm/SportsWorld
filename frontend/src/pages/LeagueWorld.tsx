@@ -33,7 +33,7 @@ export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
     <>
       <div className="hero">
         <div>
-          <h1>{lg.name} — <em>{lg.seasonLabel} Season World</em></h1>
+          <h1>{lg.name}: <em>{lg.seasonLabel} Season World</em></h1>
           <p>Every team. Every game. Every forecast. One persistent season model, updated as results land.</p>
           <div className="hero-actions"><ListenButton league={lg.id} label="Listen to the briefing" /><RadioToggle league={lg.id} /></div>
         </div>
@@ -53,10 +53,10 @@ export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
         <Kpis items={[
           { icon: ListChecks, label: 'Games played', value: played.toLocaleString(), sub: played + remaining ? `${pct(played / (played + remaining), 0)} of regular season` : undefined },
           { icon: CalendarDays, label: 'Games remaining', value: remaining.toLocaleString(), sub: d.contingent_postseason_events ? `+${d.contingent_postseason_events} postseason` : 'regular season' },
-          { icon: Users, label: 'Teams tracked', value: teams.length || '—', sub: lg.id === 'college-football' ? 'all FBS teams' : lg.college ? 'all Division I teams' : `all ${lg.name} teams` },
+          { icon: Users, label: 'Teams tracked', value: teams.length || '-', sub: lg.id === 'college-football' ? 'all FBS teams' : lg.college ? 'all Division I teams' : `all ${lg.name} teams` },
           { icon: Radio, label: 'Live games', value: <span style={{ color: live ? 'var(--live)' : undefined }}>{live}</span>, sub: live ? 'feeding the season run' : 'none right now' },
-          { icon: Gauge, label: 'Forecast coverage', value: remaining ? pct(events.filter((e) => e.p_home != null).length / Math.max(events.length, 1), 0) : '—', sub: `${events.length.toLocaleString()} games forecast` },
-          { icon: Shuffle, label: 'Simulated seasons', value: season.data ? season.data.draws.toLocaleString() : '—', sub: season.data ? `state v${season.data.global_state_version} · ${d.runtime_s ?? '—'}s` : '' },
+          { icon: Gauge, label: 'Forecast coverage', value: remaining ? pct(events.filter((e) => e.p_home != null).length / Math.max(events.length, 1), 0) : '-', sub: `${events.length.toLocaleString()} games forecast` },
+          { icon: Shuffle, label: 'Simulated seasons', value: season.data ? season.data.draws.toLocaleString() : '-', sub: season.data ? `state v${season.data.global_state_version} · ${d.runtime_s ?? '-'}s` : '' },
         ]} />
 
         <div className="grid">
@@ -90,7 +90,7 @@ export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
 function NoSeason({ lg }: { lg: LeagueConfig }) {
   return (
     <>
-      <div className="hero"><div><h1>{lg.name} — <em>{lg.seasonLabel} Season World</em></h1><p>Every game. Every team. Deeper intelligence.</p></div></div>
+      <div className="hero"><div><h1>{lg.name}: <em>{lg.seasonLabel} Season World</em></h1><p>Every game. Every team. Deeper intelligence.</p></div></div>
       <Panel title="Season not started" icon={CalendarClock}>
         <Empty title={`The ${lg.seasonLabel} ${lg.name} season run starts with the first scheduled game.`}>
           The tracker is watching ESPN for the schedule. As soon as games are listed, SportsWorld builds the season, simulates it 10,000 times, and this page fills in. Last season is available in Research → historical replay.
@@ -155,7 +155,7 @@ function TitleOutlook({ lg, teams, meta, loading, error }: { lg: LeagueConfig; t
                   <td><Link to={`/${lg.id}/team/${x.team_id}`} className="team-cell"><TeamLogo meta={meta[x.team_id]} name={x.name} size={22} /><span>{meta[x.team_id]?.short_name ?? x.name}</span></Link></td>
                   <td className="num">{num(x.expected_wins)}</td>
                   <td className="num"><P p={x[q.key] as number} se={x[`${q.key}_se`] as number} /></td>
-                  {mid && <td className="num">{/independ/i.test(x.conference ?? '') && mid.key.startsWith('conference') ? <span className="p-faint" title="Independent: no conference title">—</span> : <P p={x[mid.key] as number} se={x[`${mid.key}_se`] as number} />}</td>}
+                  {mid && <td className="num">{/independ/i.test(x.conference ?? '') && mid.key.startsWith('conference') ? <span className="p-faint" title="Independent: no conference title">-</span> : <P p={x[mid.key] as number} se={x[`${mid.key}_se`] as number} />}</td>}
                   <td className="num"><b><P p={x[t.key] as number} se={x[`${t.key}_se`] as number} /></b></td>
                 </tr>
               ))}
@@ -385,12 +385,12 @@ function ModelHealth({ lg, diag }: { lg: LeagueConfig; diag: Record<string, any>
     <Panel title="Model health & calibration" icon={BadgeCheck} flush action={<Link to="/research" className="link">Full research</Link>}
       foot={dyn ? `Point-in-time replays of ${dyn.seasons?.[0]}–${dyn.seasons?.[dyn.seasons.length - 1]} preseason; rolling-origin = train on earlier seasons, test on the next.` : 'Backtests load from data/fixtures/backtests.'}>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))' }}>
-        {item('90% win-band coverage', dyn ? pct(dyn.wins_90_coverage, 0) : '—', fast ? <>target 90% · independent-game sim only {pct(fast.wins_90_coverage, 0)}</> : 'historical replay', dyn ? Math.abs(dyn.wins_90_coverage - 0.9) < 0.06 : undefined)}
-        {item('Win-total error', dyn ? num(dyn.wins_mae, 2) : '—', dyn ? <>mean abs. error, vs {num(dyn.wins_mae_pace_baseline, 2)} for a pace baseline</> : '', dyn ? dyn.wins_mae < dyn.wins_mae_pace_baseline : undefined)}
-        {item('Champion log loss', dyn ? num(dyn.champion_log_loss, 2) : '—', dyn ? <>vs {num(dyn.champion_uniform_log_loss, 2)} for picking uniformly</> : '', dyn ? dyn.champion_log_loss < dyn.champion_uniform_log_loss : undefined)}
-        {item('Game model log loss', roll ? num(roll.model_log_loss_mean, 3) : '—', roll ? <>walk-forward mean ± {num(roll.model_log_loss_sd, 3)}; state-space only {num(roll.kalman_only_log_loss_mean, 3)}</> : 'rolling-origin evaluation', roll ? roll.model_log_loss_mean <= roll.kalman_only_log_loss_mean : undefined)}
-        {item('Champions per draw', diag.champions_per_draw_min_max ? diag.champions_per_draw_min_max.join('–') : '—', 'structural check: exactly one title winner in every simulated season', diag.champions_per_draw_min_max?.[0] === 1)}
-        {item('Board ↔ season consistency', diag.board_vs_sim_expected_wins_mad != null ? num(diag.board_vs_sim_expected_wins_mad, 2) : '—', 'mean |Δ expected wins| between game forecasts and the season simulation', diag.board_vs_sim_expected_wins_mad != null ? diag.board_vs_sim_expected_wins_mad < 0.3 : undefined)}
+        {item('90% win-band coverage', dyn ? pct(dyn.wins_90_coverage, 0) : '-', fast ? <>target 90% · independent-game sim only {pct(fast.wins_90_coverage, 0)}</> : 'historical replay', dyn ? Math.abs(dyn.wins_90_coverage - 0.9) < 0.06 : undefined)}
+        {item('Win-total error', dyn ? num(dyn.wins_mae, 2) : '-', dyn ? <>mean abs. error, vs {num(dyn.wins_mae_pace_baseline, 2)} for a pace baseline</> : '', dyn ? dyn.wins_mae < dyn.wins_mae_pace_baseline : undefined)}
+        {item('Champion log loss', dyn ? num(dyn.champion_log_loss, 2) : '-', dyn ? <>vs {num(dyn.champion_uniform_log_loss, 2)} for picking uniformly</> : '', dyn ? dyn.champion_log_loss < dyn.champion_uniform_log_loss : undefined)}
+        {item('Game model log loss', roll ? num(roll.model_log_loss_mean, 3) : '-', roll ? <>walk-forward mean ± {num(roll.model_log_loss_sd, 3)}; state-space only {num(roll.kalman_only_log_loss_mean, 3)}</> : 'rolling-origin evaluation', roll ? roll.model_log_loss_mean <= roll.kalman_only_log_loss_mean : undefined)}
+        {item('Champions per draw', diag.champions_per_draw_min_max ? diag.champions_per_draw_min_max.join('–') : '-', 'structural check: exactly one title winner in every simulated season', diag.champions_per_draw_min_max?.[0] === 1)}
+        {item('Board ↔ season consistency', diag.board_vs_sim_expected_wins_mad != null ? num(diag.board_vs_sim_expected_wins_mad, 2) : '-', 'mean |Δ expected wins| between game forecasts and the season simulation', diag.board_vs_sim_expected_wins_mad != null ? diag.board_vs_sim_expected_wins_mad < 0.3 : undefined)}
       </div>
     </Panel>
   )
@@ -408,7 +408,7 @@ function Scorecard({ lg, meta }: { lg: LeagueConfig; meta: Record<string, TeamMe
   const col = (name: string, m: ScoreMetrics | null | undefined, best: boolean) => (
     <div className={`sc-col ${best ? 'best' : ''}`}>
       <span className="kpi-label">{name}</span>
-      <b>{m ? `${Math.round(m.accuracy * m.games)}/${m.games}` : '—'}</b>
+      <b>{m ? `${Math.round(m.accuracy * m.games)}/${m.games}` : '-'}</b>
       <small>{m ? <>log loss <strong>{m.log_loss.toFixed(3)}</strong> · Brier {m.brier.toFixed(3)}</> : 'no data'}</small>
     </div>
   )
@@ -416,7 +416,7 @@ function Scorecard({ lg, meta }: { lg: LeagueConfig; meta: Record<string, TeamMe
   const bestKey = c ? (['sportsworld', 'espn', 'market'] as const).reduce((a, k) => (ll(c[k]) < ll(c[a]) ? k : a), 'sportsworld' as 'sportsworld' | 'espn' | 'market') : null
   const rows = (d?.rows ?? []).slice().sort((a, b) => Number(b.upset) - Number(a.upset) || Math.abs(b.sportsworld - 0.5) - Math.abs(a.sportsworld - 0.5))
   return (
-    <Panel title="Today's scorecard — forecasts vs what happened" icon={BadgeCheck} flush
+    <Panel title="Today's scorecard: forecasts vs what happened" icon={BadgeCheck} flush
       foot={d ? <>{d.method} One day is a small sample; the 7-season replay above is the real evidence.</> : undefined}>
       {q.isLoading ? <div style={{ padding: 14 }}><Loading rows={4} /></div> : !d || d.games === 0 ? <Empty title="No completed games yet today">The scorecard fills in as games finish.</Empty> : (
         <>

@@ -2,10 +2,10 @@
 
 Same point-in-time rows, same chronological split (train 60% | calibration 20% | test 20% by
 game start), same temperature calibration, same test plays. Candidates:
-  logistic  — bootstrap logistic ensemble on the league feature schema (current production)
-  lgbm      — gradient-boosted trees on league features + raw game state
-  mlp       — 3-layer MLP (torch) on the same inputs
-  gru       — causal GRU over the game's play sequence so far + pregame state
+  logistic: bootstrap logistic ensemble on the league feature schema (current production)
+  lgbm: gradient-boosted trees on league features + raw game state
+  mlp: 3-layer MLP (torch) on the same inputs
+  gru: causal GRU over the game's play sequence so far + pregame state
 External benchmark: ESPN's published win probability on the identical plays (never a feature).
 
 Usage (GPU host): python scripts/wp_bakeoff.py --league nfl --gpu 0

@@ -1,4 +1,4 @@
-# SportsWorld v1.2 verification — learned world-state build
+# SportsWorld v1.2 verification: learned world-state build
 
 Verification was rerun on the final v1.2 source tree after the learned-state, sequential-simulation, and three-hero-model upgrades.
 

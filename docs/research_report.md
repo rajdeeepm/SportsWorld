@@ -1,4 +1,4 @@
-# SportsWorld — research report
+# SportsWorld: research report
 
 *Persistent, point-in-time probabilistic world models of whole sporting competitions.*
 Real data only (ESPN, Jolpica, OpenF1); every number below comes from a chronological held-out window
@@ -15,10 +15,10 @@ or a point-in-time historical replay. Generated Oct 3, 2026; reproducible with `
 3. **Capacity helps only where state is long and data are plentiful.** Football: logistic ≈ MLP ≈ GRU ≈ ESPN's
    published win probability (tied, game-clustered CIs). NBA: a GRU over the possession sequence beats logistic
    in 11/12 walk-forward runs, with the edge growing as history accumulates; with one season of NHL data the
-   same models overfit badly — and backfilling NHL play-by-play to 2018 turns that into 24/24 walk-forward wins.
+   same models overfit badly, and backfilling NHL play-by-play to 2018 turns that into 24/24 walk-forward wins.
 4. **Markets know more pregame.** On true holdout games the de-vigged market beats SportsWorld by ≈ 0.03 log
    loss (≈ 0.01 in hockey); a blend puts ≈ 0 weight on SportsWorld. The edge is information SportsWorld does not
-   consume (lineups, injury nuance, money flow) — the benchmark against which new evidence sources are measured.
+   consume (lineups, injury nuance, money flow). It is the benchmark against which new evidence sources are measured.
 5. **Absence of key players is large and measurable** (associational): NFL starting QB −3.8 ± 0.8 pts,
    NBA top-minutes player −2.5 ± 0.2, NHL starting goalie −0.16 ± 0.06 goals.
 
@@ -64,8 +64,8 @@ championship, and score against what happened.
 | FBS | 7 | 0.94 | 0.77 |
 | NCAAM / NCAAW (2024–25) | 2 | 0.91 / 0.88 | 0.61 / 0.56 |
 
-**Finding 1.** Independent-game simulation (FAST) is systematically overconfident about season outcomes —
-preseason intervals cover only 52–77 % of outcomes — because it ignores uncertainty in the latent state that
+**Finding 1.** Independent-game simulation (FAST) is systematically overconfident about season outcomes
+(preseason intervals cover only 52–77 % of outcomes) because it ignores uncertainty in the latent state that
 every game shares. Sampling that state once per rollout (DYNAMIC) restores near-nominal coverage at every
 checkpoint, and improves playoff-qualification log loss at almost every checkpoint (7 seasons, preseason:
 NBA 0.588 vs 0.660, NHL 0.574 vs 0.630, NFL 0.643 vs 0.677; base rate ≈ 0.69). Expected-wins MAE beats a
@@ -110,7 +110,7 @@ football a learned expected-points possession value adds a further small gain an
 ## 5. Model capacity in-game (bake-off with game-clustered paired bootstraps)
 
 Same rows, split and calibration for logistic / LightGBM / MLP / GRU-over-play-sequence; 95 % CIs resample
-whole games (plays within a game are strongly correlated — a play-level test would overstate significance).
+whole games (plays within a game are strongly correlated; a play-level test would overstate significance).
 
 * NFL, 454 test games: MLP − ESPN published WP = +0.0006 log loss, 95 % CI [−0.015, +0.016]: **statistically
   tied with ESPN's own model.** An earlier, naive comparison suggested the MLP "beat" ESPN; the clustered
@@ -135,18 +135,18 @@ whole games (plays within a game are strongly correlated — a play-level test w
   replication confirms the gains and stateful sequence serving is implemented.
 
   *Multi-seed replication (same data fingerprint, 5 seeds).* NBA: GRU test log loss 0.4472–0.4501 (mean 0.4487)
-  and MLP 0.4485–0.4501 (mean 0.4493) vs logistic 0.4516 — **every seed beats logistic** (mean gain ≈ 0.003;
-  the single v3 MLP run was the outlier). NCAAW: seeds straddle logistic (0.3400–0.3441 vs 0.3411) — no
+  and MLP 0.4485–0.4501 (mean 0.4493) vs logistic 0.4516: **every seed beats logistic** (mean gain ≈ 0.003;
+  the single v3 MLP run was the outlier). NCAAW: seeds straddle logistic (0.3400–0.3441 vs 0.3411), no
   consistent gain. NHL: GRU beats logistic in 5/5 seeds (mean −0.0045; CI excludes 0 in 2/5), MLP in 5/5 (mean
   −0.0039). NCAAM: GRU beats logistic in 5/5 seeds (−0.0037 to −0.0047; CI excludes 0 in 3/5).
 
   *Walk-forward (NBA, train ≤ O−2 / calibrate O−1 / test O, 3 seeds per origin, ~1,320 test games each).*
   GRU − logistic: O = 2022: −0.0009 · −0.0012 · +0.0004; 2023: −0.0040 · −0.0027 · −0.0047; 2024: −0.0031 ·
   −0.0049 · −0.0006; 2025: −0.0055 · −0.0059 · −0.0055. The GRU wins 11 of 12 runs and its edge grows with the
-  amount of training history — the signature of a real, data-limited effect rather than noise. MLP is mixed
+  amount of training history: the signature of a real, data-limited effect rather than noise. MLP is mixed
   (wins 2023–25, loses 2022). An NHL walk-forward with only ONE season of training play-by-play (test 2025) first diverged numerically
   (near-constant feature standardised by ≈ 0; fixed with a variance floor) and, once fixed, still shows both
-  neural models far worse than logistic (+0.03 to +0.17 log loss, CIs excluding 0) — they overfit a single
+  neural models far worse than logistic (+0.03 to +0.17 log loss, CIs excluding 0). They overfit a single
   season, while logistic is robust. **Backfilling NHL play-by-play to 2018 and rerunning the same
   walk-forward reverses the result:** GRU − logistic by origin (3 seeds, ~1,400 test games each):
   2022: −0.0024 · −0.0065 · −0.0025; 2023: −0.0075 · −0.0098 · −0.0102; 2024: −0.0031 · −0.0018 · −0.0073;
@@ -194,7 +194,7 @@ vs 0.464), and the fitted weight on SportsWorld is ≈ 0 or negative: **pregame,
 information SportsWorld uses** (results-based latent strength). The market's edge is information SportsWorld
 deliberately does not consume (lineups, injury nuance, money flow). SportsWorld's contribution is therefore
 not single-game edge; it is an auditable, point-in-time world model whose season-scale distributions are
-calibrated (§3) and whose every revision is attributable — and a clean benchmark for measuring how much each
+calibrated (§3) and whose every revision is attributable, and a clean benchmark for measuring how much each
 additional information source (availability, news) closes that 0.03 gap.
 
 ## 7b. Rolling-origin (walk-forward) evaluation
@@ -210,7 +210,7 @@ Train ≤ O−2, calibrate O−1, test O for O = 2022–2025 (whole games, zero 
 | NHL | 2022–25 | 0.568 ± 0.011 | 0.568 | +0.004 · −0.002 · −0.002 · +0.002 |
 
 **Finding 5.** The learned outcome layer's gain over the pure state-space model is consistent in sign across
-every walk-forward origin in basketball and football, and absent in hockey — where the season-to-season
+every walk-forward origin in basketball and football, and absent in hockey, where the season-to-season
 spread of log loss (sd 0.011) is ~5× any model difference, so single-split hockey comparisons are noise.
 
 ## 8. Threats to validity / what I would do next

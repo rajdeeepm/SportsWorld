@@ -1,5 +1,5 @@
 export function pct(p: number | null | undefined, digits = 1): string {
-  if (p == null || !Number.isFinite(p)) return '—'
+  if (p == null || !Number.isFinite(p)) return '-'
   if (p > 0 && p < 0.001) return '<0.1%'
   if (p < 1 && p > 0.999) return '>99.9%'
   const v = p * 100
@@ -8,20 +8,20 @@ export function pct(p: number | null | undefined, digits = 1): string {
 
 /** percentage-point delta, signed */
 export function pp(d: number | null | undefined, digits = 1): string {
-  if (d == null || !Number.isFinite(d)) return '—'
+  if (d == null || !Number.isFinite(d)) return '-'
   const v = d * 100
   if (Math.abs(v) < 0.05) return '±0.0'
   return `${v > 0 ? '+' : '−'}${Math.abs(v).toFixed(digits)}`
 }
 
 export function signed(d: number | null | undefined, digits = 1): string {
-  if (d == null || !Number.isFinite(d)) return '—'
+  if (d == null || !Number.isFinite(d)) return '-'
   if (Math.abs(d) < 0.5 * 10 ** -digits) return (0).toFixed(digits)
   return `${d > 0 ? '+' : '−'}${Math.abs(d).toFixed(digits)}`
 }
 
 export function num(x: number | null | undefined, digits = 1): string {
-  if (x == null || !Number.isFinite(x)) return '—'
+  if (x == null || !Number.isFinite(x)) return '-'
   return x.toFixed(digits)
 }
 

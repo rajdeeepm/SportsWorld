@@ -49,7 +49,7 @@ export function F1World() {
     <>
       <div className="hero">
         <div>
-          <h1>F1 — <em>2026 Season World</em></h1>
+          <h1>F1: <em>2026 Season World</em></h1>
           <p>Every driver. Every race. A two-level driver + car model, simulated to the final flag 10,000 times.</p>
         </div>
         {titleRows[0] && <div className="hero-mark"><div><b>Drivers’ title favourite</b>{titleRows[0].name} · {run.draws.toLocaleString()} simulated seasons</div><span className="lead-odds">{pct(titleRows[0].title, 0)}</span></div>}
@@ -103,7 +103,7 @@ function NextRace({ run, ctorName }: { run: F1Run; ctorName: Record<string, stri
   const rows = Object.entries(r.win_probabilities).sort((a, b) => b[1] - a[1]).slice(0, 8)
   const max = rows[0]?.[1] ?? 1
   return (
-    <Panel title="This weekend — Grand Prix hub" icon={Flag} foot="Bars: probability of winning the Grand Prix, from 10,000 simulated races." action={<><span className="chip info">Round {r.round}{r.sprint ? ' · Sprint' : ''}</span><Link to="/f1/live" className="btn primary" style={{ height: 26 }}>Live track</Link></>}>
+    <Panel title="This weekend: Grand Prix hub" icon={Flag} foot="Bars: probability of winning the Grand Prix, from 10,000 simulated races." action={<><span className="chip info">Round {r.round}{r.sprint ? ' · Sprint' : ''}</span><Link to="/f1/live" className="btn primary" style={{ height: 26 }}>Live track</Link></>}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, marginBottom: 10 }}>
         <div style={{ fontFamily: 'var(--display)', fontWeight: 800, fontSize: 28, lineHeight: 1 }}>{r.name}</div>
         <div className="muted">{day(r.start)}</div>
@@ -222,7 +222,7 @@ export function F1Constructor({ id }: { id: string }) {
   const leaderGap = d.ctors[0].constructor_id === id ? c.points_now - d.ctors[1].points_now : c.points_now - d.ctors[0].points_now
   return (
     <div style={{ ['--hero-accent' as string]: color }}>
-      <div className="hero"><div><h1>{c.name.replace(' F1 Team', '')} — <em>Season World</em></h1><p>Persistent team intelligence across the 2026 Formula 1 season.</p></div></div>
+      <div className="hero"><div><h1>{c.name.replace(' F1 Team', '')}: <em>Season World</em></h1><p>Persistent team intelligence across the 2026 Formula 1 season.</p></div></div>
       <div className="stack">
         <section className="team-band" style={{ ['--team-c' as string]: color, ['--team-glow' as string]: `${color}88`, gridTemplateColumns: 'auto repeat(4, auto) 1fr' }}>
           <div className="tb-name" style={{ paddingLeft: 22 }}><b>{c.name.replace(' F1 Team', '')}</b><span>Formula 1 team</span></div>
@@ -294,7 +294,7 @@ export function F1Lab() {
 
   return (
     <>
-      <div className="hero"><div><h1>F1 — <em>Season Simulation Lab</em></h1><p>Branch the world. Simulate the rest of the season. Measure championship and constructor paths.</p></div></div>
+      <div className="hero"><div><h1>F1: <em>Season Simulation Lab</em></h1><p>Branch the world. Simulate the rest of the season. Measure championship and constructor paths.</p></div></div>
       <div className="stack">
         <section className="panel"><div className="chips-row">
           <b>Active scenario</b>
@@ -345,7 +345,7 @@ export function F1Lab() {
                     })}
                   </div>
                 </Panel>
-                <Panel title="Before vs after — constructors" icon={Wrench} flush>
+                <Panel title="Before vs after: constructors" icon={Wrench} flush>
                   <table className="tbl">
                     <thead><tr><th>Team</th><th className="num">Exp. points</th><th className="num">Title</th></tr></thead>
                     <tbody>

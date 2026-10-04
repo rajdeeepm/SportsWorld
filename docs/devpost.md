@@ -1,8 +1,8 @@
-# SportsWorld — Devpost submission
+# SportsWorld: Devpost submission
 
 **Name:** SportsWorld
 
-**Tagline (≤ 200 chars):** A live, calibrated world model of entire sports seasons — every team and every game in 7 leagues, and how each result moves the playoff race and the title.
+**Tagline (≤ 200 chars):** A live, calibrated world model of entire sports seasons: every team and every game in 7 leagues, and how each result moves the playoff race and the title.
 
 **Links**
 - Live: https://worldofsports.tech
@@ -21,13 +21,13 @@ wins the AFC? What changed since yesterday, and why?
 Those are world-model questions, not single-game ones. A season is a correlated system: one latent strength per
 team drives every one of its games, results feed back into that strength, and the rules (tiebreaks, conference
 title games, a 12-team playoff, play-ins, FIA points) turn thousands of games into a handful of outcomes that
-people care about. We wanted to build that system properly — persistent, calibrated, auditable — and make it
+people care about. We wanted to build that system properly (persistent, calibrated, auditable) and make it
 something you can watch move in real time.
 
 ## What it does
 
-SportsWorld keeps **one persistent probabilistic belief about each entire competition** — the NFL, college
-football, NBA, NHL, men's and women's college basketball, college hockey and Formula 1 — and updates it as
+SportsWorld keeps **one persistent probabilistic belief about each entire competition** (the NFL, college
+football, NBA, NHL, men's and women's college basketball, college hockey and Formula 1) and updates it as
 evidence arrives.
 
 - **Every team, with uncertainty.** A Kalman-filtered latent strength (mean ± sd) for every team; F1 tracks driver
@@ -49,8 +49,8 @@ evidence arrives.
   than pretend.
 - **Live games with real positions.** Ball spot and drives (football), shot charts (basketball), shot/goal/hit
   maps (hockey), every F1 car on its real track position, live box scores and season player stats.
-- **Live commentary and radio (ElevenLabs).** Turn on commentary for any game and it calls every play —
-  "Touchdown! … two-point try … it's good! SportsWorld now has Cal at 50 percent" — plus a radio mode that calls
+- **Live commentary and radio (ElevenLabs).** Turn on commentary for any game and it calls every play
+  ("Touchdown! … two-point try … it's good! SportsWorld now has Cal at 50 percent"), plus a radio mode that calls
   every final and big swing across the league.
 - **An agent you can talk to (Fetch.ai).** SportsWorld Analyst lives on ASI:One and inside the site. It turns
   questions into actions on the engine: reads the live run, builds and runs what-if scenarios (10,000 seasons per
@@ -100,8 +100,8 @@ via an Agentverse mailbox.
 ## Why we trust it (evidence)
 
 - **Calibration at season scale.** Over seven replayed seasons, the preseason 90 % win-total interval covers the
-  truth 91–95 % of the time (NFL 0.94, NBA 0.91, NHL 0.95, FBS 0.94). Treating games as independent — what most
-  simulators do — gives only 52–77 %. Correlated futures are the whole point.
+  truth 91–95 % of the time (NFL 0.94, NBA 0.91, NHL 0.95, FBS 0.94). Treating games as independent, as most
+  simulators do, gives only 52–77 %. Correlated futures are the whole point.
 - **Walk-forward.** The learned model beats the Kalman-only model at every rolling origin in the NBA, FBS and NFL;
   in hockey they're tied, so the data picks the simpler one.
 - **Bake-offs.** A GRU over NBA possessions beats logistic in 11/12 runs; in hockey neural models win 24/24 once
@@ -109,13 +109,13 @@ via an Agentverse mailbox.
 - **Honest benchmark.** On holdout games the de-vigged betting market beats our pregame forecasts by ≈ 0.03 log
   loss. We say so on the product.
 - **Tonight.** On today's 33 completed FBS games, graded from point-in-time kickoff forecasts: SportsWorld log loss
-  0.500, ESPN's model 0.505, market 0.472 — all 25/33 correct.
+  0.500, ESPN's model 0.505, market 0.472. All three got 25/33 right.
 - 58 tests including season acceptance (exactly one champion per simulated season, seed invariance,
   counterfactual isolation), zero leakage violations.
 
 ## Challenges we ran into
 
-- **Our own simulator was overconfident** until we sampled latent strength per simulated season — and then our
+- **Our own simulator was overconfident** until we sampled latent strength per simulated season, and then our
   leverage numbers were *inflated*, because the dynamic run conflates a result with the team being better. We
   compute leverage from the independent-game run and odds from the dynamic one.
 - **Late-game football was wrong** in obvious ways (down 2 at the opponent's 19 with 0:38 left showed 29 %). A
@@ -132,7 +132,7 @@ via an Agentverse mailbox.
 - One engine and one architecture for seven very different competitions, from a 12-team CFP to FIA count-back.
 - Season-scale calibration that actually holds up on history, and saying out loud where the market is better.
 - Watching a final score land and the whole season redraw itself across every open browser within seconds.
-- An agent that *does* things — runs 10,000-season counterfactuals — rather than chatting about sports.
+- An agent that *does* things (runs 10,000-season counterfactuals) rather than chatting about sports.
 
 ## What we learned
 
@@ -160,6 +160,6 @@ cloudflare · espn-api · openf1 · jolpica
 - SpacetimeDB (Maincloud live world state)
 - Fetch.ai (SportsWorld Analyst on ASI:One / Agentverse)
 - ElevenLabs (commentary, radio, briefings)
-- Best Use of .Tech domain — worldofsports.tech
+- Best Use of .Tech domain: worldofsports.tech
 - Neon (if offered)
 - Overall / data & ML tracks as applicable

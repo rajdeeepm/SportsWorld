@@ -1,4 +1,4 @@
-# v1.2 — Learned World-State Upgrade
+# v1.2: Learned World-State Upgrade
 
 v1.2 completes the three algorithmic upgrades requested after v1.1.
 
