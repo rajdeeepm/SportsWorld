@@ -11,6 +11,7 @@ Nothing here feeds a model; it is display evidence with its source named.
 """
 from __future__ import annotations
 
+import re
 import time
 from datetime import datetime, timedelta, timezone
 from typing import Any
@@ -215,3 +216,129 @@ def f1_view(session_key: str = "latest", at: str | None = None, seconds: int = 2
                      "colour": f"#{d['team_colour']}" if d.get("team_colour") else None, "position": order.get(d["driver_number"])} for d in drivers],
         "outline": outline, "tracks": frames, "source": "OpenF1 car location (x, y on circuit), positions",
     }
+
+
+# ---------------------------------------------------------------- box scores and season player stats
+
+def _box_raw(league: str, game_id: str, root, final: bool) -> dict:
+    """ESPN summary for one game; finals are cached on disk (box scores never change once final)."""
+    import json as _json
+    spec = LEAGUES[league]
+    p = root / "boxscores" / league / f"{game_id}.json"
+    if final and p.exists():
+        return _json.loads(p.read_text())
+    s = _get(f"{BASE}/{spec.espn_path}/summary", {"event": game_id}, ttl=15.0)
+    box = {"players": (s.get("boxscore") or {}).get("players") or [], "state": ((s.get("header", {}).get("competitions") or [{}])[0].get("status", {}).get("type", {}).get("state"))}
+    if final and box["state"] == "post" and box["players"]:
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(_json.dumps(box))
+    return box
+
+
+def box_score(league: str, game_id: str, root) -> dict[str, Any]:
+    box = _box_raw(league, game_id, root, final=False)
+    teams = []
+    for t in box["players"]:
+        cats = []
+        for st in t.get("statistics") or []:
+            rows = [{"id": str(a.get("athlete", {}).get("id")), "name": a.get("athlete", {}).get("displayName"),
+                     "starter": a.get("starter"), "dnp": a.get("didNotPlay"), "stats": a.get("stats") or []}
+                    for a in st.get("athletes") or [] if a.get("stats") and not _placeholder(str(a.get("athlete", {}).get("id")), a.get("athlete", {}).get("displayName"))]
+            if rows:
+                cats.append({"name": st.get("name") or "players", "labels": st.get("labels") or [], "rows": rows})
+        teams.append({"team_id": str(t.get("team", {}).get("id")), "abbreviation": t.get("team", {}).get("abbreviation"), "categories": cats})
+    return {"league": league, "game_id": game_id, "state": box["state"], "teams": teams, "source": "ESPN box score"}
+
+
+def _placeholder(aid: str, name) -> bool:
+    """ESPN's team-total row (negative id, name ' Team')."""
+    return not name or str(name).strip() == "Team" or aid in ("None", "") or aid.startswith("-")
+
+
+DERIVED = {"AVG", "PCT", "QBR", "RTG", "FO%", "SV%", "YTDG", "SOS", "SOSA", "LONG"}
+
+
+def _parse(v: str):
+    v = str(v).strip()
+    if re.fullmatch(r"-?\d+(\.\d+)?", v.replace("+", "")):
+        return ("n", float(v.replace("+", "")))
+    m = re.fullmatch(r"(\d+)[-/](\d+)", v)
+    if m:
+        return ("pair", (float(m.group(1)), float(m.group(2))), "-" if "-" in v else "/")
+    m = re.fullmatch(r"(\d+):(\d{2})", v)
+    if m:
+        return ("time", int(m.group(1)) * 60 + int(m.group(2)))
+    return None
+
+
+def season_stats(league: str, team_id: str, game_ids: list[str], root) -> dict[str, Any]:
+    """Totals per player and category over a team's completed games, summed column by column."""
+    agg: dict[str, dict] = {}
+    games = 0
+    for gid in game_ids:
+        try:
+            box = _box_raw(league, gid, root, final=True)
+        except Exception:
+            continue
+        mine = next((t for t in box["players"] if str(t.get("team", {}).get("id")) == str(team_id)), None)
+        if not mine:
+            continue
+        games += 1
+        for st in mine.get("statistics") or []:
+            cat = st.get("name") or "players"
+            labels = st.get("labels") or []
+            c = agg.setdefault(cat, {"labels": labels, "players": {}})
+            for a in st.get("athletes") or []:
+                stats = a.get("stats") or []
+                if not stats or a.get("didNotPlay"):
+                    continue
+                aid = str(a.get("athlete", {}).get("id"))
+                pl = c["players"].setdefault(aid, {"name": a.get("athlete", {}).get("displayName"), "gp": 0, "vals": {}})
+                pl["gp"] += 1
+                for lab, v in zip(labels, stats):
+                    if lab in DERIVED and lab != "LONG":
+                        continue
+                    pv = _parse(v)
+                    if pv is None:
+                        continue
+                    cur = pl["vals"].get(lab)
+                    if lab == "LONG":
+                        pl["vals"][lab] = ("n", max(cur[1], pv[1]) if cur else pv[1])
+                    elif pv[0] == "pair":
+                        pl["vals"][lab] = ("pair", ((cur[1][0] if cur else 0) + pv[1][0], (cur[1][1] if cur else 0) + pv[1][1]), pv[2])
+                    else:
+                        pl["vals"][lab] = (pv[0], (cur[1] if cur else 0) + pv[1])
+    out = []
+    for cat, c in agg.items():
+        labels = [lab for lab in c["labels"] if lab not in DERIVED or lab == "LONG"]
+        rows = []
+        avg_from = {"rushing": ("YDS", "CAR"), "receiving": ("YDS", "REC")}.get(cat)
+        if cat == "passing" and "C/ATT" in labels:
+            labels = labels + ["Y/A"]
+        elif avg_from and "AVG" in c["labels"]:
+            labels = labels + ["AVG"]
+        for aid, pl in c["players"].items():
+            if _placeholder(aid, pl["name"]):
+                continue  # ESPN's team-total placeholder row
+            if cat == "passing" and pl["vals"].get("C/ATT") and pl["vals"].get("YDS"):
+                att = pl["vals"]["C/ATT"][1][1]
+                pl["vals"]["Y/A"] = ("n", round(pl["vals"]["YDS"][1] / att, 1) if att else 0.0)
+            if avg_from and pl["vals"].get(avg_from[0]) and pl["vals"].get(avg_from[1]):
+                n = pl["vals"][avg_from[1]][1]
+                pl["vals"]["AVG"] = ("n", round(pl["vals"][avg_from[0]][1] / n, 1) if n else 0.0)
+            vals = []
+            for lab in labels:
+                v = pl["vals"].get(lab)
+                if v is None:
+                    vals.append("")
+                elif v[0] == "pair":
+                    vals.append(f"{int(v[1][0])}{v[2]}{int(v[1][1])}")
+                elif v[0] == "time":
+                    vals.append(f"{int(v[1] // 60)}:{int(v[1] % 60):02d}")
+                else:
+                    vals.append(f"{v[1]:.0f}" if float(v[1]).is_integer() else f"{v[1]:.1f}")
+            rows.append({"id": aid, "name": pl["name"], "gp": pl["gp"], "stats": vals,
+                         "sort": next((v[1] if v[0] != "pair" else v[1][0] for lab in ("YDS", "PTS", "G", "SV", "TOT", "MIN", "TOI") if (v := pl["vals"].get(lab))), 0)})
+        rows.sort(key=lambda r: -float(r["sort"] if not isinstance(r["sort"], tuple) else r["sort"][0]))
+        out.append({"name": cat, "labels": ["GP"] + labels, "rows": [{**r, "stats": [str(r["gp"])] + r["stats"]} for r in rows[:12]]})
+    return {"league": league, "team_id": team_id, "games": games, "categories": out, "source": "ESPN box scores, summed per game"}

@@ -6,6 +6,7 @@ import { CartesianGrid, Line, LineChart, ReferenceLine, ResponsiveContainer, Too
 import { getJSON } from '../lib/api'
 import { useLiveGames, useWinProbHistory } from '../lib/live'
 import { CommentaryToggle } from '../components/radio'
+import { BoxScore } from '../components/stats'
 import { useBoard, useMeta, type TeamMeta } from '../lib/data'
 import type { LeagueConfig } from '../lib/leagues'
 import { luminance, pct, time } from '../lib/format'
@@ -104,6 +105,7 @@ export function LiveGame({ lg, eventId }: { lg: LeagueConfig; eventId: string })
             {lg.sport !== 'football' && <EventList events={g.events ?? []} colors={colors} />}
           </div>
           {lg.sport === 'football' && <div className="c12"><DriveChart drives={g.drives ?? []} colors={colors} away={g.away.abbreviation} home={g.home.abbreviation} /></div>}
+          <div className="c12"><BoxScore league={lg.id} eventId={g.event_id} live={live} /></div>
         </div>
       </div>
     </>

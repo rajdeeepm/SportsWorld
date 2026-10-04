@@ -596,3 +596,39 @@ def agent_rephrase(answer_id: str):
     prose = rewrite(*item)
     return {"prose": prose, "checked": prose is not None,
             "note": "Written by self-hosted Llama 3.3 from the engine's answer; every number verified." if prose else None}
+
+
+@router.get("/research/scorecard/{cid}")
+def research_scorecard(cid: str, date: str | None = None):
+    """How today's (or `date`'s, US Eastern) pregame forecasts did vs results, next to ESPN and the market."""
+    _league(cid)
+    from zoneinfo import ZoneInfo
+    from sportsworld.live.scorecard import scorecard
+    svc = _svc()
+    day = date or datetime.now(ZoneInfo("America/New_York")).date().isoformat()
+    return _clean(scorecard(cid, day, svc._games(cid), svc.registry, _repo()))
+
+
+@router.get("/games/{cid}/{game_id}/boxscore")
+def game_boxscore(cid: str, game_id: str):
+    _league(cid)
+    from sportsworld.ingest.live_game import box_score
+    try:
+        return box_score(cid, game_id.removeprefix(f"{cid}-"), _svc().data_root)
+    except Exception as exc:
+        raise HTTPException(502, f"ESPN box score unavailable: {exc}")
+
+
+@router.get("/entities/team/{cid}/{team_id}/player-stats")
+def team_player_stats(cid: str, team_id: str):
+    """Season player stats for one team, summed from the box score of every completed game this season."""
+    spec = _league(cid)
+    from sportsworld.ingest.espn import season_start_year
+    from sportsworld.ingest.live_game import season_stats
+    svc = _svc()
+    games = [g for g in svc._games(cid) if g.completed and team_id in (g.home.team_id, g.away.team_id) and g.season_type in (2, 3)]
+    if not games:
+        return {"league": cid, "team_id": team_id, "games": 0, "categories": []}
+    season = max(season_start_year(spec, g.start_time) for g in games)
+    ids = [g.game_id for g in sorted(games, key=lambda g: g.start_time) if season_start_year(spec, g.start_time) == season]
+    return season_stats(cid, team_id, ids, svc.data_root)

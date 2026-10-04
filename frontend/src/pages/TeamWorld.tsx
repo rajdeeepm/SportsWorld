@@ -12,6 +12,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getJSON } from '../lib/api'
 import { WorldUpdates } from './LeagueWorld'
 import { ListenButton } from '../components/radio'
+import { TeamPlayerStats } from '../components/stats'
 
 export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) {
   const team = useTeam(lg.id, teamId)
@@ -99,7 +100,8 @@ export function TeamWorld({ lg, teamId }: { lg: LeagueConfig; teamId: string }) 
 
           <div className="c7"><OddsOverTime lg={lg} teamId={teamId} color={color} /></div>
           <div className="c5"><WorldUpdates lg={lg} meta={m} team={teamId} /></div>
-          <div className="c12"><RecentResults lg={lg} rows={team.data.recent_results} name={t.name} season={run?.season} /></div>
+          <div className="c7"><TeamPlayerStats league={lg.id} teamId={teamId} /></div>
+          <div className="c5"><RecentResults lg={lg} rows={team.data.recent_results} name={t.name} season={run?.season} /></div>
         </div>
 
         <div className="provenance">

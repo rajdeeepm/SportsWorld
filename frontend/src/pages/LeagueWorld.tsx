@@ -1,4 +1,6 @@
 import { useMemo, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { getJSON } from '../lib/api'
 import { Link } from 'react-router-dom'
 import {
   BadgeCheck, CalendarClock, CalendarDays, Gauge, HeartPulse, Layers3, ListChecks, Newspaper, Radio, Shuffle, Swords, Trophy, Users, Zap,
@@ -77,6 +79,7 @@ export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
           <div className="c8"><ConferenceRace lg={lg} teams={teams} meta={m} /></div>
           <div className="c4"><InjuryImpact lg={lg} meta={m} /></div>
 
+          <div className="c12"><Scorecard lg={lg} meta={m} /></div>
           <div className="c12"><ModelHealth lg={lg} diag={d} /></div>
         </div>
       </div>
@@ -389,6 +392,69 @@ function ModelHealth({ lg, diag }: { lg: LeagueConfig; diag: Record<string, any>
         {item('Champions per draw', diag.champions_per_draw_min_max ? diag.champions_per_draw_min_max.join('–') : '—', 'structural check: exactly one title winner in every simulated season', diag.champions_per_draw_min_max?.[0] === 1)}
         {item('Board ↔ season consistency', diag.board_vs_sim_expected_wins_mad != null ? num(diag.board_vs_sim_expected_wins_mad, 2) : '—', 'mean |Δ expected wins| between game forecasts and the season simulation', diag.board_vs_sim_expected_wins_mad != null ? diag.board_vs_sim_expected_wins_mad < 0.3 : undefined)}
       </div>
+    </Panel>
+  )
+}
+
+interface ScoreMetrics { games: number; log_loss: number; brier: number; accuracy: number }
+interface ScoreRow { event_id: string; home: string; away: string; home_id: string; away_id: string; home_score: number; away_score: number; home_won: boolean; sportsworld: number; espn: number | null; market: number | null; sportsworld_correct: boolean; upset: boolean }
+interface Scorecard { date: string; games: number; sportsworld: ScoreMetrics | null; on_common_games: { games: number; sportsworld: ScoreMetrics | null; espn: ScoreMetrics | null; market: ScoreMetrics | null }; calibration: { range: string; games: number; expected: number; actual: number }[]; rows: ScoreRow[]; method: string }
+
+function Scorecard({ lg, meta }: { lg: LeagueConfig; meta: Record<string, TeamMeta> }) {
+  const q = useQuery({ queryKey: ['scorecard', lg.id], queryFn: () => getJSON<Scorecard>(`/research/scorecard/${lg.id}`), refetchInterval: 300_000, retry: 0 })
+  const [all, setAll] = useState(false)
+  const d = q.data
+  const c = d?.on_common_games
+  const col = (name: string, m: ScoreMetrics | null | undefined, best: boolean) => (
+    <div className={`sc-col ${best ? 'best' : ''}`}>
+      <span className="kpi-label">{name}</span>
+      <b>{m ? `${Math.round(m.accuracy * m.games)}/${m.games}` : '—'}</b>
+      <small>{m ? <>log loss <strong>{m.log_loss.toFixed(3)}</strong> · Brier {m.brier.toFixed(3)}</> : 'no data'}</small>
+    </div>
+  )
+  const ll = (m?: ScoreMetrics | null) => m?.log_loss ?? 9
+  const bestKey = c ? (['sportsworld', 'espn', 'market'] as const).reduce((a, k) => (ll(c[k]) < ll(c[a]) ? k : a), 'sportsworld' as 'sportsworld' | 'espn' | 'market') : null
+  const rows = (d?.rows ?? []).slice().sort((a, b) => Number(b.upset) - Number(a.upset) || Math.abs(b.sportsworld - 0.5) - Math.abs(a.sportsworld - 0.5))
+  return (
+    <Panel title="Today's scorecard — forecasts vs what happened" icon={BadgeCheck} flush
+      foot={d ? <>{d.method} One day is a small sample; the 7-season replay above is the real evidence.</> : undefined}>
+      {q.isLoading ? <div style={{ padding: 14 }}><Loading rows={4} /></div> : !d || d.games === 0 ? <Empty title="No completed games yet today">The scorecard fills in as games finish.</Empty> : (
+        <>
+          <div className="sc-head">
+            {col('SportsWorld', c?.games ? c.sportsworld : d.sportsworld, bestKey === 'sportsworld')}
+            {col("ESPN's model", c?.espn, bestKey === 'espn')}
+            {col('Betting market', c?.market, bestKey === 'market')}
+            <div className="sc-cal">
+              <span className="kpi-label">Calibration (favourite won)</span>
+              {d.calibration.map((b) => (
+                <div key={b.range} className="sc-cal-row"><span>{b.range}</span><div className="bar"><i style={{ width: `${b.actual * 100}%` }} /></div><small>{Math.round(b.actual * b.games)}/{b.games}</small></div>
+              ))}
+            </div>
+          </div>
+          <div className="tbl-wrap" style={{ maxHeight: all ? 520 : 290 }}>
+            <table className="tbl">
+              <thead><tr><th>Final</th><th className="num">SportsWorld</th><th className="num">ESPN</th><th className="num">Market</th><th>Result</th></tr></thead>
+              <tbody>
+                {rows.slice(0, all ? rows.length : 8).map((r) => {
+                  const winner = r.home_won ? r.home_id : r.away_id
+                  const pw = (p: number | null) => (p == null ? null : r.home_won ? p : 1 - p)
+                  return (
+                    <tr key={r.event_id}>
+                      <td><span className="team-cell"><TeamLogo meta={meta[r.away_id]} name={r.away} size={18} /><span className={winner === r.away_id ? '' : 'muted'}>{meta[r.away_id]?.abbreviation ?? r.away} {r.away_score}</span>
+                        <span className="muted">@</span><TeamLogo meta={meta[r.home_id]} name={r.home} size={18} /><span className={winner === r.home_id ? '' : 'muted'}>{meta[r.home_id]?.abbreviation ?? r.home} {r.home_score}</span></span></td>
+                      <td className="num" title="probability SportsWorld gave the eventual winner"><P p={pw(r.sportsworld)} digits={0} /></td>
+                      <td className="num"><P p={pw(r.espn)} digits={0} /></td>
+                      <td className="num"><P p={pw(r.market)} digits={0} /></td>
+                      <td>{r.upset ? <span className="chip high">Upset</span> : r.sportsworld_correct ? <span className="chip low">Called it</span> : <span className="chip med">Missed</span>}</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+          {rows.length > 8 && <div style={{ padding: '8px 14px' }}><button className="btn ghost" onClick={() => setAll((x) => !x)}>{all ? 'Show fewer' : `Show all ${rows.length} games`}</button></div>}
+        </>
+      )}
     </Panel>
   )
 }
