@@ -61,6 +61,12 @@ Research write-up: [`docs/research_report.md`](docs/research_report.md)
 5. **Injury report → strength**: ESPN's live injury report mapped to learned per-absence effects.
 6. **Model health on the product**: 90 % win-band coverage 94 % (independent-game simulation only 77 %), win-total error vs a pace baseline, champion log loss vs uniform, walk-forward game-model log loss, structural checks.
 
+**Also on the league page** (added after the screenshots above):
+* **Game of the day: why it matters**: win probability with an honest label (toss-up, lean, clear favourite, one-sided), each side's playoff swing (odds if they win minus if they lose), other teams whose odds move beyond 3 Monte Carlo standard errors and who they should root for, and a viewing call (must-watch, upset watch, skip). The same card sits on every game page.
+* **Today's scorecard**: every finished game today, graded from SportsWorld's point-in-time kickoff forecast next to ESPN's model and the de-vigged market.
+* **Pushed by SpacetimeDB**: score and probability changes slide in as they are pushed, at the same moment in every open browser, with the time since the last push on the live chip.
+* **Player stats**: season totals per player on team pages and live box scores on game pages.
+
 ### 2. Team "Season World"
 ![Team page](docs/screenshots/03-team-season-world.png)
 
@@ -111,7 +117,9 @@ click away.
 ### 6. Research
 ![Research](docs/screenshots/11-research.png)
 
-Historical season replay, rolling-origin evaluation, in-game model bake-offs, the market benchmark and learned
+**Rewind** opens the page: for every replayed season, the odds the model gave the eventual champion at
+preseason, a quarter, half and three quarters of the way through, each rebuilt from only what was known on that
+date, next to a random-pick baseline. Below it: historical season replay, rolling-origin evaluation, in-game model bake-offs, the market benchmark and learned
 player-availability effects, all reproducible from `scripts/`.
 
 ---
