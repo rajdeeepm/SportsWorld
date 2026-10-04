@@ -1,0 +1,228 @@
+1
+00:00:00,850 --> 00:00:04,400
+Every sports app tells you who will probably win tonight.
+
+2
+00:00:04,450 --> 00:00:07,050
+None of them tells you what tonight means.
+
+3
+00:00:07,100 --> 00:00:08,310
+This is SportsWorld,
+
+4
+00:00:08,360 --> 00:00:13,430
+a live world model of entire seasons: every team and every game in seven leagues.
+
+5
+00:00:13,480 --> 00:00:16,900
+It plays out the rest of the season ten thousand times,
+
+6
+00:00:16,950 --> 00:00:20,370
+so every game shows what it means for the playoff race.
+
+7
+00:00:20,420 --> 00:00:22,580
+Know what matters before you watch.
+
+8
+00:00:23,330 --> 00:00:27,480
+This is tonight's game of the day: North Dakota State at UNLV.
+
+9
+00:00:27,530 --> 00:00:30,660
+North Dakota State is a sixty two percent lean,
+
+10
+00:00:30,710 --> 00:00:34,930
+but the result swings their playoff odds by thirty four points.
+
+11
+00:00:34,980 --> 00:00:39,200
+Boise State, BYU and Texas Tech should all be rooting for UNLV,
+
+12
+00:00:39,250 --> 00:00:43,870
+and we only list teams whose odds move by more than simulation noise.
+
+13
+00:00:43,920 --> 00:00:45,290
+The call: must watch.
+
+14
+00:00:46,050 --> 00:00:49,880
+Below that, every game ranked by what it means for the race,
+
+15
+00:00:49,930 --> 00:00:54,870
+the title odds with their Monte Carlo error, and a live feed of every update.
+
+16
+00:00:54,920 --> 00:00:58,570
+The injury report covers every team: the official report,
+
+17
+00:00:58,620 --> 00:01:01,420
+plus each conference's availability reports,
+
+18
+00:01:01,470 --> 00:01:05,500
+read by Llama only when it can quote the article word for word.
+
+19
+00:01:05,550 --> 00:01:08,940
+Only absences with a measured effect move a forecast.
+
+20
+00:01:09,690 --> 00:01:13,270
+Every viewer shares one live world state in SpacetimeDB.
+
+21
+00:01:13,320 --> 00:01:16,390
+When a score changes, the engine publishes once,
+
+22
+00:01:16,440 --> 00:01:21,720
+and both of these windows update at the same instant, with the same state version.
+
+23
+00:01:21,770 --> 00:01:26,400
+In our test, two clients received the same push four milliseconds apart.
+
+24
+00:01:27,150 --> 00:01:31,900
+Inside a live game: the real ball spot and drive from the play by play,
+
+25
+00:01:31,950 --> 00:01:36,630
+our own live win probability, and why this game matters, updated live.
+
+26
+00:01:36,680 --> 00:01:42,840
+Turn on commentary, and ElevenLabs calls every play from the real play text and our numbers.
+
+27
+00:01:43,590 --> 00:01:45,770
+Every team gets its own season world.
+
+28
+00:01:45,820 --> 00:01:50,290
+Michigan: expected wins with a range, odds for every possible final record,
+
+29
+00:01:50,340 --> 00:01:55,420
+and this week's Big Ten availability report, eight players out, each with its source,
+
+30
+00:01:55,470 --> 00:01:57,890
+and whether it moves the forecast or not.
+
+31
+00:01:58,640 --> 00:02:01,350
+In the simulation lab, you branch the world.
+
+32
+00:02:01,400 --> 00:02:07,370
+Michigan's starting quarterback out for a game, a learned effect of minus two point four points,
+
+33
+00:02:07,420 --> 00:02:09,250
+and Michigan beats Ohio State.
+
+34
+00:02:09,300 --> 00:02:13,020
+Ten thousand seasons per branch, with shared random numbers,
+
+35
+00:02:13,070 --> 00:02:15,270
+so every difference is the scenario.
+
+36
+00:02:15,320 --> 00:02:19,720
+Ohio State's playoff odds drop from seventy one to fifty seven percent.
+
+37
+00:02:20,480 --> 00:02:25,920
+The same analyst lives on ASI one as a Fetch dot A I agent, and right here as a chat.
+
+38
+00:02:25,970 --> 00:02:29,090
+It doesn't chat about sports, it runs the engine.
+
+39
+00:02:29,140 --> 00:02:35,240
+A self hosted Llama rewrites the answer, and we reject any rewrite with a number, or a verdict,
+
+40
+00:02:35,290 --> 00:02:36,730
+the engine didn't give.
+
+41
+00:02:38,930 --> 00:02:40,860
+Every forecast is point in time.
+
+42
+00:02:40,910 --> 00:02:45,200
+Rewind shows what the model gave each eventual champion, on each date,
+
+43
+00:02:45,250 --> 00:02:47,430
+rebuilt from only what it knew then.
+
+44
+00:02:47,480 --> 00:02:53,000
+Seattle started last season at two percent, and the model climbed to fourteen by December.
+
+45
+00:02:53,750 --> 00:02:55,170
+Here's the honest part.
+
+46
+00:02:55,220 --> 00:02:56,950
+Over seven replayed seasons,
+
+47
+00:02:57,000 --> 00:03:03,140
+our ninety percent ranges catch the true win total ninety one to ninety five percent of the time.
+
+48
+00:03:03,190 --> 00:03:08,430
+Treating games as independent, the usual approach, gets fifty two to seventy seven.
+
+49
+00:03:08,480 --> 00:03:11,560
+Game by game, the betting market is still better,
+
+50
+00:03:11,610 --> 00:03:16,600
+and our scorecard grades us against ESPN and the market every day, good or bad.
+
+51
+00:03:16,650 --> 00:03:18,770
+Our edge isn't a better coin flip.
+
+52
+00:03:18,820 --> 00:03:22,210
+It's a model of the season you can trust and question.
+
+53
+00:03:22,960 --> 00:03:28,950
+One engine for the NFL, college football, the NBA, the NHL, college basketball,
+
+54
+00:03:29,000 --> 00:03:31,320
+college hockey and Formula One.
+
+55
+00:03:33,360 --> 00:03:34,140
+SportsWorld.
+
+56
+00:03:34,190 --> 00:03:36,560
+Know what matters before you watch.
+
+57
+00:03:36,610 --> 00:03:39,110
+Live now at world of sports dot tech.
+

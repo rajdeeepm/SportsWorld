@@ -12,7 +12,7 @@ Built at **MHacks 2026** · Season Intelligence Engine · real data only · **Li
 
 ![SportsWorld walkthrough](docs/media/sportsworld-walkthrough.gif)
 
-▶ Full-quality walkthrough: [`docs/media/sportsworld-walkthrough.mp4`](docs/media/sportsworld-walkthrough.mp4) ·
+▶ **Narrated demo (3:40, 1080p, captions):** [`docs/media/sportsworld-demo.mp4`](docs/media/sportsworld-demo.mp4) ([captions](docs/media/sportsworld-demo.srt)) ·
 Research write-up: [`docs/research_report.md`](docs/research_report.md)
 
 ---
