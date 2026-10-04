@@ -151,7 +151,7 @@ data-rich (NBA possessions, a backfilled hockey archive), and that the honest an
 
 ## Built with
 
-python · fastapi · numpy · scikit-learn · pytorch · lightgbm · react · typescript · vite · recharts ·
+python · fastapi · numpy · pytorch · lightgbm · react · typescript · vite · recharts ·
 spacetimedb · neon · postgresql · elevenlabs · fetch.ai · uagents · agentverse · asi-one · llama · vllm ·
 cloudflare · espn-api · openf1 · jolpica
 
