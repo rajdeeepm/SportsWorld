@@ -216,5 +216,5 @@ spread of log loss (sd 0.011) is ~5× any model difference, so single-split hock
 * Schedules and conference structures are not historically versioned (retrospective snapshots).
 * Tiebreak chains and NCAA selection are approximations; postseason-in-progress conditioning is not implemented.
 * Player effects are associational; next step is a pregame-availability design with team/opponent fixed effects.
-* EP is added to the live margin without time-conditioning; possession value near 0:00 is overstated.
-* Rolling-origin (multi-split) evaluation and nested model selection would tighten every comparison above.
+* Expected points are time-conditioned near the end of halves; finer clock / timeout modelling would sharpen late-game estimates further.
+* Rolling-origin evaluation is done (§7b); nested model selection would tighten the per-league choices further.

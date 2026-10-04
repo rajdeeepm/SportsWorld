@@ -128,8 +128,8 @@ function FootballPanel({ g, ac, hc }: { g: GameView; ac: string; hc: string }) {
       {s ? (
         <div className="field-facts">
           <div><span>Possession</span><b>{s.offense_id === g.home.team_id ? g.home.abbreviation : g.away.abbreviation} →{s.direction === 'left' ? ' left' : ' right'}</b></div>
-          <div><span>Down & distance</span><b>{s.down ? `${['', '1st', '2nd', '3rd', '4th'][s.down]} & ${s.distance}` : '—'}</b></div>
-          <div><span>Ball on</span><b>{s.ball_x != null ? (s.ball_x <= 50 ? `${g.away.abbreviation} ${Math.round(s.ball_x)}` : `${g.home.abbreviation} ${Math.round(100 - s.ball_x)}`) : '—'}</b></div>
+          <div><span>Down & distance</span><b>{s.down && s.down >= 1 && s.down <= 4 ? `${['', '1st', '2nd', '3rd', '4th'][s.down]} & ${s.distance === 0 ? 'goal' : s.distance}` : 'Between plays'}</b></div>
+          <div><span>Ball on</span><b>{s.ball_x == null ? '—' : s.ball_x <= 0 || s.ball_x >= 100 ? 'End zone' : s.ball_x === 50 ? 'Midfield' : s.ball_x < 50 ? `${g.away.abbreviation} ${Math.round(s.ball_x)}` : `${g.home.abbreviation} ${Math.round(100 - s.ball_x)}`}</b></div>
           <div><span>Red zone</span><b>{s.red_zone ? 'Yes' : 'No'}</b></div>
           <div style={{ gridColumn: '1 / -1' }}><span>Last play</span><b style={{ fontFamily: 'var(--ui)', fontSize: 13.5, fontWeight: 500 }}>{s.last_play}</b></div>
         </div>
