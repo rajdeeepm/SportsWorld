@@ -11,6 +11,6 @@ const proxy = {
 export default defineConfig({
   plugins: [react()],
   server: { port: 5173, proxy },
-  preview: { port: 4173, host: '127.0.0.1', proxy, allowedHosts: ['sportsworld.tech', 'www.sportsworld.tech', 'localhost', '127.0.0.1'] },
+  preview: { port: 4173, host: '127.0.0.1', proxy, allowedHosts: ['worldofsports.tech', 'www.worldofsports.tech', 'localhost', '127.0.0.1'] },
   build: { chunkSizeWarningLimit: 1500 },
 });

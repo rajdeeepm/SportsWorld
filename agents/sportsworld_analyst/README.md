@@ -32,4 +32,4 @@ python agents/sportsworld_analyst/agent.py     # next to a running SportsWorld A
 The agent uses an Agentverse **mailbox**, so ASI:One conversations reach it without a public endpoint. It speaks the
 **Agent Chat Protocol**.
 
-Live site: https://sportsworld.tech
+Live site: https://worldofsports.tech

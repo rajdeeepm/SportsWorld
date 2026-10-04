@@ -8,7 +8,7 @@ competition** — every team and every game of the NFL, college football, NBA, N
 hockey and Formula 1 — and shows how each new piece of evidence (a final score, a live drive, an injury report)
 moves the next game, the rest of the schedule, the playoff race and the title.
 
-Built at **MHacks 2026** · Season Intelligence Engine · real data only
+Built at **MHacks 2026** · Season Intelligence Engine · real data only · **Live: [worldofsports.tech](https://worldofsports.tech)**
 
 ![SportsWorld walkthrough](docs/media/sportsworld-walkthrough.gif)
 
@@ -281,7 +281,7 @@ percent, down 10."). Every line is built from real play text and SportsWorld's p
 | **Neon Postgres** | Durable history: every season run, live win-probability points, world updates, and point-in-time replay backfills that power the odds-over-the-season charts. |
 | **ElevenLabs** | Briefings, radio and live commentary voiced from the engine's numbers. |
 | **Meta Llama 3.3 70B** | Self-hosted with vLLM: question and news structuring with schema validation and verbatim grounding, plus number-verified conversational answers. |
-| **.Tech domain (MLH)** | Public site. |
+| **.Tech domain (MLH)** | The public site, [worldofsports.tech](https://worldofsports.tech): served from the engine through a Cloudflare Tunnel, live state from SpacetimeDB Maincloud. |
 
 ---
 

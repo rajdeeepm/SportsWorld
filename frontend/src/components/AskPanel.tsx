@@ -30,7 +30,7 @@ function Md({ text, go }: { text: string; go: (path: string) => void }) {
       else if (t.startsWith('`')) parts.push(<code key={`${key}-${i++}`}>{t.slice(1, -1)}</code>)
       else if (t.startsWith('*')) parts.push(<em key={`${key}-${i++}`}>{t.slice(1, -1)}</em>)
       else {
-        const internal = t.replace(/^https?:\/\/(www\.)?sportsworld\.tech/, '')
+        const internal = t.replace(/^https?:\/\/(www\.)?worldofsports\.tech/, '')
         parts.push(internal !== t
           ? <a key={`${key}-${i++}`} href={internal || '/'} onClick={(e) => { e.preventDefault(); go(internal || '/') }}>{internal || '/'}</a>
           : <a key={`${key}-${i++}`} href={t} target="_blank" rel="noreferrer">{t}</a>)

@@ -20,7 +20,7 @@ from typing import Any
 import httpx
 
 API = os.environ.get("SPORTSWORLD_API", "http://127.0.0.1:8000")
-SITE = os.environ.get("SPORTSWORLD_SITE", "https://sportsworld.tech")
+SITE = os.environ.get("SPORTSWORLD_SITE", "https://worldofsports.tech")
 
 LEAGUE_WORDS = {
     "nfl": ["nfl", "super bowl", "afc", "nfc"],

@@ -22,7 +22,7 @@ with `only the SportsWorld engine can publish world state`. The engine publishes
 
 ## Run
 Hosted: the live database is `sportsworld` on SpacetimeDB **Maincloud** (`wss://maincloud.spacetimedb.com`);
-the engine publishes with the owner identity and every visitor of sportsworld.tech subscribes to it.
+the engine publishes with the owner identity and every visitor of worldofsports.tech subscribes to it.
 ```
 spacetime publish sportsworld --server maincloud   # (owner) deploy the module
 # .env: SPACETIMEDB_URL=https://maincloud.spacetimedb.com  SPACETIMEDB_TOKEN=$(spacetime login show --token)
