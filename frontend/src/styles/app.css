@@ -254,6 +254,9 @@ input[type='range'] { accent-color: var(--accent); width: 100%; }
 .panel-body:has(> .fill-box) { display: flex; flex-direction: column; }
 .fill-box { position: relative; flex: 1 1 auto; min-height: 430px; }
 .fill-box > .tbl-wrap { position: absolute; inset: 0; }
+.panel-body:has(> .chart-fill) { display: flex; flex-direction: column; }
+.chart-fill { position: relative; flex: 1 1 auto; }
+.chart-fill-in { position: absolute; inset: 0; }
 .team-cell { display: flex; align-items: center; gap: 9px; min-width: 0; }
 .team-cell span { overflow: hidden; text-overflow: ellipsis; }
 .team-cell a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }

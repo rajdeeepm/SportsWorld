@@ -51,10 +51,10 @@ export function WinDistribution({ hist, draws, color, current, height = 180, lab
 }
 
 /** title probabilities with Monte Carlo 95% error bars */
-export function TitleOdds({ rows, height = 240 }: { rows: { name: string; p: number; se: number; color: string }[]; height?: number }) {
+export function TitleOdds({ rows, height = 240, fill }: { rows: { name: string; p: number; se: number; color: string }[]; height?: number; fill?: boolean }) {
   const data = rows.map((r) => ({ ...r, err: 1.96 * r.se }))
-  return (
-    <ResponsiveContainer width="100%" height={height}>
+  const chart = (
+    <ResponsiveContainer width="100%" height={fill ? '100%' : height}>
       <BarChart data={data} margin={{ top: 8, right: 6, bottom: 0, left: -10 }}>
         <CartesianGrid vertical={false} />
         <XAxis dataKey="name" tickLine={false} axisLine={false} interval={0} tick={{ fontSize: 11 }} />
@@ -67,6 +67,8 @@ export function TitleOdds({ rows, height = 240 }: { rows: { name: string; p: num
       </BarChart>
     </ResponsiveContainer>
   )
+  // fill: grow with a row-stretched card (min height kept), instead of a fixed-height chart
+  return fill ? <div className="chart-fill" style={{ minHeight: height }}><div className="chart-fill-in">{chart}</div></div> : chart
 }
 
 /** overlaid base vs scenario distributions */

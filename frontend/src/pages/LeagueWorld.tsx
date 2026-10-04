@@ -74,7 +74,7 @@ export function LeagueWorld({ lg }: { lg: LeagueConfig }) {
                 <TitleOdds rows={teams.slice(0, 10).map((t) => ({
                   name: m[t.team_id]?.abbreviation ?? t.abbreviation ?? t.name.slice(0, 4),
                   p: Number(t.champion ?? 0), se: Number(t.champion_se ?? 0), color: teamColor(m[t.team_id]),
-                }))} />
+                }))} fill />
               )}
             </Panel>
           </div>
