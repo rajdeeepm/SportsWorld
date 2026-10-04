@@ -307,7 +307,7 @@ export function F1Lab() {
           </span>
         </div></section>
         <div className="grid">
-          <div className="c3">
+          <div className="c3 lab-side">
             <Panel title="Scenario controls" icon={FlaskConical} flush>
               <div className="ctl">
                 <h3><Wrench size={16} /> Car or driver pace</h3>
@@ -327,7 +327,7 @@ export function F1Lab() {
               </div>
             </Panel>
           </div>
-          <div className="c9">
+          <div className="c9 lab-main">
             {!res ? (
               <Panel title="Simulation results" icon={Gauge}><Empty title="Build a scenario, then run it">Shift a car’s or a driver’s pace and watch both championships respond. Both branches share random numbers.</Empty></Panel>
             ) : (

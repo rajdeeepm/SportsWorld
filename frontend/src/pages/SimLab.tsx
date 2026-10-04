@@ -112,7 +112,7 @@ export function SimLab({ lg }: { lg: LeagueConfig }) {
         </section>
 
         <div className="grid">
-          <div className="c3">
+          <div className="c3 lab-side">
             <Panel title="Scenario controls" icon={FlaskConical} flush action={<button className="btn ghost" onClick={() => setOps([])}>Reset all</button>}>
               <div className="ctl">
                 <h3><Users size={16} /> Team</h3>
@@ -166,7 +166,7 @@ export function SimLab({ lg }: { lg: LeagueConfig }) {
             </Panel>
           </div>
 
-          <div className="c9">
+          <div className="c9 lab-main">
             {run.error && <ErrorNote error={run.error} what="the simulation" />}
             {!result ? (
               <LabStart lg={lg} me={me} teams={teams} teamId={teamId} remaining={remaining} meta={m} shortName={shortName} busy={run.isPending}

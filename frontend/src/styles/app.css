@@ -641,13 +641,16 @@ input[type='range'] { accent-color: var(--accent); width: 100%; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1360px) {
-  .c3 { grid-column: span 6; } .c4 { grid-column: span 6; } .c5 { grid-column: span 6; } .c7 { grid-column: span 12; } .c8 { grid-column: span 12; } .c9 { grid-column: span 12; }
   .kpis { --n: 3 !important; }
   .kpi:nth-child(3n + 1) { border-left: 0; }
   .kpi:nth-child(n + 4) { border-top: 1px solid rgba(22, 48, 90, 0.8); }
   .team-band { grid-template-columns: auto auto repeat(2, auto) 1fr; }
   .team-band .tb-stat:nth-of-type(n + 5) { display: none; }
 }
+/* Lab: controls and results stay side by side until the layout stacks (otherwise the results drop below
+   a half-width controls column and leave the right half empty) */
+@media (min-width: 1081px) and (max-width: 1360px) { .grid > .c3.lab-side { grid-column: span 4; } .grid > .c9.lab-main { grid-column: span 8; } }
+@media (max-width: 1080px) { .grid > .c3.lab-side, .grid > .c9.lab-main { grid-column: 1 / -1; } }
 @media (max-width: 1080px) {
   .app { grid-template-columns: minmax(0, 1fr); }
   .rail { position: static; height: auto; flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--edge); padding: 8px; }
@@ -668,7 +671,7 @@ input[type='range'] { accent-color: var(--accent); width: 100%; }
   .league-tabs { flex-wrap: wrap; overflow: visible; }
   .league-tabs a { padding: 6px 11px; font-size: 15px; }
   .rail { mask-image: linear-gradient(90deg, #000 85%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); }
-  .c3, .c4, .c5, .c6 { grid-column: 1 / -1; }
+  .c3, .c4, .c5, .c6, .c7, .c8, .c9 { grid-column: 1 / -1; }
   .kpis { --n: 2 !important; }
   .kpi:nth-child(3n + 1) { border-left: 1px solid rgba(22, 48, 90, 0.8); }
   .kpi:nth-child(2n + 1) { border-left: 0; }
@@ -699,3 +702,4 @@ input[type='range'] { accent-color: var(--accent); width: 100%; }
   .res-cards { --n: 2 !important; }
   .bracket { grid-template-columns: 1fr; }
 }
+@media (max-width: 760px) { .panel-head { flex-wrap: wrap; row-gap: 8px; } .panel-head .ph-action { flex-wrap: wrap; } .inj-tools { flex-wrap: wrap; } .field-search.sm { min-width: 0; flex: 1 1 120px; } }
