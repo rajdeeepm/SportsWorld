@@ -10,7 +10,7 @@ import { Empty, ErrorNote, Kpis, Leverage, Loading, P, Panel, ProbSplit, TeamLog
 import { OddsTrend, StrengthTrend, WinDistribution } from '../components/charts'
 import { useQuery } from '@tanstack/react-query'
 import { getJSON } from '../lib/api'
-import { WorldUpdates } from './LeagueWorld'
+import { WorldUpdates, LearnedEffects } from './LeagueWorld'
 import { ListenButton } from '../components/radio'
 import { TeamPlayerStats } from '../components/stats'
 
@@ -243,10 +243,10 @@ function Availability({ lg, teamId }: { lg: LeagueConfig; teamId: string }) {
   const mine = av.data?.teams.find((x) => x.team_id === teamId)
   const imp = av.data?.impact?.by_position ?? {}
   return (
-    <Panel title="Availability" icon={HeartPulse}
+    <Panel title="Availability" icon={HeartPulse} flush={!mine}
       foot={av.data ? <>ESPN injury report · learned effect per absence ({Object.entries(imp).map(([k, v]: any) => `${k} ${v.points.toFixed(1)}±${v.se.toFixed(1)}`).join(', ')})</> : undefined}>
       {av.isLoading ? <Loading rows={3} /> : av.isError ? <Empty title="No availability model for this league" /> : !mine ? (
-        <Empty title="No key absences">The current injury report lists none of this team’s established key players.</Empty>
+        <LearnedEffects lg={lg} compact />
       ) : (
         <>
           {mine.absences.map((a) => (
@@ -264,7 +264,7 @@ function Availability({ lg, teamId }: { lg: LeagueConfig; teamId: string }) {
 }
 
 function RecentResults({ lg, rows, name, season }: { lg: LeagueConfig; rows: { event_id: string; date: string; home: string; away: string; home_score: number; away_score: number }[]; name: string; season?: number }) {
-  const list = rows.slice().reverse().slice(0, 8)
+  const list = rows.slice().reverse().slice(0, 11)
   return (
     <Panel title="Recent results" icon={Activity} flush foot={season ? `Most recent completed games (including last season when this season is young).` : undefined}>
       {list.length === 0 ? <Empty title="No completed games yet" /> : (

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import {
   BadgeCheck, CalendarClock, CalendarDays, Gauge, HeartPulse, Layers3, ListChecks, Newspaper, Radio, Shuffle, Swords, Trophy, Users, Zap,
 } from 'lucide-react'
-import { useAvailability, useBoard, useMeta, useRolling, useSeason, useSeasonSummary, useStatus, useUpdates, type BoardRow, type SeasonTeam, type TeamMeta, type WorldUpdate } from '../lib/data'
+import { useAvailability, usePlayerImpact, useBoard, useMeta, useRolling, useSeason, useSeasonSummary, useStatus, useUpdates, type BoardRow, type SeasonTeam, type TeamMeta, type WorldUpdate } from '../lib/data'
 import { qualify, title, type LeagueConfig } from '../lib/leagues'
 import { ago, day, num, pct, time } from '../lib/format'
 import { Empty, ErrorNote, Kpis, Loading, P, Panel, TeamLogo, teamColor } from '../components/ui'
@@ -117,14 +117,17 @@ function FeaturedMatchups({ lg, events, meta, loading }: { lg: LeagueConfig; eve
   const [sel, setSel] = useState(0)
   const games = (days[sel]?.[1] ?? [])
     .slice()
-    .filter((g) => g.state !== 'post')
-    .sort((a, b) => maxLeverage(b) - maxLeverage(a) || (b.state === 'in' ? 1 : 0) - (a.state === 'in' ? 1 : 0))
+    .sort((a, b) => Number(a.state === 'post') - Number(b.state === 'post') || maxLeverage(b) - maxLeverage(a) || (b.state === 'in' ? 1 : 0) - (a.state === 'in' ? 1 : 0))
     .slice(0, 10)
+  // a sparse day (late night) continues with the biggest upcoming games, dated
+  const extra = sel === 0 && games.length < 10
+    ? days.slice(1).flatMap(([, g]) => g).filter((g) => g.state === 'pre').sort((a, b) => maxLeverage(b) - maxLeverage(a)).slice(0, 10 - games.length)
+    : []
 
   return (
     <Panel title="Featured matchups" icon={Swords} flush
       action={<Link to={`/${lg.id}/games`} className="link">Full schedule</Link>}
-      foot={<>The day’s 10 biggest games by season leverage: how much each result moves the teams’ headline odds. <Link className="link" to={`/${lg.id}/games?live=1`}>All live games</Link></>}>
+      foot={<>The day’s 10 biggest games by season leverage (topped up with the biggest upcoming games when few are left): how much each result moves the teams’ headline odds. <Link className="link" to={`/${lg.id}/games?live=1`}>All live games</Link></>}>
       {loading ? <div style={{ padding: 14 }}><Loading rows={6} /></div> : days.length === 0 ? <Empty title="No upcoming games on the board" /> : (
         <>
           <div className="day-tabs" role="tablist">
@@ -135,7 +138,7 @@ function FeaturedMatchups({ lg, events, meta, loading }: { lg: LeagueConfig; eve
               </button>
             ))}
           </div>
-          <GamesTable lg={lg} games={games} meta={meta} />
+          <GamesTable lg={lg} games={[...games, ...extra]} meta={meta} showDate={extra.length > 0} />
         </>
       )}
     </Panel>
@@ -149,11 +152,11 @@ function TitleOutlook({ lg, teams, meta, loading, error }: { lg: LeagueConfig; t
   return (
     <Panel title={`${lg.titleName} outlook`} icon={Trophy} flush action={<Link to={`/${lg.id}/standings`} className="link">All teams</Link>}>
       {loading ? <div style={{ padding: 14 }}><Loading rows={8} /></div> : error ? <ErrorNote error={error} what="the season run" /> : (
-        <div className="tbl-wrap" style={{ maxHeight: 430 }}>
+        <div className="fill-box"><div className="tbl-wrap">
           <table className="tbl">
             <thead><tr><th>#</th><th>Team</th><th className="num">Exp. W</th><th className="num">{q.short}</th>{mid && <th className="num">{mid.short}</th>}<th className="num">{t.short}</th></tr></thead>
             <tbody>
-              {teams.slice(0, 12).map((x, i) => (
+              {teams.slice(0, 25).map((x, i) => (
                 <tr key={x.team_id}>
                   <td className="rank">{i + 1}</td>
                   <td><Link to={`/${lg.id}/team/${x.team_id}`} className="team-cell"><TeamLogo meta={meta[x.team_id]} name={x.name} size={22} /><span>{meta[x.team_id]?.short_name ?? x.name}</span></Link></td>
@@ -165,7 +168,7 @@ function TitleOutlook({ lg, teams, meta, loading, error }: { lg: LeagueConfig; t
               ))}
             </tbody>
           </table>
-        </div>
+        </div></div>
       )}
     </Panel>
   )
@@ -173,7 +176,7 @@ function TitleOutlook({ lg, teams, meta, loading, error }: { lg: LeagueConfig; t
 
 function SwingGames({ lg, events, meta }: { lg: LeagueConfig; events: BoardRow[]; meta: Record<string, TeamMeta> }) {
   const horizon = Date.now() + 15 * 86400_000
-  const top = events.filter((e) => new Date(e.start_time).getTime() < horizon).sort((a, b) => maxLeverage(b) - maxLeverage(a)).slice(0, 7)
+  const top = events.filter((e) => new Date(e.start_time).getTime() < horizon).sort((a, b) => maxLeverage(b) - maxLeverage(a)).slice(0, 12)
   const q = qualify(lg)
   return (
     <Panel title="Games that move the race" icon={Zap} flush foot={`Next 15 days, ranked by the swing in ${q.short} odds between winning and losing.`}>
@@ -216,18 +219,19 @@ function WorldUpdates({ lg, meta, team }: { lg: LeagueConfig; meta: Record<strin
   const updates = useUpdates(lg.id)
   const rows = (updates.data ?? [])
     .filter((u) => !u.news || (u.news.player && u.news.category !== 'other'))
-    .filter((u) => !team || u.teams?.includes(team))
     .slice()
     .reverse()
-    .slice(0, 9)
+  const mine = team ? rows.filter((u) => u.teams?.includes(team)).slice(0, 9) : rows.slice(0, 9)
+  // a team page with few updates of its own continues with the latest across the league
+  const rest = team && mine.length < 5 ? rows.filter((u) => !u.teams?.includes(team)).slice(0, 5 - mine.length) : []
   return (
     <Panel title="Live world updates" icon={Radio} flush>
-      {updates.isLoading ? <div style={{ padding: 14 }}><Loading /></div> : rows.length === 0 ? <Empty title="No updates yet this session">Finals, injury-report changes and grounded news appear here as they arrive.</Empty> : (
+      {updates.isLoading ? <div style={{ padding: 14 }}><Loading /></div> : mine.length + rest.length === 0 ? <Empty title="No updates yet this session">Finals, injury-report changes and grounded news appear here as they arrive.</Empty> : (
         <ul className="feed">
-          {rows.map((u, i) => {
+          {[...mine, ...rest].map((u, i) => {
             const k = updateKind(u)
             return (
-              <li key={`${u.at}-${i}`}>
+              <li key={`${u.at}-${i}`} className={rest.length && i === mine.length ? 'feed-split' : ''} data-split={rest.length && i === mine.length ? 'Across the league' : undefined}>
                 <time dateTime={u.at}>{time(u.at)}</time>
                 <k.Icon className={`ic ${k.cls}`} size={16} aria-hidden />
                 <p>
@@ -244,7 +248,7 @@ function WorldUpdates({ lg, meta, team }: { lg: LeagueConfig; meta: Record<strin
     </Panel>
   )
 }
-export { WorldUpdates }
+export { WorldUpdates, LearnedEffects }
 
 const SHORT_CONF: Record<string, string> = {
   'American Football Conference': 'AFC', 'National Football Conference': 'NFC', 'Eastern Conference': 'East', 'Western Conference': 'West',
@@ -351,7 +355,7 @@ function InjuryImpact({ lg, meta }: { lg: LeagueConfig; meta: Record<string, Tea
     <Panel title="Injury report → strength" icon={HeartPulse} flush
       foot={av.data ? <>ESPN injury report, refreshed {ago(av.data.fetched_at)}. Effect sizes are learned; status→availability is a labelled prior.</> : undefined}>
       {av.isLoading ? <div style={{ padding: 14 }}><Loading /></div> : av.isError ? <Empty title="No injury model for this league" /> : rows.length === 0 ? (
-        <Empty title="No key players listed out">Starting {lg.sport === 'football' ? 'quarterbacks' : lg.sport === 'hockey' ? 'goalies' : 'rotation players'} are all available on the current report.</Empty>
+        <LearnedEffects lg={lg} />
       ) : (
         <table className="tbl">
           <thead><tr><th>Team</th><th>Player</th><th>Status</th><th className="num">Δ strength</th></tr></thead>
@@ -460,5 +464,31 @@ function Scorecard({ lg, meta }: { lg: LeagueConfig; meta: Record<string, TeamMe
         </>
       )}
     </Panel>
+  )
+}
+
+const ROLE: Record<string, string> = { QB: 'Starting QB', G: 'Starting goalie', KEY: 'Top-minutes player', RB1: 'Lead running back', WR1: 'Top receiver', DEF1: 'Top tackler' }
+
+/** shown when nobody key is out: which absences would move a forecast, and by how much (learned from data) */
+function LearnedEffects({ lg, compact }: { lg: LeagueConfig; compact?: boolean }) {
+  const q = usePlayerImpact()
+  const row = (q.data ?? []).find((r: { league: string }) => r.league === lg.id)
+  const pos = Object.entries((row?.by_position ?? {}) as Record<string, { points: number; se: number; significant?: boolean; games_with_absence: number }>)
+  return (
+    <div className="learned">
+      <p className="learned-lead"><b>No key players listed out</b> on the current report. When one is, these learned effects apply:</p>
+      <table className="tbl">
+        <thead><tr><th>Absence</th><th className="num">Effect</th>{!compact && <th className="num">Games</th>}</tr></thead>
+        <tbody>
+          {pos.map(([k, v]) => (
+            <tr key={k} className={v.significant === false ? 'muted' : ''}>
+              <td>{ROLE[k] ?? k}{v.significant === false ? <span className="tag" style={{ marginLeft: 6 }}>{compact ? 'n.s.' : 'not significant'}</span> : null}</td>
+              <td className="num">{v.points > 0 ? '+' : '−'}{Math.abs(v.points).toFixed(1)} ± {v.se.toFixed(1)} {lg.unit}</td>
+              {!compact && <td className="num">{v.games_with_absence.toLocaleString()}</td>}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }

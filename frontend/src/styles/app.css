@@ -170,6 +170,11 @@ main { min-width: 0; padding: 18px 20px 40px; }
 .c3 { grid-column: span 3; } .c4 { grid-column: span 4; } .c5 { grid-column: span 5; } .c6 { grid-column: span 6; }
 .c7 { grid-column: span 7; } .c8 { grid-column: span 8; } .c9 { grid-column: span 9; } .c12 { grid-column: 1 / -1; }
 .stack { display: flex; flex-direction: column; gap: var(--gap); min-width: 0; }
+/* cards in one grid row share its height: no dead space under the shorter ones */
+.grid > .c3, .grid > .c4, .grid > .c5, .grid > .c6, .grid > .c7, .grid > .c8, .grid > .c9, .grid > .c12 { display: flex; flex-direction: column; min-width: 0; }
+.grid > div > .panel { flex: 1 1 auto; }
+.grid > .stack > .panel { flex: 0 0 auto; }
+.grid > .stack > .panel:last-child { flex: 1 1 auto; }
 
 /* ---------- panel ---------- */
 .panel {
@@ -245,6 +250,10 @@ input[type='range'] { accent-color: var(--accent); width: 100%; }
 .tbl .muted { color: var(--ink-3); }
 .tbl tr.cut td { border-bottom: 1px dashed rgba(246, 183, 60, 0.55); }
 .tbl-wrap { overflow: auto; }
+/* a table that fills its (row-stretched) card and scrolls inside it */
+.panel-body:has(> .fill-box) { display: flex; flex-direction: column; }
+.fill-box { position: relative; flex: 1 1 auto; min-height: 430px; }
+.fill-box > .tbl-wrap { position: absolute; inset: 0; }
 .team-cell { display: flex; align-items: center; gap: 9px; min-width: 0; }
 .team-cell span { overflow: hidden; text-overflow: ellipsis; }
 .team-cell a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
@@ -588,6 +597,15 @@ input[type='range'] { accent-color: var(--accent); width: 100%; }
 .profile-odds small { color: var(--ink-3); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
 .profile-odds b { font: 800 17px var(--display); }
 @media (max-width: 760px) { .news-item { grid-template-columns: 1fr; } .news-item > img { width: 100%; } .profiles-grid { grid-template-columns: 1fr; } }
+
+.learned-lead { margin: 0; padding: 12px 14px 8px; color: var(--ink-2); font-size: 13px; }
+.learned-lead b { color: var(--ink); }
+.learned tr.muted td { color: var(--ink-3); }
+
+.stat-kv { display: inline-block; margin-right: 14px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.stat-kv small { color: var(--ink-3); font-size: 11px; letter-spacing: 0.04em; }
+.feed li.feed-split { position: relative; margin-top: 26px; }
+.feed li.feed-split::before { content: attr(data-split); position: absolute; top: -22px; left: 14px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1360px) {

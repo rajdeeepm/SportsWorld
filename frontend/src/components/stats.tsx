@@ -16,14 +16,34 @@ export function StatTables({ categories, prefer }: { categories: StatCategory[];
   const order = prefer ?? ['passing', 'rushing', 'receiving', 'defensive', 'players', 'forwards', 'defenses', 'goalies']
   const rank = (n: string) => (order.indexOf(n) < 0 ? 99 : order.indexOf(n))
   const cats = categories.slice().sort((a, b) => rank(a.name) - rank(b.name))
-  const [sel, setSel] = useState(0)
-  const c = cats[Math.min(sel, cats.length - 1)]
+  const lead = ['passing', 'rushing', 'receiving', 'defensive', 'players', 'skaters', 'forwards', 'goalies'].map((n) => cats.find((x) => x.name === n)).filter(Boolean) as StatCategory[]
+  const hasLeaders = lead.length >= 2
+  const [sel, setSel] = useState(hasLeaders ? -1 : 0)
+  const c = cats[Math.min(Math.max(sel, 0), cats.length - 1)]
   if (!c) return <Empty title="No player stats yet" />
+  const keyCols = (x: StatCategory) => x.labels.map((l, i) => [l, i] as const).filter(([l]) => l !== 'GP').slice(0, 4)
   return (
     <>
       <div className="stat-tabs" role="tablist">
+        {hasLeaders && <button role="tab" aria-selected={sel === -1} className={sel === -1 ? 'on' : ''} onClick={() => setSel(-1)}>Leaders</button>}
         {cats.map((x, i) => <button key={x.name} role="tab" aria-selected={i === sel} className={i === sel ? 'on' : ''} onClick={() => setSel(i)}>{TITLE[x.name] ?? x.name}</button>)}
       </div>
+      {sel === -1 ? (
+        <div className="tbl-wrap" style={{ maxHeight: 380 }}>
+          <table className="tbl">
+            <thead><tr><th>Category</th><th>Player</th><th>Key numbers</th></tr></thead>
+            <tbody>
+              {lead.flatMap((x) => x.rows.slice(0, 3).map((r, k) => (
+                <tr key={x.name + r.id}>
+                  <td className="muted">{k === 0 ? TITLE[x.name] ?? x.name : ''}</td>
+                  <td><b style={{ fontWeight: 600 }}>{r.name}</b></td>
+                  <td>{keyCols(x).map(([l, i]) => <span key={l} className="stat-kv"><small>{l}</small> {r.stats[i]}</span>)}</td>
+                </tr>
+              )))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
       <div className="tbl-wrap" style={{ maxHeight: 380 }}>
         <table className="tbl">
           <thead><tr><th>Player</th>{c.labels.map((l) => <th key={l} className="num">{l}</th>)}</tr></thead>
@@ -37,6 +57,7 @@ export function StatTables({ categories, prefer }: { categories: StatCategory[];
           </tbody>
         </table>
       </div>
+      )}
     </>
   )
 }
