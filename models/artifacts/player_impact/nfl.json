@@ -3,44 +3,44 @@
  "model_version": "player_impact_nfl_v2",
  "data_mode": "real_espn",
  "fit_window": {
-  "start": "2023-09-22T00:15:00+00:00",
+  "start": "2018-09-21T00:20:00+00:00",
   "end": "2026-10-02T00:15:00+00:00"
  },
- "n_games": 776,
- "residual_sd": 13.071,
- "variance_explained": 0.03313,
+ "n_games": 1988,
+ "residual_sd": 12.989,
+ "variance_explained": 0.01918,
  "by_position": {
   "QB": {
-   "points": -3.806,
-   "se": 0.837,
-   "t": -4.55,
-   "games_with_absence": 248,
+   "points": -2.955,
+   "se": 0.536,
+   "t": -5.51,
+   "games_with_absence": 593,
    "significant": true
   },
   "RB1": {
-   "points": -0.849,
-   "se": 1.159,
-   "t": -0.73,
-   "games_with_absence": 128,
+   "points": -0.988,
+   "se": 0.676,
+   "t": -1.46,
+   "games_with_absence": 372,
    "significant": false
   },
   "WR1": {
-   "points": -1.61,
-   "se": 1.253,
-   "t": -1.28,
-   "games_with_absence": 111,
+   "points": -0.974,
+   "se": 0.787,
+   "t": -1.24,
+   "games_with_absence": 276,
    "significant": false
   },
   "DEF1": {
-   "points": -1.168,
-   "se": 1.275,
-   "t": -0.92,
-   "games_with_absence": 106,
+   "points": -0.971,
+   "se": 0.75,
+   "t": -1.3,
+   "games_with_absence": 301,
    "significant": false
   }
  },
  "definition": "QB: primary passer differs from the team's established starter (>=2 prior starts); RB1 / WR1 / DEF1: the team's leading ball carrier / receiver / tackler over earlier games recorded no carry / catch / tackle (box scores list only players with a stat, so this includes some off-games: a conservative estimate)",
- "created_at": "2026-10-04T01:00:22.064271+00:00",
+ "created_at": "2026-10-04T04:20:49.132698+00:00",
  "current_season": 2026,
  "current_key_players": {
   "26": {
@@ -974,6 +974,1555 @@
      "position": null
     }
    ]
+  }
+ },
+ "share_effects": {
+  "n_games": 1844,
+  "by_role": {
+   "RUSH": {
+    "points_per_full_share": -1.518,
+    "se": 1.067,
+    "t": -1.42,
+    "significant": false,
+    "games_with_missing": 1206,
+    "mean_abs_missing_share": 0.288
+   },
+   "REC": {
+    "points_per_full_share": -1.501,
+    "se": 1.593,
+    "t": -0.94,
+    "significant": false,
+    "games_with_missing": 1454,
+    "mean_abs_missing_share": 0.177
+   },
+   "DEF": {
+    "points_per_full_share": -3.781,
+    "se": 4.074,
+    "t": -0.93,
+    "significant": false,
+    "games_with_missing": 770,
+    "mean_abs_missing_share": 0.103
+   }
+  },
+  "qb_with_shares": {
+   "points_per_full_share": -3.293,
+   "se": 0.542,
+   "t": -6.07,
+   "significant": true,
+   "games_with_missing": 577,
+   "mean_abs_missing_share": 1.0
+  },
+  "definition": "points per 100% of the team's carries (RUSH), receptions (REC) or tackles (DEF) held by regulars (>=3 earlier games, >=8% average share) who appear nowhere in the box score; offensive line not measurable",
+  "min_games": 3,
+  "min_share": 0.08,
+  "current_season": 2026,
+  "current_shares": {
+   "26": {
+    "RUSH": [
+     {
+      "athlete_id": "4685512",
+      "name": "Jadarian Price",
+      "share": 0.358
+     },
+     {
+      "athlete_id": "4887558",
+      "name": "Emanuel Wilson",
+      "share": 0.358
+     },
+     {
+      "athlete_id": "4429835",
+      "name": "George Holani",
+      "share": 0.253
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "2977187",
+      "name": "Cooper Kupp",
+      "share": 0.161
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4362851",
+      "name": "Ernest Jones IV",
+      "share": 0.156
+     },
+     {
+      "athlete_id": "4428659",
+      "name": "Drake Thomas",
+      "share": 0.136
+     },
+     {
+      "athlete_id": "4575431",
+      "name": "Devon Witherspoon",
+      "share": 0.109
+     }
+    ]
+   },
+   "17": {
+    "RUSH": [
+     {
+      "athlete_id": "4569173",
+      "name": "Rhamondre Stevenson",
+      "share": 0.444
+     },
+     {
+      "athlete_id": "4431431",
+      "name": "Corey Kiner",
+      "share": 0.206
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "2991662",
+      "name": "Mack Hollins",
+      "share": 0.25
+     },
+     {
+      "athlete_id": "3046439",
+      "name": "Hunter Henry",
+      "share": 0.153
+     },
+     {
+      "athlete_id": "4427095",
+      "name": "DeMario Douglas",
+      "share": 0.139
+     },
+     {
+      "athlete_id": "4361432",
+      "name": "Romeo Doubs",
+      "share": 0.139
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3129446",
+      "name": "Robert Spillane",
+      "share": 0.122
+     },
+     {
+      "athlete_id": "4245273",
+      "name": "Christian Elliss",
+      "share": 0.101
+     },
+     {
+      "athlete_id": "4368113",
+      "name": "Charles Woods",
+      "share": 0.084
+     },
+     {
+      "athlete_id": "2574056",
+      "name": "Kevin Byard",
+      "share": 0.081
+     }
+    ]
+   },
+   "14": {
+    "RUSH": [
+     {
+      "athlete_id": "4430737",
+      "name": "Kyren Williams",
+      "share": 0.546
+     },
+     {
+      "athlete_id": "4429096",
+      "name": "Blake Corum",
+      "share": 0.39
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "16800",
+      "name": "Davante Adams",
+      "share": 0.285
+     },
+     {
+      "athlete_id": "4570037",
+      "name": "Terrance Ferguson",
+      "share": 0.102
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4249128",
+      "name": "Quentin Lake",
+      "share": 0.117
+     },
+     {
+      "athlete_id": "4243181",
+      "name": "Nate Landman",
+      "share": 0.094
+     },
+     {
+      "athlete_id": "4250621",
+      "name": "Kobie Turner",
+      "share": 0.08
+     }
+    ]
+   },
+   "25": {
+    "RUSH": [
+     {
+      "athlete_id": "3117251",
+      "name": "Christian McCaffrey",
+      "share": 0.457
+     },
+     {
+      "athlete_id": "4696044",
+      "name": "Kaelon Black",
+      "share": 0.303
+     },
+     {
+      "athlete_id": "3126486",
+      "name": "Deebo Samuel Sr.",
+      "share": 0.163
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "16737",
+      "name": "Mike Evans",
+      "share": 0.308
+     },
+     {
+      "athlete_id": "3040151",
+      "name": "George Kittle",
+      "share": 0.308
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3138826",
+      "name": "Fred Warner",
+      "share": 0.138
+     },
+     {
+      "athlete_id": "4693644",
+      "name": "Ji'Ayir Brown",
+      "share": 0.099
+     },
+     {
+      "athlete_id": "3916903",
+      "name": "Dre Greenlaw",
+      "share": 0.094
+     },
+     {
+      "athlete_id": "4693337",
+      "name": "Marques Sigle",
+      "share": 0.09
+     }
+    ]
+   },
+   "23": {
+    "RUSH": [
+     {
+      "athlete_id": "4569987",
+      "name": "Jaylen Warren",
+      "share": 0.68
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4047650",
+      "name": "DK Metcalf",
+      "share": 0.245
+     },
+     {
+      "athlete_id": "4431492",
+      "name": "Roman Wilson",
+      "share": 0.22
+     },
+     {
+      "athlete_id": "4430802",
+      "name": "Darnell Washington",
+      "share": 0.139
+     },
+     {
+      "athlete_id": "4685261",
+      "name": "Germie Bernard",
+      "share": 0.111
+     },
+     {
+      "athlete_id": "4035687",
+      "name": "Michael Pittman Jr.",
+      "share": 0.106
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4361652",
+      "name": "Payton Wilson",
+      "share": 0.102
+     },
+     {
+      "athlete_id": "4242207",
+      "name": "Patrick Queen",
+      "share": 0.102
+     },
+     {
+      "athlete_id": "4570044",
+      "name": "Jaquan Brisker",
+      "share": 0.102
+     }
+    ]
+   },
+   "1": {
+    "RUSH": [
+     {
+      "athlete_id": "4430807",
+      "name": "Bijan Robinson",
+      "share": 0.639
+     },
+     {
+      "athlete_id": "4241474",
+      "name": "Brian Robinson Jr.",
+      "share": 0.297
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "3917914",
+      "name": "Olamide Zaccheaus",
+      "share": 0.311
+     },
+     {
+      "athlete_id": "4361409",
+      "name": "Jahan Dotson",
+      "share": 0.239
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3919512",
+      "name": "Jessie Bates III",
+      "share": 0.1
+     },
+     {
+      "athlete_id": "4431005",
+      "name": "Xavier Watts",
+      "share": 0.094
+     },
+     {
+      "athlete_id": "3895841",
+      "name": "Mike Hughes",
+      "share": 0.09
+     }
+    ]
+   },
+   "11": {
+    "RUSH": [
+     {
+      "athlete_id": "4242335",
+      "name": "Jonathan Taylor",
+      "share": 0.782
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4688813",
+      "name": "Josh Downs",
+      "share": 0.325
+     },
+     {
+      "athlete_id": "15818",
+      "name": "Keenan Allen",
+      "share": 0.269
+     },
+     {
+      "athlete_id": "3051889",
+      "name": "Laquon Treadwell",
+      "share": 0.097
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3917142",
+      "name": "Akeem Davis-Gaither",
+      "share": 0.133
+     },
+     {
+      "athlete_id": "4035861",
+      "name": "Cam Bynum",
+      "share": 0.081
+     }
+    ]
+   },
+   "33": {
+    "RUSH": [
+     {
+      "athlete_id": "3043078",
+      "name": "Derrick Henry",
+      "share": 0.804
+     },
+     {
+      "athlete_id": "4038441",
+      "name": "Justice Hill",
+      "share": 0.15
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "3116365",
+      "name": "Mark Andrews",
+      "share": 0.287
+     },
+     {
+      "athlete_id": "4360939",
+      "name": "Rashod Bateman",
+      "share": 0.197
+     },
+     {
+      "athlete_id": "2576581",
+      "name": "Chris Moore",
+      "share": 0.177
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3915189",
+      "name": "Roquan Smith",
+      "share": 0.151
+     },
+     {
+      "athlete_id": "4575517",
+      "name": "Kyle Hamilton",
+      "share": 0.132
+     },
+     {
+      "athlete_id": "4685530",
+      "name": "Malaki Starks",
+      "share": 0.092
+     }
+    ]
+   },
+   "34": {
+    "RUSH": [
+     {
+      "athlete_id": "4035538",
+      "name": "David Montgomery",
+      "share": 0.477
+     },
+     {
+      "athlete_id": "4429059",
+      "name": "Woody Marks",
+      "share": 0.32
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "3117256",
+      "name": "Dalton Schultz",
+      "share": 0.385
+     },
+     {
+      "athlete_id": "3843945",
+      "name": "Foster Moreau",
+      "share": 0.153
+     },
+     {
+      "athlete_id": "4429022",
+      "name": "Kayshon Boutte",
+      "share": 0.148
+     },
+     {
+      "athlete_id": "4430681",
+      "name": "Jared Wayne",
+      "share": 0.092
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3919117",
+      "name": "Azeez Al-Shaair",
+      "share": 0.169
+     },
+     {
+      "athlete_id": "4243956",
+      "name": "Reed Blankenship",
+      "share": 0.117
+     }
+    ]
+   },
+   "2": {
+    "RUSH": [
+     {
+      "athlete_id": "4379399",
+      "name": "James Cook III",
+      "share": 0.909
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4385690",
+      "name": "Dalton Kincaid",
+      "share": 0.268
+     },
+     {
+      "athlete_id": "4373678",
+      "name": "Khalil Shakir",
+      "share": 0.155
+     },
+     {
+      "athlete_id": "4635008",
+      "name": "Keon Coleman",
+      "share": 0.149
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4568624",
+      "name": "Dorian Williams",
+      "share": 0.113
+     },
+     {
+      "athlete_id": "4676004",
+      "name": "Cole Bishop",
+      "share": 0.086
+     }
+    ]
+   },
+   "29": {
+    "RUSH": [
+     {
+      "athlete_id": "4241416",
+      "name": "Chuba Hubbard",
+      "share": 0.641
+     },
+     {
+      "athlete_id": "4239934",
+      "name": "AJ Dillon",
+      "share": 0.193
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4695883",
+      "name": "Jalen Coker",
+      "share": 0.264
+     },
+     {
+      "athlete_id": "4685472",
+      "name": "Tetairoa McMillan",
+      "share": 0.175
+     },
+     {
+      "athlete_id": "2576925",
+      "name": "Darren Waller",
+      "share": 0.145
+     },
+     {
+      "athlete_id": "4372780",
+      "name": "Tommy Tremble",
+      "share": 0.097
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3117253",
+      "name": "Bobby Okereke",
+      "share": 0.097
+     }
+    ]
+   },
+   "3": {
+    "RUSH": [
+     {
+      "athlete_id": "4259545",
+      "name": "D'Andre Swift",
+      "share": 0.567
+     },
+     {
+      "athlete_id": "4608686",
+      "name": "Kyle Monangai",
+      "share": 0.319
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "2973405",
+      "name": "Kalif Raymond",
+      "share": 0.452
+     },
+     {
+      "athlete_id": "4431299",
+      "name": "Rome Odunze",
+      "share": 0.191
+     },
+     {
+      "athlete_id": "4723086",
+      "name": "Colston Loveland",
+      "share": 0.115
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4954445",
+      "name": "Dillon Thieneman",
+      "share": 0.14
+     },
+     {
+      "athlete_id": "3916577",
+      "name": "Cam Lewis",
+      "share": 0.084
+     }
+    ]
+   },
+   "30": {
+    "RUSH": [
+     {
+      "athlete_id": "4882093",
+      "name": "Bhayshul Tuten",
+      "share": 0.551
+     },
+     {
+      "athlete_id": "4362619",
+      "name": "Chris Rodriguez Jr.",
+      "share": 0.258
+     },
+     {
+      "athlete_id": "2576336",
+      "name": "Ameer Abdullah",
+      "share": 0.127
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4432620",
+      "name": "Parker Washington",
+      "share": 0.338
+     },
+     {
+      "athlete_id": "4432773",
+      "name": "Brian Thomas Jr.",
+      "share": 0.16
+     },
+     {
+      "athlete_id": "4430539",
+      "name": "Brenton Strange",
+      "share": 0.148
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4240610",
+      "name": "Ventrell Miller",
+      "share": 0.135
+     },
+     {
+      "athlete_id": "3050073",
+      "name": "Foyesade Oluokun",
+      "share": 0.093
+     },
+     {
+      "athlete_id": "4429168",
+      "name": "Antonio Johnson",
+      "share": 0.083
+     }
+    ]
+   },
+   "5": {
+    "RUSH": [
+     {
+      "athlete_id": "4685702",
+      "name": "Quinshon Judkins",
+      "share": 0.708
+     },
+     {
+      "athlete_id": "4601080",
+      "name": "Raheim Sanders",
+      "share": 0.144
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "5083076",
+      "name": "Harold Fannin Jr.",
+      "share": 0.382
+     },
+     {
+      "athlete_id": "4832800",
+      "name": "Denzel Boston",
+      "share": 0.284
+     },
+     {
+      "athlete_id": "4241463",
+      "name": "Jerry Jeudy",
+      "share": 0.118
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4876017",
+      "name": "Carson Schwesinger",
+      "share": 0.129
+     },
+     {
+      "athlete_id": "4569620",
+      "name": "Ronnie Hickman",
+      "share": 0.087
+     },
+     {
+      "athlete_id": "3110565",
+      "name": "Quincy Williams",
+      "share": 0.083
+     }
+    ]
+   },
+   "8": {
+    "RUSH": [
+     {
+      "athlete_id": "4429795",
+      "name": "Jahmyr Gibbs",
+      "share": 0.882
+     },
+     {
+      "athlete_id": "4912274",
+      "name": "Sione Vaki",
+      "share": 0.118
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4374302",
+      "name": "Amon-Ra St. Brown",
+      "share": 0.403
+     },
+     {
+      "athlete_id": "4430027",
+      "name": "Sam LaPorta",
+      "share": 0.247
+     },
+     {
+      "athlete_id": "4426388",
+      "name": "Jameson Williams",
+      "share": 0.18
+     },
+     {
+      "athlete_id": "5123663",
+      "name": "Isaac TeSlaa",
+      "share": 0.094
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3139387",
+      "name": "D.J. Reed",
+      "share": 0.111
+     },
+     {
+      "athlete_id": "3045463",
+      "name": "Chuck Clark",
+      "share": 0.1
+     },
+     {
+      "athlete_id": "4260409",
+      "name": "Derrick Barnes",
+      "share": 0.099
+     }
+    ]
+   },
+   "18": {
+    "RUSH": [
+     {
+      "athlete_id": "4239996",
+      "name": "Travis Etienne Jr.",
+      "share": 0.434
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4361370",
+      "name": "Chris Olave",
+      "share": 0.382
+     },
+     {
+      "athlete_id": "3929645",
+      "name": "Juwan Johnson",
+      "share": 0.215
+     },
+     {
+      "athlete_id": "4569559",
+      "name": "Devaughn Vele",
+      "share": 0.211
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3124890",
+      "name": "Kaden Elliss",
+      "share": 0.116
+     },
+     {
+      "athlete_id": "4241993",
+      "name": "Pete Werner",
+      "share": 0.109
+     },
+     {
+      "athlete_id": "4683813",
+      "name": "Jonas Sanker",
+      "share": 0.092
+     },
+     {
+      "athlete_id": "4683215",
+      "name": "Danny Stutsman",
+      "share": 0.082
+     }
+    ]
+   },
+   "10": {
+    "RUSH": [
+     {
+      "athlete_id": "3916148",
+      "name": "Tony Pollard",
+      "share": 0.703
+     },
+     {
+      "athlete_id": "4428557",
+      "name": "Tyjae Spears",
+      "share": 0.243
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4871023",
+      "name": "Carnell Tate",
+      "share": 0.265
+     },
+     {
+      "athlete_id": "4569587",
+      "name": "Wan'Dale Robinson",
+      "share": 0.232
+     },
+     {
+      "athlete_id": "4686728",
+      "name": "Gunnar Helm",
+      "share": 0.171
+     },
+     {
+      "athlete_id": "4883647",
+      "name": "Elic Ayomanor",
+      "share": 0.1
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4870805",
+      "name": "Anthony Hill Jr.",
+      "share": 0.153
+     },
+     {
+      "athlete_id": "4036134",
+      "name": "Amani Hooker",
+      "share": 0.099
+     },
+     {
+      "athlete_id": "4685617",
+      "name": "Kevin Winston Jr.",
+      "share": 0.099
+     },
+     {
+      "athlete_id": "4035369",
+      "name": "Jeffery Simmons",
+      "share": 0.093
+     },
+     {
+      "athlete_id": "4570469",
+      "name": "Marcus Harris",
+      "share": 0.086
+     }
+    ]
+   },
+   "20": {
+    "RUSH": [
+     {
+      "athlete_id": "4427366",
+      "name": "Breece Hall",
+      "share": 0.662
+     },
+     {
+      "athlete_id": "4685247",
+      "name": "Braelon Allen",
+      "share": 0.235
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4569618",
+      "name": "Garrett Wilson",
+      "share": 0.355
+     },
+     {
+      "athlete_id": "4361372",
+      "name": "Jeremy Ruckert",
+      "share": 0.125
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "14958",
+      "name": "Demario Davis",
+      "share": 0.131
+     },
+     {
+      "athlete_id": "4361331",
+      "name": "Jamien Sherwood",
+      "share": 0.103
+     },
+     {
+      "athlete_id": "4361939",
+      "name": "Andre Cisco",
+      "share": 0.095
+     },
+     {
+      "athlete_id": "4426686",
+      "name": "Dane Belton",
+      "share": 0.091
+     }
+    ]
+   },
+   "4": {
+    "RUSH": [
+     {
+      "athlete_id": "4362238",
+      "name": "Chase Brown",
+      "share": 0.787
+     },
+     {
+      "athlete_id": "3116389",
+      "name": "Samaje Perine",
+      "share": 0.159
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4362628",
+      "name": "Ja'Marr Chase",
+      "share": 0.284
+     },
+     {
+      "athlete_id": "4239993",
+      "name": "Tee Higgins",
+      "share": 0.23
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4567098",
+      "name": "Jordan Battle",
+      "share": 0.119
+     },
+     {
+      "athlete_id": "4426422",
+      "name": "Dax Hill",
+      "share": 0.114
+     },
+     {
+      "athlete_id": "4431519",
+      "name": "Barrett Carter",
+      "share": 0.11
+     }
+    ]
+   },
+   "27": {
+    "RUSH": [
+     {
+      "athlete_id": "4596448",
+      "name": "Bucky Irving",
+      "share": 0.604
+     },
+     {
+      "athlete_id": "4371733",
+      "name": "Kenny Gainwell",
+      "share": 0.226
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4243331",
+      "name": "Cade Otton",
+      "share": 0.343
+     },
+     {
+      "athlete_id": "5220680",
+      "name": "Ted Hurst III",
+      "share": 0.187
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3043107",
+      "name": "Alex Anzalone",
+      "share": 0.104
+     },
+     {
+      "athlete_id": "4034790",
+      "name": "Antoine Winfield Jr.",
+      "share": 0.093
+     }
+    ]
+   },
+   "24": {
+    "RUSH": [
+     {
+      "athlete_id": "4685382",
+      "name": "Omarion Hampton",
+      "share": 0.723
+     },
+     {
+      "athlete_id": "4596334",
+      "name": "Keaton Mitchell",
+      "share": 0.252
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4612826",
+      "name": "Ladd McConkey",
+      "share": 0.254
+     },
+     {
+      "athlete_id": "4686612",
+      "name": "Tre' Harris",
+      "share": 0.205
+     },
+     {
+      "athlete_id": "4595342",
+      "name": "Oronde Gadsden",
+      "share": 0.091
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3691739",
+      "name": "Derwin James Jr.",
+      "share": 0.102
+     },
+     {
+      "athlete_id": "4240528",
+      "name": "Del'Shawn Phillips",
+      "share": 0.091
+     },
+     {
+      "athlete_id": "4038946",
+      "name": "Troy Dye",
+      "share": 0.083
+     }
+    ]
+   },
+   "22": {
+    "RUSH": [
+     {
+      "athlete_id": "4870808",
+      "name": "Jeremiyah Love",
+      "share": 0.598
+     },
+     {
+      "athlete_id": "4373626",
+      "name": "Tyler Allgeier",
+      "share": 0.36
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4361307",
+      "name": "Trey McBride",
+      "share": 0.441
+     },
+     {
+      "athlete_id": "4360761",
+      "name": "Michael Wilson",
+      "share": 0.236
+     },
+     {
+      "athlete_id": "3045523",
+      "name": "Kendrick Bourne",
+      "share": 0.191
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4249739",
+      "name": "Jack Gibbens",
+      "share": 0.136
+     },
+     {
+      "athlete_id": "3918331",
+      "name": "Andrew Wingard",
+      "share": 0.125
+     },
+     {
+      "athlete_id": "4040983",
+      "name": "Mack Wilson Sr.",
+      "share": 0.117
+     },
+     {
+      "athlete_id": "3127287",
+      "name": "Budda Baker",
+      "share": 0.105
+     }
+    ]
+   },
+   "16": {
+    "RUSH": [
+     {
+      "athlete_id": "3042519",
+      "name": "Aaron Jones Sr.",
+      "share": 0.725
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4262921",
+      "name": "Justin Jefferson",
+      "share": 0.328
+     },
+     {
+      "athlete_id": "4036133",
+      "name": "T.J. Hockenson",
+      "share": 0.239
+     },
+     {
+      "athlete_id": "4429205",
+      "name": "Jordan Addison",
+      "share": 0.222
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3728281",
+      "name": "Blake Cashman",
+      "share": 0.125
+     },
+     {
+      "athlete_id": "4046537",
+      "name": "Joshua Metellus",
+      "share": 0.098
+     },
+     {
+      "athlete_id": "3056916",
+      "name": "Eric Wilson",
+      "share": 0.096
+     },
+     {
+      "athlete_id": "4038999",
+      "name": "Byron Murphy Jr.",
+      "share": 0.086
+     }
+    ]
+   },
+   "9": {
+    "RUSH": [
+     {
+      "athlete_id": "4429023",
+      "name": "MarShawn Lloyd",
+      "share": 0.494
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4248528",
+      "name": "Christian Watson",
+      "share": 0.246
+     },
+     {
+      "athlete_id": "4701936",
+      "name": "Matthew Golden",
+      "share": 0.223
+     },
+     {
+      "athlete_id": "4430191",
+      "name": "Skyy Moore",
+      "share": 0.172
+     },
+     {
+      "athlete_id": "4572680",
+      "name": "Tucker Kraft",
+      "share": 0.129
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4428863",
+      "name": "Evan Williams",
+      "share": 0.122
+     },
+     {
+      "athlete_id": "4430438",
+      "name": "Edgerrin Cooper",
+      "share": 0.098
+     },
+     {
+      "athlete_id": "3124005",
+      "name": "Zaire Franklin",
+      "share": 0.092
+     },
+     {
+      "athlete_id": "4259493",
+      "name": "Keisean Nixon",
+      "share": 0.082
+     },
+     {
+      "athlete_id": "4686906",
+      "name": "Lukas Van Ness",
+      "share": 0.08
+     }
+    ]
+   },
+   "13": {
+    "RUSH": [
+     {
+      "athlete_id": "4890973",
+      "name": "Ashton Jeanty",
+      "share": 0.776
+     },
+     {
+      "athlete_id": "4686658",
+      "name": "Mike Washington Jr.",
+      "share": 0.18
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4429086",
+      "name": "Michael Mayer",
+      "share": 0.23
+     },
+     {
+      "athlete_id": "4428718",
+      "name": "Tre Tucker",
+      "share": 0.21
+     },
+     {
+      "athlete_id": "4241983",
+      "name": "Cody White",
+      "share": 0.117
+     },
+     {
+      "athlete_id": "4382466",
+      "name": "Jalen Nailor",
+      "share": 0.096
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4426340",
+      "name": "Nakobe Dean",
+      "share": 0.168
+     }
+    ]
+   },
+   "15": {
+    "RUSH": [
+     {
+      "athlete_id": "4429160",
+      "name": "De'Von Achane",
+      "share": 0.524
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4367209",
+      "name": "Greg Dulcich",
+      "share": 0.284
+     },
+     {
+      "athlete_id": "4869961",
+      "name": "Chris Bell",
+      "share": 0.133
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4566094",
+      "name": "Jacob Rodriguez",
+      "share": 0.139
+     },
+     {
+      "athlete_id": "4043130",
+      "name": "Jordyn Brooks",
+      "share": 0.11
+     },
+     {
+      "athlete_id": "4880346",
+      "name": "Michael Taaffe",
+      "share": 0.107
+     },
+     {
+      "athlete_id": "4869579",
+      "name": "Chris Johnson",
+      "share": 0.096
+     }
+    ]
+   },
+   "21": {
+    "RUSH": [
+     {
+      "athlete_id": "3929630",
+      "name": "Saquon Barkley",
+      "share": 0.646
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4241478",
+      "name": "DeVonta Smith",
+      "share": 0.375
+     },
+     {
+      "athlete_id": "4428850",
+      "name": "Dontayvion Wicks",
+      "share": 0.181
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4685287",
+      "name": "Jihaad Campbell",
+      "share": 0.141
+     },
+     {
+      "athlete_id": "3917657",
+      "name": "Zack Baun",
+      "share": 0.118
+     },
+     {
+      "athlete_id": "4682618",
+      "name": "Cooper DeJean",
+      "share": 0.089
+     }
+    ]
+   },
+   "28": {
+    "RUSH": [
+     {
+      "athlete_id": "4575131",
+      "name": "Jacory Croskey-Merritt",
+      "share": 0.599
+     },
+     {
+      "athlete_id": "4697815",
+      "name": "Rachaad White",
+      "share": 0.282
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "2976212",
+      "name": "Stefon Diggs",
+      "share": 0.333
+     },
+     {
+      "athlete_id": "3121422",
+      "name": "Terry McLaurin",
+      "share": 0.222
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "3125248",
+      "name": "Jeremy Reaves",
+      "share": 0.106
+     },
+     {
+      "athlete_id": "4426901",
+      "name": "Leo Chenal",
+      "share": 0.1
+     },
+     {
+      "athlete_id": "4239694",
+      "name": "Amik Robertson",
+      "share": 0.095
+     }
+    ]
+   },
+   "19": {
+    "RUSH": [
+     {
+      "athlete_id": "4696981",
+      "name": "Cam Skattebo",
+      "share": 0.65
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4361050",
+      "name": "Isaiah Likely",
+      "share": 0.366
+     },
+     {
+      "athlete_id": "4595348",
+      "name": "Malik Nabers",
+      "share": 0.321
+     },
+     {
+      "athlete_id": "4682648",
+      "name": "Malachi Fields",
+      "share": 0.17
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4950400",
+      "name": "Arvell Reese",
+      "share": 0.152
+     },
+     {
+      "athlete_id": "3929950",
+      "name": "Tremaine Edmunds",
+      "share": 0.143
+     },
+     {
+      "athlete_id": "4431321",
+      "name": "Dru Phillips",
+      "share": 0.083
+     }
+    ]
+   },
+   "6": {
+    "RUSH": [
+     {
+      "athlete_id": "4361579",
+      "name": "Javonte Williams",
+      "share": 0.617
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "4426354",
+      "name": "George Pickens",
+      "share": 0.256
+     },
+     {
+      "athlete_id": "4242355",
+      "name": "Jake Ferguson",
+      "share": 0.145
+     },
+     {
+      "athlete_id": "5083754",
+      "name": "Ryan Flournoy",
+      "share": 0.144
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4685266",
+      "name": "Jaishawn Barham",
+      "share": 0.1
+     },
+     {
+      "athlete_id": "4870706",
+      "name": "Caleb Downs",
+      "share": 0.098
+     },
+     {
+      "athlete_id": "4043089",
+      "name": "Jalen Thompson",
+      "share": 0.081
+     }
+    ]
+   },
+   "12": {
+    "RUSH": [
+     {
+      "athlete_id": "4567048",
+      "name": "Kenneth Walker III",
+      "share": 0.794
+     },
+     {
+      "athlete_id": "4832955",
+      "name": "Emmett Johnson",
+      "share": 0.194
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "15847",
+      "name": "Travis Kelce",
+      "share": 0.249
+     },
+     {
+      "athlete_id": "4428331",
+      "name": "Rashee Rice",
+      "share": 0.233
+     },
+     {
+      "athlete_id": "4683062",
+      "name": "Xavier Worthy",
+      "share": 0.194
+     },
+     {
+      "athlete_id": "4362921",
+      "name": "Tyquan Thornton",
+      "share": 0.089
+     },
+     {
+      "athlete_id": "4240472",
+      "name": "Noah Gray",
+      "share": 0.08
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "4362759",
+      "name": "Nick Bolton",
+      "share": 0.133
+     },
+     {
+      "athlete_id": "3129310",
+      "name": "Drue Tranquill",
+      "share": 0.113
+     },
+     {
+      "athlete_id": "4685232",
+      "name": "Jaden Hicks",
+      "share": 0.102
+     }
+    ]
+   },
+   "7": {
+    "RUSH": [
+     {
+      "athlete_id": "4241985",
+      "name": "J.K. Dobbins",
+      "share": 0.547
+     }
+    ],
+    "REC": [
+     {
+      "athlete_id": "3128429",
+      "name": "Courtland Sutton",
+      "share": 0.266
+     },
+     {
+      "athlete_id": "3051876",
+      "name": "Evan Engram",
+      "share": 0.126
+     }
+    ],
+    "DEF": [
+     {
+      "athlete_id": "2612151",
+      "name": "Alex Singleton",
+      "share": 0.16
+     },
+     {
+      "athlete_id": "4039059",
+      "name": "Brandon Jones",
+      "share": 0.107
+     },
+     {
+      "athlete_id": "4360853",
+      "name": "Talanoa Hufanga",
+      "share": 0.085
+     },
+     {
+      "athlete_id": "4372012",
+      "name": "Pat Surtain II",
+      "share": 0.085
+     }
+    ]
+   }
   }
  }
 }

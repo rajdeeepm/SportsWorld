@@ -242,8 +242,11 @@ published win probability (statistically tied with game-clustered CIs).
 loss (≈ 0.01 in hockey). The market sees lineups, injury nuance and money flow that SportsWorld deliberately does
 not consume; it is the yardstick for every new evidence source, never a feature.
 
-**5. Absences are large and measurable** (associational): NFL starting QB −3.8 ± 0.8 pts, FBS starting QB −2.9 ±
-0.5, NBA top-minutes player −2.5 ± 0.2, NHL starting goalie −0.16 ± 0.06 goals.
+**5. Absences are measurable where the data allows** (associational, 2018–2026 box scores): NFL starting QB −3.0 ±
+0.5 pts, FBS starting QB −2.4 ± 0.3, NBA top-minutes player −2.5 ± 0.2, NHL starting goalie −0.16 ± 0.06 goals. Pooled
+by role share, FBS ball carriers are significant too (−2.2 ± 0.9 pts per 100 % of the team's carries missing, so a lead
+back with 40 % of carries ≈ −0.9); receivers are borderline (−1.9 ± 1.1) and defenders unmeasurable from tackles.
+Offensive linemen record no box-score stats, so their absences cannot be measured at all.
 
 Hygiene: whole-game chronological splits, hyper-parameters fit only on earlier data, point-in-time replay, zero
 leakage violations, 58 backend tests (season acceptance: exactly one champion per simulated season, seed

@@ -44,9 +44,10 @@ evidence arrives.
   homepage ranks tonight's games by what they mean for the season, not by TV slot.
 - **Counterfactual lab.** "What if Michigan's starting QB misses 3 games?" or "What if Michigan beats Ohio
   State?" runs on a private branch with common random numbers, so every difference is the scenario's effect.
-  Absences use effects *learned from data* (an NFL starting QB is worth −3.8 ± 0.8 points); we also estimated
-  RB1 / WR1 / top tackler, found them statistically indistinguishable from zero, and show them greyed out rather
-  than pretend.
+  Absences use effects *learned from data* (an NFL starting QB is worth −3.0 ± 0.5 points). Every listed player
+  is pooled by the share of the team's carries, catches or tackles they account for; in college football ball
+  carriers are significant (a lead back ≈ −0.9 pts) and are applied. Effects that are not significant are shown
+  with their estimate and never applied; offensive linemen leave no box-score trace and are labelled unmeasurable.
 - **Live games with real positions.** Ball spot and drives (football), shot charts (basketball), shot/goal/hit
   maps (hockey), every F1 car on its real track position, live box scores and season player stats.
 - **Live commentary and radio (ElevenLabs).** Turn on commentary for any game and it calls every play

@@ -41,7 +41,7 @@ Point at the **Pushed by SpacetimeDB · state vN** notice and the **last push 0s
 **Screen:** Michigan team page (season outlook, schedule with leverage, season paths, player stats). Then
 Simulation Lab: **Starting QB out 3 games**, plus **Michigan beats Ohio State**. Run.
 > "Michigan's whole season: expected wins with a range, odds by final record, every remaining game ranked by
-> stakes. In the Lab we branch the world: their QB out for three games, a learned effect of minus 2.9 points,
+> stakes. In the Lab we branch the world: their QB out for three games, a learned effect of minus 2.4 points,
 > and a forced win over Ohio State. Both branches share random numbers, so every difference is the scenario."
 
 ## 2:45 · Ask the agent (Fetch.ai on ASI:One) · 30 s

@@ -19,7 +19,7 @@ or a point-in-time historical replay. Generated Oct 3, 2026; reproducible with `
 4. **Markets know more pregame.** On true holdout games the de-vigged market beats SportsWorld by ≈ 0.03 log
    loss (≈ 0.01 in hockey); a blend puts ≈ 0 weight on SportsWorld. The edge is information SportsWorld does not
    consume (lineups, injury nuance, money flow). It is the benchmark against which new evidence sources are measured.
-5. **Absence of key players is large and measurable** (associational): NFL starting QB −3.8 ± 0.8 pts,
+5. **Absence of key players is measurable where the data allows** (associational): NFL starting QB −3.0 ± 0.5 pts, FBS starting QB −2.4 ± 0.3,
    NBA top-minutes player −2.5 ± 0.2, NHL starting goalie −0.16 ± 0.06 goals.
 
 Methodological hygiene: whole-game chronological partitions, hyper-parameters fit only on earlier data,
@@ -157,14 +157,17 @@ whole games (plays within a game are strongly correlated; a play-level test woul
 ## 6. Player availability
 
 Residual of actual margin against the point-in-time Kalman expectation, regressed on established key-player
-absences from ex-post participation (summaries):
+absences from ex-post participation (summaries, NFL and FBS backfilled to 2018). Pooled rows: regulars (≥ 3 earlier games, ≥ 8 % average share) who appear nowhere in the box score; offensive line is not measurable from box scores:
 
 | League | absence | effect | ±SE | t | games |
 |---|---|---:|---:|---:|---:|
-| NFL | starting QB | -3.81 pts | 0.84 | -4.55 | 776 |
-| NFL | lead RB / top WR / top tackler | -0.85 / -1.61 / -1.17 pts | 1.16 / 1.25 / 1.28 | not significant | 776 |
-| FBS | lead RB / top WR / top tackler | -0.11 / +0.67 / +0.17 pts | 0.89 / 0.93 / 1.13 | not significant | 2,501 |
-| FBS | starting QB | -2.89 pts | 0.53 | -5.44 | 2,501 |
+| NFL | starting QB | -2.96 pts | 0.54 | -5.51 | 1,988 |
+| NFL | lead RB / top WR / top tackler | -0.99 / -0.97 / -0.97 pts | 0.68 / 0.79 / 0.75 | not significant | 1,988 |
+| NFL | per 100 % of carries / catches / tackles missing (pooled) | -1.52 / -1.50 / -3.78 pts | 1.07 / 1.59 / 4.07 | not significant | 1,844 |
+| FBS | starting QB | -2.39 pts | 0.35 | -6.92 | 6,141 |
+| FBS | lead RB / top WR / top tackler | -0.95 / -1.06 / -0.50 pts | 0.55 / 0.62 / 1.02 | not significant | 6,141 |
+| FBS | per 100 % of carries missing (pooled) | **-2.21 pts** | 0.93 | -2.38 | 4,817 |
+| FBS | per 100 % of catches / tackles missing (pooled) | -1.94 / -5.44 pts | 1.05 / 7.68 | -1.84 / -0.71 | 4,817 |
 | NBA | per top-2-minutes player | -2.47 pts | 0.20 | -12.4 | 9,456 |
 | WNBA | per top-2-minutes player | -3.73 pts | 0.80 | -4.68 | 1,056 |
 | NCAAM | per top-2-minutes player | -0.89 pts | 0.31 | -2.86 | 10,643 |

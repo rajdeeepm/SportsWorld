@@ -157,6 +157,27 @@ class LeagueAvailability:
                                  "beta": beta, "delta_points": round(d, 3), "reported_at": r.get("reported_at"),
                                  "source_id": r.get("source_id") or "espn-injuries", "source_url": r.get("source_url"),
                                  "status_mapping": "uncalibrated_prior_v1"})
+        # share-weighted roles (football): regular ball carriers, receivers and defenders, if their pooled effect is significant
+        se_ = self.impact.get("share_effects") or {}
+        claimed = {name_key(a["player"]) for a in absences}
+        for role, players in (se_.get("current_shares") or {}).get(team_id, {}).items():
+            est = (se_.get("by_role") or {}).get(role, {})
+            if not est.get("significant"):
+                continue
+            for pl in players:
+                r = by_id.get(pl["athlete_id"]) or by_name.get(name_key(pl["name"] or ""))
+                if not r or name_key(pl["name"] or "") in claimed:
+                    continue
+                pp = p_play(r["status"])
+                if pp >= 1.0:
+                    continue
+                d = est["points_per_full_share"] * pl["share"] * (1.0 - pp)
+                total += d
+                long_term |= (r["status"] or "").lower() in LONG_TERM
+                claimed.add(name_key(pl["name"] or ""))
+                absences.append({"player": pl["name"], "athlete_id": pl["athlete_id"], "role": f"{role} {pl['share'] * 100:.0f}%", "status": r["status"], "p_play": pp,
+                                 "beta": est["points_per_full_share"], "share": pl["share"], "delta_points": round(d, 3), "reported_at": r.get("reported_at"),
+                                 "source_id": r.get("source_id") or "espn-injuries", "source_url": r.get("source_url"), "status_mapping": "uncalibrated_prior_v1"})
         reported = [a["reported_at"] for a in absences if a.get("reported_at")]
         return {"team_id": team_id, "delta_points": round(total, 3), "absences": absences, "known_to_model_time": now.isoformat(),
                 "window_days": 28 if long_term else None, "window_anchor": min(reported) if reported else now.isoformat(),
@@ -211,6 +232,13 @@ class AvailabilityService:
                 for pl in players:
                     key_of[name_key(pl["name"] or "")] = pos
             priced = {name_key(a["player"] or ""): a for a in b.deltas.get(tid, {}).get("absences", [])}
+            se_ = b.impact.get("share_effects") or {}
+            share_of = {}
+            for role, players in (se_.get("current_shares") or {}).get(tid, {}).items():
+                for pl in players:
+                    k0 = name_key(pl["name"] or "")
+                    if k0 not in share_of or pl["share"] > share_of[k0][1]:
+                        share_of[k0] = (role, pl["share"])
             rows = []
             for r in b.rows_for(tid):
                 k = name_key(r.get("name") or "")
@@ -219,8 +247,21 @@ class AvailabilityService:
                 a = priced.get(k)
                 if p_play(r.get("status")) >= 1.0:
                     effect, why = 0.0, "available"
+                elif a and a.get("share"):
+                    role = a["role"].split()[0]
+                    label = {"RUSH": "carries", "REC": "catches", "DEF": "tackles"}.get(role, role)
+                    effect, why = a["delta_points"], f"regular ({a['share'] * 100:.0f}% of team {label}): pooled effect {a['beta']:+.1f} pts per full share, weighted by P(plays)"
+                    pos = a["role"]
                 elif a:
                     effect, why = a["delta_points"], f"established {pos}: learned effect {est.get('points', 0):+.1f} ± {est.get('se', 0):.1f} pts, weighted by P(plays)"
+                elif k in share_of:
+                    role, sh = share_of[k]
+                    e = (se_.get("by_role") or {}).get(role, {})
+                    label = {"RUSH": "carries", "REC": "catches", "DEF": "tackles"}.get(role, role)
+                    est_pts = e.get("points_per_full_share", 0) * sh
+                    effect, why = 0.0, (f"regular ({sh * 100:.0f}% of team {label}); estimated {est_pts:+.1f} ± {e.get('se', 0) * sh:.1f} pts, "
+                                        f"not statistically significant, so not applied")
+                    pos = pos or f"{role} {sh * 100:.0f}%"
                 elif pos and est.get("significant") is False:
                     effect, why = 0.0, f"established {pos}, but that role's effect is not statistically significant"
                 elif pos and p_play(r.get("status")) >= 1.0:
