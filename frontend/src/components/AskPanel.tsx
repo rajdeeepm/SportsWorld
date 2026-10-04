@@ -1,10 +1,10 @@
 import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Bot, Loader2, MessageSquare, Send, X } from 'lucide-react'
-import { postJSON } from '../lib/api'
+import { getJSON, postJSON } from '../lib/api'
 import { league as leagueOf } from '../lib/leagues'
 
-interface Msg { role: 'you' | 'agent'; text: string }
+interface Msg { role: 'you' | 'agent'; text: string; prose?: string | null; pending?: boolean; showExact?: boolean }
 
 const SUGGEST: Record<string, string[]> = {
   'college-football': ['How are Michigan doing?', 'What if Michigan beats Ohio State?', 'Which games matter tonight?', 'Should I watch BYU or Texas Tech?'],
@@ -73,8 +73,13 @@ export function AskPanel({ leagueId }: { leagueId: string }) {
     setQ('')
     setBusy(true)
     try {
-      const r = await postJSON<{ answer: string }>('/agent/ask', { text: lg.id === 'college-football' || /college|cfb|nfl|nba|nhl|f1|super bowl|stanley/i.test(t) ? t : `${t} (${lg.name})` })
-      setMsgs((m) => [...m, { role: 'agent', text: r.answer }])
+      const r = await postJSON<{ answer: string; answer_id: string }>('/agent/ask', { text: lg.id === 'college-football' || /college|cfb|nfl|nba|nhl|f1|super bowl|stanley/i.test(t) ? t : `${t} (${lg.name})` })
+      let idx = -1
+      setMsgs((m) => { idx = m.length; return [...m, { role: 'agent', text: r.answer, pending: true }] })
+      // conversational version arrives a few seconds later; numbers are verified server-side
+      getJSON<{ prose: string | null }>(`/agent/rephrase/${r.answer_id}`)
+        .then((p) => setMsgs((m) => m.map((x, i) => (i === idx ? { ...x, prose: p.prose, pending: false } : x))))
+        .catch(() => setMsgs((m) => m.map((x, i) => (i === idx ? { ...x, pending: false } : x))))
     } catch (e) {
       setMsgs((m) => [...m, { role: 'agent', text: `The engine couldn't answer right now. ${(e as Error).message.slice(0, 120)}` }])
     }
@@ -100,7 +105,21 @@ export function AskPanel({ leagueId }: { leagueId: string }) {
             )}
             {msgs.map((m, i) => (
               <div key={i} className={`ask-msg ${m.role}`}>
-                {m.role === 'agent' ? <Md text={m.text} go={(p) => { navigate(p); }} /> : m.text}
+                {m.role === 'you' ? m.text : m.prose ? (
+                  <>
+                    <p className="md-p">{m.prose}</p>
+                    <button className="ask-exact" onClick={() => setMsgs((xs) => xs.map((x, j) => (j === i ? { ...x, showExact: !x.showExact } : x)))}>
+                      {m.showExact ? 'Hide exact numbers' : 'Show exact numbers'}
+                    </button>
+                    {m.showExact && <div className="ask-exact-body"><Md text={m.text} go={(p) => navigate(p)} /></div>}
+                    <small className="ask-note">Written by self-hosted Llama from the engine’s answer · every number checked</small>
+                  </>
+                ) : (
+                  <>
+                    <Md text={m.text} go={(p) => navigate(p)} />
+                    {m.pending && <small className="ask-note"><Loader2 size={11} className="spin" /> writing a conversational version…</small>}
+                  </>
+                )}
               </div>
             ))}
             {busy && <div className="ask-msg agent"><Loader2 size={14} className="spin" /> Running the engine…</div>}

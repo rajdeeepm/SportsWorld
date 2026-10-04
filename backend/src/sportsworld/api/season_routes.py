@@ -573,4 +573,26 @@ def agent_ask(body: AgentAskIn):
     from sportsworld.agent.analyst import Engine, answer
     if _analyst_engine is None:
         _analyst_engine = Engine()
-    return {"answer": answer(body.text, _analyst_engine), "agent": "sportsworld-analyst"}
+    structured = answer(body.text, _analyst_engine)
+    import hashlib
+    aid = hashlib.sha1(f"{body.text}|{structured}".encode()).hexdigest()[:16]
+    _answers[aid] = (body.text, structured)
+    while len(_answers) > 500:
+        _answers.pop(next(iter(_answers)))
+    return {"answer": structured, "answer_id": aid, "agent": "sportsworld-analyst"}
+
+
+_answers: dict[str, tuple[str, str]] = {}
+
+
+@router.get("/agent/rephrase/{answer_id}")
+def agent_rephrase(answer_id: str):
+    """Conversational version of an answer the engine just produced (only by id: this is not a general LLM endpoint).
+    Every number in the prose is checked against the engine's answer; on any mismatch prose is null."""
+    item = _answers.get(answer_id)
+    if item is None:
+        raise HTTPException(404, "unknown answer")
+    from sportsworld.agent.converse import rewrite
+    prose = rewrite(*item)
+    return {"prose": prose, "checked": prose is not None,
+            "note": "Written by self-hosted Llama 3.3 from the engine's answer; every number verified." if prose else None}

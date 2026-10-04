@@ -481,6 +481,10 @@ input[type='range'] { accent-color: var(--accent); width: 100%; }
 .ask-msg.agent a { color: var(--accent-ink); word-break: break-all; }
 .ask-msg code { font-size: 11.5px; color: var(--ink-3); }
 .md-p { margin: 0; }
+.ask-exact { margin-top: 8px; border: 0; background: none; padding: 0; color: var(--accent-ink); font-size: 12px; font-weight: 600; cursor: pointer; }
+.ask-exact:hover { color: #fff; }
+.ask-exact-body { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--edge); }
+.ask-note { display: flex; align-items: center; gap: 5px; margin-top: 6px; color: var(--ink-3); font-size: 11px; }
 .md-li { padding-left: 14px; position: relative; }
 .md-li::before { content: ''; position: absolute; left: 3px; top: 0.6em; width: 4px; height: 4px; border-radius: 50%; background: var(--accent-ink); }
 .md-gap { height: 6px; }
