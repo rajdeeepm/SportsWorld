@@ -10,7 +10,8 @@ export interface Stakes {
   event_id: string; state: string; home: string; away: string; home_id: string; away_id: string
   p_home: number; favourite: string; p_favourite: number; milestone: string; milestone_name: string
   home_now: number | null; away_now: number | null; swing_home: number; swing_away: number
-  affected: { team_id: string; name: string; now: number | null; if_home_wins: number; roots_for: string }[]
+  affected: { team_id: string; name: string; now: number | null; if_home_wins: number; roots_for: string; why?: string }[]
+  home_if_win?: number | null; home_if_lose?: number | null; away_if_win?: number | null; away_if_lose?: number | null; reason?: string
   action: string; tone: 'must' | 'upset' | 'look' | 'low' | 'skip' | 'final'; as_of: string | null; global_state_version: number | null
 }
 
@@ -28,8 +29,14 @@ export function WhyItMatters({ league, eventId, headline }: { league: string; ev
   const meta = useMeta(league).data ?? {}
   const s = q.data
   if (q.isError) return null
-  const swing = (v: number, now: number | null) => (now != null && now < 0.005 && Math.abs(v) < 0.005 ? (
-    <><b className="down">±0 pts</b><small>out of the race (under 1%)</small></>
+  // each side: odds with a win vs with a loss (the swing is the gap between them)
+  const swing = (v: number, now: number | null, win?: number | null, lose?: number | null) => (now != null && now < 0.005 && Math.abs(v) < 0.005 ? (
+    <><b className="down">Under 1%</b><small>out of the race either way</small></>
+  ) : win != null && lose != null ? (
+    <>
+      <b className="up">{pct(win, 0)} <span className="why-vs">with a win</span></b>
+      <small>{pct(lose, 0)} with a loss · now {pct(now ?? 0, 0)} · swing {Math.abs(v * 100).toFixed(0)} pts</small>
+    </>
   ) : (
     <>
       <b className={v >= 0 ? 'up' : 'down'}>{v >= 0 ? '+' : '−'}{Math.abs(v * 100).toFixed(0)} pts</b>
@@ -38,7 +45,7 @@ export function WhyItMatters({ league, eventId, headline }: { league: string; ev
   ))
   return (
     <Panel title={headline ? 'Game of the day: why it matters' : 'Why this game matters'} icon={Target} className="why"
-      foot={s ? <>From 10,000 simulated seasons{s.global_state_version != null ? `, state v${s.global_state_version}` : ''}{s.as_of ? `, computed ${ago(s.as_of)} from results known then` : ''}. Swings are {s.milestone_name} odds if the team wins minus if it loses; other teams are listed only when the effect is beyond simulation noise (3 standard errors).</> : undefined}>
+      foot={s ? <>From 10,000 simulated seasons{s.global_state_version != null ? `, state v${s.global_state_version}` : ''}{s.as_of ? `, computed ${ago(s.as_of)} from results known then` : ''}. Odds with a win and with a loss come from the same simulated seasons; the swing is the gap between them. Other teams are listed only when the effect is beyond simulation noise (3 standard errors).</> : undefined}>
       {q.isLoading || !s ? <Loading rows={3} /> : (
         <div className="why-body">
           <div className="why-match">
@@ -49,6 +56,7 @@ export function WhyItMatters({ league, eventId, headline }: { league: string; ev
             </Link>
             <ProbSplit pHome={s.p_home} home={meta[s.home_id]} away={meta[s.away_id]} />
           </div>
+          {s.reason && <p className="why-reason">{s.reason}</p>}
           <div className="why-grid">
             <div className="why-cell">
               <span className="kpi-label">Win probability</span>
@@ -56,12 +64,12 @@ export function WhyItMatters({ league, eventId, headline }: { league: string; ev
               <small>{label(s.p_favourite)}: {meta[s.home_id] && s.favourite === s.home ? meta[s.home_id].short_name : meta[s.away_id] && s.favourite === s.away ? meta[s.away_id].short_name : s.favourite}</small>
             </div>
             <div className="why-cell">
-              <span className="kpi-label">{s.milestone_name} swing · {meta[s.away_id]?.abbreviation ?? s.away}</span>
-              {swing(s.swing_away, s.away_now)}
+              <span className="kpi-label">{s.milestone_name} odds · {meta[s.away_id]?.abbreviation ?? s.away}</span>
+              {swing(s.swing_away, s.away_now, s.away_if_win, s.away_if_lose)}
             </div>
             <div className="why-cell">
-              <span className="kpi-label">{s.milestone_name} swing · {meta[s.home_id]?.abbreviation ?? s.home}</span>
-              {swing(s.swing_home, s.home_now)}
+              <span className="kpi-label">{s.milestone_name} odds · {meta[s.home_id]?.abbreviation ?? s.home}</span>
+              {swing(s.swing_home, s.home_now, s.home_if_win, s.home_if_lose)}
             </div>
             <div className="why-cell why-affected">
               <span className="kpi-label">Also affected</span>
@@ -69,7 +77,7 @@ export function WhyItMatters({ league, eventId, headline }: { league: string; ev
                 <div key={a.team_id} className="why-aff">
                   <TeamLogo meta={meta[a.team_id]} name={a.name} size={18} />
                   <span>{meta[a.team_id]?.short_name ?? a.name}</span>
-                  <small>+{Math.abs(a.if_home_wins * 100).toFixed(1)} pts if {meta[a.roots_for === s.home ? s.home_id : s.away_id]?.abbreviation ?? a.roots_for} wins</small>
+                  <small>{a.why ? `${a.why} · ` : ''}+{Math.abs(a.if_home_wins * 100).toFixed(1)} pts if {meta[a.roots_for === s.home ? s.home_id : s.away_id]?.abbreviation ?? a.roots_for} wins</small>
                 </div>
               )) : <small>No other team moves beyond simulation noise.</small>}
             </div>

@@ -672,17 +672,50 @@ def _stakes(cid: str, row: dict, teams: dict[str, dict]) -> dict:
         action, tone = "Good game, low stakes: evenly matched, but little changes for the season either way.", "low"
     else:
         action, tone = "Skip it for the season picture: little is at stake either way.", "skip"
+    # each side's odds if it wins / loses: now = p*W + (1-p)*L and W - L = swing
+    def split(now, swing, pw):
+        if now is None:
+            return None, None
+        w, l = now + (1 - pw) * swing, now - pw * swing
+        return round(min(1, max(0, w)), 4), round(min(1, max(0, l)), 4)
+    th, ta = teams.get(row["home_id"], {}), teams.get(row["away_id"], {})
+    hw, hl = split(th.get(ms), lh, p)
+    aw, al = split(ta.get(ms), la, 1 - p)
     ripple = []
     for r in row.get("ripple") or []:
         t = teams.get(r["team_id"], {})
         d = float(r["delta_if_home_wins"])
-        ripple.append({"team_id": r["team_id"], "name": t.get("name", r["team_id"]), "now": t.get(ms),
-                       "if_home_wins": d, "roots_for": row["home"] if d > 0 else row["away"]})
+        rooted = row["home"] if d > 0 else row["away"]
+        hurt = row["away"] if d > 0 else row["home"]
+        hurt_t = th if hurt == row["home"] else ta
+        now_t = t.get(ms)
+        if t.get("conference") and t.get("conference") == hurt_t.get("conference"):
+            why = f"{t['conference'].replace(' Conference', '')} rival"
+        elif now_t is not None and 0.05 <= now_t <= 0.95:
+            why = f"on the {mname} bubble"
+        else:
+            why = f"in the {mname} race"
+        ripple.append({"team_id": r["team_id"], "name": t.get("name", r["team_id"]), "now": now_t,
+                       "if_home_wins": d, "roots_for": rooted, "why": why})
+    # one plain-English reason, built only from the numbers above
+    side = ("home", row["home"], hw, hl) if abs(lh) >= abs(la) else ("away", row["away"], aw, al)
+    _, team_name, w_, l_ = side
+    pct_ = lambda x: f"{x * 100:.0f}%" if x is not None else "-"  # noqa: E731
+    if row.get("state") == "post":
+        reason = "This game is final; its result is already part of every forecast."
+    elif swing < 0.03 or w_ is None:
+        reason = f"Little rides on this one for the {mname} race: neither team's odds move by more than {max(swing * 100, 1):.0f} pts either way."
+    else:
+        reason = f"{poss(team_name)} {mname} hopes ride on this one: {pct_(w_)} with a win, {pct_(l_)} with a loss."
+        if ripple:
+            r0 = ripple[0]
+            reason += f" {r0['name']} ({r0['why']}) should be rooting for {r0['roots_for']}."
     return {"event_id": row["event_id"], "state": row.get("state"), "home": row["home"], "away": row["away"],
             "home_id": row["home_id"], "away_id": row["away_id"], "p_home": round(p, 4), "favourite": fav, "p_favourite": round(pf, 4),
             "milestone": ms, "milestone_name": mname,
             "home_now": teams.get(row["home_id"], {}).get(ms), "away_now": teams.get(row["away_id"], {}).get(ms),
             "swing_home": round(lh, 4), "swing_away": round(la, 4), "affected": ripple, "action": action, "tone": tone,
+            "home_if_win": hw, "home_if_lose": hl, "away_if_win": aw, "away_if_lose": al, "reason": reason,
             "as_of": row.get("as_of"), "global_state_version": row.get("global_state_version")}
 
 

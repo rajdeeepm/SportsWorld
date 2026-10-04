@@ -533,6 +533,8 @@ input[type='range'] { accent-color: var(--accent); width: 100%; }
 .why-match { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; align-items: center; }
 .why-teams { display: flex; align-items: center; gap: 8px; font: 700 18px var(--display); color: var(--ink); text-decoration: none; white-space: nowrap; }
 .why-teams:hover { color: var(--accent-ink); }
+.why-reason { margin: 0; font-size: 17px; line-height: 1.45; color: var(--ink); padding: 2px 2px 0; }
+.why-vs { font: 600 13px var(--body); color: var(--ink-2); letter-spacing: 0; }
 .why-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.6fr); border: 1px solid var(--edge); border-radius: 10px; }
 .why-cell { padding: 10px 14px; border-right: 1px solid rgba(22, 48, 90, 0.6); display: grid; align-content: start; gap: 2px; min-width: 0; }
 .why-cell:last-child { border-right: 0; }
