@@ -3,6 +3,7 @@ import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Activity, CalendarDays, FlaskConical, Home, ListOrdered, MapPinned, Microscope, Radio, Search } from 'lucide-react'
 import { BrandMark, TeamLogo } from './ui'
 import { LEAGUES, league as leagueOf } from '../lib/leagues'
+import { LastPush, PushToasts } from './pushes'
 import { useBoard, useMeta, useSeason } from '../lib/data'
 import { useLiveStatus } from '../lib/live'
 import { AskPanel } from './AskPanel'
@@ -63,6 +64,7 @@ export function Shell({ children }: { children: ReactNode }) {
 
       <main id="main">{children}</main>
       <AskPanel leagueId={lg.id} />
+      <PushToasts league={lg.id} />
     </div>
   )
 }
@@ -126,7 +128,7 @@ function LiveChip() {
   return (
     <div className="live-chip" title={s.connected ? 'Subscribed to the shared world state in SpacetimeDB; changes are pushed, not polled.' : s.error ?? 'SpacetimeDB not connected; using the REST API'}>
       <Activity size={14} aria-hidden />
-      {s.connected ? <><span className="live-dot ok" /> SpacetimeDB live · {s.viewers} viewer{s.viewers === 1 ? '' : 's'}</> : <>REST polling (SpacetimeDB offline)</>}
+      {s.connected ? <><span className="live-dot ok" /> SpacetimeDB live · {s.viewers} viewer{s.viewers === 1 ? '' : 's'} <LastPush /></> : <>REST polling (SpacetimeDB offline)</>}
     </div>
   )
 }

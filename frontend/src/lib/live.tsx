@@ -1,4 +1,4 @@
-import { useMemo, type ReactNode } from 'react'
+import { useMemo, useSyncExternalStore, type ReactNode } from 'react'
 import { SpacetimeDBProvider, useSpacetimeDB, useTable } from 'spacetimedb/react'
 import { DbConnection, tables } from '../stdb'
 import type { BoardRow } from './data'
@@ -26,6 +26,8 @@ export function useLiveStatus() {
 
 export interface LiveGame {
   eventId: string
+  homeId: string
+  awayId: string
   state: string
   homeScore: number
   awayScore: number
@@ -72,4 +74,36 @@ export function useWinProbHistory(eventId: string) {
 export function useLiveUpdates(league: string) {
   const [rows] = useTable(tables.worldUpdate.where((r) => r.league.eq(league)))
   return useMemo(() => rows.slice().sort((a, b) => Number(b.id - a.id)), [rows])
+}
+
+/* ---- visible pushes: every change SpacetimeDB delivers is recorded, so the UI can show it arriving ---- */
+
+export interface Push { id: number; at: number; league: string; eventId: string; kind: 'score' | 'prob' | 'state'; row: LiveGame; old: LiveGame }
+
+let lastPushAt = 0
+let pushes: Push[] = []
+let seq = 0
+const subs = new Set<() => void>()
+const emit = () => subs.forEach((f) => f())
+
+function record(old: LiveGame & { league: string }, row: LiveGame & { league: string }) {
+  lastPushAt = Date.now()
+  const kind: Push['kind'] | null = old.homeScore !== row.homeScore || old.awayScore !== row.awayScore ? 'score'
+    : old.state !== row.state ? 'state' : Math.abs(old.pHome - row.pHome) >= 0.02 ? 'prob' : null
+  if (kind) pushes = [{ id: ++seq, at: lastPushAt, league: row.league, eventId: row.eventId, kind, row, old }, ...pushes].slice(0, 20)
+  emit()
+}
+
+/** subscribe once (in the app shell) to every game row and note each pushed change */
+export function usePushRecorder() {
+  useTable(tables.game, { onUpdate: (o, n) => record(o as never, n as never) })
+  useTable(tables.worldUpdate, { onInsert: () => { lastPushAt = Date.now(); emit() } })
+}
+
+export function usePushes() {
+  return useSyncExternalStore((f) => { subs.add(f); return () => subs.delete(f) }, () => pushes)
+}
+
+export function useLastPush() {
+  return useSyncExternalStore((f) => { subs.add(f); return () => subs.delete(f) }, () => lastPushAt)
 }
