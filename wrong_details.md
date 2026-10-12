@@ -1,4 +1,4 @@
-> Deployment update, 11 October 2026: a scoped static historical portfolio is now live at https://worldofsports.tech on Vercel. The root and www website DNS records no longer depend on the Mac tunnel. This changes the public hosting mode; it does not certify or resolve the original model/backend findings listed below. Verified launch details: [docs/portfolio-deployment.md](docs/portfolio-deployment.md).
+> Deployment correction, 12 October 2026: the user rejected the NFL-only static replacement. The required release is the original seven-league app. Cloud restoration is being prepared; the original app is not yet verified live. The historical static-deployment notes are superseded by [docs/original-cloud-deployment.md](docs/original-cloud-deployment.md). Known model findings remain subject to revalidation. Local production admin protection, scenario rate limiting and simulation memory fixes are implemented; their cloud verification is pending.
 
 # SportsWorld — adversarial findings register
 
