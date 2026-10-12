@@ -84,6 +84,7 @@ class LeagueTracker:
         self.dirty_seasons: set[int] = set()
         self.last_sync: datetime | None = None
         self.errors: list[str] = []
+        self.sync_lock = asyncio.Lock()
         now = now or datetime.now(timezone.utc)
         self.window_start = datetime.combine(_et_day(now) - timedelta(days=1), datetime.min.time(), ET).astimezone(timezone.utc)
         meta_path = self._repo() / "models" / "artifacts" / "ratings" / f"{spec.league_id}.json"
@@ -322,7 +323,15 @@ class TrackerService:
     async def _sync(self, tracker: LeagueTracker, days: list[date]) -> None:
         if not days:
             return
-        changed = tracker.apply(await tracker.fetch_days(self.client, days))
+        games = await tracker.fetch_days(self.client, days)
+        changed = []
+        async with tracker.sync_lock:
+            for game in games:
+                changed.extend(tracker.apply([game]))
+                # A scoreboard can contain hundreds of games. Preserve atomic
+                # per-game ingestion while letting API/health requests run
+                # between games on a small cloud instance.
+                await asyncio.sleep(0)
         if changed and self.publish:
             self.publish(f"league:{tracker.spec.league_id}", "board.updated", {"league": tracker.spec.league_id, "games": changed})
 
@@ -342,7 +351,9 @@ class TrackerService:
         jobs += [self._sync_f1(t, live=False) for t in self.trackers.values() if isinstance(t, F1Tracker)]
         await asyncio.gather(*jobs)
         for t in self.trackers.values():
-            t.persist()
+            lock = t.sync_lock if isinstance(t, LeagueTracker) else self._f1_lock
+            async with lock:
+                await asyncio.to_thread(t.persist)
 
     async def _schedule_loop(self) -> None:
         while True:
