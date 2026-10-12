@@ -6,7 +6,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from sportsworld.ingest.leagues import LEAGUES
@@ -22,6 +22,11 @@ def bind(service, limiter_dependency) -> None:
     global _service, _limiter_dep
     _service = service
     _limiter_dep = limiter_dependency
+
+
+def _limit_expensive(request: Request):
+    if _limiter_dep is not None:
+        return _limiter_dep(request)
 
 
 _archive = None
@@ -207,7 +212,7 @@ class SeasonScenarioIn(BaseModel):
     seed: int = 7
 
 
-@router.post("/competitions/{cid}/seasons/current/season-simulations")
+@router.post("/competitions/{cid}/seasons/current/season-simulations", dependencies=[Depends(_limit_expensive)])
 def season_simulation(cid: str, body: SeasonScenarioIn):
     _league(cid)
     scen = SeasonScenario(rating_shifts=[(s.target_id, s.delta, s.start, s.end) for s in body.rating_shifts], forced=body.forced_results, label=body.label)
@@ -282,7 +287,7 @@ class AskIn(BaseModel):
     draws: int = Field(default=10_000, ge=500, le=50_000)
 
 
-@router.post("/competitions/{cid}/seasons/current/scenario/ask")
+@router.post("/competitions/{cid}/seasons/current/scenario/ask", dependencies=[Depends(_limit_expensive)])
 def ask_scenario(cid: str, body: AskIn):
     """Natural language -> typed season scenario (Llama structure + learned effect sizes) -> branch simulation."""
     from sportsworld.config import get_settings
@@ -566,7 +571,7 @@ class AgentAskIn(BaseModel):
 _analyst_engine = None
 
 
-@router.post("/agent/ask")
+@router.post("/agent/ask", dependencies=[Depends(_limit_expensive)])
 def agent_ask(body: AgentAskIn):
     """The SportsWorld Analyst (also on Agentverse / ASI:One): routes a question to actions on this engine."""
     global _analyst_engine
