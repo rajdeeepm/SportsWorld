@@ -1,37 +1,37 @@
-# Portfolio deployment status
+# Verified portfolio deployment
 
-Prepared on 11 October 2026. This is a deployment handoff, not confirmation that the site is live.
+Completed 11 October 2026 (12 October UTC). The public historical exhibit is live on Vercel Hobby and independent of a running Mac or backend.
 
-## Completed
+## Addresses
 
-- Added `portfolio/`, a static historical NFL exhibit with local assets, 32 teams, 128 saved scenarios, 40 archived evaluation rows, downloads and visible methodological limits.
-- Added an offline exporter and dependency-free Node verification script.
-- Verified all histogram totals, probability bounds, scenario deltas, evaluation aggregates, the input hash and identical browser/JSON payloads.
-- Regenerated the snapshot from the Base64-encoded gzip bundle and obtained exactly equal parsed output.
-- Published `portfolio/README.md` in GitHub commit `b322806b2b31472ceed96e4251d3af2dd190fd6a`.
+| Address | Behaviour |
+| --- | --- |
+| https://worldofsports.tech | Canonical portfolio, served by Vercel over HTTPS |
+| https://www.worldofsports.tech | 308 redirect to the apex |
+| https://sportsworld-portfolio.vercel.app | 308 redirect to the apex |
 
-## Account prerequisites
+Vercel reports Valid Configuration for all three. Root and www DNS in Cloudflare are CNAME records targeting `c38204e7b3b5c259.vercel-dns-017.com`, DNS only, Auto TTL. They replace the former website tunnel targets. The unrelated wildcard record and registrar were not changed. Domain-level Vercel redirects enforce the canonical address before loading assets.
 
-The user chose to keep Chrome extension file access disabled. Publish only the selected public source through GitHub's text editor. Fonts are embedded in styles.css; the compressed input bundle is encoded in replay-inputs.b64 and decoded by the exporter. No extension permission change or binary upload is needed.
+## Hosting and source
 
-Vercel is signed in to the CSE-594 Hobby team. Its existing GitHub app sees two other repositories, but does not see SportsWorld. Adding only `rajdeeepm/SportsWorld` requires GitHub email reauthentication and action-time approval for the repository access change. Do not select All repositories.
+Project: `CSE-594 / sportsworld-portfolio`, Hobby. Repository: `rajdeeepm/SportsWorld`, main branch. Root Directory: `portfolio`; Application Preset: Other; default static output `.`. No custom build/install command, environment variable, database, Supabase project, sports API, Python service, LLM or WebSocket is needed to serve this exhibit. Future connected GitHub commits trigger deployments.
 
-Cloudflare is signed out. The user must complete sign-in before the DNS cutover. Do not transfer or buy a domain, remove unrelated DNS records, or expose API/tunnel credentials.
+The user kept Chrome extension file access disabled. Publication used GitHub's source editor. Licensed fonts are embedded in styles.css and the compressed input bundle is text-encoded in replay-inputs.b64. GitHub's existing Vercel app gained access only to SportsWorld, with the user's explicit approval; previous repository access was preserved.
 
-## Publication manifest
+## What ships
 
-Upload all files in `portfolio/` to the corresponding GitHub directory. Upload `scripts/export_portfolio.py` and `scripts/verify_portfolio.mjs` under scripts. Publish the changed root README.md and PRODUCT.md plus wrong_details.md and release_plan.md. The scoped design brief is `.impeccable/surfaces/portfolio.md`. Audit evidence under docs/audit is dated historical evidence.
+A dated NFL reconstruction at 2025-11-01 12:00 UTC: 32 teams, 10,000 draws per run, seed 17, correlated/fixed-strength baselines, four saved scenarios per team (128 branches), histogram counts, research evidence, limitations and reproduction instructions. Evaluation uses 40 original NFL 2021–2025 rows. The original seven-league live system remains in source and the recorded demonstration.
 
-## Vercel configuration
+## Validation
 
-Import `rajdeeepm/SportsWorld`, project name `sportsworld-portfolio`, Root Directory `portfolio`, Framework Preset Other. No install/build command, no backend, no environment variables. Serve the static root. Review the generated Vercel URL on desktop and at 390px before domain cutover. The browser blocked file:// previews and the shell sandbox blocked a local listening server, so visual QA remains pending; do not claim a visual pass from source checks.
+- Dependency-free `node scripts/verify_portfolio.mjs` passes: all team/branch histograms sum to 10,000, means and deltas agree, probabilities and paired sampling errors are valid, research aggregates match rows, local assets exist and public JS requires no backend calls.
+- Offline export from the bundled input reproduced exactly equal parsed model output at the generation code revision. The source commit field changes when regenerating at another revision.
+- Browser exercises covered team selection, both modes, all four scenarios, baseline reset and navigation. The public JSON download equals the validated snapshot; the downloaded input bundle matches the declared SHA256.
+- Desktop 1277px and mobile 390px captures cover all four sections. No document overflow or console errors appeared during the inspected flow. The reviewer requested three mobile fixes; its verdict pass scored chart ticks, visible navigation and accessible scroll regions resolved, disposition ship, scoped to those fixes.
+- `docs/portfolio-design-check.md` records the visual comparison and scoped departures; DESIGN.md and its sidecar were preserved. Earlier tiny-text hook findings were fixed; no suppressions were added.
 
-Check team selection, both modes, all four scenario buttons and baseline reset; navigation, keyboard focus, expandable exact counts, downloads, no page overflow, no failed assets and no external backend calls. Preserve screenshot evidence for the design finish review. No finish-review or visual sign-off has been claimed yet.
+## Operating cost and limits
 
-## Existing .tech domain
+The deployment uses the existing Hobby plan and requires no Mac process. Free-tier usage limits still apply. Registration and renewal of worldofsports.tech remain separate. No paid service or new subscription was provisioned.
 
-Add `worldofsports.tech` and `www.worldofsports.tech` in the new Vercel project's Domains settings. Obtain the exact assigned DNS values from that screen. In Cloudflare replace only the apex/www website records currently pointing at the old tunnel. Use the proxy setting recommended by Vercel and preserve mail and unrelated records. Wait for valid configuration and HTTPS, then verify both URLs.
-
-Use apex as the canonical address. The committed vercel.json redirects www to apex. A Vercel host can serve the same project; redirect its production alias to apex only after the custom domain works. Never create redirects in both directions.
-
-Free-tier hosting still has usage limits and the existing domain's renewal cost is separate. No Supabase or running Mac is necessary for the final static deployment.
+The public exhibit is historical, not current forecasts. Its UI states retrospective schedule membership, result-availability proxies, approximate ties/tiebreaks, hypothetical interventions and the limited evaluation cohort. This deployment does not certify or fix every backend issue in wrong_details.md.
