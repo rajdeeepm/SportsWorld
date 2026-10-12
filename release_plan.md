@@ -2,13 +2,13 @@
 
 The user rejected the NFL-only static exhibit on 11 October 2026. The required release is the original React application with all seven league tabs, original design, team pages, Simulation Lab, research and live API. Hosting changes do not authorize a redesign or reduction in scope.
 
-Current restoration: original frontend production build passes; public runtime input bundle restores 514 original files; backend cloud startup and Free Render service configuration are prepared. Backend account sign-in and deployed endpoint verification are pending. Do not describe this restoration as live until the original frontend and backend have both been verified. Vercel still serves the rejected static exhibit until cutover.
+Current deployment: the original frontend now serves worldofsports.tech from Vercel (`frontend`, Vite, `dist`), with the original API on Render Free at sportsworld-api.onrender.com. Account verification is complete. Apex HTTPS and both 308 redirects are verified. Public runtime inputs restore 514 original files; 39 backend checks and the frontend build pass locally. Public simulation reliability remains under verification after a 512 MiB backend memory failure; see the current deployment notes for the fixes and exact limits. Optional credential-backed integrations remain unconfigured.
 
 See `docs/original-cloud-deployment.md`. The previous static release notes below are retained as history and are superseded.
 
 ---
 
-## Accepted launch scope: static portfolio on Vercel
+## Superseded static release history
 
 On 11 October 2026 the user chose an interactive historical exhibit plus the reproducible GitHub repo. Deploy `portfolio/` from `rajdeeepm/SportsWorld`, preset Other, no build/install command, no environment variables. No Supabase database or always-on engine is needed. The earlier full-production proposal below is retained for future reference and is superseded for this launch.
 
