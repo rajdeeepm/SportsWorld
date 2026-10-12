@@ -10,7 +10,7 @@ defaults = {
     "TRACKER_ENABLED": "true",
     "TRACKER_LEAGUES": "nfl,college-football,nba,mens-college-basketball,nhl,mens-college-hockey,f1",
     "SEASON_ENGINE": "true",
-    "SEASON_BATCH_DRAWS": "128",
+    "SEASON_BATCH_DRAWS": "64",
     "FRONTEND_ORIGIN": "https://worldofsports.tech",
     "REAL_DATA_DIR": str(root / "data" / "real"),
     "PYTHONUNBUFFERED": "1",
