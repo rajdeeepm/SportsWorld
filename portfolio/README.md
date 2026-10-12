@@ -18,7 +18,7 @@ To regenerate model outputs from bundled inputs: create a Python 3.11+ virtual e
 
 The cutoff is 2025-11-01 12:00 UTC; all 32 NFL teams have baseline fixed-strength and correlated-strength runs and four saved correlated scenario branches. Each run uses 10,000 draws and seed 17. Strength interventions are hypothetical point offsets, not causal injury estimates. Paired intervals describe Monte Carlo sampling error, not total model uncertainty.
 
-The gzip replay bundle is content-addressed by the hash in `snapshot.json`. `snapshot-data.js` contains the same payload so the browser needs no fetching API. Source code at generation is recorded in the manifest. Results use retrospective schedule/membership snapshots and proxy result-known times. NFL ties and tiebreaks are approximate. The two simulation modes differ in marginal probabilities as well as dependence; their comparison does not isolate correlation alone.
+The Base64-encoded gzip replay bundle is content-addressed by the hash in `snapshot.json`. `snapshot-data.js` contains the same payload so the browser needs no fetching API. Source code at generation is recorded in the manifest. Results use retrospective schedule/membership snapshots and proxy result-known times. NFL ties and tiebreaks are approximate. The two simulation modes differ in marginal probabilities as well as dependence; their comparison does not isolate correlation alone.
 
 Research tables are filtered original evaluation artifacts for NFL 2021–2025, not a new independent validation. Team outcomes within seasons are dependent and the cohort contains only five seasons. Coverage alone does not establish calibration. See the in-product limitations and `../wrong_details.md` for the broader engine audit.
 
