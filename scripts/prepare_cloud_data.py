@@ -17,7 +17,7 @@ import tarfile
 def prepare(root: Path) -> None:
     bundle = root / "deployment" / "engine-data"
     manifest = json.loads((bundle / "manifest.json").read_text())
-    encoded = "".join((bundle / name).read_text() for name in manifest["parts"])
+    encoded = "".join((bundle / name).read_text().strip() for name in manifest["parts"])
     archive = base64.b64decode(encoded, validate=True)
     if hashlib.sha256(archive).hexdigest() != manifest["sha256"]:
         raise ValueError("Cloud data checksum mismatch")
