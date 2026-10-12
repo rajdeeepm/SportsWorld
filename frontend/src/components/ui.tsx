@@ -165,7 +165,7 @@ export function ErrorNote({ error, what }: { error: unknown; what: string }) {
   const offline = /Failed to fetch|NetworkError|503/.test(msg)
   return (
     <div className="err" role="alert">
-      Couldn’t load {what}. {offline ? 'The SportsWorld API is not reachable; start it with `make live` or `make replay-demo`.' : msg.slice(0, 160)}
+      Couldn’t load {what}. {offline ? 'SportsWorld is starting or temporarily unavailable. Please try again shortly.' : msg.slice(0, 160)}
     </div>
   )
 }
