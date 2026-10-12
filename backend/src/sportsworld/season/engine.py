@@ -499,6 +499,21 @@ def _close_draw_map(value):
             os.close(fd)
 
 
+def _column_draw_map(value):
+    """Transpose file layout, preserving values, for repeated per-team scans."""
+    if not isinstance(value, np.memmap) or value.ndim != 2 or value.flags.f_contiguous:
+        return value
+    path = str(value.filename) + ".columns.npy"
+    out = np.lib.format.open_memmap(path, mode="w+", dtype=value.dtype,
+                                   shape=value.shape, fortran_order=True)
+    for start in range(0, value.shape[1], 8):
+        out[:, start:start + 8] = value[:, start:start + 8]
+    out.flush()
+    _close_draw_map(out)
+    _close_draw_map(value)
+    return np.load(path, mmap_mode="r")
+
+
 def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
                  scenario: SeasonScenario | None, postseason: Callable | None, batch: int) -> dict[str, Any]:
     """Keep complete draw-level results on temporary disk, bounding working RAM.
@@ -549,6 +564,14 @@ def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
                     value.flush()
                     _close_draw_map(value)
                     target[name] = np.load(Path(folder) / f"{name}.npy", mmap_mode="r+")
+        # Row layout is efficient for writing batches and computing ripple
+        # products. Team summaries scan columns; store those once in column
+        # layout instead of repeatedly paging in the entire draw archive.
+        for name, value in list(reg_arrays.items()):
+            if name != "reg_home_win":
+                reg_arrays[name] = _column_draw_map(value)
+        for name, value in list(post_arrays.items()):
+            post_arrays[name] = _column_draw_map(value)
         reg = RegularSeasonDraws(**{f.name: post_shift if f.name == "post_shift" else reg_arrays["reg_" + f.name]
                                   for f in fields(RegularSeasonDraws)})
         post = {name.removeprefix("post_"): value for name, value in post_arrays.items()}
@@ -666,6 +689,9 @@ def summarize(setup: SeasonSetup, reg: RegularSeasonDraws, post: dict[str, np.nd
                 np.sqrt(a, out=a)
             ripple_se = p1
             del a, b, p0
+    # The row-block ripple calculation is finished. The remaining game-level
+    # scans each need one column of home outcomes.
+    reg.home_win = _column_draw_map(reg.home_win)
     games = []
     for g, e in enumerate(setup.r_event_ids):
         hw = reg.home_win[:, g].astype(bool)
