@@ -16,6 +16,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import time
+import threading
 from collections import deque
 from datetime import datetime, timezone
 from pathlib import Path
@@ -62,6 +63,7 @@ class SeasonService:
         self._task: asyncio.Task | None = None
         self.availability = None  # ingest.availability.AvailabilityService
         self.active: set[str] | None = None  # leagues with a season simulation (set by start)
+        self._simulation_lock = threading.RLock()
 
     def on_live(self, league: str) -> None:
         """Live score/clock change: re-condition the season run on in-progress games (rate-limited to 1/min)."""
@@ -136,6 +138,10 @@ class SeasonService:
         return getattr(tr, "book", None) if tr is not None and isinstance(getattr(tr, "book", None), RatingBook) else None
 
     def compute(self, league: str) -> dict:
+        with self._simulation_lock:
+            return self._compute(league)
+
+    def _compute(self, league: str) -> dict:
         """Synchronous recompute: board for every remaining game + DYNAMIC and FAST season runs."""
         st = self.state(league)
         if league == "f1":
@@ -317,6 +323,10 @@ class SeasonService:
 
     # ------------------------------------------------------------------
     def scenario(self, league: str, scenario: SeasonScenario, *, draws: int = 10_000, seed: int = 7) -> dict:
+        with self._simulation_lock:
+            return self._scenario(league, scenario, draws=draws, seed=seed)
+
+    def _scenario(self, league: str, scenario: SeasonScenario, *, draws: int = 10_000, seed: int = 7) -> dict:
         """Season-level counterfactual on a private branch; canonical state untouched (spec §14.3).
         Both branches start from the canonical state INCLUDING live availability; only the requested
         change differs between them (common random numbers)."""
