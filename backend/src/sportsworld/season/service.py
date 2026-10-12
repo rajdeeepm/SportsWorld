@@ -17,12 +17,12 @@ import asyncio
 import logging
 import time
 import threading
-from collections import deque
+from collections import deque, OrderedDict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
-from sportsworld.ingest.espn import GameRecord, read_archive
+from sportsworld.ingest.espn import GameRecord, read_archive, iter_archive
 from sportsworld.ingest.features import league_features
 from sportsworld.ingest.leagues import LEAGUES
 from sportsworld.ingest.ratings import RatingBook
@@ -64,6 +64,8 @@ class SeasonService:
         self.availability = None  # ingest.availability.AvailabilityService
         self.active: set[str] | None = None  # leagues with a season simulation (set by start)
         self._simulation_lock = threading.RLock()
+        self._recent_lock = threading.Lock()
+        self._recent_cache = OrderedDict()
 
     def on_live(self, league: str) -> None:
         """Live score/clock change: re-condition the season run on in-progress games (rate-limited to 1/min)."""
@@ -136,6 +138,31 @@ class SeasonService:
     def _book(self, league: str) -> RatingBook | None:
         tr = self.trackers.get(league)
         return getattr(tr, "book", None) if tr is not None and isinstance(getattr(tr, "book", None), RatingBook) else None
+
+    def recent_games(self, league: str, team_id: str, limit: int = 12) -> list[GameRecord]:
+        """Retain only one team's records, sharing bounded short-lived results."""
+        key = (league, team_id, limit, self.state(league).global_state_version)
+        with self._recent_lock:
+            cached = self._recent_cache.get(key)
+            if cached and time.monotonic() - cached[0] < 20:
+                self._recent_cache.move_to_end(key)
+                return list(cached[1])
+            games = {}
+            for g in iter_archive(self.data_root, league):
+                if team_id in (g.home.team_id, g.away.team_id):
+                    games[g.game_id] = g
+            tr = self.trackers.get(league)
+            for g in getattr(tr, "games", {}).values():
+                if team_id in (g.home.team_id, g.away.team_id):
+                    games[g.game_id] = g
+                else:
+                    games.pop(g.game_id, None)
+            played = [g for g in games.values() if g.completed and g.season_type in (2, 3)]
+            recent = sorted(played, key=lambda g: g.start_time)[-limit:]
+            self._recent_cache[key] = (time.monotonic(), recent)
+            while len(self._recent_cache) > 128:
+                self._recent_cache.popitem(last=False)
+            return list(recent)
 
     def compute(self, league: str) -> dict:
         with self._simulation_lock:
