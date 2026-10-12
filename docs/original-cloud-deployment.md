@@ -40,6 +40,11 @@ and output `dist`. Configure a same-origin `/api` rewrite to the verified cloud
 backend, a React Router fallback to `/index.html`, and `VITE_WS_BASE` for direct
 secure WebSocket access to that backend. The original Maincloud subscription
 must only overlay REST data if the cloud backend is publishing to it.
+After the backend URL has been verified, run
+`python scripts/configure_cloud_frontend.py https://VERIFIED-BACKEND-ORIGIN`
+to generate those public settings. Then build, publish the generated config
+and public environment file, and change Vercel's root from `portfolio` to
+`frontend`. Do not cut over using the placeholder above.
 
 Verify every league, team navigation, real scenario submission, research,
 news, direct route reloads and live connections before replacing the domain's
@@ -48,7 +53,7 @@ deployment. Preserve `www.worldofsports.tech` and the Vercel alias redirects to
 
 ## Status
 
-Prepared, not yet deployed. Backend sign-in and service provisioning remain
+Prepared, not yet deployed. Render email verification and service provisioning remain
 pending; the original frontend is built locally. Do not mark this release done
 until the correct experience is visibly live and API checks pass.
 
