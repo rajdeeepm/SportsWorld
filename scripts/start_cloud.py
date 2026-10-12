@@ -11,6 +11,7 @@ defaults = {
     "TRACKER_LEAGUES": "nfl,college-football,nba,mens-college-basketball,nhl,mens-college-hockey,f1",
     "SEASON_ENGINE": "true",
     "SEASON_BATCH_DRAWS": "64",
+    "SEASON_WORKER_PROCESS": "1",
     "FRONTEND_ORIGIN": "https://worldofsports.tech",
     "REAL_DATA_DIR": str(root / "data" / "real"),
     "PYTHONUNBUFFERED": "1",
@@ -21,6 +22,8 @@ defaults = {
 }
 for key, value in defaults.items():
     os.environ.setdefault(key, value)
+for key in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
+    os.environ[key] = "1"
 os.execv(sys.executable, [sys.executable, "-m", "uvicorn", "sportsworld.api.main:app",
                          "--host", "0.0.0.0", "--port", os.environ.get("PORT", "10000"),
                          "--workers", "1"])
