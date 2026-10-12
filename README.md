@@ -1,14 +1,6 @@
-# SportsWorld: probabilistic season modelling
+<!-- Original full application is the intended cloud deployment; the NFL-only portfolio exhibit was rejected by the user. -->
 
-The portfolio exhibit in [`portfolio/`](portfolio/) is a static NFL historical replay for quant recruiters. It presents 32 team distributions, 128 saved scenario branches, the original NFL 2021–2025 evaluation rows, downloadable evidence and reproduction instructions. The snapshot is dated **1 November 2025, 12:00 UTC**; it does not present current forecasts.
-
-Deploy `portfolio/` on Vercel using the **Other** preset, no build command and no environment variables. The published exhibit needs no running Mac, Python server, database, paid API or Supabase project. See [`portfolio/README.md`](portfolio/README.md) for setup, provenance and verification. The public address is [worldofsports.tech](https://worldofsports.tech); deployment and DNS status are recorded in [`release_plan.md`](release_plan.md).
-
-The full engine and original React app remain available below for local research. The original hackathon description is historical and contains claims that require revalidation; [`wrong_details.md`](wrong_details.md) records known issues. Publishing the static exhibit does not certify or repair every feature of that original engine.
-
----
-
-# Original hackathon implementation
+# SportsWorld: a live probabilistic world model of entire sporting seasons
 
 ![tag:innovationlab](https://img.shields.io/badge/innovationlab-3D8BD3)
 ![tag:hackathon](https://img.shields.io/badge/hackathon-5F43F1)
@@ -18,7 +10,7 @@ competition** (every team and every game of the NFL, college football, NBA, NHL,
 hockey and Formula 1) and shows how each new piece of evidence (a final score, a live drive, an injury report)
 moves the next game, the rest of the schedule, the playoff race and the title.
 
-Built at **MHacks 2026** · Season Intelligence Engine · real data only · **Portfolio domain: [worldofsports.tech](https://worldofsports.tech)**
+Built at **MHacks 2026** · Season Intelligence Engine · real data only · **Live: [worldofsports.tech](https://worldofsports.tech)**
 
 ![SportsWorld walkthrough](docs/media/sportsworld-walkthrough.gif)
 
