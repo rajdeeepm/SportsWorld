@@ -1,3 +1,5 @@
+> Superseded: the user rejected this NFL-only replacement on 11 October 2026. These notes describe a historical deployment, not the intended product. Restore the original app according to [original-cloud-deployment.md](original-cloud-deployment.md).
+
 # Verified portfolio deployment
 
 Completed 11 October 2026 (12 October UTC). The public historical exhibit is live on Vercel Hobby and independent of a running Mac or backend.
