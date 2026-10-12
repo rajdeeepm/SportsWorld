@@ -1,3 +1,7 @@
+## Current portfolio deployment scope (11 October 2026)
+
+The user selected a static, free-tier Vercel exhibit for quant recruiters with GitHub reproduction and the existing worldofsports.tech domain. The public surface is `portfolio/`: one dated NFL replay, saved scenarios, evidence, methodology and reproduction. It must disclose retrospective inputs and approximations and must not depend on a Mac, live API, LLM or database. The seven-league live app below remains the original hackathon scope, available in source; its live behaviour is not a requirement for the portfolio deployment.
+
 # Product
 
 <!-- impeccable:product-schema 1 -->
