@@ -37,6 +37,17 @@ def _real_data_root()->Path:
 
 @asynccontextmanager
 async def lifespan(app:FastAPI):
+    import os
+    if os.environ.get('SPORTSWORLD_TRACE_STALLS') == '1':
+        import faulthandler
+        async def _stall_watch():
+            try:
+                while True:
+                    faulthandler.dump_traceback_later(6)
+                    await asyncio.sleep(1)
+            finally:
+                faulthandler.cancel_dump_traceback_later()
+        app.state.stall_task = asyncio.create_task(_stall_watch())
     global tracker
     ctx.hub.bind_loop()
     if settings.is_demo:
@@ -115,6 +126,9 @@ async def lifespan(app:FastAPI):
             season_routes.bind_archive(arch)
             app.state.neon_task=asyncio.create_task(arch.run())
     yield
+    if getattr(app.state, 'stall_task', None):
+        app.state.stall_task.cancel()
+        await asyncio.gather(app.state.stall_task, return_exceptions=True)
     if season_service: await season_service.stop()
     if tracker: await tracker.stop()
 
