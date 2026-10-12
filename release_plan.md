@@ -4,7 +4,7 @@ On 11 October 2026 the user chose an interactive historical exhibit plus the rep
 
 Canonical address: `https://worldofsports.tech`. Attach apex and `www` to this Vercel project, point their DNS records at the exact values Vercel assigns, and redirect `www` to the apex. Connect the domain only after the Vercel preview passes validation. Keep unrelated DNS records. Domain registration renewal remains separate from free-tier hosting.
 
-Status: static files built; data integrity checks passed. Portfolio README published to GitHub (b322806); remaining file uploads, Vercel deployment, browser visual checks and domain cutover pending. See docs/portfolio-deployment.md for account prerequisites. Do not interpret this document as proof of a completed deployment.
+Status: deployed to Vercel Hobby and verified over HTTPS at https://worldofsports.tech. The www host and sportsworld-portfolio.vercel.app production alias redirect to the apex with 308 redirects. GitHub source, static data checks, offline regeneration, public downloads, desktop/mobile review and DNS cutover are complete. See docs/portfolio-deployment.md for the verified setup. This ships the scoped historical exhibit; it does not resolve every issue in the original engine audit.
 
 # SportsWorld release plan
 
