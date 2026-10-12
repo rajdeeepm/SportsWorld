@@ -51,3 +51,13 @@ deployment. Preserve `www.worldofsports.tech` and the Vercel alias redirects to
 Prepared, not yet deployed. Backend sign-in and service provisioning remain
 pending; the original frontend is built locally. Do not mark this release done
 until the correct experience is visibly live and API checks pass.
+
+Local verification on 12 October 2026: the original frontend production build
+passes with the cloud REST fallback; 33 backend tests pass. Production admin
+protection returns 403 without a configured token, and the bound scenario
+limiter returns 429 with Retry-After. All 29 published input parts match the
+local data bundle; restoration matches all 514 original input files.
+With all seven tracker inputs and original warm states loaded, the largest
+college-basketball 10,000-draw recomputation peaks at about 474 MiB on the Mac,
+down from about 4 GiB before batching. Cloud memory and latency still need
+verification on the actual Free instance.
