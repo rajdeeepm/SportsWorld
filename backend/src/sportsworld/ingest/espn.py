@@ -195,15 +195,20 @@ def write_archive(path: Path, games: list[GameRecord]) -> None:
     path.write_text("".join(g.model_dump_json() + "\n" for g in rows))
 
 
-def read_archive(root: Path, league: str) -> list[GameRecord]:
-    games: list[GameRecord] = []
+def iter_archive(root: Path, league: str):
+    """Read archive records without retaining the entire league in memory."""
     folder = root / "games" / league
     if not folder.exists():
-        return games
+        return
     for path in sorted(folder.glob("*.jsonl"), key=lambda p: int(re.sub(r"\D", "", p.stem) or 0)):
         with path.open() as lines:
-            games.extend(GameRecord.model_validate_json(line) for line in lines if line.strip())
-    return sorted(games, key=lambda g: (g.start_time, g.game_id))
+            for line in lines:
+                if line.strip():
+                    yield GameRecord.model_validate_json(line)
+
+
+def read_archive(root: Path, league: str) -> list[GameRecord]:
+    return sorted(iter_archive(root, league), key=lambda g: (g.start_time, g.game_id))
 
 
 PRO_LEAGUES = {"nfl", "nba", "wnba"}
