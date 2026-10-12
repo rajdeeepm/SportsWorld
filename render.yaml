@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: sportsworld-api
+    runtime: python
+    plan: free
+    buildCommand: pip install ./backend && python scripts/prepare_cloud_data.py
+    startCommand: python scripts/start_cloud.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
