@@ -1,3 +1,5 @@
+> Deployment update, 11 October 2026: a scoped static historical portfolio is now live at https://worldofsports.tech on Vercel. The root and www website DNS records no longer depend on the Mac tunnel. This changes the public hosting mode; it does not certify or resolve the original model/backend findings listed below. Verified launch details: [docs/portfolio-deployment.md](docs/portfolio-deployment.md).
+
 # SportsWorld — adversarial findings register
 
 Prepared October 11, 2026. Earlier product walkthrough: October 3, 2026. Current source reviewed: `5cfd6be`.
