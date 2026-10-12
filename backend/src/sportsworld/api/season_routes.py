@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -12,6 +13,8 @@ from pydantic import BaseModel, Field
 from sportsworld.ingest.leagues import LEAGUES
 from sportsworld.season.engine import SeasonScenario, _played_tables, build_setup
 from sportsworld.season.rules import RULES_VERSIONS
+from .jobs import simulation_jobs
+from fastapi.responses import JSONResponse
 
 router = APIRouter(tags=["competitions"])
 _service = None  # set by api.main at startup
@@ -27,6 +30,14 @@ def bind(service, limiter_dependency) -> None:
 def _limit_expensive(request: Request):
     if _limiter_dep is not None:
         return _limiter_dep(request)
+
+
+def _submit_or_run(operation):
+    if os.environ.get("SEASON_ASYNC_JOBS") == "1":
+        key = simulation_jobs.submit(operation)
+        return JSONResponse({"status": "pending", "poll": f"/simulation-jobs/{key}"}, status_code=202,
+                            headers={"Cache-Control": "no-store", "Retry-After": "2"})
+    return operation()
 
 
 _archive = None
@@ -215,6 +226,18 @@ class SeasonScenarioIn(BaseModel):
 @router.post("/competitions/{cid}/seasons/current/season-simulations", dependencies=[Depends(_limit_expensive)])
 def season_simulation(cid: str, body: SeasonScenarioIn):
     _league(cid)
+    return _submit_or_run(lambda: _season_simulation(cid, body))
+
+
+@router.get("/simulation-jobs/{key}")
+def simulation_job(key: str):
+    done, result = simulation_jobs.get(key)
+    return JSONResponse(result if done else {"status": "pending", "poll": f"/simulation-jobs/{key}"},
+                        status_code=200 if done else 202, headers={"Cache-Control": "no-store", "Retry-After": "2"})
+
+
+def _season_simulation(cid: str, body: SeasonScenarioIn):
+    _league(cid)
     scen = SeasonScenario(rating_shifts=[(s.target_id, s.delta, s.start, s.end) for s in body.rating_shifts], forced=body.forced_results, label=body.label)
     try:
         res = _svc().scenario(cid, scen, draws=body.draws, seed=body.seed)
@@ -289,6 +312,11 @@ class AskIn(BaseModel):
 
 @router.post("/competitions/{cid}/seasons/current/scenario/ask", dependencies=[Depends(_limit_expensive)])
 def ask_scenario(cid: str, body: AskIn):
+    _league(cid)
+    return _submit_or_run(lambda: _ask_scenario(cid, body))
+
+
+def _ask_scenario(cid: str, body: AskIn):
     """Natural language -> typed season scenario (Llama structure + learned effect sizes) -> branch simulation."""
     from sportsworld.config import get_settings
     from sportsworld.llm.client import LLMClient
@@ -573,11 +601,27 @@ _analyst_engine = None
 
 @router.post("/agent/ask", dependencies=[Depends(_limit_expensive)])
 def agent_ask(body: AgentAskIn):
+    return _submit_or_run(lambda: _agent_ask(body))
+
+
+def _analyst_post(path: str, body: dict):
+    # Internal analyst calls execute in the already bounded outer job, avoiding
+    # a nested job waiting behind itself in the single simulation queue.
+    parts = path.strip("/").split("/")
+    if len(parts) >= 5 and parts[0] == "competitions" and parts[2:4] == ["seasons", "current"]:
+        if parts[4:] == ["season-simulations"]:
+            return _season_simulation(parts[1], SeasonScenarioIn.model_validate(body))
+        if parts[4:] == ["scenario", "ask"]:
+            return _ask_scenario(parts[1], AskIn.model_validate(body))
+    raise ValueError("Unsupported internal analyst operation")
+
+
+def _agent_ask(body: AgentAskIn):
     """The SportsWorld Analyst (also on Agentverse / ASI:One): routes a question to actions on this engine."""
     global _analyst_engine
     from sportsworld.agent.analyst import Engine, answer
     if _analyst_engine is None:
-        _analyst_engine = Engine()
+        _analyst_engine = Engine(post_handler=_analyst_post)
     structured = answer(body.text, _analyst_engine)
     import hashlib
     aid = hashlib.sha1(f"{body.text}|{structured}".encode()).hexdigest()[:16]
