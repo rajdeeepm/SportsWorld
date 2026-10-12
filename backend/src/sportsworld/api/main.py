@@ -138,7 +138,10 @@ app.add_middleware(CORSMiddleware,allow_origins=[settings.frontend_origin,'http:
 
 
 def require_admin(authorization:str|None=Header(default=None)):
-    if not settings.admin_api_token: return True
+    if not settings.admin_api_token:
+        if settings.sportsworld_env == 'production':
+            raise HTTPException(403,'administrative writes are disabled')
+        return True
     token=(authorization or '').removeprefix('Bearer ').strip()
     if token!=settings.admin_api_token: raise HTTPException(401,'admin token required')
     return True
