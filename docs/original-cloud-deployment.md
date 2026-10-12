@@ -6,7 +6,8 @@ NFL-only `portfolio/` exhibit was rejected. Do not use it as the main site.
 
 ## Backend
 
-`render.yaml` specifies a Free Python web service. It installs `./backend`,
+`render.yaml` specifies a Free Python web service. It installs `./backend` in
+editable mode so the engine's repository-relative artifact paths remain valid,
 restores a checksummed bundle of public runtime archives, then runs
 `scripts/start_cloud.py` with a single Uvicorn worker. The API owns continuous
 score tracking, availability/news updates and season recomputations. Production
