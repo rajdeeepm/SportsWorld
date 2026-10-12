@@ -281,9 +281,7 @@ def team_page(cid: str, team_id: str) -> dict[str, Any]:
     for r in sched:
         home = r["home_id"] == team_id
         r = r
-    games = svc._games(cid)
-    played = [g for g in games if g.completed and team_id in (g.home.team_id, g.away.team_id) and g.season_type in (2, 3)]
-    played = sorted(played, key=lambda g: g.start_time)[-12:]
+    played = svc.recent_games(cid, team_id)
     book = svc._book(cid)
     history = []
     if book is not None and team_id in book.teams:
