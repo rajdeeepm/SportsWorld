@@ -52,14 +52,44 @@ news, direct route reloads and live connections before replacing the domain's
 deployment. Preserve `www.worldofsports.tech` and the Vercel alias redirects to
 `worldofsports.tech`. The Mac and its Cloudflare tunnel are not cloud hosting.
 
-## Status
+## Status — 12 October 2026
 
-Prepared, not yet deployed. Render email verification and service provisioning remain
-pending; the original frontend is built locally. Do not mark this release done
-until the correct experience is visibly live and API checks pass.
+The original frontend is deployed at https://worldofsports.tech, using Vercel
+project `cse-594/sportsworld-portfolio`, Root Directory `frontend`, Vite and
+`dist`. `www.worldofsports.tech` and `sportsworld-portfolio.vercel.app` both
+return HTTP 308 to the canonical domain. The rejected static replacement is
+superseded.
+
+The original API is deployed on Render Free at
+https://sportsworld-api.onrender.com, service `srv-db6h1a0m7kps73dtn4sg`.
+Email verification is complete. Build command:
+`pip install -e ./backend && python scripts/prepare_cloud_data.py`.
+Start command: `python scripts/start_cloud.py`. Health path: `/health`.
+Vercel deploys commits to main automatically. Render uses a public repository
+connection: backend updates require **Manual Deploy → Deploy latest commit**.
+No paid service or payment method was added. No Supabase service was created.
+
+Original league views, team pages, research and public API responses have been
+observed. End-to-end simulation reliability is still being verified: Render
+reported health timeouts and a 512 MiB memory failure under computation.
+The latest fix copies summary rows before remapping and returns flushed Linux
+file-cache pages and freed heap allocations to the OS. Do not call this release
+fully verified until a public scenario completes and the service stays healthy.
+
+Cloud simulation work runs in one isolated subprocess at a time. Expensive
+POST routes return an opaque queued job with HTTP 202; the original frontend
+polls that job and displays the original result format. Pending jobs and saved
+results are bounded and ephemeral, and disappear on restart. This avoids
+keeping a long simulation in one gateway request.
+
+LLM, ElevenLabs, SpacetimeDB publishing and PostgreSQL archival credentials
+are not configured. REST polling is enabled. Those optional integrations are
+not verified live. College hockey retains its original tracker and UI but does
+not have a season postseason simulator in the original engine. Historical
+model/data-quality findings in `wrong_details.md` remain separate work.
 
 Local verification on 12 October 2026: the original frontend production build
-passes with the cloud REST fallback; 33 backend tests pass. Production admin
+passes with the cloud REST fallback; 39 backend tests pass. Production admin
 protection returns 403 without a configured token, and the bound scenario
 limiter returns 429 with Retry-After. All 29 published input parts match the
 local data bundle; restoration matches all 514 original input files.
