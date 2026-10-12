@@ -196,6 +196,9 @@ class SeasonService:
                 "as_of": now.isoformat(), "freshness": "fresh",
                 "live_p_home": round(setup.live_probs[i], 4) if i in setup.live_probs else None,
             }
+        # The setup and board now contain the needed values; release historical
+        # GameRecords before starting the cloud simulation subprocess.
+        del rows, feats, by_id, preds
         dyn = run_season(setup, draws=self.draws, mode="dynamic", scenario=avail)
         fast = run_season(setup, draws=self.draws, mode="fast", scenario=avail)
         for run in (dyn, fast):
@@ -292,8 +295,13 @@ class SeasonService:
         p = self._warm_path(st.league)
         p.parent.mkdir(parents=True, exist_ok=True)
         tmp = p.with_suffix(".tmp")
-        tmp.write_text(json.dumps({"run": st.run, "fast_run": st.fast_run, "board": st.board, "global_state_version": st.global_state_version,
-                                   "saved_at": datetime.now(timezone.utc).isoformat()}, default=str))
+        payload = {"run": st.run, "fast_run": st.fast_run, "board": st.board, "global_state_version": st.global_state_version,
+                   "saved_at": datetime.now(timezone.utc).isoformat()}
+        # The incremental encoder lets Python release the GIL between small
+        # chunks instead of one long C-encoder call on a large college season.
+        with tmp.open("w") as stream:
+            for chunk in json.JSONEncoder(default=str).iterencode(payload):
+                stream.write(chunk)
         tmp.replace(p)
 
     def _load_warm(self, league: str) -> None:
