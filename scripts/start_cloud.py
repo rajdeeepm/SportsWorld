@@ -14,6 +14,10 @@ defaults = {
     "FRONTEND_ORIGIN": "https://worldofsports.tech",
     "REAL_DATA_DIR": str(root / "data" / "real"),
     "PYTHONUNBUFFERED": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
 }
 for key, value in defaults.items():
     os.environ.setdefault(key, value)
