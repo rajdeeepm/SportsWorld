@@ -19,8 +19,10 @@ from __future__ import annotations
 
 import hashlib
 import math
+import os
+import tempfile
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, fields
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Callable
@@ -446,6 +448,10 @@ def run_season(setup: SeasonSetup, *, draws: int = 10_000, seed: int = 7, mode: 
                scenario: SeasonScenario | None = None, postseason: Callable | None = None) -> dict[str, Any]:
     from .rules import POSTSEASON
 
+    batch = int(os.environ.get("SEASON_BATCH_DRAWS", "0"))
+    if 0 < batch < draws:
+        return _run_batched(setup, draws=draws, seed=seed, mode=mode, scenario=scenario,
+                            postseason=postseason, batch=batch)
     t0 = time.perf_counter()
     rng = np.random.default_rng(seed)
     reg = simulate_regular(setup, draws, rng, mode, scenario)
@@ -456,8 +462,87 @@ def run_season(setup: SeasonSetup, *, draws: int = 10_000, seed: int = 7, mode: 
     return summarize(setup, reg, post, draws=draws, seed=seed, mode=mode, elapsed=elapsed, scenario=scenario)
 
 
+def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
+                 scenario: SeasonScenario | None, postseason: Callable | None, batch: int) -> dict[str, Any]:
+    """Keep complete draw-level results on temporary disk, bounding working RAM.
+
+    Summaries still use every draw (including exact quantiles and conditional
+    paths). Batching changes RNG ordering, so record a distinct simulator version.
+    Equal seeds and batch sizes preserve paired baseline/scenario random draws.
+    """
+    from .rules import POSTSEASON
+
+    t0 = time.perf_counter()
+    rng = np.random.default_rng(seed)
+    post_fn = postseason or POSTSEASON.get(setup.league)
+    reg_arrays, post_arrays = {}, {}
+    with tempfile.TemporaryDirectory(prefix="sportsworld-draws-") as folder:
+        def save(target, name, value, start, end):
+            # Integer win/game counts and seeds need substantially fewer bytes
+            # than the simulation's general-purpose float64/int64 arrays.
+            if name in {"reg_wins", "reg_losses", "reg_ties", "reg_ot_losses", "reg_games"}:
+                compact = value.astype(np.uint16)
+                if np.array_equal(value, compact):
+                    value = compact
+            elif name == "post_seed":
+                compact = value.astype(np.int16)
+                if np.array_equal(value, compact):
+                    value = compact
+            if name not in target:
+                target[name] = np.lib.format.open_memmap(
+                    Path(folder) / f"{name}.npy", mode="w+", dtype=value.dtype,
+                    shape=(draws, *value.shape[1:]))
+            target[name][start:end] = value
+
+        for start in range(0, draws, batch):
+            end = min(start + batch, draws)
+            reg = simulate_regular(setup, end - start, rng, mode, scenario)
+            key = standings_key(setup, reg, rng)
+            post = post_fn(setup, reg, key, rng) if post_fn and not setup.postseason_started else {}
+            for f in fields(RegularSeasonDraws):
+                if f.name != "post_shift":
+                    save(reg_arrays, "reg_" + f.name, getattr(reg, f.name), start, end)
+            post_shift = reg.post_shift
+            for name, value in post.items():
+                save(post_arrays, "post_" + name, value, start, end)
+            # Flush/release mapped pages between batches. Reopening read-only
+            # avoids retaining the whole archive in the process's working set.
+            for target in (reg_arrays, post_arrays):
+                for name, value in list(target.items()):
+                    value.flush()
+                    value._mmap.close()
+                    target[name] = np.load(Path(folder) / f"{name}.npy", mmap_mode="r+")
+        reg = RegularSeasonDraws(**{f.name: post_shift if f.name == "post_shift" else reg_arrays["reg_" + f.name]
+                                  for f in fields(RegularSeasonDraws)})
+        post = {name.removeprefix("post_"): value for name, value in post_arrays.items()}
+        result = summarize(setup, reg, post, draws=draws, seed=seed, mode=mode,
+                           elapsed=time.perf_counter() - t0, scenario=scenario)
+        result["simulator_version"] = SIMULATOR_VERSION + "_batched_v1"
+        result["diagnostics"]["batch_draws"] = batch
+        for value in [getattr(reg, f.name) for f in fields(RegularSeasonDraws)] + list(post.values()):
+            if isinstance(value, np.memmap):
+                value._mmap.close()
+        return result
+
+
 def summarize(setup: SeasonSetup, reg: RegularSeasonDraws, post: dict[str, np.ndarray], *, draws: int, seed: int, mode: str,
               elapsed: float, scenario: SeasonScenario | None) -> dict[str, Any]:
+    def release_pages():
+        # Remap the flushed draw archives between summary blocks. Closing maps
+        # reliably releases resident pages on both macOS and Linux. No view of
+        # an old map is accessed after this boundary.
+        for f in fields(RegularSeasonDraws):
+            arr = getattr(reg, f.name)
+            if isinstance(arr, np.memmap):
+                path = arr.filename
+                arr._mmap.close()
+                setattr(reg, f.name, np.load(path, mmap_mode="r"))
+        for name, arr in list(post.items()):
+            if isinstance(arr, np.memmap):
+                path = arr.filename
+                arr._mmap.close()
+                post[name] = np.load(path, mmap_mode="r")
+
     D = draws
     se = lambda p: float(math.sqrt(max(p * (1 - p), 0.0) / D))  # noqa: E731
     teams = []
@@ -502,22 +587,47 @@ def summarize(setup: SeasonSetup, reg: RegularSeasonDraws, post: dict[str, np.nd
             counts = np.bincount(s.astype(int), minlength=int(s.max()) + 2)[1:] / D
             row["seed_dist"] = [round(float(x), 4) for x in counts]
         teams.append(row)
+        if i % 8 == 0:
+            release_pages()
     order_key = "champion" if any("champion" in t for t in teams) else "expected_wins"
     teams.sort(key=lambda t: (t.get(order_key, 0), t["expected_wins"]), reverse=True)
     # Ripple: for every game, how its result moves every team's milestone odds, P(m | home win) - P(m | home loss).
     # One matrix product over the simulated seasons covers all games and teams at once.
     ripple = None
     if path_key is not None and len(setup.r_event_ids):
-        M = post[path_key].astype(np.float32)                      # D x T
-        HW = reg.home_win.astype(np.float32)                       # D x G
-        nw = HW.sum(axis=0)                                        # G
-        S = HW.T @ M                                               # G x T: milestone count in seasons the home side won
-        tot = M.sum(axis=0)                                        # T
+        # Accumulate exact Boolean counts in bounded blocks instead of copying
+        # the full D x G schedule into float32 RAM.
+        # Counts up to the 10k draws are exactly representable in float32,
+        # matching the original matrix-product calculation.
+        nw = np.zeros(len(setup.r_event_ids), dtype=np.float32)
+        S = np.zeros((len(setup.r_event_ids), setup.T), dtype=np.float32)
+        tot = np.zeros(setup.T, dtype=np.float32)
+        for start in range(0, D, 128):
+            M = post[path_key][start:start + 128].astype(np.float32)
+            HW = reg.home_win[start:start + 128].astype(np.float32)
+            nw += HW.sum(axis=0)
+            S += HW.T @ M
+            tot += M.sum(axis=0)
+            release_pages()
         with np.errstate(divide="ignore", invalid="ignore"):
-            p1, p0 = S / nw[:, None], (tot[None, :] - S) / (D - nw)[:, None]
-            ripple = p1 - p0
+            p1 = S / nw[:, None]
+            p0 = tot[None, :] - S
+            p0 /= (D - nw)[:, None]
+            # Reuse the count allocation for the resulting effects.
+            np.subtract(p1, p0, out=S)
+            ripple = S
             # Monte Carlo standard error of that difference; only effects beyond 3 SE are reported
-            ripple_se = np.sqrt(p1 * (1 - p1) / nw[:, None] + p0 * (1 - p0) / (D - nw)[:, None])
+            for start in range(0, len(nw), 128):
+                end = start + 128
+                a, b = p1[start:end], p0[start:end]
+                a *= 1 - a
+                a /= nw[start:end, None]
+                b *= 1 - b
+                b /= (D - nw[start:end, None])
+                a += b
+                np.sqrt(a, out=a)
+            ripple_se = p1
+            del a, b, p0
     games = []
     for g, e in enumerate(setup.r_event_ids):
         hw = reg.home_win[:, g].astype(bool)
@@ -538,6 +648,8 @@ def summarize(setup: SeasonSetup, reg: RegularSeasonDraws, post: dict[str, np.nd
                 # delta = change in that team's milestone odds when the HOME side wins (vs loses)
                 row_g["ripple"] = [{"team_id": setup.team_ids[j], "delta_if_home_wins": round(float(d[j]), 4)} for j in top]
         games.append(row_g)
+        if g % 64 == 0:
+            release_pages()
     diagnostics: dict[str, Any] = {"runtime_s": round(elapsed, 3), "remaining_games": len(setup.r_event_ids), "played_games": int(len(setup.p_home)),
                                    "contingent_postseason_events": setup.contingent_events, "postseason_started": setup.postseason_started,
                                    "structure_note": setup.structure_note, "rules_version": __import__("sportsworld.season.rules", fromlist=["RULES_VERSIONS"]).RULES_VERSIONS.get(setup.league)}
