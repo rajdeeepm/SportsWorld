@@ -201,7 +201,8 @@ def read_archive(root: Path, league: str) -> list[GameRecord]:
     if not folder.exists():
         return games
     for path in sorted(folder.glob("*.jsonl"), key=lambda p: int(re.sub(r"\D", "", p.stem) or 0)):
-        games.extend(GameRecord.model_validate_json(line) for line in path.read_text().splitlines() if line.strip())
+        with path.open() as lines:
+            games.extend(GameRecord.model_validate_json(line) for line in lines if line.strip())
     return sorted(games, key=lambda g: (g.start_time, g.game_id))
 
 
