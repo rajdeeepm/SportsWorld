@@ -76,6 +76,30 @@ def _without_runtime(result):
                                       if k != "runtime_s"}}
 
 
+def test_cloud_batches_preserve_draws_repeatability_and_marginals(tmp_path, monkeypatch):
+    setup = _league_archive(tmp_path, "nfl", divisions_per_conference=4, teams_per_division=4)
+    monkeypatch.delenv("SEASON_BATCH_DRAWS", raising=False)
+    reference = run_season(setup, draws=2000)
+    monkeypatch.setenv("SEASON_BATCH_DRAWS", "128")
+    batched = run_season(setup, draws=2000)
+    repeated = run_season(setup, draws=2000)
+    assert _without_runtime(batched) == _without_runtime(repeated)
+    assert batched["draws"] == 2000
+    assert batched["diagnostics"]["champions_per_draw_min_max"] == [1, 1]
+    old = {t["team_id"]: t for t in reference["teams"]}
+    for team in batched["teams"]:
+        assert sum(team["win_hist"]) == 2000
+        assert abs(team["expected_wins"] - old[team["team_id"]]["expected_wins"]) < .3
+        p = team["champion"]
+        q = old[team["team_id"]]["champion"]
+        pooled_se = np.sqrt((p * (1 - p) + q * (1 - q)) / 2000)
+        assert abs(p - q) < 5 * pooled_se + .005
+    forced_id = setup.r_event_ids[0]
+    scenario = SeasonScenario(forced={forced_id: "home"}, label="forced result")
+    altered = run_season(setup, draws=2000, scenario=scenario)
+    assert next(g for g in altered["games"] if g["event_id"] == forced_id)["p_home"] == 1
+
+
 def test_g6_nfl_champion_seeds_and_division_winners(tmp_path):
     setup = _league_archive(tmp_path, "nfl", divisions_per_conference=4, teams_per_division=4)
     result, _, post = _run_with_draws(setup)
