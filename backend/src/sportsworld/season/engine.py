@@ -20,6 +20,9 @@ from __future__ import annotations
 import hashlib
 import math
 import os
+import pickle
+import subprocess
+import sys
 import tempfile
 import time
 from dataclasses import dataclass, field, fields
@@ -448,8 +451,23 @@ def run_season(setup: SeasonSetup, *, draws: int = 10_000, seed: int = 7, mode: 
                scenario: SeasonScenario | None = None, postseason: Callable | None = None) -> dict[str, Any]:
     from .rules import POSTSEASON
 
+    if os.environ.get("SEASON_WORKER_PROCESS") == "1" and postseason is None:
+        # A private child process has its own GIL. Large simulation/archive
+        # operations therefore cannot block the web API's health endpoint.
+        # Pickle files are created solely by this process in its private temp
+        # directory, never accepted from HTTP or an external data source.
+        with tempfile.TemporaryDirectory(prefix="sportsworld-worker-") as folder:
+            inp, out = Path(folder) / "input.pkl", Path(folder) / "output.pkl"
+            with inp.open("wb") as stream:
+                pickle.dump((setup, {"draws": draws, "seed": seed, "mode": mode, "scenario": scenario}), stream)
+            env = dict(os.environ, SEASON_WORKER_PROCESS="0")
+            subprocess.run([sys.executable, "-m", "sportsworld.season.worker", str(inp), str(out)],
+                           env=env, check=True)
+            with out.open("rb") as stream:
+                return pickle.load(stream)
+
     batch = int(os.environ.get("SEASON_BATCH_DRAWS", "0"))
-    if 0 < batch < draws:
+    if 0 < batch < draws and postseason is None:
         return _run_batched(setup, draws=draws, seed=seed, mode=mode, scenario=scenario,
                             postseason=postseason, batch=batch)
     t0 = time.perf_counter()
