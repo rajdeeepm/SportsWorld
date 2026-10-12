@@ -76,6 +76,29 @@ def _without_runtime(result):
                                       if k != "runtime_s"}}
 
 
+def test_recent_results_match_full_archive_with_live_corrections(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    from sportsworld.season.service import SeasonService
+    games = [_game("nfl", f"g{i}", "A", "B", AS_OF - timedelta(days=30-i),
+                   completed=True, home_score=i+1) for i in range(20)]
+    write_archive(archive_path(tmp_path, "nfl", 2026), games)
+    correction = games[-1].model_copy(update={"home": games[-1].home.model_copy(update={"score": 99})})
+    live = SimpleNamespace(games={correction.event_id: correction})
+    svc = SeasonService(tmp_path, None, trackers={"nfl": live})
+    expected = sorted(svc._games("nfl"), key=lambda g: g.start_time)[-12:]
+    actual = svc.recent_games("nfl", "A")
+    assert [g.model_dump() for g in actual] == [g.model_dump() for g in expected]
+    # Repeated public polls reuse the small result rather than reloading a league.
+    import sportsworld.season.service as service_module
+    original = service_module.iter_archive
+    monkeypatch.setattr(service_module, "iter_archive", lambda *args: (_ for _ in ()).throw(AssertionError("archive reloaded")))
+    assert svc.recent_games("nfl", "A") == actual
+    monkeypatch.setattr(service_module, "iter_archive", original)
+    live.games[correction.event_id] = correction.model_copy(update={"completed": False})
+    svc.invalidate("nfl", "corrected result")
+    assert correction.game_id not in [g.game_id for g in svc.recent_games("nfl", "A")]
+
+
 def test_column_archive_layout_preserves_every_summary_value(tmp_path, monkeypatch):
     import sportsworld.season.engine as engine
     setup = _league_archive(tmp_path, "nfl", divisions_per_conference=4, teams_per_division=4)
