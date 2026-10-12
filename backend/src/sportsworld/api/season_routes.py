@@ -15,6 +15,7 @@ from sportsworld.season.engine import SeasonScenario, _played_tables, build_setu
 from sportsworld.season.rules import RULES_VERSIONS
 from .jobs import simulation_jobs
 from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
 
 router = APIRouter(tags=["competitions"])
 _service = None  # set by api.main at startup
@@ -232,7 +233,7 @@ def season_simulation(cid: str, body: SeasonScenarioIn):
 @router.get("/simulation-jobs/{key}")
 def simulation_job(key: str):
     done, result = simulation_jobs.get(key)
-    return JSONResponse(result if done else {"status": "pending", "poll": f"/simulation-jobs/{key}"},
+    return JSONResponse(jsonable_encoder(result) if done else {"status": "pending", "poll": f"/simulation-jobs/{key}"},
                         status_code=200 if done else 202, headers={"Cache-Control": "no-store", "Retry-After": "2"})
 
 
