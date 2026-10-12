@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import os
 import re
+import time
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
@@ -60,8 +61,9 @@ def pct(p: float | None) -> str:
 
 
 class Engine:
-    def __init__(self, base: str = API):
+    def __init__(self, base: str = API, post_handler=None):
         self.c = httpx.Client(base_url=base, timeout=90)
+        self.post_handler = post_handler
         self._teams: dict[str, list[dict]] = {}
 
     def get(self, path: str, **params) -> Any:
@@ -70,8 +72,17 @@ class Engine:
         return r.json()
 
     def post(self, path: str, body: dict) -> Any:
+        if self.post_handler is not None:
+            return self.post_handler(path, body)
         r = self.c.post(path, json=body)
         r.raise_for_status()
+        while r.status_code == 202:
+            poll = r.json().get("poll", "")
+            if not re.fullmatch(r"/simulation-jobs/[a-f0-9]{32}", poll):
+                raise ValueError("Invalid simulation job response")
+            time.sleep(2)
+            r = self.c.get(poll)
+            r.raise_for_status()
         return r.json()
 
     def teams(self, league: str) -> list[dict]:
