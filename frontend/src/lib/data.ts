@@ -276,7 +276,7 @@ export const useMeta = (cid: string) =>
   useQuery({ queryKey: ['meta', cid], queryFn: () => getJSON<Record<string, TeamMeta>>(`/competitions/${cid}/teams/meta`), staleTime: Infinity, enabled: cid !== 'f1' })
 
 export const useTeam = (cid: string, teamId: string) =>
-  useQuery({ queryKey: ['team', cid, teamId], queryFn: () => getJSON<TeamPage>(`/entities/team/${cid}/${teamId}`), refetchInterval: 20_000, ...warmRetry })
+  useQuery({ queryKey: ['team', cid, teamId], queryFn: () => getJSON<TeamPage>(`/entities/team/${cid}/${teamId}`), enabled: !!teamId, refetchInterval: 20_000, ...warmRetry })
 
 export const useAvailability = (cid: string) =>
   useQuery({
