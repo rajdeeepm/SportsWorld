@@ -452,6 +452,13 @@ def run_season(setup: SeasonSetup, *, draws: int = 10_000, seed: int = 7, mode: 
     from .rules import POSTSEASON
 
     if os.environ.get("SEASON_WORKER_PROCESS") == "1" and postseason is None:
+        # Return freed archive allocations to the OS before adding a worker's
+        # working set to the same 512 MiB Linux container.
+        import gc
+        gc.collect()
+        if sys.platform.startswith("linux"):
+            import ctypes
+            ctypes.CDLL(None).malloc_trim(0)
         # A private child process has its own GIL. Large simulation/archive
         # operations therefore cannot block the web API's health endpoint.
         # Pickle files are created solely by this process in its private temp
@@ -478,6 +485,18 @@ def run_season(setup: SeasonSetup, *, draws: int = 10_000, seed: int = 7, mode: 
     post: dict[str, np.ndarray] = post_fn(setup, reg, key, rng) if post_fn and not setup.postseason_started else {}
     elapsed = time.perf_counter() - t0
     return summarize(setup, reg, post, draws=draws, seed=seed, mode=mode, elapsed=elapsed, scenario=scenario)
+
+
+def _close_draw_map(value):
+    value._mmap.close()
+    # Linux container memory includes file-cache pages, even after unmapping.
+    # These flushed temporary archives can be read back from disk as needed.
+    if hasattr(os, "posix_fadvise"):
+        fd = os.open(value.filename, os.O_RDONLY)
+        try:
+            os.posix_fadvise(fd, 0, 0, os.POSIX_FADV_DONTNEED)
+        finally:
+            os.close(fd)
 
 
 def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
@@ -528,7 +547,7 @@ def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
             for target in (reg_arrays, post_arrays):
                 for name, value in list(target.items()):
                     value.flush()
-                    value._mmap.close()
+                    _close_draw_map(value)
                     target[name] = np.load(Path(folder) / f"{name}.npy", mmap_mode="r+")
         reg = RegularSeasonDraws(**{f.name: post_shift if f.name == "post_shift" else reg_arrays["reg_" + f.name]
                                   for f in fields(RegularSeasonDraws)})
@@ -539,7 +558,7 @@ def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
         result["diagnostics"]["batch_draws"] = batch
         for value in [getattr(reg, f.name) for f in fields(RegularSeasonDraws)] + list(post.values()):
             if isinstance(value, np.memmap):
-                value._mmap.close()
+                _close_draw_map(value)
         return result
 
 
@@ -553,18 +572,19 @@ def summarize(setup: SeasonSetup, reg: RegularSeasonDraws, post: dict[str, np.nd
             arr = getattr(reg, f.name)
             if isinstance(arr, np.memmap):
                 path = arr.filename
-                arr._mmap.close()
+                _close_draw_map(arr)
                 setattr(reg, f.name, np.load(path, mmap_mode="r"))
         for name, arr in list(post.items()):
             if isinstance(arr, np.memmap):
                 path = arr.filename
-                arr._mmap.close()
+                _close_draw_map(arr)
                 post[name] = np.load(path, mmap_mode="r")
 
     D = draws
     se = lambda p: float(math.sqrt(max(p * (1 - p), 0.0) / D))  # noqa: E731
     teams = []
-    total_games = reg.games[0]
+    # Keep this small row independent of maps reopened by release_pages().
+    total_games = reg.games[0].copy()
     path_key = next((k for k in ("playoffs", "tournament") if k in post and post[k].ndim == 2 and post[k].shape[1] == setup.T), None)
     for i, tid in enumerate(setup.team_ids):
         if not setup.member[i] and setup.structure is not None:
