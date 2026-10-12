@@ -76,6 +76,19 @@ def _without_runtime(result):
                                       if k != "runtime_s"}}
 
 
+def test_column_archive_layout_preserves_every_summary_value(tmp_path, monkeypatch):
+    import sportsworld.season.engine as engine
+    setup = _league_archive(tmp_path, "nfl", divisions_per_conference=4, teams_per_division=4)
+    monkeypatch.setenv("SEASON_BATCH_DRAWS", "128")
+    monkeypatch.delenv("SEASON_WORKER_PROCESS", raising=False)
+    convert = engine._column_draw_map
+    monkeypatch.setattr(engine, "_column_draw_map", lambda value: value)
+    row_layout = run_season(setup, draws=2000)
+    monkeypatch.setattr(engine, "_column_draw_map", convert)
+    column_layout = run_season(setup, draws=2000)
+    assert _without_runtime(column_layout) == _without_runtime(row_layout)
+
+
 def test_cloud_batches_preserve_draws_repeatability_and_marginals(tmp_path, monkeypatch):
     setup = _league_archive(tmp_path, "nfl", divisions_per_conference=4, teams_per_division=4)
     monkeypatch.delenv("SEASON_BATCH_DRAWS", raising=False)
