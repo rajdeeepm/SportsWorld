@@ -40,7 +40,7 @@ function chart(baseline, branch, name) {
       const ah=alt[w]/data.draws/maximum*innerH;
       svg+=`<rect x="${x+barW+1}" y="${top+innerH-ah}" width="${barW}" height="${ah}" rx="2" fill="#f4c94e"><title>${w} wins: ${number(alt[w])} saved scenario draws</title></rect>`;
     }
-    if((w% (width < 400 ? 4 : 2)===0 && w < 17) || w===17) svg+=`<text x="${left+(w+.5)*step}" y="${height-20}" text-anchor="middle">${w}</text>`;
+    if((w% (width < 400 ? 4 : 2)===0 && w < (width < 400 ? 16 : 17)) || w===17) svg+=`<text x="${left+(w+.5)*step}" y="${height-20}" text-anchor="middle">${w}</text>`;
   });
   svg+=`<text x="${left+innerW/2}" y="${height-1}" text-anchor="middle">Final regular-season wins</text></svg>`;
   $('#distribution').innerHTML=svg;
