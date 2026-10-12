@@ -11,14 +11,19 @@ import type { BoardRow } from './data'
 
 const URI = (import.meta as any).env?.VITE_SPACETIME_URI ?? 'ws://127.0.0.1:3010'
 const DB = (import.meta as any).env?.VITE_SPACETIME_DB ?? 'sportsworld'
+// A cloud API that does not publish to Maincloud must not overlay REST scores
+// with rows left by a previous local publisher. This build flag is immutable.
+const ENABLED = (import.meta as any).env?.VITE_SPACETIME_ENABLED !== 'false'
 
 const builder = DbConnection.builder().withUri(URI).withDatabaseName(DB)
 
 export function LiveProvider({ children }: { children: ReactNode }) {
+  if (!ENABLED) return <>{children}</>
   return <SpacetimeDBProvider connectionBuilder={builder}>{children}</SpacetimeDBProvider>
 }
 
 export function useLiveStatus() {
+  if (!ENABLED) return { connected: false, error: 'Using the live REST API; shared-state publishing is not configured', viewers: 0 }
   const s = useSpacetimeDB()
   const [viewers] = useTable(tables.viewer)
   return { connected: s.isActive, error: s.connectionError?.message, viewers: viewers.length }
@@ -40,6 +45,7 @@ export interface LiveGame {
 }
 
 export function useLiveGames(league: string) {
+  if (!ENABLED) return { map: new Map<string, LiveGame>(), ready: false }
   const [rows, ready] = useTable(tables.game.where((r) => r.league.eq(league)))
   return useMemo(() => {
     const m = new Map<string, LiveGame>()
@@ -62,16 +68,19 @@ export function mergeLive(rows: BoardRow[], live: Map<string, LiveGame>): BoardR
 }
 
 export function useLiveCompetition(league: string) {
+  if (!ENABLED) return undefined
   const [rows] = useTable(tables.competition.where((r) => r.league.eq(league)))
   return rows[0]
 }
 
 export function useWinProbHistory(eventId: string) {
+  if (!ENABLED) return []
   const [rows] = useTable(tables.winProb.where((r) => r.eventId.eq(eventId)))
   return useMemo(() => rows.map((r) => ({ at: r.at, p_home: r.pHome })).sort((a, b) => a.at.localeCompare(b.at)), [rows])
 }
 
 export function useLiveUpdates(league: string) {
+  if (!ENABLED) return []
   const [rows] = useTable(tables.worldUpdate.where((r) => r.league.eq(league)))
   return useMemo(() => rows.slice().sort((a, b) => Number(b.id - a.id)), [rows])
 }
@@ -96,6 +105,7 @@ function record(old: LiveGame & { league: string }, row: LiveGame & { league: st
 
 /** subscribe once (in the app shell) to every game row and note each pushed change */
 export function usePushRecorder() {
+  if (!ENABLED) return
   useTable(tables.game, { onUpdate: (o, n) => record(o as never, n as never) })
   useTable(tables.worldUpdate, { onInsert: () => { lastPushAt = Date.now(); emit() } })
 }
