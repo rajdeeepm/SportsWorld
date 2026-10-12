@@ -2,7 +2,7 @@
 
 The portfolio exhibit in [`portfolio/`](portfolio/) is a static NFL historical replay for quant recruiters. It presents 32 team distributions, 128 saved scenario branches, the original NFL 2021–2025 evaluation rows, downloadable evidence and reproduction instructions. The snapshot is dated **1 November 2025, 12:00 UTC**; it does not present current forecasts.
 
-Deploy `portfolio/` on Vercel using the **Other** preset, no build command and no environment variables. The published exhibit needs no running Mac, Python server, database, paid API or Supabase project. See [`portfolio/README.md`](portfolio/README.md) for setup, provenance and verification. The intended public address is [worldofsports.tech](https://worldofsports.tech); deployment and DNS status are recorded in [`release_plan.md`](release_plan.md).
+Deploy `portfolio/` on Vercel using the **Other** preset, no build command and no environment variables. The published exhibit needs no running Mac, Python server, database, paid API or Supabase project. See [`portfolio/README.md`](portfolio/README.md) for setup, provenance and verification. The public address is [worldofsports.tech](https://worldofsports.tech); deployment and DNS status are recorded in [`release_plan.md`](release_plan.md).
 
 The full engine and original React app remain available below for local research. The original hackathon description is historical and contains claims that require revalidation; [`wrong_details.md`](wrong_details.md) records known issues. Publishing the static exhibit does not certify or repair every feature of that original engine.
 
