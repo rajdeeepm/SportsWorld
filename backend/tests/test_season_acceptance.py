@@ -111,6 +111,35 @@ def test_off_day_scorecard_avoids_full_archive_replay(monkeypatch):
     assert result["games"] == 0 and result["is_today"]
 
 
+def test_page_reads_use_timestamped_snapshot_during_worker(tmp_path, monkeypatch):
+    import threading
+    from sportsworld.season.service import SeasonService
+    _league_archive(tmp_path, "nfl", divisions_per_conference=4, teams_per_division=4)
+    svc = SeasonService(tmp_path, None)
+    setup, stale = svc.page_setup("nfl")
+    assert setup is not None and not stale
+    ready, release = threading.Event(), threading.Event()
+    def worker():
+        with svc._simulation_lock:
+            ready.set()
+            release.wait(5)
+    thread = threading.Thread(target=worker)
+    thread.start()
+    assert ready.wait(5)
+    try:
+        svc.invalidate("nfl", "new result")
+        def fail(*args):
+            raise AssertionError("page allocated history during worker")
+        monkeypatch.setattr(svc, "_games", fail)
+        snapshot, stale = svc.page_setup("nfl")
+        assert stale and snapshot is setup and snapshot.as_of == setup.as_of
+        assert svc.page_setup("nba") == (None, True)
+    finally:
+        release.set()
+        thread.join(5)
+    assert not thread.is_alive()
+
+
 def test_scorecard_fallback_reuses_one_complete_history(monkeypatch):
     from types import SimpleNamespace
     from sportsworld.api import season_routes
