@@ -140,6 +140,54 @@ def test_page_reads_use_timestamped_snapshot_during_worker(tmp_path, monkeypatch
     assert not thread.is_alive()
 
 
+def test_private_scenario_reuses_only_matching_canonical_setup(tmp_path, monkeypatch):
+    from sportsworld.season.service import SeasonService
+    setup = _league_archive(tmp_path, "nfl", divisions_per_conference=4, teams_per_division=4)
+    svc = SeasonService(tmp_path, None, as_of=AS_OF)
+    setup, _ = svc.page_setup("nfl")
+    scenario = SeasonScenario(forced={setup.r_event_ids[0]: "home"})
+    reference = svc.scenario("nfl", scenario, draws=500)
+    svc.state("nfl").run = {"as_of": setup.as_of.isoformat()}
+    svc._canonical_setups["nfl"] = (0, setup)
+    def fail(*args):
+        raise AssertionError("matching canonical branch reloaded history")
+    monkeypatch.setattr(svc, "_games", fail)
+    cached = svc.scenario("nfl", scenario, draws=500)
+    assert _without_runtime(cached["base"]) == _without_runtime(reference["base"])
+    assert _without_runtime(cached["scenario"]) == _without_runtime(reference["scenario"])
+    assert cached["deltas"] == reference["deltas"]
+    assert setup.board_probs is None and not setup.live_probs
+    svc.invalidate("nfl", "new canonical evidence")
+    with pytest.raises(AssertionError, match="reloaded history"):
+        svc.scenario("nfl", scenario, draws=500)
+
+
+def test_compact_setup_preserves_historical_overtime_and_live_corrections(tmp_path):
+    from dataclasses import fields
+    from types import SimpleNamespace
+    from sportsworld.ingest.espn import read_archive
+    from sportsworld.ingest.ratings import RatingBook
+    from sportsworld.season.service import SeasonService
+    current = _league_archive(tmp_path, "nhl", divisions_per_conference=4, teams_per_division=4)
+    old = [_game("nhl", f"old{i}", "C0D0T0", "C0D0T1", AS_OF - timedelta(days=365-i), completed=True,
+                 home_score=3, away_score=2).model_copy(update={"season": 2025, "period": 4 if i == 0 else 3}) for i in range(2)]
+    write_archive(archive_path(tmp_path, "nhl", 2025), old)
+    book = RatingBook(LEAGUES["nhl"], default_params(LEAGUES["nhl"])).replay(read_archive(tmp_path, "nhl"), until=AS_OF)
+    tracker = SimpleNamespace(book=book, games={})
+    svc = SeasonService(tmp_path, None, trackers={"nhl": tracker})
+    for rate in (.5, 0.0):
+        full = build_setup("nhl", tmp_path, AS_OF, games=svc._games("nhl"), book=book)
+        compact, retained = svc._prepare_setup("nhl", AS_OF)
+        assert compact.ot_rate == rate and len(retained) == len(current.r_event_ids)
+        for f in fields(full):
+            a, b = getattr(full, f.name), getattr(compact, f.name)
+            if isinstance(a, np.ndarray):
+                np.testing.assert_array_equal(a, b, err_msg=f.name)
+            else:
+                assert a == b, f.name
+        tracker.games[old[0].event_id] = old[0].model_copy(update={"period": 3})
+
+
 def test_scorecard_fallback_reuses_one_complete_history(monkeypatch):
     from types import SimpleNamespace
     from sportsworld.api import season_routes
