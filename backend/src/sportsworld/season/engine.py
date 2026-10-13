@@ -459,6 +459,8 @@ def run_season(setup: SeasonSetup, *, draws: int = 10_000, seed: int = 7, mode: 
         if sys.platform.startswith("linux"):
             import ctypes
             ctypes.CDLL(None).malloc_trim(0)
+        from sportsworld.resource_usage import log_memory
+        log_memory("worker:parent:trimmed", setup.league)
         # A private child process has its own GIL. Large simulation/archive
         # operations therefore cannot block the web API's health endpoint.
         # Pickle files are created solely by this process in its private temp
@@ -527,6 +529,8 @@ def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
     t0 = time.perf_counter()
     rng = np.random.default_rng(seed)
     post_fn = postseason or POSTSEASON.get(setup.league)
+    from sportsworld.resource_usage import log_memory
+    log_memory("draws:start", setup.league)
     reg_arrays, post_arrays = {}, {}
     with tempfile.TemporaryDirectory(prefix="sportsworld-draws-") as folder:
         def save(target, name, value, start, end):
@@ -564,6 +568,7 @@ def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
                     value.flush()
                     _close_draw_map(value)
                     target[name] = np.load(Path(folder) / f"{name}.npy", mmap_mode="r+")
+        log_memory("draws:saved", setup.league)
         # Row layout is efficient for writing batches and computing ripple
         # products. Team summaries scan columns; store those once in column
         # layout instead of repeatedly paging in the entire draw archive.
@@ -572,6 +577,7 @@ def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
                 reg_arrays[name] = _column_draw_map(value)
         for name, value in list(post_arrays.items()):
             post_arrays[name] = _column_draw_map(value)
+        log_memory("draws:columns", setup.league)
         reg = RegularSeasonDraws(**{f.name: post_shift if f.name == "post_shift" else reg_arrays["reg_" + f.name]
                                   for f in fields(RegularSeasonDraws)})
         post = {name.removeprefix("post_"): value for name, value in post_arrays.items()}
@@ -579,6 +585,7 @@ def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
                            elapsed=time.perf_counter() - t0, scenario=scenario)
         result["simulator_version"] = SIMULATOR_VERSION + "_batched_v1"
         result["diagnostics"]["batch_draws"] = batch
+        log_memory("draws:summarized", setup.league)
         for value in [getattr(reg, f.name) for f in fields(RegularSeasonDraws)] + list(post.values()):
             if isinstance(value, np.memmap):
                 _close_draw_map(value)
