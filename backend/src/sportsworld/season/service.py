@@ -26,6 +26,7 @@ from sportsworld.ingest.espn import GameRecord, read_archive, iter_archive
 from sportsworld.ingest.features import league_features
 from sportsworld.ingest.leagues import LEAGUES
 from sportsworld.ingest.ratings import RatingBook
+from sportsworld.resource_usage import log_memory
 
 from .engine import SeasonScenario, build_setup, run_season
 from .f1_season import build_f1_book, load_f1_season_state, run_f1_season
@@ -128,12 +129,15 @@ class SeasonService:
 
     # ------------------------------------------------------------------
     def _games(self, league: str) -> list[GameRecord]:
+        log_memory("archive:read:start", league)
         games = {g.game_id: g for g in read_archive(self.data_root, league)}
         tr = self.trackers.get(league)
         if tr is not None and hasattr(tr, "games"):
             for g in tr.games.values():
                 games[g.game_id] = g
-        return list(games.values())
+        result = list(games.values())
+        log_memory("archive:read:done", league)
+        return result
 
     def _book(self, league: str) -> RatingBook | None:
         tr = self.trackers.get(league)
@@ -176,7 +180,9 @@ class SeasonService:
         t0 = time.perf_counter()
         start_version = st.global_state_version
         now = self.fixed_as_of or datetime.now(timezone.utc)
+        log_memory("compute:setup:start", league)
         setup = build_setup(league, self.data_root, now, games=self._games(league), book=None if self.fixed_as_of else self._book(league))
+        log_memory("compute:setup:done", league)
         book = None if self.fixed_as_of else self._book(league)
         if book is None:
             from sportsworld.ingest.ratings import RatingBook as RB, load_params
@@ -226,8 +232,10 @@ class SeasonService:
         # The setup and board now contain the needed values; release historical
         # GameRecords before starting the cloud simulation subprocess.
         del rows, feats, by_id, preds
+        log_memory("compute:board:done", league)
         dyn = run_season(setup, draws=self.draws, mode="dynamic", scenario=avail)
         fast = run_season(setup, draws=self.draws, mode="fast", scenario=avail)
+        log_memory("compute:simulations:done", league)
         for run in (dyn, fast):
             run["scenario"] = None
             run["availability_adjustments"] = [{"team_id": t, "delta_points": d, "until": e.isoformat() if e else None} for t, d, _, e in (avail.rating_shifts if avail else [])]
