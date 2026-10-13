@@ -143,6 +143,16 @@ class SeasonService:
         tr = self.trackers.get(league)
         return getattr(tr, "book", None) if tr is not None and isinstance(getattr(tr, "book", None), RatingBook) else None
 
+    def matching_games(self, league: str, predicate: Callable[[GameRecord], bool]) -> list[GameRecord]:
+        """Stream history while retaining only records needed by a page query."""
+        games = {g.game_id: g for g in iter_archive(self.data_root, league) if predicate(g)}
+        for g in getattr(self.trackers.get(league), "games", {}).values():
+            if predicate(g):
+                games[g.game_id] = g
+            else:
+                games.pop(g.game_id, None)
+        return list(games.values())
+
     def recent_games(self, league: str, team_id: str, limit: int = 12) -> list[GameRecord]:
         """Retain only one team's records, sharing bounded short-lived results."""
         key = (league, team_id, limit, self.state(league).global_state_version)
