@@ -11,6 +11,8 @@ from __future__ import annotations
 import asyncio
 import json
 import re
+import tempfile
+from collections.abc import Iterable
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Literal
@@ -188,11 +190,28 @@ def archive_path(root: Path, league: str, season_start_year: int) -> Path:
     return root / "games" / league / f"{season_start_year}.jsonl"
 
 
-def write_archive(path: Path, games: list[GameRecord]) -> None:
+def write_archive(path: Path, games: Iterable[GameRecord]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    unique = {g.game_id: g for g in sorted(games, key=lambda g: g.fetched_at)}
+    unique = {}
+    for game in games:
+        previous = unique.get(game.game_id)
+        if previous is None or game.fetched_at >= previous.fetched_at:
+            unique[game.game_id] = game
     rows = sorted(unique.values(), key=lambda g: (g.start_time, g.game_id))
-    path.write_text("".join(g.model_dump_json() + "\n" for g in rows))
+    # Serialize one record at a time. A failed write must leave the previous
+    # source-of-truth archive intact, and readers must never see a partial file.
+    tmp = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                         prefix=path.name + ".", suffix=".tmp", delete=False) as stream:
+            tmp = Path(stream.name)
+            for game in rows:
+                stream.write(game.model_dump_json())
+                stream.write("\n")
+        tmp.replace(path)
+    finally:
+        if tmp is not None:
+            tmp.unlink(missing_ok=True)
 
 
 def iter_archive(root: Path, league: str):
