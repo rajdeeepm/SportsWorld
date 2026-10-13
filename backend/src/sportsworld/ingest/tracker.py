@@ -21,6 +21,7 @@ import asyncio
 import logging
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from itertools import chain
 from typing import Any, Callable
 from zoneinfo import ZoneInfo
 
@@ -239,9 +240,13 @@ class LeagueTracker:
         """Merge completed tracked games into the on-disk archive (the training source of truth)."""
         for season in sorted(self.dirty_seasons):
             path = archive_path(self.data_root, self.spec.league_id, season)
-            existing = [GameRecord.model_validate_json(x) for x in path.read_text().splitlines() if x.strip()] if path.exists() else []
             fresh = [g for g in self.games.values() if season_start_year(self.spec, g.start_time) == season]
-            write_archive(path, existing + fresh)
+            if path.exists():
+                with path.open() as lines:
+                    existing = (GameRecord.model_validate_json(line) for line in lines if line.strip())
+                    write_archive(path, chain(existing, fresh))
+            else:
+                write_archive(path, fresh)
         self.dirty_seasons.clear()
 
     # ------------------------------------------------------------------
