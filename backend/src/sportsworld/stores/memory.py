@@ -36,6 +36,20 @@ class MemoryStore(Store):
         self._signal_dedupe: set[tuple[str, str]] = set()
         self._context_snapshots: dict[str, dict[int, ContextSnapshot]] = defaultdict(dict)
 
+    def resource_counts(self) -> dict:
+        # Health sampling must never wait on an in-flight forecast write.
+        if not self._lock.acquire(blocking=False):
+            return {"sampling_busy": True}
+        try:
+            return {"events": len(self._events), "states": sum(map(len, self._states.values())),
+                    "observations": sum(map(len, self._obs.values())),
+                    "forecasts": sum(map(len, self._forecasts.values())),
+                    "context_snapshots": sum(map(len, self._context_snapshots.values())),
+                    "signals": sum(map(len, self._signals.values())),
+                    "metrics": sum(map(len, self._metrics.values()))}
+        finally:
+            self._lock.release()
+
     def create_event(self, event: EventRecord, initial_state: WorldState) -> None:
         with self._lock:
             if event.event_id in self._events:
