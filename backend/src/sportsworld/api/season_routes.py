@@ -166,7 +166,9 @@ def standings(cid: str):
         return {"competition_id": cid, "drivers": [{k: d[k] for k in ("code", "name", "constructor_id", "points_now", "wins_now")} for d in run.get("drivers", [])],
                 "constructors": [{k: c[k] for k in ("name", "points_now")} for c in run.get("constructors", [])]}
     svc = _svc()
-    setup = build_setup(cid, svc.data_root, datetime.now(timezone.utc), games=svc._games(cid), book=svc._book(cid))
+    setup, stale = svc.page_setup(cid)
+    if setup is None:
+        raise HTTPException(503, "cloud season snapshot is warming; retry shortly")
     base = _played_tables(setup)
     official = {o.team_id: o for o in (setup.structure.official if setup.structure else [])}
     rows, mismatches = [], 0
@@ -187,7 +189,7 @@ def standings(cid: str):
                      "point_diff": round(float(base["pd"][i]), 1), "points": 2 * w + otl if spec.sport.value == "hockey" else None,
                      "official_matches": match})
     rows.sort(key=lambda r: ((r["points"] if r["points"] is not None else r["wins"] - r["losses"]), r["point_diff"]), reverse=True)
-    return {"competition_id": cid, "as_of": datetime.now(timezone.utc).isoformat(), "rows": rows,
+    return {"competition_id": cid, "as_of": setup.as_of.isoformat(), "status": "stale" if stale else "fresh", "rows": rows,
             "audit": {"official_source": "ESPN standings", "mismatches": mismatches, "teams": len(rows), "structure_note": setup.structure_note}}
 
 
@@ -199,11 +201,13 @@ def coverage(cid: str):
     if cid == "f1":
         run = svc.state("f1").run or {}
         return {"competition_id": cid, "remaining_races": len(run.get("remaining_races", [])), "forecasted": len(run.get("remaining_races", []))}
-    setup = build_setup(cid, svc.data_root, datetime.now(timezone.utc), games=svc._games(cid), book=svc._book(cid))
+    setup, stale = svc.page_setup(cid)
+    if setup is None:
+        raise HTTPException(503, "cloud season snapshot is warming; retry shortly")
     st = svc.state(cid)
     ids = setup.r_event_ids
     missing = [e for e in ids if e not in st.board or st.board[e]["p_home"] is None]
-    return {"competition_id": cid, "season": setup.season, "played_regular_season": int(len(setup.p_home)), "remaining_regular_season": len(ids),
+    return {"competition_id": cid, "season": setup.season, "as_of": setup.as_of.isoformat(), "status": "stale" if stale else "fresh", "played_regular_season": int(len(setup.p_home)), "remaining_regular_season": len(ids),
             "duplicates": len(ids) - len(set(ids)), "contingent_postseason_events": setup.contingent_events,
             "board_events": len(st.board), "remaining_without_forecast": len(missing), "coverage": 1.0 - len(missing) / max(1, len(ids)),
             "stale_forecasts": sum(1 for r in st.board.values() if r["freshness"] != "fresh")}
