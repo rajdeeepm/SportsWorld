@@ -238,9 +238,10 @@ def availability(league:str|None=None):
 
 @app.get('/health')
 async def health():
+    from sportsworld.resource_usage import memory_sample
     season={lg:{'global_state_version':st.global_state_version,'run':(st.run or {}).get('run_id'),'status':'recomputing' if st.computing else ('stale' if st.dirty else 'fresh'),'board_events':len(st.board),'last_error':st.last_error} for lg,st in season_service.states.items()} if season_service else None
     news=getattr(app.state,'news',None)
-    return {'status':'ok','version':__version__,'environment':settings.sportsworld_env,'store':settings.store_backend,
+    return {'status':'ok','version':__version__,'environment':settings.sportsworld_env,'store':settings.store_backend,'resources':memory_sample(),'retained_state':ctx.store.resource_counts() if hasattr(ctx.store,'resource_counts') else None,
             'replay_as_of':settings.season_as_of,'season_engine':season,
             'availability':season_service.availability.status() if season_service and season_service.availability else None,
             'news':news.status() if news else None,
