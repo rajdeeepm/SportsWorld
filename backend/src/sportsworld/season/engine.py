@@ -113,7 +113,8 @@ def active_season(spec: LeagueSpec, games: list[GameRecord], as_of: datetime) ->
 
 
 def build_setup(league: str, data_root: Path, as_of: datetime | None = None, *, season: int | None = None,
-                params: RatingParams | None = None, games: list[GameRecord] | None = None, book: RatingBook | None = None) -> SeasonSetup:
+                params: RatingParams | None = None, games: list[GameRecord] | None = None, book: RatingBook | None = None,
+                historical_ot_rate: float | None = None) -> SeasonSetup:
     """Reconstruct the competition-season world state at `as_of` from archived evidence only."""
     spec = LEAGUES[league]
     as_of = as_of or datetime.now(timezone.utc)
@@ -196,6 +197,8 @@ def build_setup(league: str, data_root: Path, as_of: datetime | None = None, *, 
 
     ot_games = [g for g in history if g.completed and g.season_type == 2 and result_known_time(g, spec.sport) <= as_of]  # point-in-time
     ot_rate = float(np.mean([g.period > spec.periods for g in ot_games])) if ot_games else 0.0
+    if historical_ot_rate is not None:
+        ot_rate = historical_ot_rate
     return SeasonSetup(
         league=league, spec=spec, season=season, espn_season=espn_season, as_of=as_of, structure=structure,
         team_ids=team_ids, names=[names[t] for t in team_ids], abbreviations=[abbr[t] for t in team_ids],
