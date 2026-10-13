@@ -97,6 +97,39 @@ def test_recent_results_match_full_archive_with_live_corrections(tmp_path, monke
     live.games[correction.event_id] = correction.model_copy(update={"completed": False})
     svc.invalidate("nfl", "corrected result")
     assert correction.game_id not in [g.game_id for g in svc.recent_games("nfl", "A")]
+    assert correction.game_id not in [g.game_id for g in svc.matching_games("nfl", lambda g: g.completed)]
+
+
+def test_off_day_scorecard_avoids_full_archive_replay(monkeypatch):
+    from types import SimpleNamespace
+    from sportsworld.api import season_routes
+    def fail(*args):
+        raise AssertionError("off-day scorecard loaded full history")
+    svc = SimpleNamespace(matching_games=lambda *args: [], _games=fail, registry=None)
+    monkeypatch.setattr(season_routes, "_svc", lambda: svc)
+    result = season_routes.research_scorecard("nfl")
+    assert result["games"] == 0 and result["is_today"]
+
+
+def test_scorecard_fallback_reuses_one_complete_history(monkeypatch):
+    from types import SimpleNamespace
+    from sportsworld.api import season_routes
+    from sportsworld.live import scorecard as module
+    history = [object()]
+    loads, calls = [], []
+    def load(league):
+        loads.append(league)
+        return history
+    def score(league, day, games, registry, root):
+        assert games is history
+        calls.append(day)
+        return {"games": int(len(calls) == 3)}
+    svc = SimpleNamespace(matching_games=lambda *args: history, _games=load, registry=None)
+    monkeypatch.setattr(season_routes, "_svc", lambda: svc)
+    monkeypatch.setattr(module, "scorecard", score)
+    result = season_routes.research_scorecard("nfl")
+    assert result["games"] == 1 and not result["is_today"]
+    assert len(calls) == 3 and loads == ["nfl"]
 
 
 def test_column_archive_layout_preserves_every_summary_value(tmp_path, monkeypatch):
