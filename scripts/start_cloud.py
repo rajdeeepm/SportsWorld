@@ -13,7 +13,6 @@ defaults = {
     "SEASON_BATCH_DRAWS": "256",
     "SEASON_WORKER_PROCESS": "1",
     "SEASON_ASYNC_JOBS": "1",
-    "SPORTSWORLD_TRACE_STALLS": "1",
     "FRONTEND_ORIGIN": "https://worldofsports.tech",
     "SPORTSWORLD_API": "http://127.0.0.1:" + os.environ.get("PORT", "10000"),
     "REAL_DATA_DIR": str(root / "data" / "real"),
