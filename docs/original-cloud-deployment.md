@@ -95,7 +95,13 @@ bounded 20-second, state-versioned cache, rather than repeatedly loading every
 historical game in the league. A correction invalidation test confirms the
 same results as the original archive merge. Linux simulation workers use lower
 CPU priority so the web API can stay responsive. Temporary diagnostic logging
-was removed after verification.
+was removed after verification. Render also recorded later memory failures
+at 16:59 and 17:03 on the diagnostic build, so passing one large scenario is
+not sufficient evidence of sustained stability. The final startup now sets
+`PYTHONMALLOC=malloc`; combined with collection and `malloc_trim` before each
+worker, this allows Linux to reclaim freed historical-record allocations rather
+than retaining them in Python's small-object arenas. The allocator change is
+pending its own cloud verification.
 
 Cloud simulation work runs in one isolated subprocess at a time. Expensive
 POST routes return an opaque queued job with HTTP 202; the original frontend
