@@ -17,6 +17,8 @@ defaults = {
     "SPORTSWORLD_API": "http://127.0.0.1:" + os.environ.get("PORT", "10000"),
     "REAL_DATA_DIR": str(root / "data" / "real"),
     "PYTHONUNBUFFERED": "1",
+    "PYTHONMALLOC": "malloc",
+    "MALLOC_ARENA_MAX": "2",
     "OPENBLAS_NUM_THREADS": "1",
     "OMP_NUM_THREADS": "1",
     "MKL_NUM_THREADS": "1",
