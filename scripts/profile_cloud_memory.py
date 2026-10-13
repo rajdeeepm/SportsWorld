@@ -26,6 +26,7 @@ from sportsworld.config import Settings
 from sportsworld.ingest.tracker import TrackerService
 from sportsworld.resource_usage import memory_sample
 from sportsworld.season.service import SeasonService
+from sportsworld.season.engine import SeasonScenario
 
 records = []
 def record(phase):
@@ -50,10 +51,16 @@ async def main():
     for league in active:
         svc._load_warm(league)
     record("all-warm-states")
-    for league in (sys.argv[2:] or active):
+    requested = [arg for arg in sys.argv[2:] if arg != "--scenario"] or active
+    for league in requested:
         before = time.monotonic()
         svc.compute(league)
         record(f"compute:{league}:{time.monotonic()-before:.2f}s")
+        if "--scenario" in sys.argv and league != "f1":
+            team = svc.state(league).run["teams"][0]["team_id"]
+            before = time.monotonic()
+            svc.scenario(league, SeasonScenario(rating_shifts=[(team, 3.0, None, None)], label="memory profile"))
+            record(f"scenario:{league}:{time.monotonic()-before:.2f}s")
         gc.collect()
     await tracker.stop()
 
