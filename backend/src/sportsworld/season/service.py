@@ -67,6 +67,33 @@ class SeasonService:
         self._simulation_lock = threading.RLock()
         self._recent_lock = threading.Lock()
         self._recent_cache = OrderedDict()
+        self._page_setups: dict[str, tuple[int, float, Any]] = {}
+
+    def page_setup(self, league: str):
+        """Share small setup arrays, never overlap a full history read with draws.
+
+        During computation, a previous snapshot remains available with its
+        original as_of time and a stale status. No GameRecords are cached.
+        """
+        st = self.state(league)
+        hit = self._page_setups.get(league)
+        if hit and hit[0] == st.global_state_version and time.monotonic() - hit[1] < 20:
+            return hit[2], False
+        if not self._simulation_lock.acquire(blocking=False):
+            if hit:
+                return hit[2], True
+            return None, True
+        try:
+            hit = self._page_setups.get(league)
+            if hit and hit[0] == st.global_state_version and time.monotonic() - hit[1] < 20:
+                return hit[2], False
+            version = st.global_state_version
+            setup = build_setup(league, self.data_root, self.fixed_as_of or datetime.now(timezone.utc),
+                                games=self._games(league), book=None if self.fixed_as_of else self._book(league))
+            self._page_setups[league] = (version, time.monotonic(), setup)
+            return setup, version != st.global_state_version
+        finally:
+            self._simulation_lock.release()
 
     def on_live(self, league: str) -> None:
         """Live score/clock change: re-condition the season run on in-progress games (rate-limited to 1/min)."""
@@ -192,6 +219,7 @@ class SeasonService:
         now = self.fixed_as_of or datetime.now(timezone.utc)
         log_memory("compute:setup:start", league)
         setup = build_setup(league, self.data_root, now, games=self._games(league), book=None if self.fixed_as_of else self._book(league))
+        self._page_setups[league] = (start_version, time.monotonic(), setup)
         log_memory("compute:setup:done", league)
         book = None if self.fixed_as_of else self._book(league)
         if book is None:
