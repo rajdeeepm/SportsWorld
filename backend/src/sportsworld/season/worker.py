@@ -3,11 +3,13 @@ from pathlib import Path
 import pickle
 import sys
 import os
+import logging
 
 from .engine import run_season
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
     if sys.platform.startswith("linux"):
         os.nice(5)  # Keep the web API responsive when CPU is shared.
     source, output = map(Path, sys.argv[1:3])
