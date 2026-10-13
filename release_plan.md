@@ -2,7 +2,7 @@
 
 The user rejected the NFL-only static exhibit on 11 October 2026. The required release is the original React application with all seven league tabs, original design, team pages, Simulation Lab, research and live API. Hosting changes do not authorize a redesign or reduction in scope.
 
-Current deployment: the original frontend now serves worldofsports.tech from Vercel (`frontend`, Vite, `dist`), with the original API on Render Free at sportsworld-api.onrender.com. Account verification is complete. Apex HTTPS and both 308 redirects are verified. Public runtime inputs restore 514 original files; 39 backend checks and the frontend build pass locally. Public simulation reliability remains under verification after a 512 MiB backend memory failure; see the current deployment notes for the fixes and exact limits. Optional credential-backed integrations remain unconfigured.
+Current deployment: the original frontend now serves worldofsports.tech from Vercel (`frontend`, Vite, `dist`), with the original API on Render Free at sportsworld-api.onrender.com. Account verification is complete. Apex HTTPS and both 308 redirects are verified. Public runtime inputs restore 514 original files; 41 backend checks and the frontend build pass locally. Real public NFL and college-basketball scenarios completed with 10,000 seasons per branch after memory, archive-read and CPU-priority fixes. The largest observed round trip was about ten minutes on the free CPU; see the deployment notes for exact checks and limits. Optional credential-backed integrations remain unconfigured.
 
 See `docs/original-cloud-deployment.md`. The previous static release notes below are retained as history and are superseded.
 
