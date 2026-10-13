@@ -657,9 +657,18 @@ def research_scorecard(cid: str, date: str | None = None):
         return _clean(scorecard(cid, date, svc._games(cid), svc.registry, _repo()))
     # today, or the most recent day with finished games (mornings, off days)
     today = datetime.now(ZoneInfo("America/New_York")).date()
+    # Off days are common. Check only the small recent result set before
+    # rebuilding historical pregame ratings. If results exist, load the full
+    # history once so every scorecard retains its point-in-time reconstruction.
+    lo = datetime.combine(today - timedelta(days=7), datetime.min.time(), ZoneInfo("America/New_York"))
+    hi = datetime.combine(today + timedelta(days=1), datetime.min.time(), ZoneInfo("America/New_York")) + timedelta(hours=4)
+    recent = svc.matching_games(cid, lambda g: g.completed and not g.cancelled and lo <= g.start_time < hi)
+    if not recent:
+        return _clean({**scorecard(cid, today.isoformat(), [], svc.registry, _repo()), "is_today": True})
+    history = svc._games(cid)
     for back in range(0, 8):
         day = (today - timedelta(days=back)).isoformat()
-        out = scorecard(cid, day, svc._games(cid), svc.registry, _repo())
+        out = scorecard(cid, day, history, svc.registry, _repo())
         if out["games"]:
             return _clean({**out, "is_today": back == 0})
     return _clean({**out, "is_today": True})
@@ -682,7 +691,7 @@ def team_player_stats(cid: str, team_id: str):
     from sportsworld.ingest.espn import season_start_year
     from sportsworld.ingest.live_game import season_stats
     svc = _svc()
-    games = [g for g in svc._games(cid) if g.completed and team_id in (g.home.team_id, g.away.team_id) and g.season_type in (2, 3)]
+    games = svc.matching_games(cid, lambda g: g.completed and team_id in (g.home.team_id, g.away.team_id) and g.season_type in (2, 3))
     if not games:
         return {"league": cid, "team_id": team_id, "games": 0, "categories": []}
     season = max(season_start_year(spec, g.start_time) for g in games)
