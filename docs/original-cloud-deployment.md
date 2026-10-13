@@ -21,7 +21,7 @@ Raw odds, play-by-play and provider summaries used for training are intentionall
 not part of runtime startup; the original backfill scripts reproduce those
 downloads. Existing tracked backtest artifacts remain available to Research.
 
-Cloud runs use `SEASON_BATCH_DRAWS=64`: all 10,000 season draws are simulated,
+Cloud runs use `SEASON_BATCH_DRAWS=256`: all 10,000 season draws are simulated,
 and their exact summaries are computed from temporary disk-backed arrays. This
 bounds memory without replacing the engine with saved scenario branches.
 Batching changes random-number ordering, so outputs record
@@ -70,11 +70,32 @@ connection: backend updates require **Manual Deploy → Deploy latest commit**.
 No paid service or payment method was added. No Supabase service was created.
 
 Original league views, team pages, research and public API responses have been
-observed. End-to-end simulation reliability is still being verified: Render
-reported health timeouts and a 512 MiB memory failure under computation.
-The latest fix copies summary rows before remapping and returns flushed Linux
-file-cache pages and freed heap allocations to the OS. Do not call this release
-fully verified until a public scenario completes and the service stays healthy.
+observed. A real public NFL scenario completed with 10,000 seasons per branch, using the
+original controls and displaying the original result tables. At batch size 64,
+its observed round trip was 101.2 seconds. Health requests during/after the run
+returned 200 in roughly 0.13–0.3 seconds in focused checks. A fresh college-football
+canonical recomputation also completed without a worker error.
+
+Render reported earlier health timeouts and a 512 MiB memory failure. Fixes copy
+summary rows before remapping, return flushed Linux file-cache pages and freed
+heap allocations to the OS, and use column-oriented temporary files for per-team
+and per-game summaries. A regression verifies identical summary values after
+changing file layout. The largest league's 10,000-draw local run at batch size
+256 completed for 365 teams with one champion per draw; the results preserve all requested draws.
+The 256-draw cloud build completed the largest public scenario: 365 college-
+basketball teams, 10,000 seasons per branch, seed 7, one champion in every draw.
+The UI reported 609.3 seconds round trip, including queue time, and engine
+runtimes of 242.83 + 190.64 seconds. This is a successful functional check,
+not a concurrent-load or uptime certification. The free CPU can make larger
+simulations take around ten minutes; smaller NFL scenarios were substantially
+faster. The original design and requested draw counts remain intact.
+
+Recent team results now stream only that team's archive records and share a
+bounded 20-second, state-versioned cache, rather than repeatedly loading every
+historical game in the league. A correction invalidation test confirms the
+same results as the original archive merge. Linux simulation workers use lower
+CPU priority so the web API can stay responsive. Temporary diagnostic logging
+was removed after verification.
 
 Cloud simulation work runs in one isolated subprocess at a time. Expensive
 POST routes return an opaque queued job with HTTP 202; the original frontend
@@ -89,11 +110,31 @@ not have a season postseason simulator in the original engine. Historical
 model/data-quality findings in `wrong_details.md` remain separate work.
 
 Local verification on 12 October 2026: the original frontend production build
-passes with the cloud REST fallback; 39 backend tests pass. Production admin
+passes with the cloud REST fallback; 41 backend tests pass. Production admin
 protection returns 403 without a configured token, and the bound scenario
 limiter returns 429 with Retry-After. All 29 published input parts match the
 local data bundle; restoration matches all 514 original input files.
 With all seven tracker inputs and original warm states loaded, the largest
 college-basketball 10,000-draw recomputation peaks at about 474 MiB on the Mac,
-down from about 4 GiB before batching. Cloud memory and latency still need
-verification on the actual Free instance.
+down from about 4 GiB before batching. Observed cloud latency and remaining free-tier limitations are recorded above.
+
+## Verification and maintenance
+
+Verified publicly: the original CFB overview, NFL team deep link, populated
+Research and News, six season-forecast API responses (32 NFL, 138 CFB, 30 NBA,
+365 CBB, 32 NHL, 23 F1 drivers), NFL and CBB private scenario submissions and
+results, HTTPS and both canonical redirects. The public mobile overview at
+390 × 844 has document width 380 pixels. Screenshots are retained locally in
+`docs/deployment/original-live-*.jpg`. The seven league trackers are configured;
+that does not imply seven postseason simulators.
+
+After a restart/deploy, cached inputs serve immediately with their original
+computation timestamps while the worker rebuilds current runs. Inspect `/health`
+for tracker errors, season `status` and `last_error`; a stale run is not a fresh
+forecast. Optional integration flags remain false until credentials are added.
+
+Vercel rollback: select a previous **original frontend** deployment and use
+Instant Rollback. Do not roll back to the rejected `portfolio/` deployment.
+Render rollback: select a tested previous backend deploy in Events; remember
+that in-memory private jobs expire on restart and writable caches are ephemeral.
+Domain registration renewal is separate from free hosting.
