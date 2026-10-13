@@ -68,6 +68,7 @@ class SeasonService:
         self._recent_lock = threading.Lock()
         self._recent_cache = OrderedDict()
         self._page_setups: dict[str, tuple[int, float, Any]] = {}
+        self._canonical_setups: dict[str, tuple[int, Any]] = {}
 
     def page_setup(self, league: str):
         """Share small setup arrays, never overlap a full history read with draws.
@@ -88,8 +89,7 @@ class SeasonService:
             if hit and hit[0] == st.global_state_version and time.monotonic() - hit[1] < 20:
                 return hit[2], False
             version = st.global_state_version
-            setup = build_setup(league, self.data_root, self.fixed_as_of or datetime.now(timezone.utc),
-                                games=self._games(league), book=None if self.fixed_as_of else self._book(league))
+            setup = self._prepare_setup(league, self.fixed_as_of or datetime.now(timezone.utc))[0]
             self._page_setups[league] = (version, time.monotonic(), setup)
             return setup, version != st.global_state_version
         finally:
@@ -170,6 +170,47 @@ class SeasonService:
         tr = self.trackers.get(league)
         return getattr(tr, "book", None) if tr is not None and isinstance(getattr(tr, "book", None), RatingBook) else None
 
+    def _prepare_setup(self, league: str, now: datetime):
+        book = None if self.fixed_as_of else self._book(league)
+        if book is None:
+            games = self._games(league)
+            return build_setup(league, self.data_root, now, games=games), games
+        from collections import Counter
+        from sportsworld.ingest.espn import PRO_LEAGUES, season_start_year
+        from sportsworld.ingest.ratings import result_known_time
+        spec = LEAGUES[league]
+        season = season_start_year(spec, now)
+        current, stats = {}, {}
+        def retain(g):
+            stats[g.game_id] = (g.league, g.home.team_id, g.away.team_id, g.season, g.season_type,
+                                g.completed, g.period > spec.periods, result_known_time(g, spec.sport) <= now,
+                                g.start_time)
+            if season_start_year(spec, g.start_time) in (season, season + 1):
+                current[g.game_id] = g
+            else:
+                current.pop(g.game_id, None)
+        for g in iter_archive(self.data_root, league):
+            previous = stats.get(g.game_id)
+            if previous is None or g.start_time >= previous[-1]:
+                retain(g)
+        for g in getattr(self.trackers.get(league), "games", {}).values():
+            retain(g)  # same live-correction precedence as _games()
+        # Reproduce drop_exhibitions' full-history membership test and the
+        # exact point-in-time overtime rate without retaining old GameRecords.
+        counts = Counter((lg, tid, year) for lg, h, a, year, typ, *_ in stats.values()
+                         if typ == 2 for tid in (h, a))
+        keep = {(lg, tid) for (lg, tid, _), n in counts.items() if lg not in PRO_LEAGUES or n >= 10}
+        known = [ot for lg, h, a, _, typ, done, ot, eligible, _ in stats.values()
+                 if typ == 2 and done and eligible and (lg, h) in keep and (lg, a) in keep]
+        rate = sum(known) / len(known) if known else 0.0
+        left = any(season_start_year(spec, g.start_time) == season and g.season_type in (2, 3)
+                   and g.start_time >= now for g in current.values())
+        upcoming = any(season_start_year(spec, g.start_time) == season + 1 for g in current.values())
+        active = season + 1 if not left and upcoming else season
+        games = [g for g in current.values() if season_start_year(spec, g.start_time) == active]
+        setup = build_setup(league, self.data_root, now, season=active, games=games, book=book, historical_ot_rate=rate)
+        return setup, games
+
     def matching_games(self, league: str, predicate: Callable[[GameRecord], bool]) -> list[GameRecord]:
         """Stream history while retaining only records needed by a page query."""
         games = {g.game_id: g for g in iter_archive(self.data_root, league) if predicate(g)}
@@ -218,16 +259,17 @@ class SeasonService:
         start_version = st.global_state_version
         now = self.fixed_as_of or datetime.now(timezone.utc)
         log_memory("compute:setup:start", league)
-        setup = build_setup(league, self.data_root, now, games=self._games(league), book=None if self.fixed_as_of else self._book(league))
+        setup, current_games = self._prepare_setup(league, now)
         self._page_setups[league] = (start_version, time.monotonic(), setup)
+        self._canonical_setups[league] = (start_version, setup)
         log_memory("compute:setup:done", league)
         book = None if self.fixed_as_of else self._book(league)
         if book is None:
             from sportsworld.ingest.ratings import RatingBook as RB, load_params
             from sportsworld.ingest.espn import drop_exhibitions
             from sportsworld.ingest.ratings import result_known_time as _rk
-            book = RB(LEAGUES[league], setup.params).replay(drop_exhibitions([g for g in self._games(league) if _rk(g, LEAGUES[league].sport) <= now]), until=now)
-        by_id = {g.event_id: g for g in self._games(league)}
+            book = RB(LEAGUES[league], setup.params).replay(drop_exhibitions([g for g in current_games if _rk(g, LEAGUES[league].sport) <= now]), until=now)
+        by_id = {g.event_id: g for g in current_games}
         avail = self._availability_scenario(league, setup)
         shift_end = {tid: (d, end) for tid, d, _, end in (avail.rating_shifts if avail else [])}
         rows, feats = [], []
@@ -269,7 +311,7 @@ class SeasonService:
             }
         # The setup and board now contain the needed values; release historical
         # GameRecords before starting the cloud simulation subprocess.
-        del rows, feats, by_id, preds
+        del rows, feats, by_id, preds, current_games
         log_memory("compute:board:done", league)
         dyn = run_season(setup, draws=self.draws, mode="dynamic", scenario=avail)
         fast = run_season(setup, draws=self.draws, mode="fast", scenario=avail)
@@ -420,7 +462,17 @@ class SeasonService:
             base = run_f1_season(state, book, draws=draws, seed=seed)
             alt = run_f1_season(state, book, draws=draws, seed=seed, rating_shifts=shifts, label=scenario.label)
             return {"base": base, "scenario": alt, "deltas": _deltas(base["drivers"], alt["drivers"], "driver_id", ["title", "expected_points"])}
-        setup = build_setup(league, self.data_root, now, games=self._games(league), book=None if self.fixed_as_of else self._book(league))
+        cached = self._canonical_setups.get(league)
+        canonical = self.state(league).run or {}
+        if (cached and cached[0] == self.state(league).global_state_version
+                and cached[1].as_of.isoformat() == canonical.get("as_of")):
+            # Branch from the exact committed canonical setup. The arrays are
+            # small; rereading all historical GameRecords here fragments the
+            # API heap and competes with the worker's summary allocations.
+            from copy import deepcopy
+            setup = deepcopy(cached[1])
+        else:
+            setup = self._prepare_setup(league, now)[0]
         avail = self._availability_scenario(league, setup)
         base_shifts = list(avail.rating_shifts) if avail else []
         base_scen = SeasonScenario(rating_shifts=base_shifts, label="canonical (live availability)") if base_shifts else None
