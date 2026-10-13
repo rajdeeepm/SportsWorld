@@ -274,6 +274,15 @@ class RegularSeasonDraws:
     post_shift: np.ndarray  # [T]
 
 
+@dataclass
+class SeasonSummaryDraws:
+    """Only the regular-season arrays used after postseason simulation ends."""
+    wins: np.ndarray
+    ot_losses: np.ndarray
+    games: np.ndarray
+    home_win: np.ndarray
+
+
 def _accumulate(D: int, T: int, idx: np.ndarray, weights: np.ndarray) -> np.ndarray:
     """Sum weights[D, G] into [D, T] by team index idx[G]."""
     flat = (np.arange(D)[:, None] * T + idx[None, :]).ravel()
@@ -508,9 +517,14 @@ def _column_draw_map(value):
     path = str(value.filename) + ".columns.npy"
     out = np.lib.format.open_memmap(path, mode="w+", dtype=value.dtype,
                                    shape=value.shape, fortran_order=True)
-    for start in range(0, value.shape[1], 8):
-        out[:, start:start + 8] = value[:, start:start + 8]
-    out.flush()
+    for start in range(0, value.shape[1], 128):
+        out[:, start:start + 128] = value[:, start:start + 128]
+        # Keep the source scan cached, but release flushed destination pages
+        # before copying the next block. Otherwise the wide college schedule
+        # retains two complete draw archives during game-summary conversion.
+        out.flush()
+        _close_draw_map(out)
+        out = np.load(path, mmap_mode="r+")
     _close_draw_map(out)
     _close_draw_map(value)
     return np.load(path, mmap_mode="r")
@@ -555,10 +569,8 @@ def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
             reg = simulate_regular(setup, end - start, rng, mode, scenario)
             key = standings_key(setup, reg, rng)
             post = post_fn(setup, reg, key, rng) if post_fn and not setup.postseason_started else {}
-            for f in fields(RegularSeasonDraws):
-                if f.name != "post_shift":
-                    save(reg_arrays, "reg_" + f.name, getattr(reg, f.name), start, end)
-            post_shift = reg.post_shift
+            for f in fields(SeasonSummaryDraws):
+                save(reg_arrays, "reg_" + f.name, getattr(reg, f.name), start, end)
             for name, value in post.items():
                 save(post_arrays, "post_" + name, value, start, end)
             # Flush/release mapped pages between batches. Reopening read-only
@@ -568,6 +580,7 @@ def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
                     value.flush()
                     _close_draw_map(value)
                     target[name] = np.load(Path(folder) / f"{name}.npy", mmap_mode="r+")
+            del reg, key, post
         log_memory("draws:saved", setup.league)
         # Row layout is efficient for writing batches and computing ripple
         # products. Team summaries scan columns; store those once in column
@@ -578,27 +591,27 @@ def _run_batched(setup: SeasonSetup, *, draws: int, seed: int, mode: str,
         for name, value in list(post_arrays.items()):
             post_arrays[name] = _column_draw_map(value)
         log_memory("draws:columns", setup.league)
-        reg = RegularSeasonDraws(**{f.name: post_shift if f.name == "post_shift" else reg_arrays["reg_" + f.name]
-                                  for f in fields(RegularSeasonDraws)})
+        reg = SeasonSummaryDraws(**{f.name: reg_arrays["reg_" + f.name]
+                                   for f in fields(SeasonSummaryDraws)})
         post = {name.removeprefix("post_"): value for name, value in post_arrays.items()}
         result = summarize(setup, reg, post, draws=draws, seed=seed, mode=mode,
                            elapsed=time.perf_counter() - t0, scenario=scenario)
         result["simulator_version"] = SIMULATOR_VERSION + "_batched_v1"
         result["diagnostics"]["batch_draws"] = batch
         log_memory("draws:summarized", setup.league)
-        for value in [getattr(reg, f.name) for f in fields(RegularSeasonDraws)] + list(post.values()):
+        for value in [getattr(reg, f.name) for f in fields(reg)] + list(post.values()):
             if isinstance(value, np.memmap):
                 _close_draw_map(value)
         return result
 
 
-def summarize(setup: SeasonSetup, reg: RegularSeasonDraws, post: dict[str, np.ndarray], *, draws: int, seed: int, mode: str,
+def summarize(setup: SeasonSetup, reg: RegularSeasonDraws | SeasonSummaryDraws, post: dict[str, np.ndarray], *, draws: int, seed: int, mode: str,
               elapsed: float, scenario: SeasonScenario | None) -> dict[str, Any]:
     def release_pages():
         # Remap the flushed draw archives between summary blocks. Closing maps
         # reliably releases resident pages on both macOS and Linux. No view of
         # an old map is accessed after this boundary.
-        for f in fields(RegularSeasonDraws):
+        for f in fields(reg):
             arr = getattr(reg, f.name)
             if isinstance(arr, np.memmap):
                 path = arr.filename
