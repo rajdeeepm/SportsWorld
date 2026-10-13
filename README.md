@@ -12,6 +12,16 @@ moves the next game, the rest of the schedule, the playoff race and the title.
 
 Built at **MHacks 2026** · Season Intelligence Engine · real data only · **Live: [worldofsports.tech](https://worldofsports.tech)**
 
+**Cloud deployment, 12 October 2026:** the original React app runs on Vercel and
+the Python API runs on Render Free; the public site does not depend on a laptop
+or Cloudflare tunnel. Free-instance wake-up and large simulations can take
+minutes. The deployment uses REST polling; external LLM, ElevenLabs voice,
+SpacetimeDB publishing and PostgreSQL archival credentials are not configured.
+Screenshots and integration demonstrations below describe the original project
+and its configured local demo, not proof that those optional cloud services are
+connected. [Hosting and verification notes](docs/original-cloud-deployment.md) ·
+[Known findings requiring revalidation](wrong_details.md).
+
 ![SportsWorld walkthrough](docs/media/sportsworld-walkthrough.gif)
 
 ▶ **Narrated demo (3:40, 1080p, captions):** [`docs/media/sportsworld-demo.mp4`](docs/media/sportsworld-demo.mp4) ([captions](docs/media/sportsworld-demo.srt)) ·
