@@ -12,7 +12,7 @@ import pytest
 from sportsworld.api.context import build_context
 from sportsworld.config import Settings
 from sportsworld.ingest.availability import LeagueAvailability
-from sportsworld.ingest.espn import GameRecord, TeamLine, archive_path, write_archive
+from sportsworld.ingest.espn import GameRecord, TeamLine, archive_path, read_archive, write_archive
 from sportsworld.ingest.leagues import LEAGUES
 from sportsworld.ingest.news import LeagueNews
 from sportsworld.ingest.ratings import default_params
@@ -165,6 +165,34 @@ def _game(game_id: str, home: str, away: str, start: datetime, *, state: str = "
         away=TeamLine(team_id=away, name=f"Team {away}", abbreviation=away, score=away_score),
         fetched_at=fetched_at,
     )
+
+
+def test_archive_stream_merge_preserves_latest_snapshot_and_order(tmp_path) -> None:
+    path = archive_path(tmp_path, "nfl", 2026)
+    old = _game("a", "H", "A", NOW)
+    new = old.model_copy(update={"fetched_at": NOW + timedelta(minutes=1), "state": "post", "completed": True})
+    early = _game("b", "X", "Y", NOW - timedelta(days=1))
+    write_archive(path, iter([new, early, old]))
+    rows = read_archive(tmp_path, "nfl")
+    assert [g.game_id for g in rows] == ["b", "a"]
+    assert rows[1].completed
+
+
+def test_archive_failed_stream_leaves_previous_file_intact(tmp_path) -> None:
+    path = archive_path(tmp_path, "nfl", 2026)
+    game = _game("a", "H", "A", NOW)
+    write_archive(path, [game])
+    before = path.read_bytes()
+    class BrokenRecord:
+        game_id = "broken"
+        fetched_at = NOW
+        start_time = NOW
+        def model_dump_json(self):
+            raise OSError("write failed")
+    with pytest.raises(OSError, match="write failed"):
+        write_archive(path, iter([game, BrokenRecord()]))
+    assert path.read_bytes() == before
+    assert not list(path.parent.glob("*.tmp"))
 
 
 def test_tracker_rejects_older_snapshot_and_calls_on_live_only_for_live_changes(tmp_path) -> None:
